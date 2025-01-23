@@ -22,13 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdaptadorAPI\AdaptadorAPI.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AdaptadorAPI">
-      <HintPath>..\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\..\src\AdaptadorAPI\AdaptadorAPI.csproj" />
   </ItemGroup>
 
 </Project>

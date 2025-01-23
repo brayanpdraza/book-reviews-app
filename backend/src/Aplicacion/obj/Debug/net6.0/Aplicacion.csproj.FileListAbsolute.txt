@@ -22,3 +22,15 @@ E:\proyectos\Proyecto Controlbox\Aplicacion\obj\Debug\net6.0\Aplicacion.dll
 E:\proyectos\Proyecto Controlbox\Aplicacion\obj\Debug\net6.0\refint\Aplicacion.dll
 E:\proyectos\Proyecto Controlbox\Aplicacion\obj\Debug\net6.0\Aplicacion.pdb
 E:\proyectos\Proyecto Controlbox\Aplicacion\obj\Debug\net6.0\ref\Aplicacion.dll
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\bin\Debug\net6.0\Aplicacion.deps.json
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\bin\Debug\net6.0\Aplicacion.dll
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\bin\Debug\net6.0\Aplicacion.pdb
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.csproj.AssemblyReference.cache
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.AssemblyInfoInputs.cache
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.AssemblyInfo.cs
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.csproj.CoreCompileInputs.cache
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.dll
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\refint\Aplicacion.dll
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\Aplicacion.pdb
+E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\obj\Debug\net6.0\ref\Aplicacion.dll
