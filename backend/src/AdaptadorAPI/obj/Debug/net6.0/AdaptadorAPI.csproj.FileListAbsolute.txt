@@ -1,0 +1,54 @@
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\appsettings.Development.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\appsettings.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.exe
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.deps.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.runtimeconfig.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.AssemblyReference.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.AssemblyInfoInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.AssemblyInfo.cs
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.CoreCompileInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\staticwebassets.build.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\staticwebassets.development.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\scopedcss\bundle\AdaptadorAPI.styles.css
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.CopyComplete
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\refint\AdaptadorAPI.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.genruntimeconfig.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorAPI\obj\Debug\net6.0\ref\AdaptadorAPI.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\appsettings.Development.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\appsettings.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.exe
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.deps.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.runtimeconfig.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\AdaptadorAPI.pdb
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.AssemblyReference.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.AssemblyInfoInputs.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.AssemblyInfo.cs
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.CoreCompileInputs.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\staticwebassets.build.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\staticwebassets.development.json
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\scopedcss\bundle\AdaptadorAPI.styles.css
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.csproj.CopyComplete
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\refint\AdaptadorAPI.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.pdb
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\AdaptadorAPI.genruntimeconfig.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorAPI\obj\Debug\net6.0\ref\AdaptadorAPI.dll

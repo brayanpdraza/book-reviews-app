@@ -1,0 +1,24 @@
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\bin\Debug\net6.0\Dominio.deps.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\bin\Debug\net6.0\Dominio.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\bin\Debug\net6.0\Dominio.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.csproj.AssemblyReference.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.AssemblyInfoInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.AssemblyInfo.cs
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.csproj.CoreCompileInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\refint\Dominio.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\Dominio.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\Dominio\obj\Debug\net6.0\ref\Dominio.dll
+E:\proyectos\Proyecto Controlbox\Dominio\bin\Debug\net6.0\Dominio.deps.json
+E:\proyectos\Proyecto Controlbox\Dominio\bin\Debug\net6.0\Dominio.dll
+E:\proyectos\Proyecto Controlbox\Dominio\bin\Debug\net6.0\Dominio.pdb
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.csproj.AssemblyReference.cache
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.AssemblyInfoInputs.cache
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.AssemblyInfo.cs
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.csproj.CoreCompileInputs.cache
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.dll
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\refint\Dominio.dll
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\Dominio.pdb
+E:\proyectos\Proyecto Controlbox\Dominio\obj\Debug\net6.0\ref\Dominio.dll

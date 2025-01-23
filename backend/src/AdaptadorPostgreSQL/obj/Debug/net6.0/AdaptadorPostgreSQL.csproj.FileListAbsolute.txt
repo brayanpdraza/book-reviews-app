@@ -1,0 +1,30 @@
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.csproj.AssemblyReference.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.AssemblyInfoInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.AssemblyInfo.cs
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.csproj.CoreCompileInputs.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.exe
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.deps.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.runtimeconfig.json
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\refint\AdaptadorPostgreSQL.dll
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.pdb
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.genruntimeconfig.cache
+E:\proyectos\book-reviews-app\AdaptadorAPI\AdaptadorPostgreSQL\obj\Debug\net6.0\ref\AdaptadorPostgreSQL.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.exe
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.deps.json
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.runtimeconfig.json
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\bin\Debug\net6.0\AdaptadorPostgreSQL.pdb
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.csproj.AssemblyReference.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.AssemblyInfoInputs.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.AssemblyInfo.cs
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.csproj.CoreCompileInputs.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\refint\AdaptadorPostgreSQL.dll
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.pdb
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\AdaptadorPostgreSQL.genruntimeconfig.cache
+E:\proyectos\Proyecto Controlbox\AdaptadorPostgreSQL\obj\Debug\net6.0\ref\AdaptadorPostgreSQL.dll
