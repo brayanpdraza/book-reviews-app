@@ -1,0 +1,9 @@
+# Ignorar node_modules (frontend)
+frontend/book-reviews-frontend/node_modules/
+
+# Ignorar bin y obj (backend)
+backend/**/bin/
+backend/**/obj/
+
+# Ignorar archivos de configuración local
+appsettings.Development.json
