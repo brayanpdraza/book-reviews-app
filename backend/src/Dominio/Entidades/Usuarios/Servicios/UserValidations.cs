@@ -1,5 +1,6 @@
 ﻿using Dominio.Servicios.Contratos;
 using Dominio.Servicios.Implementaciones;
+using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using Dominio.Usuarios.Modelo;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,19 @@ namespace Dominio.Usuarios.Servicios
     {
         private readonly IValidate<string> _passwordValidator;
         private readonly IValidate<string> _emailValidator;
-        private readonly UsuarioModelo _usuarioValidar;
-        public UserValidations(UsuarioModelo UsuarioValidar)
+        private readonly IValidate<UsuarioModelo> _usuarioValidator;
+        public UserValidations()
         {
             _passwordValidator = new PasswordValidator();
             _emailValidator = new EmailValidator();
-            _usuarioValidar = UsuarioValidar; 
+            _usuarioValidator = new UsuarioValidator();
         }
 
-        public bool Validate()
+        public bool Validate(UsuarioModelo UsuarioValidar)
         {
-            _emailValidator.Validate(_usuarioValidar.Correo);
-            _passwordValidator.Validate(_usuarioValidar.Password);
+            _usuarioValidator.Validate(UsuarioValidar);
+            _emailValidator.Validate(UsuarioValidar.Correo);
+            _passwordValidator.Validate(UsuarioValidar.Password);
             return true;
 
         }

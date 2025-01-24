@@ -15,18 +15,9 @@ namespace Dominio.Reviews.Modelo
         public string Comentario { get; set; } 
         public DateTime CreatedAt { get; set; }
 
-        private UsuarioModelo _usuario;
-        public UsuarioModelo Usuario
-        {
-            get => _usuario ??= new UsuarioModelo();
-            set => _usuario = value;
-        }
+        public UsuarioModelo Usuario { get; set; }
 
-        private LibroModelo _libro;
         public LibroModelo Libro
-        {
-            get => _libro ??= new LibroModelo();
-            set => _libro = value;
-        }
+        {get ; set; }
     }
 }

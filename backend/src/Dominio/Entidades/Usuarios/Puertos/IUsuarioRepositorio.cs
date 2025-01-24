@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Usuarios.Puertos
 {
-    internal interface IUsuarioRepositorio
+    public interface IUsuarioRepositorio
     {
         List<UsuarioModelo> ListUsuariosAll();
         UsuarioModelo ListUsuarioPorId(long id);

@@ -18,22 +18,20 @@ namespace Dominio.Reviews.Servicios
         private readonly IValidate<string> _commentValidator;
         private readonly IValidate<LibroModelo> _bookValidator;
         private readonly IValidate<UsuarioModelo> _UserValidator;
-        private readonly ReviewModel _reviewValidar;
-        public ReviewValidations(ReviewModel ReviewValidar)
+        public ReviewValidations()
         {
             _calificationBookValidator = new CalificacionLibroValidator();
             _commentValidator = new ComentarioValidator();
             _bookValidator = new LibroValidator();
             _UserValidator = new UsuarioValidator();
-            _reviewValidar = ReviewValidar;
         }
 
-        public bool Validate()
+        public bool Validate(ReviewModel ReviewValidar)
         {
-            _calificationBookValidator.Validate(_reviewValidar.Calificacion);
-            _commentValidator.Validate(_reviewValidar.Comentario);
-            _bookValidator.Validate(_reviewValidar.Libro);
-            _UserValidator.Validate(_reviewValidar.Usuario);
+            _calificationBookValidator.Validate(ReviewValidar.Calificacion);
+            _commentValidator.Validate(ReviewValidar.Comentario);
+            _bookValidator.Validate(ReviewValidar.Libro);
+            _UserValidator.Validate(ReviewValidar.Usuario);
             return true;
 
         }

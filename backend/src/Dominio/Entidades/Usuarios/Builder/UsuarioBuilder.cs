@@ -40,7 +40,7 @@ namespace Dominio.Usuarios.Builder
 
         public bool Validate()
         {
-            _userValidations.Validate();
+            _userValidations.Validate(_modelo);
             return true;
 
         }

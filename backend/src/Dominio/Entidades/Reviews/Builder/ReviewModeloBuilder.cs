@@ -56,7 +56,7 @@ namespace Dominio.Reviews.Builder
 
         public bool Validate()
         {
-            _reviewValidations.Validate();
+            _reviewValidations.Validate(_modelo);
             return true;
 
         }
