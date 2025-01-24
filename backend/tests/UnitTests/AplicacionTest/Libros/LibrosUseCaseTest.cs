@@ -53,13 +53,12 @@ namespace AplicacionTest.Libros
         }
 
         [Theory]
-        [InlineData(2, 1,0)]
-        public void ConsultarLibrosPaginados_ConteoLibros0_ReturnsEmptyLibros(int Pagina, int tamanoPagina, int TotalLibros)
+        [InlineData(2, 1,0,"")]
+        public void ConsultarLibrosPaginados_ConteoLibros0_ReturnsEmptyLibros(int Pagina, int tamanoPagina, int TotalLibros,string Filtro)
         {
             // Arrange
             List<LibroModelo> libroVacio = new List<LibroModelo>();
             int PaginaResult = 1;
-            string Filtro = "";
 
             _mockLibroRepositorio.Setup(r=>r.ConteoLibros(Filtro)).Returns(TotalLibros);
 
@@ -99,21 +98,54 @@ namespace AplicacionTest.Libros
         public void ConsultarLibrosPaginados_ValidData_ReturnsLibros(int Pagina, int tamanoPagina, int TotalLibros,string Filtro)
         {
             // Arrange
-            List<LibroModelo> libroVacio = new List<LibroModelo>{ _librosBuilderCaseTest.Build() };
+            List<LibroModelo> libro = new List<LibroModelo>{ _librosBuilderCaseTest.Build() };
 
             _mockLibroRepositorio.Setup(r => r.ConteoLibros("")).Returns(TotalLibros);
-            _mockLibroRepositorio.Setup(r => r.ListLibrosPaginadosPorFiltroOpcional(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>())).Returns(libroVacio);
+            _mockLibroRepositorio.Setup(r => r.ListLibrosPaginadosPorFiltroOpcional(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<string>())).Returns(libro);
 
             //Act
             PaginacionResultadoModelo<LibroModelo> Resultado = _useLibro.ConsultarLibrosPaginados(Pagina, tamanoPagina, Filtro);
 
             // Assert
-            Assert.Equal(libroVacio, Resultado.Items);
+            Assert.Equal(libro, Resultado.Items);
             Assert.Equal(Pagina, Resultado.PaginaActual);
             Assert.Equal(tamanoPagina, Resultado.TamanoPagina);
 
             _mockLibroRepositorio.Verify(r => r.ConteoLibros(It.IsAny<string>()), Times.Once);
             _mockLibroRepositorio.Verify(r => r.ListLibrosPaginadosPorFiltroOpcional(It.IsAny<int>(),It.IsAny<int>(),It.IsAny<string>()), Times.Once);
+        }
+
+        [Theory]
+        [InlineData(0, "Debe ingresar un ID Válido para consultar un libro.")]
+        public void ConsultarLibroPorId_idMenorQueCero_LanzaExcepcion(long id, string ErrorMessagge)
+        {
+            // Arrange
+
+            //Act
+            var exception = Assert.Throws<ArgumentException>(() => _useLibro.ConsultarLibroPorId(id));
+
+            // Assert
+            Assert.Equal(ErrorMessagge, exception.Message);
+
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Never);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        public void ConsultarLibroPorId_idValido_ReturnsLibro(long id)
+        {
+            // Arrange
+            LibroModelo LibroResult;
+            LibroModelo LibroConsultado = _librosBuilderCaseTest.Build();
+
+            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(id)).Returns(LibroConsultado);
+            //Act
+            LibroResult = _useLibro.ConsultarLibroPorId(id);
+
+            // Assert
+            Assert.Equal(LibroConsultado, LibroResult);
+
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Once);
         }
     }
 }

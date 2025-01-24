@@ -67,11 +67,11 @@ namespace Aplicacion.Libros
             };
         }
 
-        public LibroModelo ConsultarLibroPorId(int id)
+        public LibroModelo ConsultarLibroPorId(long id)
         {
             if (id <= 0)
             {
-                throw new ArgumentException("Debe ingresar un ID Válido para consultar un libro");
+                throw new ArgumentException("Debe ingresar un ID Válido para consultar un libro.");
             }
 
             return _libroRepositorio.ListLibroPorId(id);

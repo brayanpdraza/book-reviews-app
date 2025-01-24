@@ -24,8 +24,8 @@ namespace DominioTest.Reviews
             .SetComentario("Comentario amigable Pruebas")
             .SetCalificacion(3)
             .SetCreatedAt(DateTime.Now)
-            .SetUsuario(new UsuarioModelo { Correo = "Correo@Prueba.com",Nombre = "Nombre Prueba", Password = "p4sSG@0d" })
-            .SetLibro(new LibroModelo { Autor = "Autor Prueba", Titulo = "Titulo Prueba", Categoria = "Categoria Prueba", Resumen = "Resumen del libro de prueba" });
+            .SetUsuario(new UsuarioModelo { Id=1,Correo = "Correo@Prueba.com",Nombre = "Nombre Prueba", Password = "p4sSG@0d" })
+            .SetLibro(new LibroModelo { Id=1,Autor = "Autor Prueba", Titulo = "Titulo Prueba", Categoria = "Categoria Prueba", Resumen = "Resumen del libro de prueba" });
         }
     }
 }
