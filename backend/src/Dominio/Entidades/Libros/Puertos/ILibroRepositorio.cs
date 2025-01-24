@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace Dominio.Entidades.Libros.Puertos
 {
-    internal interface ILibroRepositorio
+    public interface ILibroRepositorio
     {
-        List<LibroModelo> ListLibroAll();
-        List<LibroModelo> ListLibroPorCategoria(string Categoria);
-        List<LibroModelo> ListLibroPorAutor(string Autor);
-        List<LibroModelo> ListLibroPorTitulo(string Titulo);
-        ReviewModel ListReviewPorId(long id);
+        List<LibroModelo> ListLibrosPaginadosPorFiltroOpcional(int pagina, int tamanoPagina, string filtro = null);
+        LibroModelo ListLibroPorId(long id);
+        int ConteoLibros(string filtro = null);
         long AddReview(LibroModelo Review);
         void SaveChanges();
     }

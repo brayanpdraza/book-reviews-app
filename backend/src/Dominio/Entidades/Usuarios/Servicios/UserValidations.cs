@@ -1,4 +1,5 @@
-﻿using Dominio.Servicios.Contratos;
+﻿using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Servicios.Contratos;
 using Dominio.Servicios.Implementaciones;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using Dominio.Usuarios.Modelo;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Usuarios.Servicios
 {
-    public class UserValidations
+    public class UserValidations:IUserValidations
     {
         private readonly IValidate<string> _passwordValidator;
         private readonly IValidate<string> _emailValidator;

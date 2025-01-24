@@ -1,7 +1,10 @@
-﻿using Dominio.Libros.Modelo;
+﻿using Dominio.Entidades.Reviews.Puertos;
+using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Reviews.Servicios;
 using Dominio.Usuarios.Servicios;
+using DominioTest.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +15,12 @@ namespace DominioTest.Reviews
 {
     public class ReviewsTest
     {
-        private readonly ReviewBuilderTest _reviewBuilderTest = new ReviewBuilderTest();
-        private readonly ReviewValidations _reviewValidations = new ReviewValidations();
-
+        private readonly IReviewValidations _reviewValidations = new ReviewValidations();
+        private readonly ReviewBuilderTest _reviewBuilderTest;
+        public ReviewsTest()
+        {
+            _reviewBuilderTest = new ReviewBuilderTest(_reviewValidations);
+        }
 
         [Theory]
         [InlineData(0, "La calificación debe estar entre 1 y 5.")]

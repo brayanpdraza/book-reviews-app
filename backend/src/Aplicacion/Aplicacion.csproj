@@ -10,9 +10,4 @@
     <ProjectReference Include="..\Dominio\Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Reviews\" />
-    <Folder Include="Usuarios\" />
-  </ItemGroup>
-
 </Project>

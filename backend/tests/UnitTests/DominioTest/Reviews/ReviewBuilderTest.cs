@@ -7,14 +7,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Entidades.Reviews.Puertos;
+using Dominio.Usuarios.Servicios;
 
 namespace DominioTest.Reviews
 {
     internal class ReviewBuilderTest:ReviewModeloBuilder
     {
+        IReviewValidations _reviewValidations;
         private ReviewModel _review = new ReviewModel();
-        public ReviewBuilderTest()
+        public ReviewBuilderTest(IReviewValidations reviewValidations):base(reviewValidations)
         {
+            _reviewValidations = reviewValidations;
             SetId(1)
             .SetComentario("Comentario amigable Pruebas")
             .SetCalificacion(3)

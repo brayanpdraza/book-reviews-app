@@ -1,4 +1,5 @@
-﻿using Dominio.Libros.Modelo;
+﻿using Dominio.Entidades.Reviews.Puertos;
+using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Servicios.Contratos;
 using Dominio.Servicios.Implementaciones;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Reviews.Servicios
 {
-    public class ReviewValidations
+    public class ReviewValidations:IReviewValidations
     {
         private readonly IValidate<int> _calificationBookValidator;
         private readonly IValidate<string> _commentValidator;

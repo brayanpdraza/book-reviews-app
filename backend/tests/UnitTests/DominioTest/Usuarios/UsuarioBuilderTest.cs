@@ -1,4 +1,5 @@
-﻿using Dominio.Usuarios.Builder;
+﻿using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Usuarios.Builder;
 using Dominio.Usuarios.Modelo;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,18 @@ namespace DominioTest.Usuarios
 {
     internal class UsuarioBuilderTest : UsuarioBuilder
     {
-        private UsuarioModelo _usuario = new UsuarioModelo();
-        public UsuarioBuilderTest()
+        private IUserValidations _userValidations;
+        private UsuarioModelo _usuario;
+
+        public UsuarioBuilderTest(IUserValidations userValidations):base(userValidations)
         {
+            _userValidations = userValidations;
             SetId(1)
-            .SetNombre("Nombre Pruebas")
-            .SetCorreo("Correo@Pruebas.com")
-            .SetPassword("P4ssG@0d");
+          .SetNombre("Nombre Pruebas")
+          .SetCorreo("Correo@Pruebas.com")
+          .SetPassword("P4ssG@0d");
         }
+
+
     }
 }

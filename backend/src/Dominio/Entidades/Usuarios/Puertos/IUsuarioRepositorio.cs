@@ -9,10 +9,8 @@ namespace Dominio.Usuarios.Puertos
 {
     public interface IUsuarioRepositorio
     {
-        List<UsuarioModelo> ListUsuariosAll();
         UsuarioModelo ListUsuarioPorId(long id);
         UsuarioModelo ListUsuarioPorCorreo(string Correo);
-        UsuarioModelo ListUsuarioPorCorreoPassword(string Correo,string Password);
         long AddUsuario(UsuarioModelo usuario);
         void SaveChanges();
     }

@@ -1,4 +1,5 @@
-﻿using Dominio.Reviews.Builder;
+﻿using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Reviews.Builder;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Servicios;
 using System;
@@ -12,7 +13,12 @@ namespace Dominio.Usuarios.Builder
     public abstract class UsuarioBuilder
     {
         private UsuarioModelo _modelo = new UsuarioModelo();
-        private UserValidations _userValidations;
+        private IUserValidations _userValidations;
+
+        public UsuarioBuilder(IUserValidations userValidations)
+        {
+            _userValidations = userValidations;
+        }
 
         public UsuarioBuilder SetId(long ID)
         {

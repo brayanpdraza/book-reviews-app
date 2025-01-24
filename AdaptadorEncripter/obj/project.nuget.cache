@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Swrt9ZCVioGID+F0cNx8i2h+DPVruOyiqO8+YCtAm6axZi9aFF4eVtgK88gQGHNwkYYOPH4S+0NQD27pcntdpQ==",
+  "dgSpecHash": "7j/y66n8TU5AsD7vJxi+1m3otFanD2DOpmHYvon0TTE/0jBCuYxuYClPB5zQy/Kaao2uqdVLMP+RmNeQOhu+XQ==",
   "success": true,
   "projectFilePath": "E:\\proyectos\\Proyecto Controlbox\\book-review-app\\AdaptadorEncripter\\AdaptadorEncripter.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Brayan Pedraza\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Brayan Pedraza\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\Brayan Pedraza\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -11,7 +11,8 @@ namespace Dominio.Entidades.Reviews.Puertos
 {
     public interface IReviewRepositorio
     {
-        List<ReviewModel> ListReviewLibro(LibroModelo Libro);
+        List<ReviewModel> ListReviewPorLibro(LibroModelo Libro);
+        //ReviewModel ListReviewLibroUsuario(LibroModelo Libro,UsuarioModelo Usuario);
         ReviewModel ListReviewPorId(long id);
         long AddReview(ReviewModel Review);
         void SaveChanges();

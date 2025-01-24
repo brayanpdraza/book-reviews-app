@@ -1,4 +1,5 @@
-﻿using Dominio.Libros.Modelo;
+﻿using Dominio.Entidades.Reviews.Puertos;
+using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Reviews.Servicios;
 using Dominio.Usuarios.Builder;
@@ -14,8 +15,13 @@ namespace Dominio.Reviews.Builder
 {
     public abstract class ReviewModeloBuilder
     {
+        private IReviewValidations _reviewValidations;
         private ReviewModel _modelo = new ReviewModel();
-        private ReviewValidations _reviewValidations;
+
+        public ReviewModeloBuilder(IReviewValidations reviewValidations)
+        {
+            _reviewValidations = reviewValidations;
+        }
 
         public ReviewModeloBuilder SetId(long ID)
         {

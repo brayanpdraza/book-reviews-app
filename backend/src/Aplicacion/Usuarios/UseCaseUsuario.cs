@@ -5,21 +5,22 @@ using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio.Entidades;
+using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Servicios.Contratos;
 using Dominio.Servicios.ServicioEncripcion.Contratos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Dominio.Usuarios.Servicios;
 
-namespace Aplicacion.Libros
+namespace Aplicacion.Usuarios
 {
     public class UseCaseUsuario
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IEncription _encription;
-        private readonly UserValidations _userValidations;
+        private readonly IUserValidations _userValidations;
 
-        public UseCaseUsuario(IUsuarioRepositorio usuarioRepositorio, IEncription encriptacionClave, UserValidations userValidations)
+        public UseCaseUsuario(IUsuarioRepositorio usuarioRepositorio, IEncription encriptacionClave, IUserValidations userValidations)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _encription = encriptacionClave;
@@ -28,37 +29,52 @@ namespace Aplicacion.Libros
         public long AddUsuario(UsuarioModelo usuario)
         {
             long idCreado;
-            UsuarioModelo UsuarioExistente = new UsuarioModelo();
+            UsuarioModelo UsuarioExistente;
 
             _userValidations.Validate(usuario);
 
             UsuarioExistente = _usuarioRepositorio.ListUsuarioPorCorreo(usuario.Correo);
-            if (UsuarioExistente != null && UsuarioExistente.Id != 0)
+            if (UsuarioExistente != null && UsuarioExistente.Id > 0)
             {
-                throw new Exception("El correo ingresado ya se encuentra Registrado en el sistema");
+                throw new Exception("El correo ingresado ya se encuentra Registrado en el sistema.");
             }
 
             usuario.Password = _encription.Encriptar(usuario.Password);
             idCreado = _usuarioRepositorio.AddUsuario(usuario);
 
+            if (idCreado <= 0)
+            {
+                throw new Exception("El usuario no ha sido creado.");
+            }
+
             return idCreado;
         }
         public UsuarioModelo ConsultarUsuarioCredenciales(string Correo, string Password)
         {
-            UsuarioModelo usuario = new UsuarioModelo();
+            UsuarioModelo usuario;
+            bool esValidoPass;
+
             if (string.IsNullOrEmpty(Correo))
             {
-                throw new ArgumentNullException("Debe ingresar un Correo");
+                throw new ArgumentException("Debe ingresar un Correo.");
             }
             if (string.IsNullOrEmpty(Password))
             {
-                throw new ArgumentNullException("Debe ingresar una Contraseña");
+                throw new ArgumentException("Debe ingresar una Contraseña.");
             }
-            usuario = _usuarioRepositorio.ListUsuarioPorCorreoPassword(Correo, Password);
 
-            if(usuario == null || usuario.Id == 0)
+            usuario = _usuarioRepositorio.ListUsuarioPorCorreo(Correo);
+
+            if (usuario == null || usuario.Id == 0)
             {
-                throw new InvalidCredentialException("Credenciales Incorrectas");
+                throw new Exception("El correo ingresado no se encuentra Registrado.");
+            }
+
+            esValidoPass = _encription.VerificarClaveEncriptada(usuario.Password, Password);
+
+            if (!esValidoPass)
+            {
+                throw new Exception("La contraseña proporcionada es Incorrecta.");
             }
 
             return usuario;

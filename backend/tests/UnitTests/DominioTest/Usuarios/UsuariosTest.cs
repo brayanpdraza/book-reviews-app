@@ -1,15 +1,25 @@
+using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Servicios.Implementaciones;
+using Dominio.Servicios.ServicioEncripcion.Contratos;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Servicios;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+using Moq;
 
 namespace DominioTest.Usuarios
 {
     public class UsuariosTest
     {
-        private readonly UsuarioBuilderTest builderTest = new UsuarioBuilderTest();
-        private readonly UserValidations usuarioValidations = new UserValidations();
+        private readonly IUserValidations _userValidations = new UserValidations();
+
+        private readonly UsuarioBuilderTest builderTest;
+
+        public UsuariosTest()
+        {
+            builderTest = new UsuarioBuilderTest(_userValidations);
+        }
+
         [Fact]
         public void UserValidations_PasswordError_ReturnsError()
         {
@@ -18,7 +28,7 @@ namespace DominioTest.Usuarios
             string MessageError = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.";
 
             // Act
-            var exception = Assert.Throws<ArgumentException>(() => usuarioValidations.Validate(Usuario));
+            var exception = Assert.Throws<ArgumentException>(() => _userValidations.Validate(Usuario));
             // Assert
             Assert.Equal(MessageError, exception.Message);
         }
@@ -30,7 +40,7 @@ namespace DominioTest.Usuarios
             string MessageError = "Debe ingresar un correo válido.";
 
             // Act
-            var exception = Assert.Throws<ArgumentException>(() => usuarioValidations.Validate(Usuario));
+            var exception = Assert.Throws<ArgumentException>(() => _userValidations.Validate(Usuario));
 
             // Assert
             Assert.Equal(MessageError, exception.Message);
@@ -44,7 +54,7 @@ namespace DominioTest.Usuarios
             bool Valido = true;
 
             // Act
-            bool esValido = usuarioValidations.Validate(Usuario);
+            bool esValido = _userValidations.Validate(Usuario);
 
             // Assert
             Assert.Equal(Valido, esValido);
