@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Libros\" />
+    <Folder Include="Reviews\" />
+    <Folder Include="Usuarios\" />
+  </ItemGroup>
+
 </Project>
