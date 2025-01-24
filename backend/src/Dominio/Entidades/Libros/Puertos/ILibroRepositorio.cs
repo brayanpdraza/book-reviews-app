@@ -10,7 +10,7 @@ namespace Dominio.Entidades.Libros.Puertos
 {
     public interface ILibroRepositorio
     {
-        List<LibroModelo> ListLibrosPaginadosPorFiltroOpcional(int pagina, int tamanoPagina, string filtro = null);
+        List<LibroModelo> ListLibrosPaginadosPorFiltroOpcional(int skip, int tamanoPagina, string filtro = null);
         LibroModelo ListLibroPorId(long id);
         int ConteoLibros(string filtro = null);
         long AddReview(LibroModelo Review);

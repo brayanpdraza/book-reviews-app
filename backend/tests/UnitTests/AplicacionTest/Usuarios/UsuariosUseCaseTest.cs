@@ -116,7 +116,7 @@ namespace AplicacionTest.Usuarios
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InvalidCorreo, Password));
 
-            // Asser
+            // Assert
             Assert.Equal(MessageError, exception.Message);
 
 
@@ -137,7 +137,7 @@ namespace AplicacionTest.Usuarios
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, invalidPassword));
 
-            // Asser
+            // Assert
             Assert.Equal(MessageError, exception.Message);
 
 
@@ -159,7 +159,7 @@ namespace AplicacionTest.Usuarios
             //Act
             var exception = Assert.Throws<Exception>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InexistentCorreo, Password));
 
-            // Asser
+            // Assert
             Assert.Equal(MessageError, exception.Message);
 
 
@@ -183,7 +183,7 @@ namespace AplicacionTest.Usuarios
             //Act
             var exception = Assert.Throws<Exception>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, InvalidPass));
 
-            // Asser
+            // Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
 

@@ -21,18 +21,42 @@ namespace Aplicacion.Libros
         public PaginacionResultadoModelo<LibroModelo> ConsultarLibrosPaginados(int pagina, int tamanoPagina, string filtro = null)
         {
             List<LibroModelo> libros;
-            int totalRegistros, skip;
+            int totalRegistros, skip, totalPaginas;
 
-            if (pagina <= 0 || tamanoPagina <= 0)
+            if (pagina <= 0)
             {
-                throw new ArgumentException("La página y el tamaño de página deben ser mayores a cero.");
+                throw new ArgumentException("La página debe ser mayor a cero.");
+            }
+
+            if (tamanoPagina <= 0)
+            {
+                throw new ArgumentException("El tamaño de página debe ser mayor a cero.");
             }
 
             totalRegistros = _libroRepositorio.ConteoLibros(filtro);
 
+            if (totalRegistros <= 0)
+            {
+                return new PaginacionResultadoModelo<LibroModelo>
+                {
+                    Items = new List<LibroModelo>(), // Lista vacía
+                    TotalRegistros = 0,
+                    PaginaActual = 1,
+                    TamanoPagina = tamanoPagina
+                };
+            }
+
+            totalPaginas = (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
+
+            if (pagina > totalPaginas)
+            {
+                throw new ArgumentException($"La página solicitada ({pagina}) excede el total de páginas disponibles.");
+            }
+
             skip = (pagina - 1) * tamanoPagina;
 
             libros = _libroRepositorio.ListLibrosPaginadosPorFiltroOpcional(skip, tamanoPagina, filtro);
+
 
             return new PaginacionResultadoModelo<LibroModelo>
             {
