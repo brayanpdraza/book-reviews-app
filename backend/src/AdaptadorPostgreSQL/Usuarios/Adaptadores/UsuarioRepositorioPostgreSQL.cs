@@ -36,6 +36,10 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
         public UsuarioModelo ListUsuarioPorCorreo(string Correo)
         {
             UsuarioEntity usuarioEntity = _postgreSQLDbContext.Usuarios.FirstOrDefault(u=>u.Correo == Correo);
+            if (usuarioEntity == null)
+            {
+                return new UsuarioModelo();
+            }
             UsuarioModelo usuario = _mapToUserModelDominio.MapToUserDomainModel(usuarioEntity);
 
             return usuario;

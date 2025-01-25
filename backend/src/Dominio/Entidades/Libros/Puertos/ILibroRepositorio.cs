@@ -13,7 +13,6 @@ namespace Dominio.Entidades.Libros.Puertos
         List<LibroModelo> ListLibrosPaginadosPorFiltroOpcional(int skip, int tamanoPagina, string filtro = null);
         LibroModelo ListLibroPorId(long id);
         int ConteoLibros(string filtro = null);
-        long AddReview(LibroModelo Review);
         void SaveChanges();
     }
 }

@@ -17,7 +17,6 @@ namespace Dominio.Reviews.Modelo
 
         public UsuarioModelo Usuario { get; set; }
 
-        public LibroModelo Libro
-        {get ; set; }
+        public LibroModelo Libro {get ; set; }
     }
 }

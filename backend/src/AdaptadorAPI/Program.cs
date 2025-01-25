@@ -1,3 +1,19 @@
+using AdaptadorEncripter;
+using AdaptadorPostgreSQL;
+using AdaptadorPostgreSQL.Libros.Adaptadores;
+using AdaptadorPostgreSQL.Reviews.Adaptadores;
+using AdaptadorPostgreSQL.Usuarios.Adaptadores;
+using Aplicacion.Libros;
+using Aplicacion.Reviews;
+using Aplicacion.Usuarios;
+using Dominio.Entidades.Libros.Puertos;
+using Dominio.Entidades.Reviews.Puertos;
+using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Reviews.Servicios;
+using Dominio.Servicios.ServicioEncripcion.Contratos;
+using Dominio.Usuarios.Puertos;
+using Dominio.Usuarios.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +31,17 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
+builder.Services.AddScoped<UseCaseUsuario>();
+builder.Services.AddScoped<UseCaseLibro>();
+builder.Services.AddScoped<UseCaseReview>();
+builder.Services.AddScoped<PostgreSQLDbContext>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorioPostgreSQL>();
+builder.Services.AddScoped<ILibroRepositorio, LibroRepositorioPostgreSQL>();
+builder.Services.AddScoped<IReviewRepositorio, ReviewRepositorioPostgreSQL>();
+builder.Services.AddScoped<IEncription, PBKDF2Encription>();
+builder.Services.AddScoped<IUserValidations, UserValidations>();
+builder.Services.AddScoped<IReviewValidations, ReviewValidations>();
 
 builder.Services.AddControllers();
 

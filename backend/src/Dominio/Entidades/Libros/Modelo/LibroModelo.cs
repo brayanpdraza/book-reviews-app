@@ -16,6 +16,5 @@ namespace Dominio.Libros.Modelo
         public string Autor { get; set; }
         public string Resumen { get; set; }
 
-        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
     }
 }

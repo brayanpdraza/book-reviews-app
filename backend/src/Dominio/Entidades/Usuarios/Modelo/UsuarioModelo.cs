@@ -13,6 +13,5 @@ namespace Dominio.Usuarios.Modelo
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
-        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
     }
 }

@@ -51,6 +51,11 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
 
             LibroEntity libroEntity = query.FirstOrDefault();
 
+            if(libroEntity == null)
+            {
+                return new LibroModelo();
+            }
+
             LibroModelo libro = _mapToLibroModelDominio.MapToLibroModelo(libroEntity);
 
             return libro;
@@ -75,6 +80,11 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
                 .Skip(skip)
                 .Take(tamanoPagina)
                 .ToList();
+
+            if (librosEntities == null)
+            {
+                return new List<LibroModelo>();
+            }
 
             return _mapToLibroModelDominio.MapToLibroModeloList(librosEntities);
 

@@ -42,6 +42,11 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
             ReviewEntity reviewEntity = query.FirstOrDefault();
 
+            if(reviewEntity == null)
+            {
+                return new ReviewModel();
+            }
+
             ReviewModel review = _mapToReviewDominioModel.MapToReviewdomainmodel(reviewEntity);
 
             return review;
@@ -52,6 +57,11 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).Where(r => r.Libro.Id == Libro.Id);
 
             List<ReviewEntity> reviewEntityList = query.ToList();
+
+            if (reviewEntityList == null)
+            {
+                return new List<ReviewModel>();
+            }
 
             List<ReviewModel> reviewList = _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
 

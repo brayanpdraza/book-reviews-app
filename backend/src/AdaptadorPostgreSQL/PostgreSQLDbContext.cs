@@ -20,7 +20,7 @@ namespace AdaptadorPostgreSQL
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"Host=localhost;Database=bookReviewApp;Username=postgres;Password=12345678");
+                optionsBuilder.UseNpgsql(@"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true");
             }
         }
 
