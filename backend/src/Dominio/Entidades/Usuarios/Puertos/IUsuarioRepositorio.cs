@@ -12,6 +12,7 @@ namespace Dominio.Usuarios.Puertos
         UsuarioModelo ListUsuarioPorId(long id);
         UsuarioModelo ListUsuarioPorCorreo(string Correo);
         long AddUsuario(UsuarioModelo usuario);
+        //void ActualizarUsuario(long id,UsuarioModelo usuario);
         void SaveChanges();
     }
 }

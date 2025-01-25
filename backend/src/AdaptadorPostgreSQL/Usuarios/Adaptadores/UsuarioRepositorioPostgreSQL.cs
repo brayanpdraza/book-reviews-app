@@ -4,6 +4,8 @@ using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Dominio.Usuarios.Builder;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +54,53 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
             UsuarioModelo usuario = _mapToUserModelDominio.MapToUserDomainModel(usuarioEntity);
 
             return usuario;
+        }
+
+        //public void ActualizarUsuario(long id,UsuarioModelo usuarioActualizar)
+        //{
+        //    UsuarioEntity usuarioEntity = _mapToUsuarioEntity.MapToUsusarioEntidad(usuarioActualizar);
+        //    var entry = _postgreSQLDbContext.Entry(usuarioEntity);
+        //    entry.CurrentValues.SetValues(usuarioEntity);
+
+        //    // Marcar como modificados solo los campos que cambiaron
+        //    foreach (var propiedad in entry.Properties)
+        //    {
+        //        if (propiedad.IsModified)
+        //        {
+        //            entry.Property(propiedad.Metadata.Name).IsModified = true;
+        //        }
+        //    }
+
+        //    SaveChanges();
+        //}
+        public void ActualizarRefreshToken(long usuarioId, string refreshToken, DateTime expiry)
+        {
+
+            if(usuarioId <= 0)
+            {
+                throw new ArgumentException("El ID del usuario no´es válido.");
+            }
+
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                throw new ArgumentException("Debe Generar el token para poder autenticar al usuario.");
+            }
+
+            if (expiry == null)
+            {
+                throw new ArgumentException("El token debe tener una fecha de expiración para autenticar al usuario.");
+            }
+
+            UsuarioEntity usuario = _postgreSQLDbContext.Usuarios.Find(usuarioId);
+            if (usuario == null)
+            {
+                throw new KeyNotFoundException("Usuario No registrado. No puede Autenticarse");
+
+            }
+
+            usuario.RefreshToken = refreshToken;
+            usuario.RefreshTokenExpiry = expiry;
+            SaveChanges();
         }
 
         public void SaveChanges()

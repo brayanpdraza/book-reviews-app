@@ -7,11 +7,6 @@ using Dominio.Reviews.Modelo;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AplicacionTest.Reviews
 {
@@ -53,7 +48,7 @@ namespace AplicacionTest.Reviews
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(new UsuarioModelo());
 
             // Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.AddReview(review));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.AddReview(review));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -78,7 +73,7 @@ namespace AplicacionTest.Reviews
             _mockLibroRepositorio.Setup(r => r.ListLibroPorId(review.Libro.Id)).Returns(new LibroModelo());
 
             // Act 
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.AddReview(review));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.AddReview(review));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -188,7 +183,7 @@ namespace AplicacionTest.Reviews
 
             _mockLibroRepositorio.Setup(r => r.ListLibroPorId(review.Libro.Id)).Returns(new LibroModelo());
             // Act 
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorLibro(libro));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ConsultarReviewsPorLibro(libro));
 
 
             //Assert
@@ -200,7 +195,7 @@ namespace AplicacionTest.Reviews
         }
 
         [Fact]
-        public void ConsultarReviewsPorLibro_ReseñasExistentes_LanzaExcepcion()
+        public void ConsultarReviewsPorLibro_ReseñasExistentes_ReturnsReview()
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
@@ -218,6 +213,42 @@ namespace AplicacionTest.Reviews
 
             _mockLibroRepositorio.Verify(r => r.ListLibroPorId(review.Libro.Id), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorLibro(libro), Times.Once);
+        }
+
+
+        [Theory]
+        [InlineData(0, "No se puede consultar la reseña porque el id no es válido.")]
+        public void ConsultarReviewsPoriD_idErrores_LanzaExcepcion(long id, string ErrorMessage)
+        {
+            // Arrange
+
+
+            // Act 
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPoriD(id));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(id), Times.Never);
+        }
+
+
+        [Fact]
+        public void ConsultarReviewsPoriD_ReseñasExistentes_ReturnsReview()
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            long idExistente = 1;
+
+            _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
+
+            // Act 
+            ReviewModel ReviewResultado = _useCaseReview.ConsultarReviewsPoriD(idExistente);
+
+            //Assert
+            Assert.Equal(review, ReviewResultado);
+
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(idExistente), Times.Once);
         }
     }
 }

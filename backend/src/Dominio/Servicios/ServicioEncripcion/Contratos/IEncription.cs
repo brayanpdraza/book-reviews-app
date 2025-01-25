@@ -9,6 +9,6 @@ namespace Dominio.Servicios.ServicioEncripcion.Contratos
     public interface IEncription
     {
         string Encriptar(string password);
-        bool VerificarClaveEncriptada(string hashedPassword, string providedPassword);
+        bool VerificarClaveEncriptada(string rovidedPassword, string hashedPassword);
     }
 }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio.Entidades;
+using Dominio.Entidades.Usuarios.Modelo;
 using Dominio.Entidades.Usuarios.Puertos;
-using Dominio.Servicios.Contratos;
 using Dominio.Servicios.ServicioEncripcion.Contratos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
-using Dominio.Usuarios.Servicios;
 
 namespace Aplicacion.Usuarios
 {
@@ -19,12 +17,14 @@ namespace Aplicacion.Usuarios
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IEncription _encription;
         private readonly IUserValidations _userValidations;
+        private readonly IAuthService _authService;
 
-        public UseCaseUsuario(IUsuarioRepositorio usuarioRepositorio, IEncription encriptacionClave, IUserValidations userValidations)
+        public UseCaseUsuario(IUsuarioRepositorio usuarioRepositorio, IEncription encriptacionClave, IUserValidations userValidations, IAuthService authService)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _encription = encriptacionClave;
             _userValidations = userValidations;
+            _authService = authService;
         }
         public long AddUsuario(UsuarioModelo usuario)
         {
@@ -34,7 +34,7 @@ namespace Aplicacion.Usuarios
             _userValidations.Validate(usuario);
 
             UsuarioExistente = _usuarioRepositorio.ListUsuarioPorCorreo(usuario.Correo);
-            if (UsuarioExistente != null && UsuarioExistente.Id > 0)
+            if (UsuarioExistente != null)
             {
                 throw new Exception("El correo ingresado ya se encuentra Registrado en el sistema.");
             }
@@ -49,9 +49,22 @@ namespace Aplicacion.Usuarios
 
             return idCreado;
         }
-        public UsuarioModelo ConsultarUsuarioCredenciales(string Correo, string Password)
+
+        public UsuarioModelo ConsultarUsuarioPorId(long id)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("No se puede consultar el usuario porque el id no es válido.");
+            }
+
+            return _usuarioRepositorio.ListUsuarioPorId(id);
+        }
+
+
+        public AuthenticationResult ConsultarUsuarioCredenciales(string Correo, string Password)
         {
             UsuarioModelo usuario;
+            AuthenticationResult authenticationResult;
             bool esValidoPass;
 
             if (string.IsNullOrEmpty(Correo))
@@ -67,17 +80,44 @@ namespace Aplicacion.Usuarios
 
             if (usuario == null || usuario.Id == 0)
             {
-                throw new Exception("El correo ingresado no se encuentra Registrado.");
+                throw new KeyNotFoundException("El correo ingresado no se encuentra Registrado.");
             }
 
-            esValidoPass = _encription.VerificarClaveEncriptada(usuario.Password, Password);
+            esValidoPass = _encription.VerificarClaveEncriptada(Password, usuario.Password);
 
             if (!esValidoPass)
             {
-                throw new Exception("La contraseña proporcionada es Incorrecta.");
+                throw new UnauthorizedAccessException("La contraseña proporcionada es Incorrecta.");
             }
 
-            return usuario;
+            authenticationResult = _authService.Authenticate(usuario);
+
+            if (authenticationResult == null)
+            {
+                throw new UnauthorizedAccessException("No se realizó la autenticacion.");
+            }
+
+            return authenticationResult;
         }
+
+        //public void ActualizarUsuario(long id,UsuarioModelo UsuarioActualizar)
+        //{
+        //    UsuarioModelo UsuarioExistente;
+
+        //    if (id <= 0)
+        //    {
+        //        throw new ArgumentException("El ID del usuario no´es válido.");
+        //    }
+
+        //    _userValidations.Validate(UsuarioActualizar);
+
+        //    UsuarioExistente = _usuarioRepositorio.ListUsuarioPorId(id);
+        //    if (UsuarioExistente == null || UsuarioExistente.Id <= 0)
+        //    {
+        //        throw new KeyNotFoundException("El Usuario que intenta actualizar, no se encuentra en el sistema.");
+        //    }
+
+        //    _usuarioRepositorio.ActualizarUsuario(id, UsuarioActualizar);
+        //}
     }
 }

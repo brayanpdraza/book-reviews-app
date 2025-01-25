@@ -1,3 +1,5 @@
+using AdaptadorAPI.Contratos;
+using AdaptadorAPI.Implementaciones;
 using AdaptadorEncripter;
 using AdaptadorPostgreSQL;
 using AdaptadorPostgreSQL.Libros.Adaptadores;
@@ -11,8 +13,13 @@ using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Reviews.Servicios;
 using Dominio.Servicios.ServicioEncripcion.Contratos;
+using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Dominio.Usuarios.Servicios;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +39,36 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Configurar JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+    };
+});
+
+// Configurar Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/mi-app.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<ITokenBlacklist, MemoryTokenBlacklist>();
 builder.Services.AddScoped<UseCaseUsuario>();
 builder.Services.AddScoped<UseCaseLibro>();
 builder.Services.AddScoped<UseCaseReview>();
@@ -42,6 +79,7 @@ builder.Services.AddScoped<IReviewRepositorio, ReviewRepositorioPostgreSQL>();
 builder.Services.AddScoped<IEncription, PBKDF2Encription>();
 builder.Services.AddScoped<IUserValidations, UserValidations>();
 builder.Services.AddScoped<IReviewValidations, ReviewValidations>();
+builder.Services.AddScoped<IAuthService, AuthserviceJWT>();
 
 builder.Services.AddControllers();
 

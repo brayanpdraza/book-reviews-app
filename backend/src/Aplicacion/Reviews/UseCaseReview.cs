@@ -8,6 +8,7 @@ using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Dominio.Usuarios.Servicios;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,13 +42,13 @@ namespace Aplicacion.Reviews
             usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(review.Usuario.Id);
             if (usuarioConsultado.Id <= 0)
             {
-                throw new ArgumentException("El Usuario que intenta realizar la reseña no se encuentra registrado en el sistema.");
+                throw new KeyNotFoundException("El Usuario que intenta realizar la reseña no se encuentra registrado en el sistema.");
             }
 
             libroConsultado = _libroRepositorio.ListLibroPorId(review.Libro.Id);
             if (libroConsultado.Id <= 0)
             {
-                throw new ArgumentException("El libro al que intenta realizar la reseña no se encuentra registrado en el sistema.");
+                throw new KeyNotFoundException("El libro al que intenta realizar la reseña no se encuentra registrado en el sistema.");
             }
 
             idCreado = _reviewRepositorio.AddReview(review);
@@ -58,6 +59,18 @@ namespace Aplicacion.Reviews
             }
 
             return idCreado;
+        }
+
+        public ReviewModel ConsultarReviewsPoriD(long id)
+        {
+
+            if (id <= 0)
+            {
+                throw new ArgumentException("No se puede consultar la reseña porque el id no es válido.");
+            }
+
+            return _reviewRepositorio.ListReviewPorId(id);
+
         }
 
         public List<ReviewModel> ConsultarReviewsPorLibro(LibroModelo Libro)
@@ -77,7 +90,7 @@ namespace Aplicacion.Reviews
             libroConsultado = _libroRepositorio.ListLibroPorId(Libro.Id);
             if (libroConsultado.Id <= 0)
             {
-                throw new ArgumentException("El libro al que intenta Consultar sus reseñas no se encuentra registrado en el sistema.");
+                throw new KeyNotFoundException("El libro al que intenta Consultar sus reseñas no se encuentra registrado en el sistema.");
             }
 
             return _reviewRepositorio.ListReviewPorLibro(Libro);

@@ -1,9 +1,10 @@
 using Aplicacion.Usuarios;
+using Dominio.Entidades.Usuarios.Modelo;
 using Dominio.Entidades.Usuarios.Puertos;
+using Dominio.Reviews.Modelo;
 using Dominio.Servicios.ServicioEncripcion.Contratos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
-using Dominio.Usuarios.Servicios;
 using Moq;
 
 namespace AplicacionTest.Usuarios
@@ -13,6 +14,7 @@ namespace AplicacionTest.Usuarios
         private readonly Mock<IUsuarioRepositorio> _mockUsuarioRepositorio;
         private readonly Mock<IEncription> _mockEncription;
         private readonly Mock<IUserValidations> _mockUserValidations;
+        private readonly Mock<IAuthService> _mockAuthService;
 
         private readonly UseCaseUsuario _useCaseUsuario;
         private readonly UsuriosBuilderCaseTest usuriosBuilderCaseTest;
@@ -22,10 +24,13 @@ namespace AplicacionTest.Usuarios
             _mockUsuarioRepositorio = new Mock<IUsuarioRepositorio>();
             _mockEncription = new Mock<IEncription>();
             _mockUserValidations = new Mock<IUserValidations>();
+            _mockAuthService = new Mock<IAuthService>();
+
             _useCaseUsuario = new UseCaseUsuario(
                 _mockUsuarioRepositorio.Object,
                 _mockEncription.Object,
-                _mockUserValidations.Object
+                _mockUserValidations.Object,
+                _mockAuthService.Object
             );
             usuriosBuilderCaseTest = new UsuriosBuilderCaseTest(_mockUserValidations.Object);
         }
@@ -109,7 +114,7 @@ namespace AplicacionTest.Usuarios
         public void ConsultarUsuarioCredenciales_CorreoVacio_LanzaExcepcion(string InvalidCorreo, string MessageError)
         {
             // Arrange
-
+            UsuarioModelo usuario = new UsuarioModelo();
             string HashPassword = "hashedpass";
             string Password = "P4ssG@00d";
 
@@ -119,9 +124,9 @@ namespace AplicacionTest.Usuarios
             // Assert
             Assert.Equal(MessageError, exception.Message);
 
-
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorCorreo(InvalidCorreo), Times.Never);
-            _mockEncription.Verify(e => e.VerificarClaveEncriptada(HashPassword, Password), Times.Never);
+            _mockEncription.Verify(e => e.VerificarClaveEncriptada(Password, HashPassword), Times.Never);
+            _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Never);
         }
 
         [Theory]
@@ -129,6 +134,7 @@ namespace AplicacionTest.Usuarios
         public void ConsultarUsuarioCredenciales_PasswordVacia_LanzaExcepcion(string invalidPassword, string MessageError)
         {
             // Arrange
+            UsuarioModelo usuario = null;
             string Correo = "correo@prueba.com";
             string HashPassword = "hashedpass";
 
@@ -142,29 +148,30 @@ namespace AplicacionTest.Usuarios
 
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorCorreo(Correo), Times.Never);
-            _mockEncription.Verify(e => e.VerificarClaveEncriptada(HashPassword, invalidPassword), Times.Never);
+            _mockEncription.Verify(e => e.VerificarClaveEncriptada(invalidPassword, HashPassword), Times.Never);
+            _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Never);
         }
-
 
         [Theory]
         [InlineData("correo@inexistente.com", "El correo ingresado no se encuentra Registrado.")]
         public void ConsultarUsuarioCredenciales_CorreoNoRegistrado_LanzaExcepcion(string InexistentCorreo, string MessageError)
         {
             // Arrange
+            UsuarioModelo usuario = null;
             string HashPassword = "hashedpass";
             string Password = "P4ssG@00d";
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(InexistentCorreo)).Returns((UsuarioModelo)null);
 
             //Act
-            var exception = Assert.Throws<Exception>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InexistentCorreo, Password));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InexistentCorreo, Password));
 
             // Assert
             Assert.Equal(MessageError, exception.Message);
 
-
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorCorreo(InexistentCorreo), Times.Once);
-            _mockEncription.Verify(e => e.VerificarClaveEncriptada(HashPassword, Password), Times.Never);
+            _mockEncription.Verify(e => e.VerificarClaveEncriptada(Password, HashPassword), Times.Never);
+            _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Never);
         }
 
         [Theory]
@@ -172,23 +179,91 @@ namespace AplicacionTest.Usuarios
         public void ConsultarUsuarioCredenciales_PassIncorrecta_LanzaExcepcion(string InvalidPass,string ErrorMessage)
         {
             // Arrange
+            UsuarioModelo usuario;
             string HashedPass = "HashedPass"; 
             string Correo = "correo@prueba.com";
 
             UsuarioModelo usuarioConsultado = usuriosBuilderCaseTest.SetPassword(HashedPass).SetCorreo(Correo).Build();
+            usuario = usuarioConsultado;
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(Correo)).Returns(usuarioConsultado);
-            _mockEncription.Setup(r => r.VerificarClaveEncriptada(usuarioConsultado.Password, InvalidPass)).Returns(false);
+            _mockEncription.Setup(r => r.VerificarClaveEncriptada(InvalidPass, HashedPass)).Returns(false);
 
             //Act
-            var exception = Assert.Throws<Exception>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, InvalidPass));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, InvalidPass));
 
             // Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorCorreo(Correo), Times.Once);
-            _mockEncription.Verify(e => e.VerificarClaveEncriptada(usuarioConsultado.Password, InvalidPass), Times.Once);
+            _mockEncription.Verify(e => e.VerificarClaveEncriptada(InvalidPass, usuarioConsultado.Password), Times.Once);
+            _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Never);
+        }
+
+        [Fact]
+        public void ConsultarUsuarioCredenciales_AutenticacionIncorrecta_LanzaExcepcion()
+        {
+            // Arrange}
+            AuthenticationResult Result = null;
+            UsuarioModelo usuario;
+            string HashedPass = "HashedPass";
+            string Pass = "P4ssG@0d";
+            string Correo = "correo@prueba.com";
+            string ErrorMessage = "No se realizó la autenticacion.";
+
+            UsuarioModelo usuarioConsultado = usuriosBuilderCaseTest.SetPassword(HashedPass).SetCorreo(Correo).Build();
+            usuario = usuarioConsultado;
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(Correo)).Returns(usuarioConsultado);
+            _mockEncription.Setup(r => r.VerificarClaveEncriptada(Pass, HashedPass)).Returns(true);
+            _mockAuthService.Setup(r => r.Authenticate(usuario)).Returns(Result);
+
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, Pass));
+
+            // Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorCorreo(Correo), Times.Once);
+            _mockEncription.Verify(e => e.VerificarClaveEncriptada(Pass, usuarioConsultado.Password), Times.Once);
+            _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Once);
+        }
+
+        [Theory]
+        [InlineData(0, "No se puede consultar el usuario porque el id no es válido.")]
+        public void ConsultarUsuarioPoriD_idErrores_LanzaExcepcion(long id, string ErrorMessage)
+        {
+            // Arrange
+
+
+            // Act 
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.ConsultarUsuarioPorId(id));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(id), Times.Never);
+        }
+
+
+        [Fact]
+        public void ConsultarUsuarioporiD_ReseñasExistentes_ReturnsReview()
+        {
+            // Arrange
+            UsuarioModelo Usuario = usuriosBuilderCaseTest.Build();
+            long idExistente = 1;
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idExistente)).Returns(Usuario);
+
+            // Act 
+            UsuarioModelo UsuarioResultado = _useCaseUsuario.ConsultarUsuarioPorId(idExistente);
+
+            //Assert
+            Assert.Equal(Usuario, UsuarioResultado);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(idExistente), Times.Once);
         }
     }
 }

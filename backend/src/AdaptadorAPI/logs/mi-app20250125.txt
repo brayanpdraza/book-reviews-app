@@ -1,0 +1,20 @@
+2025-01-25 12:38:07.128 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-25 12:38:07.551 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-25 12:38:07.556 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-25 12:38:07.557 -05:00 [INF] Hosting environment: Development
+2025-01-25 12:38:07.558 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-25 12:38:08.871 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-25 12:38:09.800 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 943.2128ms
+2025-01-25 12:38:10.105 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-25 12:38:10.121 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-25 12:38:10.125 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.5715ms
+2025-01-25 12:38:10.183 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 77.7642ms
+2025-01-25 12:38:10.289 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-25 12:38:10.591 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 301.8995ms
+2025-01-25 12:38:31.779 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ConsultarUsuarioPorCredenciales/vanessita@bonita.com/P4ss123@ - -
+2025-01-25 12:38:31.799 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ConsultarUsuarioPorCredenciales (AdaptadorAPI)'
+2025-01-25 12:38:31.866 -05:00 [INF] Route matched with {action = "ConsultarUsuarioPorCredenciales", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarUsuarioPorCredenciales(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-25 12:38:48.504 -05:00 [INF] Executing OkObjectResult, writing value of type 'AdaptadorAPI.dto.LoginResponseDto'.
+2025-01-25 12:38:48.536 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ConsultarUsuarioPorCredenciales (AdaptadorAPI) in 16662.8017ms
+2025-01-25 12:38:48.544 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ConsultarUsuarioPorCredenciales (AdaptadorAPI)'
+2025-01-25 12:38:48.559 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ConsultarUsuarioPorCredenciales/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 16780.7458ms

@@ -1,6 +1,12 @@
-﻿using Aplicacion.Usuarios;
+﻿using AdaptadorAPI.Contratos;
+using AdaptadorAPI.Implementaciones;
+using AdaptadorPostgreSQL.Usuarios.Adaptadores;
+using AdaptadorPostgreSQL.Usuarios.Entidades;
+using Aplicacion.Usuarios;
 using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Mvc;
+using Dominio.Usuarios.Puertos;
+using Dominio.Entidades.Usuarios.Modelo;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -9,48 +15,60 @@ namespace AdaptadorAPI.Controllers
     public class UsuarioController : Controller
     {
         private readonly UseCaseUsuario _useCaseUsuario;
+        private readonly IAuthService _authServie;
+        private readonly ILogger<UsuarioController> _logger;
 
-        public UsuarioController(UseCaseUsuario usuarioRepositorio)
+        public UsuarioController(UseCaseUsuario usuarioRepositorio, IAuthService authServie, ILogger<UsuarioController> logger)
         {
             _useCaseUsuario = usuarioRepositorio;
+            _authServie = authServie;
+            _logger = logger;
         }
 
-        [HttpGet("ObteerUsuarioCredenciales/{id}", Name = "ObtenerUsuarioId")]
-        public IActionResult ObteerUsuarioid(string Correo, string Password)
-        {
-            //UsuarioModelo usuario;
-            //try
-            //{
-            //    usuario = _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, Password);
-            //    return Ok(usuario);
-            //}
-            //catch (FileNotFoundException ex)
-            //{
-            //    return BadRequest(ex.Message);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return NotFound(ex.Message);
-            //}
-            throw new NotImplementedException();
-        }
-
-        [HttpGet("ObtenerUsuarioCredenciales/{Correo}/{Password}", Name = "ObtenerUsuarioCredenciales")]
-        public IActionResult ObtenerUsuarioCredenciales(string Correo, string Password)
+        [HttpGet("ObtenerUsuarioCredenciales/{id}", Name = "ObtenerUsuarioId")]
+        public IActionResult ObtenerUsuarioid(long id)
         {
             UsuarioModelo usuario;
             try
             {
-                usuario = _useCaseUsuario.ConsultarUsuarioCredenciales(Correo,Password);
+                usuario = _useCaseUsuario.ConsultarUsuarioPorId(id);
                 return Ok(usuario);
             }
-            catch (FileNotFoundException ex)
+            catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
             {
-                return BadRequest(ex.Message);
+                _logger.LogWarning(ex.Message,$"Al obtener usuario con id: {id}");
+                return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, $"Error interno al obtener usuario con ID: {id}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+        }
+
+        [HttpGet("ConsultarUsuarioPorCredenciales/{Correo}/{Password}")]
+        public IActionResult ConsultarUsuarioPorCredenciales(string Correo, string Password)
+        {
+            AuthenticationResult responseLogin;
+            try
+            {
+                responseLogin = _useCaseUsuario.ConsultarUsuarioCredenciales(Correo,Password);
+
+                return Ok(responseLogin);
+            }
+            catch (KeyNotFoundException ex) 
+            {
+                _logger.LogWarning(ex.Message,$"Al Consultar un usuario con credenciales: {Correo}");
                 return NotFound(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al obtener usuario con credenciales: {Correo}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
         }
 
@@ -59,14 +77,18 @@ namespace AdaptadorAPI.Controllers
         {
             string uri;
             long createdId = 0;
-
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 createdId = _useCaseUsuario.AddUsuario(usuario);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError(ex, $"Error interno al guardar usuario: {usuario}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
 
             if (createdId == 0)
@@ -83,5 +105,7 @@ namespace AdaptadorAPI.Controllers
 
             return Created(uri, usuario);
         }
+
+
     }
 }
