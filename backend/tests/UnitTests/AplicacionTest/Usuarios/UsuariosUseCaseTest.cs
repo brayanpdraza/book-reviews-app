@@ -238,7 +238,7 @@ namespace AplicacionTest.Usuarios
             // Arrange}
             LogoutRequest Result = null;
             long id = 0;
-            string ErrorMessage = "El access token no puede estar vacío.";
+            string ErrorMessage = "El ID No es Válido.";
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutById(id));
 
