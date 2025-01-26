@@ -11,10 +11,12 @@ namespace AdaptadorAPI.Implementaciones
     public class JwtService : IJwtService
     {
         private readonly IConfiguration _configuration;
+        private readonly TokenValidationParameters _tokenValidationParameters;
 
-        public JwtService(IConfiguration configuration)
+        public JwtService(IConfiguration configuration, TokenValidationParameters tokenValidationParameters)
         {
             _configuration = configuration;
+            _tokenValidationParameters = tokenValidationParameters;
         }
         public (string AccessToken, string RefreshToken) GenerateTokens(UsuarioModelo usuario)
         {
@@ -57,31 +59,30 @@ namespace AdaptadorAPI.Implementaciones
             return Convert.ToBase64String(randomNumber);
         }
 
-        public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+        public ClaimsPrincipal GetPrincipalFromToken(string accessToken)
         {
-            var tokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateAudience = false,
-                ValidateIssuer = false,
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"])),
-                ValidateLifetime = false
-            };
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out var securityToken);
+
+            var principal = tokenHandler.ValidateToken(accessToken, _tokenValidationParameters, out var securityToken);
 
             if (securityToken is not JwtSecurityToken jwtSecurityToken ||
                 !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
                 throw new SecurityTokenException("Token inválido");
 
             return principal;
+
         }
 
         public int GetAccessTokenExpiration() => Convert.ToInt32(_configuration["Jwt:AccessTokenExpiration"]);
 
         public int GetRefreshTokenExpiration() => Convert.ToInt32(_configuration["Jwt:RefreshTokenExpiration"]);
-
+        public string GetJtiFromToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+            return jwtToken.Id;
+        }
 
     }
 }

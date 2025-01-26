@@ -7,8 +7,9 @@ namespace AdaptadorAPI.Contratos
     {
         string GenerateAccessToken(UsuarioModelo usuario);
         string GenerateRefreshToken();
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+        ClaimsPrincipal GetPrincipalFromToken(string token);
         int GetAccessTokenExpiration();
         int GetRefreshTokenExpiration();
+        string GetJtiFromToken(string Token);
     }
 }

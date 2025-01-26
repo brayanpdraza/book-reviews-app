@@ -111,7 +111,7 @@ namespace AplicacionTest.Usuarios
 
         [Theory]
         [InlineData("", "Debe ingresar un Correo.")]
-        public void ConsultarUsuarioCredenciales_CorreoVacio_LanzaExcepcion(string InvalidCorreo, string MessageError)
+        public void AutenticacionByCredenciales_CorreoVacio_LanzaExcepcion(string InvalidCorreo, string MessageError)
         {
             // Arrange
             UsuarioModelo usuario = new UsuarioModelo();
@@ -119,7 +119,7 @@ namespace AplicacionTest.Usuarios
             string Password = "P4ssG@00d";
 
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InvalidCorreo, Password));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.AutenticacionByCredenciales(InvalidCorreo, Password));
 
             // Assert
             Assert.Equal(MessageError, exception.Message);
@@ -131,7 +131,7 @@ namespace AplicacionTest.Usuarios
 
         [Theory]
         [InlineData("", "Debe ingresar una Contraseña.")]
-        public void ConsultarUsuarioCredenciales_PasswordVacia_LanzaExcepcion(string invalidPassword, string MessageError)
+        public void AutenticacionByCredenciales_PasswordVacia_LanzaExcepcion(string invalidPassword, string MessageError)
         {
             // Arrange
             UsuarioModelo usuario = null;
@@ -141,7 +141,7 @@ namespace AplicacionTest.Usuarios
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(Correo)).Returns((UsuarioModelo)null);
 
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, invalidPassword));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.AutenticacionByCredenciales(Correo, invalidPassword));
 
             // Assert
             Assert.Equal(MessageError, exception.Message);
@@ -154,7 +154,7 @@ namespace AplicacionTest.Usuarios
 
         [Theory]
         [InlineData("correo@inexistente.com", "El correo ingresado no se encuentra Registrado.")]
-        public void ConsultarUsuarioCredenciales_CorreoNoRegistrado_LanzaExcepcion(string InexistentCorreo, string MessageError)
+        public void AutenticacionByCredenciales_CorreoNoRegistrado_LanzaExcepcion(string InexistentCorreo, string MessageError)
         {
             // Arrange
             UsuarioModelo usuario = null;
@@ -164,7 +164,7 @@ namespace AplicacionTest.Usuarios
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(InexistentCorreo)).Returns((UsuarioModelo)null);
 
             //Act
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(InexistentCorreo, Password));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseUsuario.AutenticacionByCredenciales(InexistentCorreo, Password));
 
             // Assert
             Assert.Equal(MessageError, exception.Message);
@@ -176,7 +176,7 @@ namespace AplicacionTest.Usuarios
 
         [Theory]
         [InlineData("Wr0ngP@sS", "La contraseña proporcionada es Incorrecta.")]
-        public void ConsultarUsuarioCredenciales_PassIncorrecta_LanzaExcepcion(string InvalidPass,string ErrorMessage)
+        public void AutenticacionByCredenciales_PassIncorrecta_LanzaExcepcion(string InvalidPass,string ErrorMessage)
         {
             // Arrange
             UsuarioModelo usuario;
@@ -190,7 +190,7 @@ namespace AplicacionTest.Usuarios
             _mockEncription.Setup(r => r.VerificarClaveEncriptada(InvalidPass, HashedPass)).Returns(false);
 
             //Act
-            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, InvalidPass));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.AutenticacionByCredenciales(Correo, InvalidPass));
 
             // Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -202,7 +202,7 @@ namespace AplicacionTest.Usuarios
         }
 
         [Fact]
-        public void ConsultarUsuarioCredenciales_AutenticacionIncorrecta_LanzaExcepcion()
+        public void AutenticacionByCredenciales_AutenticacionIncorrecta_LanzaExcepcion()
         {
             // Arrange}
             AuthenticationResult Result = null;
@@ -220,7 +220,7 @@ namespace AplicacionTest.Usuarios
             _mockAuthService.Setup(r => r.Authenticate(usuario)).Returns(Result);
 
             //Act
-            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.ConsultarUsuarioCredenciales(Correo, Pass));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.AutenticacionByCredenciales(Correo, Pass));
 
             // Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -230,6 +230,24 @@ namespace AplicacionTest.Usuarios
             _mockEncription.Verify(e => e.VerificarClaveEncriptada(Pass, usuarioConsultado.Password), Times.Once);
             _mockAuthService.Verify(a => a.Authenticate(usuario), Times.Once);
         }
+
+
+        [Fact]
+        public void LogoutByCredenciales_AutenticacionIncorrecta_LanzaExcepcion()
+        {
+            // Arrange}
+            LogoutRequest Result = null;
+            string AccessToken = null;
+            string ErrorMessage = "El access token no puede estar vacío.";
+            //Act
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutByAccessToken(AccessToken));
+
+            // Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockAuthService.Verify(a => a.Logout(AccessToken), Times.Never);
+        }
+
 
         [Theory]
         [InlineData(0, "No se puede consultar el usuario porque el id no es válido.")]

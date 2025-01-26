@@ -1,7 +1,5 @@
-﻿using AdaptadorPostgreSQL.Reviews.Mappers;
-using AdaptadorPostgreSQL.Usuarios.Entidades;
+﻿using AdaptadorPostgreSQL.Usuarios.Entidades;
 using AdaptadorPostgreSQL.Usuarios.Mappers;
-using Dominio.Usuarios.Builder;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Microsoft.EntityFrameworkCore;
@@ -73,35 +71,7 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
 
         //    SaveChanges();
         //}
-        public void ActualizarRefreshToken(long usuarioId, string refreshToken, DateTime expiry)
-        {
 
-            if(usuarioId <= 0)
-            {
-                throw new ArgumentException("El ID del usuario no´es válido.");
-            }
-
-            if (string.IsNullOrEmpty(refreshToken))
-            {
-                throw new ArgumentException("Debe Generar el token para poder autenticar al usuario.");
-            }
-
-            if (expiry == null)
-            {
-                throw new ArgumentException("El token debe tener una fecha de expiración para autenticar al usuario.");
-            }
-
-            UsuarioEntity usuario = _postgreSQLDbContext.Usuarios.Find(usuarioId);
-            if (usuario == null)
-            {
-                throw new KeyNotFoundException("Usuario No registrado. No puede Autenticarse");
-
-            }
-
-            usuario.RefreshToken = refreshToken;
-            usuario.RefreshTokenExpiry = expiry;
-            SaveChanges();
-        }
 
         public void SaveChanges()
         {

@@ -7,6 +7,7 @@ using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Mvc;
 using Dominio.Usuarios.Puertos;
 using Dominio.Entidades.Usuarios.Modelo;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -25,7 +26,7 @@ namespace AdaptadorAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet("ObtenerUsuarioCredenciales/{id}", Name = "ObtenerUsuarioId")]
+        [HttpGet("ObtenerUsuarioid/{id}", Name = "ObtenerUsuarioid")]
         public IActionResult ObtenerUsuarioid(long id)
         {
             UsuarioModelo usuario;
@@ -46,13 +47,13 @@ namespace AdaptadorAPI.Controllers
             }
         }
 
-        [HttpGet("ConsultarUsuarioPorCredenciales/{Correo}/{Password}")]
-        public IActionResult ConsultarUsuarioPorCredenciales(string Correo, string Password)
+        [HttpGet("AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password}")]
+        public IActionResult AutenticacionUsuarioPorCorreoYPasssword(string Correo, string Password)
         {
             AuthenticationResult responseLogin;
             try
             {
-                responseLogin = _useCaseUsuario.ConsultarUsuarioCredenciales(Correo,Password);
+                responseLogin = _useCaseUsuario.AutenticacionByCredenciales(Correo,Password);
 
                 return Ok(responseLogin);
             }
@@ -69,6 +70,68 @@ namespace AdaptadorAPI.Controllers
             {
                 _logger.LogError(ex, $"Error interno al obtener usuario con credenciales: {Correo}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+        }
+
+        [HttpPost("update-refresh-token")]
+        public IActionResult UpdateRefreshTokenBySelf([FromBody] string refreshToken)
+        {
+            AuthenticationResult responseLogin;
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                responseLogin = _useCaseUsuario.UpdateRefreshToken(refreshToken);
+
+                return Ok(responseLogin);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                _logger.LogWarning(ex.Message, $"Al Consultar un usuario con credenciales: {refreshToken}");
+                return NotFound(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al Actualizar Token: {refreshToken}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+        }
+
+       [HttpPost("logout")]
+        public IActionResult Logout([FromBody] LogoutRequest request)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {          
+                _useCaseUsuario.LogOutByAccessToken(request.Credential); //Access Token
+                return NoContent();
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                _logger.LogWarning(ex, "El token ha expirado.");
+                return Unauthorized("El token ha expirado.");
+            }
+            catch (SecurityTokenException ex)
+            {
+                _logger.LogWarning(ex, "Token inválido.");
+                return Unauthorized("Token inválido.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al cerrar sesión.");
+                return StatusCode(500, "Error interno.");
             }
         }
 

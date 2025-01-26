@@ -59,6 +59,8 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddAuthorization();
+
 // Configurar Serilog
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -67,24 +69,31 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<ITokenBlacklist, MemoryTokenBlacklist>();
+
 builder.Services.AddScoped<UseCaseUsuario>();
 builder.Services.AddScoped<UseCaseLibro>();
 builder.Services.AddScoped<UseCaseReview>();
 builder.Services.AddScoped<PostgreSQLDbContext>();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IAuthService, AuthserviceJWT>();
+
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorioPostgreSQL>();
 builder.Services.AddScoped<ILibroRepositorio, LibroRepositorioPostgreSQL>();
 builder.Services.AddScoped<IReviewRepositorio, ReviewRepositorioPostgreSQL>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenPostgreSQL>();
+
 builder.Services.AddScoped<IEncription, PBKDF2Encription>();
 builder.Services.AddScoped<IUserValidations, UserValidations>();
 builder.Services.AddScoped<IReviewValidations, ReviewValidations>();
-builder.Services.AddScoped<IAuthService, AuthserviceJWT>();
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.UseAuthentication(); 
+app.UseAuthorization(); 
+//app.UseMiddleware<JwtMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

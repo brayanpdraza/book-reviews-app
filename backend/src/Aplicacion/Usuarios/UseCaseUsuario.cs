@@ -61,7 +61,7 @@ namespace Aplicacion.Usuarios
         }
 
 
-        public AuthenticationResult ConsultarUsuarioCredenciales(string Correo, string Password)
+        public AuthenticationResult AutenticacionByCredenciales(string Correo, string Password)
         {
             UsuarioModelo usuario;
             AuthenticationResult authenticationResult;
@@ -98,6 +98,35 @@ namespace Aplicacion.Usuarios
             }
 
             return authenticationResult;
+        }
+
+        public AuthenticationResult UpdateRefreshToken(string RefreshToken)
+        {
+            AuthenticationResult authenticationResult;
+
+            if (string.IsNullOrEmpty(RefreshToken))
+            {
+                throw new UnauthorizedAccessException("No ha enviado un RefreshToken.");
+            }
+
+            authenticationResult = _authService.RefreshToken(RefreshToken);
+            if (authenticationResult == null)
+            {
+                throw new UnauthorizedAccessException("No se realizó la autenticacion.");
+            }
+
+            return authenticationResult;
+        }
+
+        public void LogOutByAccessToken(string accessToken)
+        {
+
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                throw new ArgumentException("El access token no puede estar vacío.");
+            }
+
+            _authService.Logout(accessToken);
         }
 
         //public void ActualizarUsuario(long id,UsuarioModelo UsuarioActualizar)
