@@ -1,8 +1,4 @@
-﻿using AdaptadorAPI.Contratos;
-using AdaptadorAPI.Implementaciones;
-using AdaptadorPostgreSQL.Usuarios.Adaptadores;
-using AdaptadorPostgreSQL.Usuarios.Entidades;
-using Aplicacion.Usuarios;
+﻿using Aplicacion.Usuarios;
 using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Mvc;
 using Dominio.Usuarios.Puertos;
@@ -19,9 +15,9 @@ namespace AdaptadorAPI.Controllers
         private readonly IAuthService _authServie;
         private readonly ILogger<UsuarioController> _logger;
 
-        public UsuarioController(UseCaseUsuario usuarioRepositorio, IAuthService authServie, ILogger<UsuarioController> logger)
+        public UsuarioController(UseCaseUsuario usuarioCaseUsuario, IAuthService authServie, ILogger<UsuarioController> logger)
         {
-            _useCaseUsuario = usuarioRepositorio;
+            _useCaseUsuario = usuarioCaseUsuario;
             _authServie = authServie;
             _logger = logger;
         }
@@ -33,7 +29,6 @@ namespace AdaptadorAPI.Controllers
             try
             {
                 usuario = _useCaseUsuario.ConsultarUsuarioPorId(id);
-                return Ok(usuario);
             }
             catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
             {
@@ -45,6 +40,9 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogError(ex, $"Error interno al obtener usuario con ID: {id}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
+
+            return Ok(usuario);
+
         }
 
         [HttpGet("AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password}")]
@@ -54,8 +52,6 @@ namespace AdaptadorAPI.Controllers
             try
             {
                 responseLogin = _useCaseUsuario.AutenticacionByCredenciales(Correo,Password);
-
-                return Ok(responseLogin);
             }
             catch (KeyNotFoundException ex) 
             {
@@ -71,6 +67,9 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogError(ex, $"Error interno al obtener usuario con credenciales: {Correo}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
+
+            return Ok(responseLogin);
+
         }
 
         [HttpPost("update-refresh-token")]
@@ -86,8 +85,6 @@ namespace AdaptadorAPI.Controllers
             try
             {
                 responseLogin = _useCaseUsuario.UpdateRefreshToken(refreshToken);
-
-                return Ok(responseLogin);
             }
             catch (KeyNotFoundException ex)
             {
@@ -103,9 +100,12 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogError(ex, $"Error interno al Actualizar Token: {refreshToken}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
+
+            return Ok(responseLogin);
+
         }
 
-       [HttpPost("logout")]
+        [HttpPost("logout")]
         public IActionResult Logout([FromBody] LogoutRequest request)
         {
 
@@ -114,11 +114,10 @@ namespace AdaptadorAPI.Controllers
                 return BadRequest(ModelState);
             }
             try
-            {          
+            {
                 _useCaseUsuario.LogOutByAccessToken(request.Credential); //Access Token
-                return NoContent();
             }
-            catch (SecurityTokenExpiredException)
+            catch (SecurityTokenExpiredException ex)
             {
                 _logger.LogWarning(ex, "El token ha expirado.");
                 return Unauthorized("El token ha expirado.");
@@ -133,6 +132,9 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogError(ex, "Error al cerrar sesión.");
                 return StatusCode(500, "Error interno.");
             }
+
+            return NoContent();
+
         }
 
         [HttpPost("GuardarUsuario")]

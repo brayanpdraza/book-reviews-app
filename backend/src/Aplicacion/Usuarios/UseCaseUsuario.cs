@@ -52,12 +52,19 @@ namespace Aplicacion.Usuarios
 
         public UsuarioModelo ConsultarUsuarioPorId(long id)
         {
+            UsuarioModelo Usuario;
             if (id <= 0)
             {
                 throw new ArgumentException("No se puede consultar el usuario porque el id no es válido.");
             }
 
-            return _usuarioRepositorio.ListUsuarioPorId(id);
+            Usuario = _usuarioRepositorio.ListUsuarioPorId(id);
+            if (Usuario.Id <= 0)
+            {
+                throw new KeyNotFoundException($"El id {id} mo se encuentra asociado a un usuario.");
+            }
+
+            return Usuario;
         }
 
 

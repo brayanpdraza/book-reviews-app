@@ -1,29 +1,26 @@
 ﻿using AdaptadorPostgreSQL.Libros.Entidades;
+using AdaptadorPostgreSQL.Libros.Implementaciones;
 using AdaptadorPostgreSQL.Libros.Mappers;
-using AdaptadorPostgreSQL.Usuarios.Entidades;
-using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Dominio.Entidades.Libros.Puertos;
 using Dominio.Libros.Modelo;
-using Dominio.Usuarios.Modelo;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AdaptadorPostgreSQL.Libros.Adaptadores
 {
     public class LibroRepositorioPostgreSQL : ILibroRepositorio
     {
         private readonly PostgreSQLDbContext _postgreSQLDbContext;
-        private readonly MapToLibroEntity _mapToLibroEntity;
         private readonly MapToLibroModelDominio _mapToLibroModelDominio;
 
         public LibroRepositorioPostgreSQL(PostgreSQLDbContext dbContext)
         {
             _postgreSQLDbContext = dbContext;
-            _mapToLibroEntity =  new MapToLibroEntity(dbContext);
             _mapToLibroModelDominio = new MapToLibroModelDominio();
 
         }
@@ -32,16 +29,8 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
         {
             IQueryable<LibroEntity> query = _postgreSQLDbContext.Libros;
 
-            // Aplicar filtro si se proporciona
-            if (!string.IsNullOrEmpty(filtro))
-            {
-                query = query.Where(l =>
-                    l.Titulo.Contains(filtro) ||
-                    l.Autor.Contains(filtro) ||
-                    l.Resumen.Contains(filtro));
-            }
+            query = GetQueryFiltro(query, filtro);
 
-            // Devolver el conteo total
             return query.Count();
         }
 
@@ -65,26 +54,14 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
         {
             IQueryable<LibroEntity> query = _postgreSQLDbContext.Libros.Include(l => l.Categoria);
 
-            // Aplicar filtro si se proporciona
-            if (!string.IsNullOrEmpty(filtro))
-            {
-                query = query.Where(l =>
-                    l.Titulo.Contains(filtro) ||
-                    l.Autor.Contains(filtro) ||
-                    l.Resumen.Contains(filtro));
-            }
+            query = GetQueryFiltro(query, filtro);
 
-            // Aplicar paginación
+            // Paginación
             List<LibroEntity> librosEntities = query
                 .OrderBy(l => l.Titulo)
                 .Skip(skip)
                 .Take(tamanoPagina)
                 .ToList();
-
-            if (librosEntities == null)
-            {
-                return new List<LibroModelo>();
-            }
 
             return _mapToLibroModelDominio.MapToLibroModeloList(librosEntities);
 
@@ -94,6 +71,33 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
         public void SaveChanges()
         {
             _postgreSQLDbContext.SaveChanges();
+        }
+
+        private (string tipoFiltro, string valor) ParsearFiltro(string filtro)
+        {
+            if (string.IsNullOrEmpty(filtro))
+            {
+                return ("", filtro);
+            }
+
+            var partes = filtro.Split(new[] { ':' }, 2);
+            if (partes.Length != 2 || string.IsNullOrWhiteSpace(partes[1]))
+            {
+                throw new ArgumentException("Formato de filtro inválido. Use 'campo:valor'.");
+            }
+
+            string tipo = partes[0].Trim().ToLower();
+            string valor = partes[1].Trim();
+
+            return (tipo, valor);
+        }
+
+        private IQueryable<LibroEntity> GetQueryFiltro(IQueryable<LibroEntity> query, string filtro)
+        {
+            var (tipoFiltro, valor) = ParsearFiltro(filtro);
+            var factory = new FiltroStregyFactory();
+            var strategy = factory.GetStrategy(tipoFiltro);
+            return strategy.AplicarFiltro(query, valor);
         }
     }
 }

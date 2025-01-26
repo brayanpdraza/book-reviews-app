@@ -1,0 +1,391 @@
+2025-01-26 00:04:17.526 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 00:04:17.806 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 00:04:17.811 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 00:04:17.812 -05:00 [INF] Hosting environment: Development
+2025-01-26 00:04:17.813 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 00:04:19.006 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 00:04:19.765 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 763.6991ms
+2025-01-26 00:04:20.055 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 00:04:20.067 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 00:04:20.072 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 17.0416ms
+2025-01-26 00:04:20.152 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 85.2549ms
+2025-01-26 00:04:20.204 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 00:04:20.450 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 246.5467ms
+2025-01-26 00:04:25.899 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/3 - -
+2025-01-26 00:04:25.916 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 00:04:25.970 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:04:31.985 -05:00 [WRN] El id 3 No se encuentra asociado a ningún libro.
+2025-01-26 00:04:32.003 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 00:04:32.011 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 6032.9878ms
+2025-01-26 00:04:32.017 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 00:04:32.030 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/3 - - - 404 - text/plain;+charset=utf-8 6130.7934ms
+2025-01-26 00:04:48.259 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-01-26 00:04:48.261 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 00:04:48.264 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:04:48.419 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-26 00:04:48.440 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 172.9441ms
+2025-01-26 00:04:48.442 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 00:04:48.443 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 200 - application/json;+charset=utf-8 184.1635ms
+2025-01-26 00:05:14.353 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosPorFiltro/1/1/"" - -
+2025-01-26 00:05:14.358 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI)'
+2025-01-26 00:05:14.362 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosPorFiltro", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosPorFiltro(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:05:14.569 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 00:05:14.575 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI) in 211.0429ms
+2025-01-26 00:05:14.577 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI)'
+2025-01-26 00:05:14.578 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosPorFiltro/1/1/"" - - - 200 - application/json;+charset=utf-8 225.0518ms
+2025-01-26 00:05:35.424 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosPorFiltro/1/1/"" - -
+2025-01-26 00:05:35.436 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI)'
+2025-01-26 00:05:35.438 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosPorFiltro", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosPorFiltro(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:05:41.927 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 00:05:41.933 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI) in 6493.1267ms
+2025-01-26 00:05:41.934 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosPorFiltro (AdaptadorAPI)'
+2025-01-26 00:05:41.936 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosPorFiltro/1/1/"" - - - 200 - application/json;+charset=utf-8 6511.7809ms
+2025-01-26 00:11:22.829 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 00:11:23.061 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 00:11:23.069 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 00:11:23.070 -05:00 [INF] Hosting environment: Development
+2025-01-26 00:11:23.070 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 00:11:23.831 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 00:11:24.509 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 681.3165ms
+2025-01-26 00:11:24.831 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 00:11:24.833 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 00:11:24.839 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.8900ms
+2025-01-26 00:11:24.878 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.5618ms
+2025-01-26 00:11:24.929 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 00:11:25.194 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 265.7019ms
+2025-01-26 00:11:36.026 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:11:36.047 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:11:36.100 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:11:36.269 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:11:36.326 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 200.2709ms
+2025-01-26 00:11:36.335 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:11:36.341 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 314.9926ms
+2025-01-26 00:13:48.386 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:13:48.394 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:13:48.396 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:13:48.403 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:13:48.413 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 14.2784ms
+2025-01-26 00:13:48.419 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:13:48.420 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 34.6843ms
+2025-01-26 00:13:58.762 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:13:58.763 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:13:58.777 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:13:58.783 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:13:58.784 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 4.5177ms
+2025-01-26 00:13:58.785 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:13:58.787 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 25.0290ms
+2025-01-26 00:15:20.889 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:15:20.892 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:15:20.893 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:15:20.896 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:15:20.897 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 2.1136ms
+2025-01-26 00:15:20.903 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:15:20.905 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 16.1851ms
+2025-01-26 00:18:08.676 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:18:08.679 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:18:08.680 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:18:08.684 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:18:08.686 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 3.4998ms
+2025-01-26 00:18:08.688 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:18:08.689 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 13.1550ms
+2025-01-26 00:21:05.608 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 00:21:05.829 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 00:21:05.834 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 00:21:05.836 -05:00 [INF] Hosting environment: Development
+2025-01-26 00:21:05.837 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 00:21:07.033 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 00:21:07.685 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 662.1927ms
+2025-01-26 00:21:07.981 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 00:21:07.988 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 00:21:08.001 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 19.4921ms
+2025-01-26 00:21:08.050 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.7293ms
+2025-01-26 00:21:08.114 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 00:21:08.366 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 251.9863ms
+2025-01-26 00:21:17.512 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:21:17.524 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:21:17.586 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:21:17.780 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:21:17.842 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 222.1434ms
+2025-01-26 00:21:17.854 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:21:17.860 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 347.9407ms
+2025-01-26 00:23:04.059 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 00:23:04.434 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 00:23:04.444 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 00:23:04.477 -05:00 [INF] Hosting environment: Development
+2025-01-26 00:23:04.479 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 00:23:04.912 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 00:23:06.842 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1939.0546ms
+2025-01-26 00:23:06.847 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 00:23:06.923 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 76.4714ms
+2025-01-26 00:23:07.169 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 00:23:07.485 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 315.2022ms
+2025-01-26 00:23:07.578 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 00:23:08.333 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 755.3744ms
+2025-01-26 00:23:19.082 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 00:23:19.092 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:23:19.138 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 00:23:19.430 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 00:23:19.483 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 337.8633ms
+2025-01-26 00:23:19.491 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 00:23:19.498 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 400 - application/problem+json;+charset=utf-8 415.6017ms
+2025-01-26 07:19:06.240 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:19:06.870 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:19:06.874 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:19:06.876 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:19:06.876 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:19:08.145 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:19:09.887 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1748.4094ms
+2025-01-26 07:19:09.905 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:19:09.940 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 34.3102ms
+2025-01-26 07:19:10.157 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:19:10.323 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 166.4726ms
+2025-01-26 07:19:10.367 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:19:10.636 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 269.1004ms
+2025-01-26 07:20:46.275 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:20:46.567 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:20:46.574 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:20:46.575 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:20:46.576 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:20:47.022 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:20:47.793 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 785.3394ms
+2025-01-26 07:20:48.107 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:20:48.109 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:20:48.118 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.6427ms
+2025-01-26 07:20:48.144 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.0496ms
+2025-01-26 07:20:48.204 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:20:48.452 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 248.0965ms
+2025-01-26 07:22:03.255 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:22:03.561 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:22:03.569 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:22:03.570 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:22:03.571 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:22:04.092 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:22:04.943 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 864.0017ms
+2025-01-26 07:22:04.961 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:22:04.972 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 10.3812ms
+2025-01-26 07:22:05.246 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:22:05.298 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.9828ms
+2025-01-26 07:22:05.357 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:22:05.707 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 349.8124ms
+2025-01-26 07:22:51.047 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:22:51.274 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:22:51.279 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:22:51.280 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:22:51.281 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:22:52.023 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:22:52.710 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 691.8359ms
+2025-01-26 07:22:53.025 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:22:53.026 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:22:53.031 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.4672ms
+2025-01-26 07:22:53.075 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.0942ms
+2025-01-26 07:22:53.125 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:22:53.556 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 431.2198ms
+2025-01-26 07:23:03.072 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2 - -
+2025-01-26 07:23:03.084 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:23:03.135 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:23:06.953 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:23:06.989 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 3846.7961ms
+2025-01-26 07:23:06.996 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:23:07.009 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2 - - - 200 - application/json;+charset=utf-8 3937.0916ms
+2025-01-26 07:23:19.477 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/2/2 - -
+2025-01-26 07:23:19.481 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:23:19.483 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:23:19.610 -05:00 [WRN] La página solicitada (2) excede el total de páginas disponibles.
+2025-01-26 07:23:19.611 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 07:23:19.612 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 126.7156ms
+2025-01-26 07:23:19.614 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:23:19.615 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/2/2 - - - 404 - text/plain;+charset=utf-8 137.9812ms
+2025-01-26 07:43:14.345 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:43:14.612 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:43:14.624 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:43:14.625 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:43:14.626 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:43:15.075 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:43:15.803 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 731.5282ms
+2025-01-26 07:43:16.086 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:43:16.087 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:43:16.094 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 6.5459ms
+2025-01-26 07:43:16.131 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.0693ms
+2025-01-26 07:43:16.198 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:43:16.464 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 265.9653ms
+2025-01-26 07:43:23.212 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/0 - -
+2025-01-26 07:43:23.228 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:43:23.274 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:43:23.548 -05:00 [WRN] El tamaño de página debe ser mayor a cero.
+2025-01-26 07:43:23.561 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 07:43:23.570 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 288.667ms
+2025-01-26 07:43:23.579 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:43:23.585 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/0 - - - 404 - text/plain;+charset=utf-8 373.1738ms
+2025-01-26 07:45:17.934 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 07:45:17.943 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:45:17.945 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:45:34.828 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:45:35.283 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:45:35.288 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:45:35.290 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:45:35.290 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:45:35.912 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:45:36.561 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 652.1582ms
+2025-01-26 07:45:36.873 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:45:36.875 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:45:36.883 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 7.6708ms
+2025-01-26 07:45:36.910 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.2207ms
+2025-01-26 07:45:36.974 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:45:37.226 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 252.0341ms
+2025-01-26 07:45:47.423 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - -
+2025-01-26 07:45:47.464 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:45:47.514 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:45:50.526 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:45:50.559 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 3036.6686ms
+2025-01-26 07:45:50.572 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:45:50.593 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1 - - - 200 - application/json;+charset=utf-8 3169.5349ms
+2025-01-26 07:46:11.375 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - -
+2025-01-26 07:46:11.381 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:46:11.384 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:46:11.543 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:46:11.546 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 156.6782ms
+2025-01-26 07:46:11.548 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:46:11.550 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - - - 200 - application/json;+charset=utf-8 174.6231ms
+2025-01-26 07:47:02.485 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - -
+2025-01-26 07:47:02.492 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:47:02.493 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:47:02.565 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:47:02.566 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 71.4399ms
+2025-01-26 07:47:02.568 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:47:02.569 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - - - 200 - application/json;+charset=utf-8 84.5823ms
+2025-01-26 07:47:17.853 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - -
+2025-01-26 07:47:17.868 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:47:17.871 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:47:17.876 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:47:17.878 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 3.5149ms
+2025-01-26 07:47:17.879 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:47:17.881 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - - - 200 - application/json;+charset=utf-8 27.1302ms
+2025-01-26 07:47:29.792 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=abe%3Ahola - -
+2025-01-26 07:47:29.794 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:47:29.796 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:52:31.342 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:52:31.598 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:52:31.610 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:52:31.612 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:52:31.613 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:52:32.130 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:52:32.872 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 755.7689ms
+2025-01-26 07:52:32.884 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:52:32.919 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 34.4515ms
+2025-01-26 07:52:33.154 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:52:33.241 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 87.4656ms
+2025-01-26 07:52:33.286 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:52:33.512 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 225.9093ms
+2025-01-26 07:53:01.381 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=af%3Axd - -
+2025-01-26 07:53:01.406 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:53:01.450 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:53:16.365 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:53:16.431 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 14972.7955ms
+2025-01-26 07:53:16.440 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:53:16.456 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=af%3Axd - - - 200 - application/json;+charset=utf-8 15074.4366ms
+2025-01-26 07:56:24.967 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=af%3Axd - -
+2025-01-26 07:56:24.971 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:56:24.972 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:56:41.824 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 07:56:42.051 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 07:56:42.057 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 07:56:42.058 -05:00 [INF] Hosting environment: Development
+2025-01-26 07:56:42.059 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 07:56:42.823 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 07:56:43.701 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 883.1597ms
+2025-01-26 07:56:43.827 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 07:56:43.831 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 3.9613ms
+2025-01-26 07:56:44.071 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 07:56:44.169 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 98.2637ms
+2025-01-26 07:56:44.221 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 07:56:44.477 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 255.5350ms
+2025-01-26 07:56:55.384 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=fafa%3A2 - -
+2025-01-26 07:56:55.396 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:56:55.443 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:57:26.609 -05:00 [WRN] Campo de filtro no válido: 'fafa'.
+2025-01-26 07:57:26.620 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 07:57:26.662 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 31181.6031ms
+2025-01-26 07:57:26.669 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:57:26.674 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=fafa%3A2 - - - 400 - text/plain;+charset=utf-8 31289.9074ms
+2025-01-26 07:57:44.832 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3AMISTERio - -
+2025-01-26 07:57:44.835 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:57:44.838 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:58:33.023 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 07:58:33.054 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 48214.2642ms
+2025-01-26 07:58:33.056 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 07:58:33.065 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3AMISTERio - - - 200 - application/json;+charset=utf-8 48233.3334ms
+2025-01-26 07:58:40.759 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-01-26 07:58:40.761 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 07:58:40.763 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 07:58:41.038 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-26 07:58:41.042 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 276.1465ms
+2025-01-26 07:58:41.043 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-26 07:58:41.044 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 200 - application/json;+charset=utf-8 285.4114ms
+2025-01-26 08:02:07.254 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 08:02:07.476 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 08:02:07.482 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 08:02:07.484 -05:00 [INF] Hosting environment: Development
+2025-01-26 08:02:07.484 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 08:02:08.105 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 08:02:08.870 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 773.0282ms
+2025-01-26 08:02:08.880 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 08:02:08.909 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 29.2195ms
+2025-01-26 08:02:09.136 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 08:02:09.208 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.0939ms
+2025-01-26 08:02:09.252 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 08:02:09.487 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 235.6992ms
+2025-01-26 08:02:24.472 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3Amisterio - -
+2025-01-26 08:02:24.485 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:02:24.531 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 08:02:27.029 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 08:02:27.084 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 2545.7527ms
+2025-01-26 08:02:27.121 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:02:27.137 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3Amisterio - - - 200 - application/json;+charset=utf-8 2664.5078ms
+2025-01-26 08:03:24.268 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 08:03:24.511 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 08:03:24.518 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 08:03:24.519 -05:00 [INF] Hosting environment: Development
+2025-01-26 08:03:24.520 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 08:03:24.992 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 08:03:25.827 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 839.9489ms
+2025-01-26 08:03:26.094 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 08:03:26.105 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 08:03:26.115 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 9.8749ms
+2025-01-26 08:03:26.170 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.2629ms
+2025-01-26 08:03:26.231 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 08:03:26.532 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 300.8908ms
+2025-01-26 08:03:36.607 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=categoria%3Amisterio - -
+2025-01-26 08:03:36.618 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:03:36.676 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 08:04:02.533 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 08:04:02.566 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 25881.6477ms
+2025-01-26 08:04:02.573 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:04:02.588 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/1?filtro=categoria%3Amisterio - - - 200 - application/json;+charset=utf-8 25980.6386ms
+2025-01-26 08:06:15.956 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 08:06:16.224 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 08:06:16.228 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 08:06:16.230 -05:00 [INF] Hosting environment: Development
+2025-01-26 08:06:16.230 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 08:06:16.695 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 08:06:17.292 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 603.0520ms
+2025-01-26 08:06:17.575 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 08:06:17.587 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 08:06:17.591 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 15.6409ms
+2025-01-26 08:06:17.762 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 174.2072ms
+2025-01-26 08:06:17.813 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 08:06:18.031 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 217.8253ms
+2025-01-26 08:06:37.936 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/4/2?filtro=Categoria%3AMisterio - -
+2025-01-26 08:06:37.946 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:06:37.989 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 08:06:40.450 -05:00 [WRN] La página solicitada (4) excede el total de páginas disponibles.
+2025-01-26 08:06:40.460 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 08:06:40.468 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 2463.9792ms
+2025-01-26 08:06:40.475 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:06:40.488 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/4/2?filtro=Categoria%3AMisterio - - - 400 - text/plain;+charset=utf-8 2552.1902ms
+2025-01-26 08:06:44.200 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=Categoria%3AMisterio - -
+2025-01-26 08:06:44.204 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:06:44.206 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-26 08:06:44.443 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 08:06:44.483 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 272.8189ms
+2025-01-26 08:06:44.486 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-26 08:06:44.488 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=Categoria%3AMisterio - - - 200 - application/json;+charset=utf-8 287.4758ms

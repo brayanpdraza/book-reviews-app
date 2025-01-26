@@ -3,8 +3,10 @@ using AdaptadorAPI.Implementaciones;
 using AdaptadorEncripter;
 using AdaptadorPostgreSQL;
 using AdaptadorPostgreSQL.Libros.Adaptadores;
+using AdaptadorPostgreSQL.Libros.Mappers;
 using AdaptadorPostgreSQL.Reviews.Adaptadores;
 using AdaptadorPostgreSQL.Usuarios.Adaptadores;
+using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Aplicacion.Libros;
 using Aplicacion.Reviews;
 using Aplicacion.Usuarios;
@@ -13,11 +15,11 @@ using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Reviews.Servicios;
 using Dominio.Servicios.ServicioEncripcion.Contratos;
-using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Dominio.Usuarios.Servicios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
 
@@ -28,7 +30,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tu API", Version = "v1" });
+
+    // Configuración para marcar parámetros opcionales correctamente
+    c.DescribeAllParametersInCamelCase();
+    c.SupportNonNullableReferenceTypes();
+});
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -74,6 +83,7 @@ builder.Services.AddScoped<UseCaseUsuario>();
 builder.Services.AddScoped<UseCaseLibro>();
 builder.Services.AddScoped<UseCaseReview>();
 builder.Services.AddScoped<PostgreSQLDbContext>();
+builder.Services.AddScoped<TokenValidationParameters>();
 
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthserviceJWT>();

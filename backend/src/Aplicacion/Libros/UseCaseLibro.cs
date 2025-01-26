@@ -46,7 +46,7 @@ namespace Aplicacion.Libros
                 };
             }
 
-            totalPaginas = (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
+            totalPaginas = TotalPaginas(totalRegistros,tamanoPagina);
 
             if (pagina > totalPaginas)
             {
@@ -69,13 +69,30 @@ namespace Aplicacion.Libros
 
         public LibroModelo ConsultarLibroPorId(long id)
         {
+            LibroModelo Libro;
             if (id <= 0)
             {
                 throw new ArgumentException("Debe ingresar un ID Válido para consultar un libro.");
             }
+            Libro = _libroRepositorio.ListLibroPorId(id);
 
-            return _libroRepositorio.ListLibroPorId(id);
+            if (Libro.Id <= 0)
+            {
+                throw new KeyNotFoundException($"El id {id} No se encuentra asociado a ningún libro.");
+            }
 
+            return Libro;
+
+        }
+
+        public int TotalPaginas(int totalRegistros, int tamanoPagina)
+        {
+            if(tamanoPagina == 0)
+            {
+                throw new DivideByZeroException("El tamano de Pagina no peude ser 0");
+            }
+
+            return (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
         }
     }
 }

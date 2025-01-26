@@ -423,3 +423,76 @@ DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error
 2025-01-25 21:47:58.402 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 2920.5548ms
 2025-01-25 21:47:58.406 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
 2025-01-25 21:47:58.419 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 358 - 204 - - 3015.7656ms
+2025-01-25 23:55:48.920 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-25 23:55:49.254 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-25 23:55:49.258 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-25 23:55:49.260 -05:00 [INF] Hosting environment: Development
+2025-01-25 23:55:49.261 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-25 23:55:50.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-25 23:55:51.161 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-25 23:55:51.180 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 856.9033ms
+2025-01-25 23:55:51.182 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 42.5505ms
+2025-01-25 23:55:51.365 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-25 23:55:51.429 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.7636ms
+2025-01-25 23:55:51.470 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-25 23:55:51.671 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 201.2313ms
+2025-01-25 23:56:32.777 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/0 - -
+2025-01-25 23:56:32.838 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:56:32.896 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:56:33.165 -05:00 [ERR] Error interno al obtener Libro con ID: 0
+System.ArgumentException: Debe ingresar un ID Válido para consultar un libro.
+   at Aplicacion.Libros.UseCaseLibro.ConsultarLibroPorId(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Libros\UseCaseLibro.cs:line 74
+   at AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\LibroController.cs:line 27
+2025-01-25 23:56:33.241 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-01-25 23:56:33.250 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 346.3443ms
+2025-01-25 23:56:33.265 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:56:33.279 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/0 - - - 500 - text/plain;+charset=utf-8 502.4111ms
+2025-01-25 23:57:21.545 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-25 23:57:21.793 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-25 23:57:21.800 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-25 23:57:21.802 -05:00 [INF] Hosting environment: Development
+2025-01-25 23:57:21.803 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-25 23:57:22.736 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-25 23:57:23.412 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 682.0740ms
+2025-01-25 23:57:23.693 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-25 23:57:23.715 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-25 23:57:23.724 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.9383ms
+2025-01-25 23:57:23.776 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.9619ms
+2025-01-25 23:57:23.821 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-25 23:57:24.045 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 224.0164ms
+2025-01-25 23:57:29.646 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/0 - -
+2025-01-25 23:57:29.656 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:57:29.715 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:57:29.897 -05:00 [WRN] Debe ingresar un ID Válido para consultar un libro.
+2025-01-25 23:57:29.916 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-25 23:57:29.925 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 201.2083ms
+2025-01-25 23:57:29.935 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:57:29.942 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/0 - - - 404 - text/plain;+charset=utf-8 295.2368ms
+2025-01-25 23:57:52.681 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/2 - -
+2025-01-25 23:57:52.684 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:57:52.686 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:57:55.593 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-25 23:57:55.617 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 2927.7711ms
+2025-01-25 23:57:55.619 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:57:55.631 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/2 - - - 200 - application/json;+charset=utf-8 2949.9051ms
+2025-01-25 23:58:09.164 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - -
+2025-01-25 23:58:09.169 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:58:09.172 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:58:09.197 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-25 23:58:09.198 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 16.6798ms
+2025-01-25 23:58:09.200 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:58:09.201 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - - - 200 - application/json;+charset=utf-8 36.8602ms
+2025-01-25 23:58:12.573 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - -
+2025-01-25 23:58:12.585 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:58:12.586 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:58:12.651 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-25 23:58:12.652 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 64.1691ms
+2025-01-25 23:58:12.653 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:58:12.654 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - - - 200 - application/json;+charset=utf-8 81.0885ms
+2025-01-25 23:59:40.604 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - -
+2025-01-25 23:59:40.606 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:59:40.608 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-25 23:59:47.713 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-01-25 23:59:49.804 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 9190.7452ms
+2025-01-25 23:59:49.816 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-25 23:59:49.817 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/50 - - - 200 - application/json;+charset=utf-8 9212.7256ms
