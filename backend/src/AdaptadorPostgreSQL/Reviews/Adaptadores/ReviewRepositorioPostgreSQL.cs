@@ -31,6 +31,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
         public long AddReview(ReviewModel Review)
         {
             ReviewEntity reviewEntity = _mapToReviewEntity.MapToReviewEntidad(Review);
+            Review.CreatedAt = DateTime.UtcNow;
             _postgreSQLDbContext.Add(reviewEntity);
             SaveChanges();
             return reviewEntity.Id;
@@ -38,7 +39,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
         public ReviewModel ListReviewPorId(long id)
         {
-            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r=>r.Libro).Where(l => l.Id == id);
+            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r=>r.Libro).ThenInclude(libro=>libro.Categoria).Where(l => l.Id == id);
 
             ReviewEntity reviewEntity = query.FirstOrDefault();
 
@@ -54,7 +55,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
         public List<ReviewModel> ListReviewPorLibro(LibroModelo Libro)
         {
-            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).Where(r => r.Libro.Id == Libro.Id);
+            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro=>libro.Categoria).Where(r => r.Libro.Id == Libro.Id);
 
             List<ReviewEntity> reviewEntityList = query.ToList();
 

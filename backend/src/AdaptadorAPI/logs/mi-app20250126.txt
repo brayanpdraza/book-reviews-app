@@ -389,3 +389,941 @@
 2025-01-26 08:06:44.483 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 272.8189ms
 2025-01-26 08:06:44.486 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
 2025-01-26 08:06:44.488 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=Categoria%3AMisterio - - - 200 - application/json;+charset=utf-8 287.4758ms
+2025-01-26 11:51:04.458 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 11:51:04.933 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 11:51:04.938 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 11:51:04.939 -05:00 [INF] Hosting environment: Development
+2025-01-26 11:51:04.940 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 11:51:05.602 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 11:51:07.275 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1679.2896ms
+2025-01-26 11:51:07.552 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 11:51:07.559 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 11:51:07.568 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.5785ms
+2025-01-26 11:51:07.633 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 80.4493ms
+2025-01-26 11:51:07.677 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 11:51:07.891 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 214.5012ms
+2025-01-26 11:52:19.591 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368
+2025-01-26 11:52:19.606 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 11:52:19.651 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 11:52:20.155 -05:00 [ERR] Error interno al guardar usuario: Dominio.Reviews.Modelo.ReviewModel
+System.ArgumentException: La calificación debe estar entre 1 y 5.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.CalificacionLibroValidator.Validate(Int32 Calificacion) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\CalificacionLibroValidator.cs:line 17
+   at Dominio.Reviews.Servicios.ReviewValidations.Validate(ReviewModel ReviewValidar) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewValidations.cs:line 32
+   at Aplicacion.Reviews.UseCaseReview.AddReview(ReviewModel review) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 40
+   at AdaptadorAPI.Controllers.ReviewController.GuardarReview(ReviewModel review) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 32
+2025-01-26 11:52:20.247 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-01-26 11:52:20.254 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 594.8101ms
+2025-01-26 11:52:20.261 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 11:52:20.266 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368 - 500 - text/plain;+charset=utf-8 675.7521ms
+2025-01-26 11:52:31.790 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368
+2025-01-26 11:52:31.796 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 11:52:31.797 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 11:52:48.131 -05:00 [ERR] Error interno al guardar usuario: Dominio.Reviews.Modelo.ReviewModel
+System.ArgumentException: La calificación debe estar entre 1 y 5.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.CalificacionLibroValidator.Validate(Int32 Calificacion) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\CalificacionLibroValidator.cs:line 17
+   at Dominio.Reviews.Servicios.ReviewValidations.Validate(ReviewModel ReviewValidar) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewValidations.cs:line 32
+   at Aplicacion.Reviews.UseCaseReview.AddReview(ReviewModel review) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 40
+   at AdaptadorAPI.Controllers.ReviewController.GuardarReview(ReviewModel review)
+2025-01-26 11:52:53.068 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-01-26 11:52:53.083 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 21283.8578ms
+2025-01-26 11:52:53.085 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 11:52:53.086 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368 - 500 - text/plain;+charset=utf-8 21296.5647ms
+2025-01-26 11:52:59.981 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368
+2025-01-26 11:52:59.985 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 11:52:59.990 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:04:27.135 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:04:27.366 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:04:27.372 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:04:27.373 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:04:27.374 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:04:28.518 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:04:29.181 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 668.3590ms
+2025-01-26 12:04:29.470 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:04:29.474 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:04:29.479 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.7908ms
+2025-01-26 12:04:29.530 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.6530ms
+2025-01-26 12:04:29.573 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:04:29.776 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 202.6914ms
+2025-01-26 12:05:08.655 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:05:08.663 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:05:08.704 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:05:13.336 -05:00 [WRN] La calificación debe estar entre 1 y 5.
+2025-01-26 12:05:13.348 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 12:05:13.356 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 4643.979ms
+2025-01-26 12:05:13.363 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:05:13.369 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 400 - text/plain;+charset=utf-8 4714.3303ms
+2025-01-26 12:05:30.468 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368
+2025-01-26 12:05:30.473 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:05:30.475 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:05:40.349 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 12:05:40.396 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 9918.5212ms
+2025-01-26 12:05:40.398 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:05:40.409 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 368 - 201 - application/json;+charset=utf-8 9940.6426ms
+2025-01-26 12:06:25.009 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-01-26 12:06:25.015 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:06:25.019 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:07:16.355 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:07:17.005 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:07:17.011 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:07:17.012 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:07:17.013 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:07:17.634 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:07:18.336 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 712.9945ms
+2025-01-26 12:07:18.605 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:07:18.607 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:07:18.615 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.4380ms
+2025-01-26 12:07:18.662 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.2433ms
+2025-01-26 12:07:18.725 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:07:18.975 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 250.0901ms
+2025-01-26 12:07:25.680 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-01-26 12:07:25.690 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:07:25.745 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:07:52.884 -05:00 [ERR] Error interno al obtener Review con ID: 1
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewdomainmodel(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 21
+   at AdaptadorPostgreSQL.Reviews.Adaptadores.ReviewRepositorioPostgreSQL.ListReviewPorId(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Adaptadores\ReviewRepositorioPostgreSQL.cs:line 50
+   at Aplicacion.Reviews.UseCaseReview.ConsultarReviewsPoriD(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 72
+   at AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 66
+2025-01-26 12:07:52.942 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-01-26 12:07:52.951 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 27198.4852ms
+2025-01-26 12:07:52.960 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:07:52.974 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - - - 500 - text/plain;+charset=utf-8 27293.8321ms
+2025-01-26 12:07:54.455 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-01-26 12:07:54.459 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:07:54.461 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:14:06.270 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:14:06.510 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:14:06.515 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:14:06.516 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:14:06.517 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:14:06.991 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:14:07.699 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 712.8058ms
+2025-01-26 12:14:07.793 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:14:07.798 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.9002ms
+2025-01-26 12:14:07.990 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:14:08.072 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.1338ms
+2025-01-26 12:14:08.118 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:14:08.355 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 237.6059ms
+2025-01-26 12:14:35.746 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-01-26 12:14:35.757 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:14:35.801 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:14:41.720 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 12:14:41.760 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 5949.9667ms
+2025-01-26 12:14:41.767 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-01-26 12:14:41.785 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - - - 200 - application/json;+charset=utf-8 6040.6538ms
+2025-01-26 12:15:32.564 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104
+2025-01-26 12:15:32.567 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:15:32.571 -05:00 [INF] Route matched with {action = "ConsultarReviewsPorLibro", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewsPorLibro(Dominio.Libros.Modelo.LibroModelo) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:15:35.796 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Dominio.Reviews.Modelo.ReviewModel, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-26 12:15:35.800 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI) in 3224.7198ms
+2025-01-26 12:15:35.802 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:15:35.804 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104 - 200 - application/json;+charset=utf-8 3240.0581ms
+2025-01-26 12:16:09.773 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104
+2025-01-26 12:16:09.779 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:16:09.781 -05:00 [INF] Route matched with {action = "ConsultarReviewsPorLibro", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewsPorLibro(Dominio.Libros.Modelo.LibroModelo) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:16:09.872 -05:00 [WRN] El libro al que intenta Consultar sus reseñas no se encuentra registrado en el sistema.
+2025-01-26 12:16:09.874 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:16:09.875 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI) in 92.2851ms
+2025-01-26 12:16:09.877 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:16:09.878 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104 - 404 - text/plain;+charset=utf-8 105.3554ms
+2025-01-26 12:16:23.079 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104
+2025-01-26 12:16:23.080 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:16:23.082 -05:00 [INF] Route matched with {action = "ConsultarReviewsPorLibro", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewsPorLibro(Dominio.Libros.Modelo.LibroModelo) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:16:23.121 -05:00 [WRN] No se pueden consultar las reseñas porque el ID del libro no es válido.
+2025-01-26 12:16:23.122 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 12:16:23.124 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI) in 37.3266ms
+2025-01-26 12:16:23.126 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewsPorLibro (AdaptadorAPI)'
+2025-01-26 12:16:23.127 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/api/reviews/consultar application/json 104 - 400 - text/plain;+charset=utf-8 47.7913ms
+2025-01-26 12:24:24.927 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:24:25.169 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:24:25.174 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:24:25.176 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:24:25.176 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:24:25.982 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:24:26.727 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 756.1902ms
+2025-01-26 12:24:27.023 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:24:27.027 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:24:27.036 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.2365ms
+2025-01-26 12:24:27.083 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.1246ms
+2025-01-26 12:24:27.145 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:24:27.421 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 275.3480ms
+2025-01-26 12:25:57.661 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 338
+2025-01-26 12:25:57.712 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 12:25:57.723 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 12:25:57.724 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 338 - 401 0 - 63.0488ms
+2025-01-26 12:27:31.314 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:27:31.316 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 12:27:31.317 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 12:27:31.318 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 401 0 - 3.7045ms
+2025-01-26 12:28:02.111 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:28:02.355 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:28:02.360 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:28:02.362 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:28:02.363 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:28:02.954 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:28:03.710 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 763.2148ms
+2025-01-26 12:28:03.797 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:28:03.802 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.2065ms
+2025-01-26 12:28:03.984 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:28:04.036 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.1593ms
+2025-01-26 12:28:04.141 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:28:04.341 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 200.4216ms
+2025-01-26 12:33:54.619 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:33:54.669 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:33:54.710 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:33:57.072 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:33:57.082 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:33:57.090 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 2371.7766ms
+2025-01-26 12:33:57.097 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:33:57.110 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 2490.5210ms
+2025-01-26 12:34:13.780 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/2 - -
+2025-01-26 12:34:13.785 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:34:13.790 -05:00 [INF] Route matched with {action = "ObtenerUsuarioid", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerUsuarioid(Int64) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:34:13.928 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Usuarios.Modelo.UsuarioModelo'.
+2025-01-26 12:34:13.949 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI) in 155.6052ms
+2025-01-26 12:34:13.952 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:34:13.953 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/2 - - - 200 - application/json;+charset=utf-8 173.0952ms
+2025-01-26 12:34:28.217 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:34:28.219 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:28.225 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:34:28.326 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:34:28.327 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:34:28.328 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 101.5901ms
+2025-01-26 12:34:28.330 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:28.332 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 114.9768ms
+2025-01-26 12:34:35.767 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:34:35.770 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:35.772 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:34:35.805 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:34:35.807 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:34:35.809 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 32.9158ms
+2025-01-26 12:34:35.811 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:35.812 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 44.5989ms
+2025-01-26 12:34:39.392 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:34:39.394 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:39.397 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:34:39.432 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:34:39.433 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:34:39.435 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 35.1099ms
+2025-01-26 12:34:39.436 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:34:39.437 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 45.7540ms
+2025-01-26 12:35:19.127 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:35:19.131 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:35:19.133 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:36:12.323 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:36:12.329 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:36:12.330 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 53193.9941ms
+2025-01-26 12:36:12.332 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:36:12.333 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 53206.3145ms
+2025-01-26 12:36:24.623 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:36:24.625 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:36:24.626 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:36:32.115 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:36:32.117 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:36:32.118 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI) in 7490.3187ms
+2025-01-26 12:36:32.119 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:36:32.121 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 7498.9320ms
+2025-01-26 12:36:35.440 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/2 - -
+2025-01-26 12:36:35.443 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:36:35.444 -05:00 [INF] Route matched with {action = "ObtenerUsuarioid", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerUsuarioid(Int64) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:36:40.416 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Usuarios.Modelo.UsuarioModelo'.
+2025-01-26 12:36:40.418 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI) in 4971.2192ms
+2025-01-26 12:36:40.420 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:36:40.422 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/2 - - - 200 - application/json;+charset=utf-8 4982.0679ms
+2025-01-26 12:38:05.503 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password} - -
+2025-01-26 12:38:05.507 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPasssword (AdaptadorAPI)'
+2025-01-26 12:38:05.508 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPasssword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPasssword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:44:45.048 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:44:45.390 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:44:45.395 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:44:45.396 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:44:45.397 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:44:46.051 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:44:46.657 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 611.4832ms
+2025-01-26 12:44:46.971 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:44:46.973 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:44:46.979 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 6.2900ms
+2025-01-26 12:44:47.030 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.7826ms
+2025-01-26 12:44:47.096 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:44:47.323 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 227.4579ms
+2025-01-26 12:44:55.710 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - -
+2025-01-26 12:44:55.722 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:44:55.765 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:44:58.271 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:44:58.282 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:44:58.290 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 2518.2413ms
+2025-01-26 12:44:58.298 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:44:58.311 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 2601.1530ms
+2025-01-26 12:45:03.478 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - -
+2025-01-26 12:45:03.482 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:45:03.485 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:45:03.544 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:45:03.545 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:45:03.546 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 58.5889ms
+2025-01-26 12:45:03.548 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:45:03.549 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 71.6873ms
+2025-01-26 12:45:28.151 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - -
+2025-01-26 12:45:28.159 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:45:28.160 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:45:47.219 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-26 12:45:47.226 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:45:47.231 -05:00 [INF] Route matched with {action = "ObtenerUsuarioid", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerUsuarioid(Int64) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:45:47.323 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-26 12:45:47.324 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 12:45:47.326 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 19162.7322ms
+2025-01-26 12:45:47.327 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:45:47.328 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Password} - - - 404 - text/plain;+charset=utf-8 19177.8256ms
+2025-01-26 12:45:47.459 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Usuarios.Modelo.UsuarioModelo'.
+2025-01-26 12:45:47.481 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI) in 248.4186ms
+2025-01-26 12:45:47.483 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-26 12:45:47.484 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 200 - application/json;+charset=utf-8 264.8463ms
+2025-01-26 12:48:12.023 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:48:12.316 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:48:12.321 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:48:12.323 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:48:12.323 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:48:12.764 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:48:13.489 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 730.5816ms
+2025-01-26 12:48:13.772 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:48:13.777 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:48:13.786 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.8637ms
+2025-01-26 12:48:13.861 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.4878ms
+2025-01-26 12:48:13.903 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:48:14.152 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 248.7975ms
+2025-01-26 12:48:38.004 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/AFAF/ASFA - -
+2025-01-26 12:48:38.016 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:48:38.056 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:52:21.429 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:52:21.680 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:52:21.685 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:52:21.686 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:52:21.687 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:52:22.140 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:52:22.794 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:52:22.844 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 697.5051ms
+2025-01-26 12:52:22.846 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 52.5623ms
+2025-01-26 12:52:23.100 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:52:23.212 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 111.5092ms
+2025-01-26 12:52:23.258 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:52:23.512 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 254.3188ms
+2025-01-26 12:52:53.361 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/Pass123@ - -
+2025-01-26 12:52:53.371 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:52:53.417 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:52:55.938 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 12:52:55.946 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 2520.5408ms
+2025-01-26 12:52:55.953 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:52:55.966 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/Pass123@ - - - 401 - text/plain;+charset=utf-8 2604.3854ms
+2025-01-26 12:53:00.847 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 12:53:00.852 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:53:00.855 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 12:53:01.371 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 12:53:01.415 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 556.5929ms
+2025-01-26 12:53:01.417 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:53:01.419 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 572.5896ms
+2025-01-26 12:54:06.005 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:54:06.012 -05:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2025-01-26 12:54:06.018 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 12:54:06.030 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 12:54:06.031 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 401 0 - 26.5155ms
+2025-01-26 12:54:15.956 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:54:16.055 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:54:16.059 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:54:16.477 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 12:54:16.482 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 421.5292ms
+2025-01-26 12:54:16.484 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:54:16.486 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 529.7129ms
+2025-01-26 12:55:54.504 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:55:54.510 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:55:54.511 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:55:54.521 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 12:55:54.523 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 11.0647ms
+2025-01-26 12:55:54.525 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:55:54.526 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 22.6845ms
+2025-01-26 12:57:05.211 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 12:57:05.213 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:57:05.214 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 12:57:05.224 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 12:57:05.225 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 9.0519ms
+2025-01-26 12:57:05.226 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 12:57:05.227 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 16.5810ms
+2025-01-26 12:58:28.150 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 12:58:28.392 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 12:58:28.396 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 12:58:28.398 -05:00 [INF] Hosting environment: Development
+2025-01-26 12:58:28.398 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 12:58:28.771 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 12:58:29.455 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 698.8807ms
+2025-01-26 12:58:29.750 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 12:58:29.759 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 12:58:29.768 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.4907ms
+2025-01-26 12:58:29.798 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.2417ms
+2025-01-26 12:58:29.860 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 12:58:30.071 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.2131ms
+2025-01-26 12:59:05.838 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 12:59:05.852 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 12:59:05.899 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:08:55.373 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:08:55.646 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:08:55.654 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:08:55.656 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:08:55.657 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:08:56.435 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:08:57.310 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 881.0157ms
+2025-01-26 13:08:57.602 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:08:57.605 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:08:57.614 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 9.1862ms
+2025-01-26 13:08:57.718 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 116.6497ms
+2025-01-26 13:08:57.770 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:08:58.048 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 278.1265ms
+2025-01-26 13:09:05.100 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:09:05.339 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 5:55:00 p.m.', Current time (UTC): '26/01/2025 6:09:05 p.m.'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2025-01-26 13:09:05.433 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 5:55:00 p.m.', Current time (UTC): '26/01/2025 6:09:05 p.m.'.
+2025-01-26 13:09:05.440 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 13:09:05.451 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 13:09:05.452 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 401 0 - 351.9447ms
+2025-01-26 13:09:26.160 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:09:26.172 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:09:26.215 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:09:31.495 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:09:31.543 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 5320.7833ms
+2025-01-26 13:09:31.554 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:09:31.569 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 5409.7831ms
+2025-01-26 13:18:45.677 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:18:45.884 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:18:45.890 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:18:45.891 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:18:45.892 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:18:46.635 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:18:47.338 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 710.2177ms
+2025-01-26 13:18:47.619 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:18:47.619 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:18:47.625 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.4802ms
+2025-01-26 13:18:47.674 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 54.6842ms
+2025-01-26 13:18:47.726 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:18:48.003 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 277.3793ms
+2025-01-26 13:19:43.423 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:19:43.436 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:19:43.476 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:19:46.319 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:19:46.359 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 2876.9127ms
+2025-01-26 13:19:46.368 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:19:46.385 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 2962.0674ms
+2025-01-26 13:20:18.955 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:20:19.071 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:20:19.074 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 13:20:19.503 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 13:20:19.507 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 431.1173ms
+2025-01-26 13:20:19.510 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:20:19.512 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 556.8055ms
+2025-01-26 13:23:31.787 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:23:31.808 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:21:46 p.m.', Current time (UTC): '26/01/2025 6:23:31 p.m.'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2025-01-26 13:23:31.927 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:21:46 p.m.', Current time (UTC): '26/01/2025 6:23:31 p.m.'.
+2025-01-26 13:23:31.929 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 13:23:31.940 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 13:23:31.941 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 401 0 - 154.7855ms
+2025-01-26 13:24:05.428 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:24:05.432 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:24:05.436 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:24:05.648 -05:00 [WRN] Refresh token no asociado a un usuario.
+2025-01-26 13:24:05.650 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 13:24:05.651 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 211.8706ms
+2025-01-26 13:24:05.653 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:24:05.654 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 404 - text/plain;+charset=utf-8 225.6470ms
+2025-01-26 13:24:32.047 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:24:32.057 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:24:32.058 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:24:32.073 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:24:32.075 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 14.1268ms
+2025-01-26 13:24:32.076 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:24:32.077 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 200 - application/json;+charset=utf-8 30.1771ms
+2025-01-26 13:24:59.027 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:24:59.037 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:24:59.039 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 13:24:59.103 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 13:24:59.105 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 63.1962ms
+2025-01-26 13:24:59.106 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:24:59.107 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 80.5922ms
+2025-01-26 13:26:21.722 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:26:21.724 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:26:21.726 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 13:26:21.736 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 13:26:21.738 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 10.8022ms
+2025-01-26 13:26:21.740 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:26:21.742 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 201 - application/json;+charset=utf-8 20.1944ms
+2025-01-26 13:26:34.047 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369
+2025-01-26 13:26:34.048 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:26:32 p.m.', Current time (UTC): '26/01/2025 6:26:34 p.m.'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2025-01-26 13:26:34.053 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:26:32 p.m.', Current time (UTC): '26/01/2025 6:26:34 p.m.'.
+2025-01-26 13:26:34.057 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 13:26:34.060 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 13:26:34.062 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 369 - 401 0 - 14.7858ms
+2025-01-26 13:28:02.747 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 374
+2025-01-26 13:28:02.750 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:28:02.753 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:28:02.825 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:28:03.061 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:28:03.062 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 307.7047ms
+2025-01-26 13:28:03.068 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:28:03.069 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 374 - 401 - text/plain;+charset=utf-8 321.8881ms
+2025-01-26 13:34:25.900 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:34:26.167 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:34:26.172 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:34:26.173 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:34:26.174 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:34:26.515 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:34:28.057 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1546.5864ms
+2025-01-26 13:34:28.324 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:34:28.340 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:34:28.351 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 11.4239ms
+2025-01-26 13:34:28.381 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.4490ms
+2025-01-26 13:34:28.445 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:34:28.691 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 246.0095ms
+2025-01-26 13:34:41.479 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:34:41.489 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:34:41.529 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:34:44.548 -05:00 [WRN] Refresh token no asociado a un usuario.
+2025-01-26 13:34:44.558 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 13:34:44.566 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 3029.6995ms
+2025-01-26 13:34:44.574 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:34:44.592 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 404 - text/plain;+charset=utf-8 3112.9647ms
+2025-01-26 13:35:13.825 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:35:13.828 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:35:13.832 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:35:14.218 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:35:14.245 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 410.8575ms
+2025-01-26 13:35:14.247 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:35:14.248 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 423.5354ms
+2025-01-26 13:39:46.440 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370
+2025-01-26 13:39:46.518 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:37:13 p.m.', Current time (UTC): '26/01/2025 6:39:46 p.m.'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2025-01-26 13:39:46.551 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:37:13 p.m.', Current time (UTC): '26/01/2025 6:39:46 p.m.'.
+2025-01-26 13:39:46.558 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 13:39:46.573 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 13:39:46.575 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370 - 401 0 - 135.3969ms
+2025-01-26 13:40:20.605 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:40:20.611 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:40:20.614 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:40:20.688 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:40:20.703 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:40:20.704 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 87.9407ms
+2025-01-26 13:40:20.710 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:40:20.711 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 106.9651ms
+2025-01-26 13:40:37.258 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:40:37.260 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:40:37.262 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:40:37.373 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:40:37.375 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 110.9124ms
+2025-01-26 13:40:37.377 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:40:37.378 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 200 - application/json;+charset=utf-8 120.0899ms
+2025-01-26 13:40:49.293 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:40:49.296 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:40:49.297 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:40:49.331 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:40:49.339 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:40:49.340 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 39.7879ms
+2025-01-26 13:40:49.341 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:40:49.342 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 48.5324ms
+2025-01-26 13:41:37.838 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:41:37.842 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:41:37.844 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:42:11.958 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:42:11.968 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:42:11.969 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 34122.5243ms
+2025-01-26 13:42:11.970 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:42:11.971 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 34138.1464ms
+2025-01-26 13:42:15.761 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:42:15.763 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:42:15.764 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:42:55.270 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:42:55.279 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:42:55.280 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 39514.1031ms
+2025-01-26 13:42:55.281 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:42:55.282 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 39521.6549ms
+2025-01-26 13:43:07.739 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370
+2025-01-26 13:43:07.741 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:42:37 p.m.', Current time (UTC): '26/01/2025 6:43:07 p.m.'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2025-01-26 13:43:07.747 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '26/01/2025 6:42:37 p.m.', Current time (UTC): '26/01/2025 6:43:07 p.m.'.
+2025-01-26 13:43:07.748 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 13:43:07.749 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 13:43:07.750 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370 - 401 0 - 11.4094ms
+2025-01-26 13:43:16.372 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:43:16.374 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:43:16.376 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:43:16.408 -05:00 [WRN] Refresh token no asociado a un usuario.
+2025-01-26 13:43:16.409 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 13:43:16.411 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 31.8916ms
+2025-01-26 13:43:16.412 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:43:16.413 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 404 - text/plain;+charset=utf-8 40.7529ms
+2025-01-26 13:43:33.010 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:43:33.047 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:43:33.048 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:43:33.062 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:43:33.063 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 9.6125ms
+2025-01-26 13:43:33.064 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:43:33.065 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 55.1494ms
+2025-01-26 13:43:53.893 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 375
+2025-01-26 13:43:53.900 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:43:53.901 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:43:53.924 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 13:43:53.939 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 35.8125ms
+2025-01-26 13:43:53.940 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:43:53.943 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 375 - 400 - application/problem+json;+charset=utf-8 50.2706ms
+2025-01-26 13:44:09.634 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 375
+2025-01-26 13:44:09.636 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:44:09.638 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:44:09.641 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 13:44:09.643 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 3.1546ms
+2025-01-26 13:44:09.644 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:44:09.645 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 375 - 400 - application/problem+json;+charset=utf-8 11.1942ms
+2025-01-26 13:44:47.185 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:44:47.192 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:44:47.194 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:44:50.626 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:44:50.636 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:44:50.637 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 3440.6419ms
+2025-01-26 13:44:50.638 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:44:50.639 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 3453.8405ms
+2025-01-26 13:45:13.676 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370
+2025-01-26 13:45:13.700 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:45:13.702 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 13:45:14.034 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 13:45:14.039 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 334.4629ms
+2025-01-26 13:45:14.041 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 13:45:14.042 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 370 - 201 - application/json;+charset=utf-8 365.4445ms
+2025-01-26 13:45:21.248 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:45:21.250 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:45:21.251 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:45:21.284 -05:00 [WRN] Refresh token no asociado a un usuario.
+2025-01-26 13:45:21.286 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-26 13:45:21.287 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 33.3994ms
+2025-01-26 13:45:21.302 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:45:21.304 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 404 - text/plain;+charset=utf-8 56.3450ms
+2025-01-26 13:45:27.852 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:45:27.854 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:45:27.856 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:46:09.507 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:46:09.536 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:46:09.537 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 41677.7855ms
+2025-01-26 13:46:09.539 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:46:09.540 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 41688.5957ms
+2025-01-26 13:46:35.059 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90
+2025-01-26 13:46:35.062 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:46:35.064 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:46:35.073 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:46:35.075 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI) in 7.7259ms
+2025-01-26 13:46:35.077 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-01-26 13:46:35.079 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 90 - 200 - application/json;+charset=utf-8 20.4576ms
+2025-01-26 13:47:13.244 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:47:13.248 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:47:13.250 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:47:44.402 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 66
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:47:44.416 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:47:44.417 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 31165.6025ms
+2025-01-26 13:47:44.428 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:47:44.429 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 31187.7387ms
+2025-01-26 13:49:10.300 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:49:11.018 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:49:11.023 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:49:11.025 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:49:11.026 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:49:11.453 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:49:12.180 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 734.6097ms
+2025-01-26 13:49:12.505 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:49:12.512 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:49:12.518 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.4744ms
+2025-01-26 13:49:12.561 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.7318ms
+2025-01-26 13:49:12.607 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:49:12.852 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 245.1346ms
+2025-01-26 13:49:32.966 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:49:33.271 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:49:33.277 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:49:33.278 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:49:33.279 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:49:33.934 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:49:34.554 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 627.4199ms
+2025-01-26 13:49:34.852 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:49:34.854 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:49:34.859 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.6525ms
+2025-01-26 13:49:34.895 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.9321ms
+2025-01-26 13:49:34.947 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:49:35.135 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 187.7687ms
+2025-01-26 13:49:53.356 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:49:53.369 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:49:53.412 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:49:56.197 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:49:56.226 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 2806.9364ms
+2025-01-26 13:49:56.233 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:49:56.247 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 2890.0101ms
+2025-01-26 13:50:14.869 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 376
+2025-01-26 13:50:14.873 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:50:14.879 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:50:14.945 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-26 13:50:14.957 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 71.5789ms
+2025-01-26 13:50:14.959 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:50:14.960 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 376 - 400 - application/problem+json;+charset=utf-8 91.2471ms
+2025-01-26 13:50:37.404 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 374
+2025-01-26 13:50:37.407 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:50:37.408 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:58:01.792 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 13:58:02.184 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 13:58:02.190 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 13:58:02.194 -05:00 [INF] Hosting environment: Development
+2025-01-26 13:58:02.195 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 13:58:02.913 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 13:58:03.589 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 684.0712ms
+2025-01-26 13:58:03.857 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 13:58:03.858 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 13:58:03.877 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 18.7950ms
+2025-01-26 13:58:03.958 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.9198ms
+2025-01-26 13:58:04.001 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 13:58:04.218 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 217.9067ms
+2025-01-26 13:58:16.132 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 13:58:16.143 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:58:16.184 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:58:19.327 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 13:58:19.375 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 3182.3301ms
+2025-01-26 13:58:19.385 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 13:58:19.411 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 3278.6115ms
+2025-01-26 13:58:37.935 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373
+2025-01-26 13:58:37.941 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:58:37.945 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout(Dominio.Entidades.Usuarios.Modelo.LogoutRequest) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 13:58:55.234 -05:00 [WRN] Token inválido.
+Microsoft.IdentityModel.Tokens.SecurityTokenException: Error al validar el token.
+ ---> Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10500: Signature validation failed. No security keys were provided to validate the signature.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignatureAndIssuerSecurityKey(String token, JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 71
+   --- End of inner exception stack trace ---
+   at AdaptadorAPI.Implementaciones.JwtService.GetPrincipalFromToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\JwtService.cs:line 84
+   at AdaptadorAPI.Implementaciones.AuthserviceJWT.Logout(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\JWT\Implementaciones\AuthserviceJWT.cs:line 76
+   at Aplicacion.Usuarios.UseCaseUsuario.LogOutByAccessToken(String accessToken) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Usuarios\UseCaseUsuario.cs:line 136
+   at AdaptadorAPI.Controllers.UsuarioController.Logout(LogoutRequest request) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\UsuarioController.cs:line 135
+2025-01-26 13:58:55.280 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-01-26 13:58:55.281 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 17333.1066ms
+2025-01-26 13:58:55.283 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 13:58:55.284 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout application/json 373 - 401 - text/plain;+charset=utf-8 17348.8354ms
+2025-01-26 14:11:22.385 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 14:11:22.621 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 14:11:22.628 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 14:11:22.630 -05:00 [INF] Hosting environment: Development
+2025-01-26 14:11:22.642 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 14:11:23.312 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 14:11:23.973 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 664.2135ms
+2025-01-26 14:11:24.268 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 14:11:24.270 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 14:11:24.276 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.0947ms
+2025-01-26 14:11:24.307 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.7323ms
+2025-01-26 14:11:24.381 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 14:11:24.619 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 237.9380ms
+2025-01-26 14:11:41.339 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-01-26 14:11:41.354 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 14:11:41.398 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 14:11:44.077 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-01-26 14:11:44.122 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 2708.736ms
+2025-01-26 14:11:44.143 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-26 14:11:44.174 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 2835.2008ms
+2025-01-26 14:11:56.495 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0
+2025-01-26 14:11:56.509 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 14:11:56.518 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 14:11:56.519 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0 - 401 0 - 24.3643ms
+2025-01-26 14:12:30.200 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/logout - -
+2025-01-26 14:12:30.317 -05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:12:30.318 -05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:12:30.319 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/logout - - - 405 0 - 118.6244ms
+2025-01-26 14:13:12.792 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 371
+2025-01-26 14:13:12.800 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 14:13:12.803 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 14:13:13.206 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 14:13:13.211 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 406.2969ms
+2025-01-26 14:13:13.214 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 14:13:13.226 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 371 - 201 - application/json;+charset=utf-8 436.0306ms
+2025-01-26 14:13:27.568 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/logout - -
+2025-01-26 14:13:27.569 -05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:13:27.571 -05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:13:27.572 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/logout - - - 405 0 - 3.7592ms
+2025-01-26 14:13:38.448 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/logout - -
+2025-01-26 14:13:38.449 -05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:13:38.450 -05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-01-26 14:13:38.451 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/logout - - - 405 0 - 3.4020ms
+2025-01-26 14:14:32.164 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0
+2025-01-26 14:14:32.172 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:14:32.176 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 14:14:32.188 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 14:14:32.190 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 10.9272ms
+2025-01-26 14:14:32.191 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:14:32.193 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0 - 400 - text/plain;+charset=utf-8 28.7844ms
+2025-01-26 14:14:54.820 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0
+2025-01-26 14:14:54.824 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:14:54.826 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 14:16:07.136 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-26 14:16:07.147 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 72319.4376ms
+2025-01-26 14:16:07.156 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:16:07.157 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0 - 400 - text/plain;+charset=utf-8 72344.2012ms
+2025-01-26 14:17:58.170 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0
+2025-01-26 14:17:58.183 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:17:58.192 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 14:18:09.799 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-26 14:18:10.132 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-26 14:18:10.140 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 14:18:10.141 -05:00 [INF] Hosting environment: Development
+2025-01-26 14:18:10.142 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-26 14:18:10.750 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-26 14:18:11.501 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 757.7071ms
+2025-01-26 14:18:11.790 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-26 14:18:11.797 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-26 14:18:11.816 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 18.4391ms
+2025-01-26 14:18:11.855 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.9031ms
+2025-01-26 14:18:11.900 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-26 14:18:12.147 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 247.2621ms
+2025-01-26 14:18:18.899 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0
+2025-01-26 14:18:19.322 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:18:19.351 -05:00 [INF] Route matched with {action = "Logout", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-26 14:18:32.032 -05:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-01-26 14:18:32.046 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI) in 12686.2317ms
+2025-01-26 14:18:32.048 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.Logout (AdaptadorAPI)'
+2025-01-26 14:18:32.067 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Usuario/logout - 0 - 204 - - 13168.4110ms
+2025-01-26 14:18:44.372 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 371
+2025-01-26 14:18:44.374 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 14:18:44.387 -05:00 [INF] Route matched with {action = "GuardarReview", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarReview(Dominio.Reviews.Modelo.ReviewModel) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-01-26 14:18:44.835 -05:00 [INF] Executing CreatedResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-01-26 14:18:44.854 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI) in 464.7738ms
+2025-01-26 14:18:44.857 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.GuardarReview (AdaptadorAPI)'
+2025-01-26 14:18:44.858 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/GuardarReview application/json 371 - 201 - application/json;+charset=utf-8 485.5562ms

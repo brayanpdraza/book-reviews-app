@@ -27,12 +27,12 @@ namespace AdaptadorAPI.Implementaciones
 
         public string GenerateAccessToken(UsuarioModelo usuario)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GetAccessSecretKey()));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, usuario.Correo),
+            new Claim(JwtRegisteredClaimNames.Sub, usuario.Id.ToString()),
             new Claim("id", usuario.Id.ToString()),  
             new Claim("nombre", usuario.Nombre),
             new Claim("correo", usuario.Correo),
@@ -40,13 +40,12 @@ namespace AdaptadorAPI.Implementaciones
         };
 
             var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
+            issuer: GetAccessIssuer(),
+            audience: GetAccessAudience(),
             claims: claims,
             expires: DateTime.UtcNow.AddMinutes(GetAccessTokenExpiration()),
             signingCredentials: credentials
         );
-
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
@@ -73,7 +72,9 @@ namespace AdaptadorAPI.Implementaciones
             return principal;
 
         }
-
+        public string GetAccessSecretKey() => _configuration["Jwt:SecretKey"];
+        public string GetAccessIssuer() => _configuration["Jwt:Issuer"];
+        public string GetAccessAudience() => _configuration["Jwt:Audience"];
         public int GetAccessTokenExpiration() => Convert.ToInt32(_configuration["Jwt:AccessTokenExpiration"]);
 
         public int GetRefreshTokenExpiration() => Convert.ToInt32(_configuration["Jwt:RefreshTokenExpiration"]);

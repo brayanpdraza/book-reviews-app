@@ -7,6 +7,6 @@ namespace Dominio.Usuarios.Puertos
     {
         AuthenticationResult Authenticate(UsuarioModelo usuarioModelo);
         AuthenticationResult RefreshToken(string refreshToken);
-        void Logout(string accessToken);
+        void Logout(long id);
     }
 }

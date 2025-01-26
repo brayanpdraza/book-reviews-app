@@ -70,20 +70,20 @@ namespace AdaptadorAPI.Implementaciones
             };
         }
 
-        public void Logout(string accessToken)
+        public void Logout(long id)
         {
-            long usuarioId;
-            var principal = _jtwService.GetPrincipalFromToken(accessToken);
-            var userIdClaim = principal.FindFirst("id")?.Value;
+            //long usuarioId;
+            //var principal = _jtwService.GetPrincipalFromToken(accessToken);
+            //var userIdClaim = principal.FindFirst("id")?.Value;
 
-            if (string.IsNullOrEmpty(userIdClaim))
-            {
-                throw new UnauthorizedAccessException("Token inválido.");
-            }
+            //if (string.IsNullOrEmpty(userIdClaim))
+            //{
+            //    throw new UnauthorizedAccessException("Token inválido.");
+            //}
 
-            usuarioId = long.Parse(userIdClaim);
+            //usuarioId = long.Parse(userIdClaim);
 
-            _refreshTokenRepo.UpdateRefreshToken(usuarioId, "", DateTime.MinValue);
+            _refreshTokenRepo.UpdateRefreshToken(id, "", DateTime.MinValue);
 
         }
     }

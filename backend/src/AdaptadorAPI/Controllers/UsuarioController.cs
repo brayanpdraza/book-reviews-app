@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Dominio.Usuarios.Puertos;
 using Dominio.Entidades.Usuarios.Modelo;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -30,6 +32,11 @@ namespace AdaptadorAPI.Controllers
             {
                 usuario = _useCaseUsuario.ConsultarUsuarioPorId(id);
             }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al obtener Usuario con id: {id}");
+                return BadRequest(ex.Message);
+            }
             catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
             {
                 _logger.LogWarning(ex.Message,$"Al obtener usuario con id: {id}");
@@ -45,17 +52,22 @@ namespace AdaptadorAPI.Controllers
 
         }
 
-        [HttpGet("AutenticacionUsuarioPorCorreoYPasssword/{Correo}/{Password}")]
-        public IActionResult AutenticacionUsuarioPorCorreoYPasssword(string Correo, string Password)
+        [HttpGet("AutenticacionUsuarioPorCorreoYPassword/{correo}/{password}")] // Sin typo
+        public IActionResult AutenticacionUsuarioPorCorreoYPassword(string correo,string password)
         {
             AuthenticationResult responseLogin;
             try
             {
-                responseLogin = _useCaseUsuario.AutenticacionByCredenciales(Correo,Password);
+                responseLogin = _useCaseUsuario.AutenticacionByCredenciales(correo, password);
+            }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al obtener Usuario con Credenciales: {correo}");
+                return BadRequest(ex.Message);
             }
             catch (KeyNotFoundException ex) 
             {
-                _logger.LogWarning(ex.Message,$"Al Consultar un usuario con credenciales: {Correo}");
+                _logger.LogWarning(ex.Message,$"Al Consultar un usuario con credenciales: {correo}");
                 return NotFound(ex.Message);
             }
             catch (UnauthorizedAccessException ex)
@@ -64,7 +76,7 @@ namespace AdaptadorAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error interno al obtener usuario con credenciales: {Correo}");
+                _logger.LogError(ex, $"Error interno al obtener usuario con credenciales: {correo}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
 
@@ -84,15 +96,23 @@ namespace AdaptadorAPI.Controllers
 
             try
             {
-                responseLogin = _useCaseUsuario.UpdateRefreshToken(refreshToken);
+                responseLogin = _useCaseUsuario.UpdateRefreshToken(refreshToken); 
+                return Ok(responseLogin);
+
+            }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al actualizar token de refresco: {refreshToken}");
+                return BadRequest(ex.Message);
             }
             catch (KeyNotFoundException ex)
             {
-                _logger.LogWarning(ex.Message, $"Al Consultar un usuario con credenciales: {refreshToken}");
+                _logger.LogWarning(ex.Message, $"Al Actualizar token de refresco: {refreshToken}");
                 return NotFound(ex.Message);
             }
             catch (UnauthorizedAccessException ex)
             {
+                _logger.LogWarning(ex.Message, $"Al Actualizar token de refresco: {refreshToken}");
                 return Unauthorized(ex.Message);
             }
             catch (Exception ex)
@@ -101,21 +121,47 @@ namespace AdaptadorAPI.Controllers
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
 
-            return Ok(responseLogin);
 
         }
 
+        [Authorize]
         [HttpPost("logout")]
-        public IActionResult Logout([FromBody] LogoutRequest request)
+        public IActionResult Logout()
         {
-
+            int idUsuario;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                _useCaseUsuario.LogOutByAccessToken(request.Credential); //Access Token
+                // Obtener el usuario actual (ClaimsPrincipal)
+                var usuario = HttpContext.User;
+
+                // Extraer el claim "id" (usuarioId)
+                var usuarioId = usuario.FindFirst("id")?.Value;
+
+                if (string.IsNullOrEmpty(usuarioId))
+                {
+                    return Unauthorized("Claim 'id' no encontrado en el token.");
+                }
+
+
+                if (!long.TryParse(usuarioId, out long userId))
+                {
+                    // Usa el ID convertido (userId)
+                    return BadRequest("No se pudo obtener un ID válido del token.");
+                }
+
+
+                _useCaseUsuario.LogOutById(userId); //Access Token
+                return NoContent();
+
+            }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Token Incorrecto");
+                return BadRequest(ex.Message);
             }
             catch (SecurityTokenExpiredException ex)
             {
@@ -133,7 +179,6 @@ namespace AdaptadorAPI.Controllers
                 return StatusCode(500, "Error interno.");
             }
 
-            return NoContent();
 
         }
 
@@ -150,9 +195,14 @@ namespace AdaptadorAPI.Controllers
             {
                 createdId = _useCaseUsuario.AddUsuario(usuario);
             }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
+                return BadRequest(ex.Message);
+            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error interno al guardar usuario: {usuario}");
+                _logger.LogError(ex, $"Error interno al guardar usuario: {usuario.Correo}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
 

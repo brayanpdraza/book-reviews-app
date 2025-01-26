@@ -237,15 +237,15 @@ namespace AplicacionTest.Usuarios
         {
             // Arrange}
             LogoutRequest Result = null;
-            string AccessToken = null;
+            long id = 0;
             string ErrorMessage = "El access token no puede estar vacío.";
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutByAccessToken(AccessToken));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutById(id));
 
             // Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
-            _mockAuthService.Verify(a => a.Logout(AccessToken), Times.Never);
+            _mockAuthService.Verify(a => a.Logout(id), Times.Never);
         }
 
 

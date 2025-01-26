@@ -125,15 +125,15 @@ namespace Aplicacion.Usuarios
             return authenticationResult;
         }
 
-        public void LogOutByAccessToken(string accessToken)
+        public void LogOutById(long id)
         {
 
-            if (string.IsNullOrEmpty(accessToken))
+            if (id<=0)
             {
-                throw new ArgumentException("El access token no puede estar vacío.");
+                throw new ArgumentException("El ID No es Válido.");
             }
 
-            _authService.Logout(accessToken);
+            _authService.Logout(id);
         }
 
         //public void ActualizarUsuario(long id,UsuarioModelo UsuarioActualizar)
