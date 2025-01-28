@@ -2,7 +2,7 @@
 import {setAccessToken} from './SetAccessToken.ts';
 import {SessionExpiredError} from './SessionExpiredError.ts';
 import {RequestOptions} from '../Interfaces/RequestOptions.ts';
-
+import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
 
   interface RefreshTokenResponse {
         Credential:string;
@@ -25,13 +25,14 @@ import {RequestOptions} from '../Interfaces/RequestOptions.ts';
       method,
       headers,
       body: body ? JSON.stringify(body) : null, // Incluimos el cuerpo si existe
+      //credentials: 'include' // Necesario para cookies HttpOnly
     };
     let response;
     let newToken
     try {
       response = await fetch(url, options);
     } catch (error) {
-      console.error('Request failed', error);
+      console.error('Request failed', error); //FALLO
       throw error;
     }
       if (response.status === 204) {
@@ -43,6 +44,8 @@ import {RequestOptions} from '../Interfaces/RequestOptions.ts';
         // Si obtenemos un 401 Unauthorized, intentamos refrescar el token
         if (response.status === 401) {
           try{
+               const errorContent = await ResponseErrorGet(response);
+                    console.log(errorContent);  
           newToken = await refreshAuthToken();
           }catch(error){
             throw new SessionExpiredError();

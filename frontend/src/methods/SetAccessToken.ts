@@ -1,3 +1,6 @@
 export const setAccessToken = (token: string) => {
-    document.cookie = `accessToken=${token}; path=/; Secure; HttpOnly; SameSite=Strict`;
-  };
+  const isLocalhost = window.location.hostname === 'localhost';
+  document.cookie = `access_token=${encodeURIComponent(token)}; path=/; ${
+    !isLocalhost ? 'Secure; ' : ''
+  }SameSite=Strict`;
+};

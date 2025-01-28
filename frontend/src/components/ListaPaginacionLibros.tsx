@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchConfig } from '../methods/fetchConfig.ts';
 import {Libro} from '../Interfaces/Libro.ts';
+import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
 
 interface ApiResponse<T> {
   items: T[];
@@ -39,9 +40,9 @@ const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) =
     }
 
     const response = await fetch(url);
-    if (!response.ok) {
-      setError(`Error 23523: ${error}`);
-      console.error('Error fetching libros:', error);
+    if (!response.ok) { 
+      const errorContent = await ResponseErrorGet(response);
+      setError(errorContent);    
       return;
     }
 

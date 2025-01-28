@@ -18,7 +18,7 @@ const ReviewList = ({ reviews }: ReviewListProps) => {
           <div key={review.id} className="p-4 bg-white rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-2">
               <div>
-                <h4 className="font-semibold">{review.usuario}</h4>
+                <h4 className="font-semibold">{review.usuario.nombre}</h4>
                 <p className="text-sm text-gray-500">{new Date(review.createdAt).toLocaleDateString()}</p>
               </div>
               <StarRating rating={review.calificacion} />

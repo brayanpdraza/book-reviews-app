@@ -11,6 +11,7 @@ import {fetchConfig} from '../methods/fetchConfig.ts'
 import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import {SessionExpiredError} from '../methods/SessionExpiredError.ts';
 import {RequestOptions} from '../Interfaces/RequestOptions.ts';
+import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
 
 interface JwtPayload {
     id : number;
@@ -50,9 +51,10 @@ const [reviewsLoading, setReviewsLoading] = useState(true);
       let url = `${apiUrl}/${CtrlNameLibro}/ObtenerLibroPorid/${id}`;
 
       const response = await fetch(url);
-      if (!response.ok) {
-        setError(`Error 52626: ${error}`);
-        console.error('Error fetching libros:', error);
+      if (!response.ok) { 
+        const errorContent = await ResponseErrorGet(response);
+        setError(errorContent);  
+        
         return;
       }
   
@@ -85,9 +87,9 @@ const [reviewsLoading, setReviewsLoading] = useState(true);
             body: JSON.stringify(libro), // Convertir el objeto a JSON
           });
 
-          if (!response.ok) {
-            setError(`Error 674745: ${error}`);
-            console.error('Error fetching Reviews:', error);
+          if (!response.ok) { 
+            const errorContent = await ResponseErrorGet(response);
+            setError(errorContent);              
             return;
           }
         const data: Review[] = await response.json();
@@ -144,17 +146,14 @@ useEffect(() => {
    useEffect(() => {
  
     if (!loading && book) { // Solo ejecutar cuando el libro esté cargado
-        console.log(book,"Ya cargué y pasaré a traer las reviews")
         fetchReviewslibro(book);
-    }else{
-        console.log(book,"No he cargado")//////////////////BOOOOOOOOOOOORRRRRRRRRRRRRRRAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-
     }
   }, [idlibrostr, loading, book]);
 
   const handleReviewSubmit = async (newReviewdata: { rating: number; comment: string })=> {
+        
+    let response;
         const token = GetAccessToken();
-        let response;
 
         if (!token) 
             {
@@ -167,6 +166,7 @@ useEffect(() => {
             setUserId(decoded.id);
             setUserEmail(decoded.correo);
             setUserNombre(decoded.nombre);
+
             const user : Usuario = {
                 id:userId,
                 nombre: userNombre,
@@ -203,15 +203,15 @@ useEffect(() => {
         const updatedReviewsResponse = await  fetchReviewslibro(book);
        }
        else{
-        console.error('Error 823682 No se realizó el envío de la reseña:', error);
+        console.error('Error 823682 No se realizó el envío de la reseña:', response.text);
        }
     };
 
   if (loadingConfig) {
     return <div>Cargando configuración...</div>;
   }
-  if (loading) return <div>Cargando libro...</div>;
-  if (!book) return <div>Libro no encontrado</div>;
+  if (loading && !book) return <div>Cargando libro...</div>;
+  if (!loading && !book) return <div>Libro no encontrado</div>;
   if (error) {
     return <div>{error}</div>;
   }
@@ -223,10 +223,10 @@ useEffect(() => {
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
             <div className="flex gap-4 text-gray-600 mb-4">
-              <p>Autor: {book.author}</p>
-              <p>Categoría: {book.category}</p>
+              <p>Autor: {book.autor}</p>
+              <p>Categoría: {book.categoria}</p>
             </div>
-            <p className="text-gray-700 leading-relaxed">{book.summary}</p>
+            <p className="text-gray-700 leading-relaxed">{book.resumen}</p>
           </div>
     
           {/* Sección de reseñas */}

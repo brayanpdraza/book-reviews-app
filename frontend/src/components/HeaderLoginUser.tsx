@@ -1,40 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import {fetchWithAuth} from '../methods/fetchWithAuth.ts';
 import {jwtDecode,JwtPayload } from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import { setAccessToken } from '../methods/SetAccessToken.ts';
 import { fetchConfig } from '../methods/fetchConfig.ts';
 import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import {SessionExpiredError} from '../methods/SessionExpiredError.ts';
+import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+
 interface MyJwtPayload extends JwtPayload {
   correo: string; // Agregar el campo "correo" que tienes en el JWT
 }
 
 const HeaderLoginUser = () => {
     const [email, setEmail] = useState(null);
+    const [token, setToken] = useState(null);
     const [apiUrl, setAPIUrl] = useState('');
     const [error, setError] = useState(null);
     const [loadingConfig, setLoadingConfig] = useState(true);
-    const ControllerName = "UsuarioController";
+    const ControllerName = "Usuario";
     const navigate = useNavigate(); // Usamos useNavigate para redirigir
-  
+    const location = useLocation();
+
+
     useEffect(() => {
+      const tokenget = GetAccessToken();
+      setToken(tokenget);
       const loadConfig = async () => {
         await fetchConfig(setAPIUrl, setError, setLoadingConfig);
       };
       loadConfig();
     
-    }, []);
+    }, [location.pathname]);
   
     useEffect(() => {
-      // Obtener la cookie
-
-      const token = GetAccessToken();
 
       if (!token) {
-        if(!email){
-          setEmail(null);
-        }
+
         return;
       }
         try {
@@ -44,23 +46,26 @@ const HeaderLoginUser = () => {
           console.error('Error decoding JWT:', error);
         }
       
-    }, [email]);
+    }, [token]);
   
     const handleLogout = async () => {
          // Solo ejecutar cuando APIUrl esté disponible
         
-      const token = GetAccessToken();
+      const tokenget = GetAccessToken();
+      setToken(tokenget);
       if (!token) 
         {
         return;
       }
         try {
-          const response = await fetchWithAuth<void>(`${apiUrl}/${ControllerName}/logout`, token);
-          
-          if (!response.ok) {
-            console.error(`Error durante la petición logout: ${response}`, error);;
+          console.log("hola");  
+          const response = await fetchWithAuth<void>(`${apiUrl}/${ControllerName}/logout`, token); //FALLO
+          console.log("adios"); 
+          if (!response.ok) { 
+           const errorContent = await ResponseErrorGet(response);
+          setError(errorContent);   
             return;
-          } 
+          }
           setAccessToken('');
           setEmail(null);
           console.log('Logout successful');
