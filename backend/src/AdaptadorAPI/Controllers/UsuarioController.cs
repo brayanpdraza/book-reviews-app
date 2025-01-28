@@ -52,7 +52,7 @@ namespace AdaptadorAPI.Controllers
 
         }
 
-        [HttpGet("AutenticacionUsuarioPorCorreoYPassword/{correo}/{password}")] // Sin typo
+        [HttpGet("AutenticacionUsuarioPorCorreoYPassword/{correo}/{password}")]
         public IActionResult AutenticacionUsuarioPorCorreoYPassword(string correo,string password)
         {
             AuthenticationResult responseLogin;

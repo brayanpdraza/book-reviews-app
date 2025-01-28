@@ -1,0 +1,21 @@
+2025-01-28 02:21:06.782 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-28 02:21:07.213 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-28 02:21:07.235 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-28 02:21:07.240 -05:00 [INF] Hosting environment: Development
+2025-01-28 02:21:07.256 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-28 02:21:08.863 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-28 02:21:11.050 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 2193.1133ms
+2025-01-28 02:21:11.199 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-28 02:21:11.296 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 96.4842ms
+2025-01-28 02:21:11.391 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-28 02:21:11.581 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 190.1997ms
+2025-01-28 02:21:11.896 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-28 02:21:12.106 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.8015ms
+2025-01-28 02:21:22.034 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/fwefqw@faf.com/qwrfqrqwrq - -
+2025-01-28 02:21:22.062 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-28 02:21:22.163 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-28 02:21:27.338 -05:00 [WRN] El correo ingresado no se encuentra Registrado.
+2025-01-28 02:21:27.353 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-01-28 02:21:27.361 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 5161.5742ms
+2025-01-28 02:21:27.371 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-01-28 02:21:27.390 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/fwefqw@faf.com/qwrfqrqwrq - - - 404 - text/plain;+charset=utf-8 5355.6554ms

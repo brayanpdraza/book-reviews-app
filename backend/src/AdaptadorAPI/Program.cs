@@ -115,13 +115,14 @@ app.MapControllers();
 
 app.UseCors(options =>
 {
-    options.WithOrigins("http://192.168.1.2:3000");//PUERTO PRUEBAS EJECUCION
-    options.WithOrigins("http://LOCALHOST:3000");//PUERTO PRUEBAS EJECUCION LOCALHOST
-    options.WithOrigins("http://192.168.1.2:9090");//PUERTO API
-    options.WithOrigins("http://LOCALHOST:9090");//PUERTO API LOCALHOST
+    //options.WithOrigins("http://192.168.1.8:3000");//PUERTO PRUEBAS EJECUCION
+    //options.WithOrigins("http://localhost:3000");//PUERTO PRUEBAS EJECUCION LOCALHOST
+    //options.WithOrigins("http://192.168.1.8:1212");//PUERTO API
+    //options.WithOrigins("http://localhost:1212");//PUERTO API LOCALHOST
     //options.AllowAnyOrigin();
     options.AllowAnyMethod();
     options.AllowAnyHeader();
+    options.AllowAnyOrigin();
 });
 
 app.Run();
