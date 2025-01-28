@@ -72,17 +72,6 @@ namespace AdaptadorAPI.Implementaciones
 
         public void Logout(long id)
         {
-            //long usuarioId;
-            //var principal = _jtwService.GetPrincipalFromToken(accessToken);
-            //var userIdClaim = principal.FindFirst("id")?.Value;
-
-            //if (string.IsNullOrEmpty(userIdClaim))
-            //{
-            //    throw new UnauthorizedAccessException("Token inválido.");
-            //}
-
-            //usuarioId = long.Parse(userIdClaim);
-
             _refreshTokenRepo.UpdateRefreshToken(id, "", DateTime.MinValue);
 
         }

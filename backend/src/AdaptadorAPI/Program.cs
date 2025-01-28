@@ -38,15 +38,7 @@ builder.Services.AddSwaggerGen(c =>
     c.DescribeAllParametersInCamelCase();
     c.SupportNonNullableReferenceTypes();
 });
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
-});
+builder.Services.AddCors();
 
 // Configurar JWT
 builder.Services.AddAuthentication(options =>
@@ -66,9 +58,15 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
     };
+
+})
+.AddCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.Strict; 
 });
 
 builder.Services.AddAuthorization();
+
 
 // Configurar Serilog
 Log.Logger = new LoggerConfiguration()
@@ -114,5 +112,16 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(options =>
+{
+    options.WithOrigins("http://192.168.1.2:3000");//PUERTO PRUEBAS EJECUCION
+    options.WithOrigins("http://LOCALHOST:3000");//PUERTO PRUEBAS EJECUCION LOCALHOST
+    options.WithOrigins("http://192.168.1.2:9090");//PUERTO API
+    options.WithOrigins("http://LOCALHOST:9090");//PUERTO API LOCALHOST
+    //options.AllowAnyOrigin();
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+});
 
 app.Run();

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\PUBLICAR_API_PRUEBA_CONTROLBOX</_PublishTargetUrl>
+    <History>True|2025-01-28T06:16:53.2758758Z;False|2025-01-28T01:16:14.9131808-05:00;True|2025-01-27T18:15:26.9572089-05:00;False|2025-01-27T18:14:50.1773492-05:00;True|2025-01-27T18:11:40.0774330-05:00;False|2025-01-27T18:11:32.6544216-05:00;True|2025-01-27T17:34:52.4044086-05:00;False|2025-01-27T17:34:43.1548923-05:00;True|2025-01-27T16:56:52.4392134-05:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

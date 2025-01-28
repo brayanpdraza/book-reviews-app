@@ -100,11 +100,6 @@ namespace AdaptadorAPI.Controllers
                 return Ok(responseLogin);
 
             }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
-            {
-                _logger.LogWarning(ex.Message, $"Al actualizar token de refresco: {refreshToken}");
-                return BadRequest(ex.Message);
-            }
             catch (KeyNotFoundException ex)
             {
                 _logger.LogWarning(ex.Message, $"Al Actualizar token de refresco: {refreshToken}");
@@ -122,6 +117,46 @@ namespace AdaptadorAPI.Controllers
             }
 
 
+        }
+
+
+        [HttpPost("GuardarUsuario")]
+        public IActionResult GuardarUsuario([FromBody] UsuarioModelo usuario)
+        {
+            string uri;
+            long createdId = 0;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                createdId = _useCaseUsuario.AddUsuario(usuario);
+            }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al guardar usuario: {usuario.Correo}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+
+            if (createdId == 0)
+            {
+                return BadRequest("No se creó el usuario. Por favor valide");
+            }
+
+            uri = Url.Link("ObtenerUsuarioId", new { id = createdId });
+
+            if (uri == null)
+            {
+                return BadRequest("No se pudo generar la URI para acceder al nuevo usuario.");
+            }
+
+            return Created(uri, usuario);
         }
 
         [Authorize]
@@ -181,46 +216,6 @@ namespace AdaptadorAPI.Controllers
 
 
         }
-
-        [HttpPost("GuardarUsuario")]
-        public IActionResult GuardarUsuario([FromBody] UsuarioModelo usuario)
-        {
-            string uri;
-            long createdId = 0;
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            try
-            {
-                createdId = _useCaseUsuario.AddUsuario(usuario);
-            }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
-            {
-                _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
-                return BadRequest(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Error interno al guardar usuario: {usuario.Correo}");
-                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
-            }
-
-            if (createdId == 0)
-            {
-                return BadRequest("No se creó el usuario. Por favor valide");
-            }
-
-            uri = Url.Link("ObtenerUsuarioId", new { id = createdId });
-
-            if (uri == null)
-            {
-                return BadRequest("No se pudo generar la URI para acceder al nuevo usuario.");
-            }
-
-            return Created(uri, usuario);
-        }
-
 
     }
 }

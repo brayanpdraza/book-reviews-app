@@ -86,7 +86,7 @@ namespace AdaptadorAPI.Controllers
             }
         }
 
-        [HttpPost("api/reviews/consultar")]
+        [HttpPost("ConsultarReviewsPorLibro")]
         public IActionResult ConsultarReviewsPorLibro([FromBody] LibroModelo request)
         {
             List<ReviewModel> Reviews;

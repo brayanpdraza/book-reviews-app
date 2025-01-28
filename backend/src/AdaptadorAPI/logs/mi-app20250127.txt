@@ -1,0 +1,248 @@
+2025-01-27 15:55:04.060 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 15:55:04.912 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 15:55:04.916 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 15:55:04.918 -05:00 [INF] Hosting environment: Development
+2025-01-27 15:55:04.918 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 15:55:08.713 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 15:55:11.145 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 2437.9750ms
+2025-01-27 15:55:11.432 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 15:55:11.441 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 15:55:11.613 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 171.8322ms
+2025-01-27 15:55:12.142 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 710.3096ms
+2025-01-27 15:55:12.322 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 15:55:12.518 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 195.7573ms
+2025-01-27 15:56:11.054 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2 - -
+2025-01-27 15:56:11.103 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:56:11.199 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-27 15:56:15.917 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-27 15:56:15.973 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 4766.1416ms
+2025-01-27 15:56:15.981 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:56:15.996 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2 - - - 200 - application/json;+charset=utf-8 4942.8079ms
+2025-01-27 15:57:19.760 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=ffff - -
+2025-01-27 15:57:19.793 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:57:19.794 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-27 15:57:20.048 -05:00 [WRN] Formato de filtro inválido. Use 'campo:valor'.
+2025-01-27 15:57:20.050 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-27 15:57:20.053 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 256.6088ms
+2025-01-27 15:57:20.055 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:57:20.056 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=ffff - - - 400 - text/plain;+charset=utf-8 296.8018ms
+2025-01-27 15:59:08.416 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3Amisterio - -
+2025-01-27 15:59:08.461 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:59:08.466 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-27 15:59:08.633 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-27 15:59:08.636 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 167.6471ms
+2025-01-27 15:59:08.637 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 15:59:08.639 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/2?filtro=categoria%3Amisterio - - - 200 - application/json;+charset=utf-8 222.7043ms
+2025-01-27 16:28:03.483 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:28:05.349 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 16:28:05.357 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:28:05.358 -05:00 [INF] Hosting environment: Development
+2025-01-27 16:28:05.358 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 16:28:07.608 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 16:28:08.797 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1192.9153ms
+2025-01-27 16:28:09.147 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 16:28:09.150 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 16:28:09.164 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 13.1332ms
+2025-01-27 16:28:09.339 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 192.0605ms
+2025-01-27 16:28:09.379 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 16:28:09.670 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 290.9679ms
+2025-01-27 16:28:20.294 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/2/3 - -
+2025-01-27 16:28:20.324 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 16:28:20.398 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-27 16:28:23.850 -05:00 [WRN] La página solicitada (2) excede el total de páginas disponibles.
+2025-01-27 16:28:23.863 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-27 16:28:23.873 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 3467.5966ms
+2025-01-27 16:28:23.882 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-01-27 16:28:23.898 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/2/3 - - - 400 - text/plain;+charset=utf-8 3604.2077ms
+2025-01-27 16:46:10.265 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:46:10.706 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 16:46:10.713 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:46:10.717 -05:00 [INF] Hosting environment: Development
+2025-01-27 16:46:10.720 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 16:46:12.325 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 16:46:13.502 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1185.8533ms
+2025-01-27 16:46:13.804 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 16:46:13.823 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 16:46:13.841 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 17.3691ms
+2025-01-27 16:46:13.899 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 94.7580ms
+2025-01-27 16:46:13.945 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 16:46:14.402 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 460.7562ms
+2025-01-27 16:50:07.612 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:50:08.048 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 16:50:08.054 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:50:08.055 -05:00 [INF] Hosting environment: Development
+2025-01-27 16:50:08.056 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 16:50:08.697 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 16:50:09.730 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1040.9448ms
+2025-01-27 16:50:10.010 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 16:50:10.032 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 16:50:10.096 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 63.2489ms
+2025-01-27 16:50:10.155 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 145.7621ms
+2025-01-27 16:50:10.212 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 16:50:10.617 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 404.7569ms
+2025-01-27 16:51:05.842 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:51:06.172 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 16:51:06.178 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:51:06.180 -05:00 [INF] Hosting environment: Development
+2025-01-27 16:51:06.181 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 16:51:08.249 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 16:51:09.310 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1064.8811ms
+2025-01-27 16:51:09.371 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 16:51:09.394 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 22.9956ms
+2025-01-27 16:51:09.613 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 16:51:09.679 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.0226ms
+2025-01-27 16:51:09.721 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 16:51:10.026 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 304.7313ms
+2025-01-27 16:52:07.010 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:52:07.316 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 16:52:07.327 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:52:07.328 -05:00 [INF] Hosting environment: Development
+2025-01-27 16:52:07.329 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 16:52:08.743 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 16:52:09.533 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 795.6909ms
+2025-01-27 16:52:09.842 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 16:52:09.845 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 16:52:09.855 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 9.2915ms
+2025-01-27 16:52:09.924 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.0494ms
+2025-01-27 16:52:09.967 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 16:52:10.442 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 475.4596ms
+2025-01-27 16:52:46.498 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 16:52:46.512 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 14.1930ms
+2025-01-27 16:53:56.477 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - -
+2025-01-27 16:53:56.490 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - - - 404 0 - 13.5991ms
+2025-01-27 16:54:14.676 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 16:54:14.683 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 6.3587ms
+2025-01-27 17:20:02.721 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:20:03.117 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:20:03.121 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:20:03.122 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:20:03.123 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:20:04.637 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:20:05.549 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 919.1218ms
+2025-01-27 17:20:05.852 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:20:05.852 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:20:05.860 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 7.8045ms
+2025-01-27 17:20:05.933 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 80.1166ms
+2025-01-27 17:20:05.975 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:20:06.322 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 346.5099ms
+2025-01-27 17:20:16.842 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:20:16.853 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 11.0238ms
+2025-01-27 17:26:15.277 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:26:15.555 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:26:15.563 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:26:15.565 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:26:15.566 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:26:16.923 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:26:17.700 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 789.0519ms
+2025-01-27 17:26:18.013 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:26:18.014 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:26:18.020 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 6.6720ms
+2025-01-27 17:26:18.087 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 73.2749ms
+2025-01-27 17:26:18.134 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:26:18.419 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 285.3362ms
+2025-01-27 17:26:22.719 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:26:22.729 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 9.7676ms
+2025-01-27 17:29:20.235 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:29:20.523 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:29:20.529 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:29:20.530 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:29:20.531 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:29:21.639 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:29:22.829 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1196.3684ms
+2025-01-27 17:29:23.135 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:29:23.135 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:29:23.158 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 23.1507ms
+2025-01-27 17:29:23.207 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.0307ms
+2025-01-27 17:29:23.249 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:29:23.543 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 294.5766ms
+2025-01-27 17:29:30.593 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:29:30.607 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 13.9288ms
+2025-01-27 17:29:56.344 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:29:56.612 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:29:56.617 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:29:56.620 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:29:56.621 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:30:00.022 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:30:00.922 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:30:00.968 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 952.2043ms
+2025-01-27 17:30:01.013 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 91.8419ms
+2025-01-27 17:30:01.223 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:30:03.616 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 2392.9190ms
+2025-01-27 17:30:04.618 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:30:05.378 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 759.7979ms
+2025-01-27 17:30:20.206 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:30:20.211 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 4.8427ms
+2025-01-27 17:30:44.279 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:30:44.677 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:30:44.681 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:30:44.682 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:30:44.683 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:30:45.773 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:30:46.776 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:30:46.814 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1049.4469ms
+2025-01-27 17:30:46.816 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 39.4111ms
+2025-01-27 17:30:47.073 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:30:47.216 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 143.5147ms
+2025-01-27 17:30:47.434 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:30:47.712 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 277.8541ms
+2025-01-27 17:30:51.795 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:30:51.819 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 23.9954ms
+2025-01-27 17:32:49.848 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:32:50.132 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:32:50.136 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:32:50.137 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:32:50.138 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:32:51.071 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:32:51.802 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 737.5998ms
+2025-01-27 17:32:52.105 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:32:52.110 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:32:52.117 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 7.1063ms
+2025-01-27 17:32:52.188 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.3325ms
+2025-01-27 17:32:52.232 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:32:52.623 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 391.1265ms
+2025-01-27 17:32:57.654 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:32:57.663 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 9.6005ms
+2025-01-27 17:33:08.691 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:33:08.692 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 1.7005ms
+2025-01-27 17:33:10.509 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:33:10.510 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 404 0 - 1.5533ms
+2025-01-27 17:33:28.284 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:33:28.615 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:33:28.641 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:33:29.371 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:33:29.375 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:33:30.261 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:33:31.342 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1089.6005ms
+2025-01-27 17:33:31.670 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:33:31.683 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 13.2365ms
+2025-01-27 17:33:31.683 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:33:31.759 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 75.6923ms
+2025-01-27 17:33:31.820 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:33:32.076 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 256.5490ms
+2025-01-27 17:33:36.046 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:33:36.058 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-27 17:33:36.115 -05:00 [INF] Route matched with {action = "ObtenerUsuarioid", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerUsuarioid(Int64) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-27 17:33:44.854 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Usuarios.Modelo.UsuarioModelo'.
+2025-01-27 17:33:44.886 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI) in 8763.6451ms
+2025-01-27 17:33:44.895 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-27 17:33:44.924 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 200 - application/json;+charset=utf-8 8877.4996ms
+2025-01-27 17:34:09.857 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 17:34:10.092 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-27 17:34:10.097 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 17:34:10.098 -05:00 [INF] Hosting environment: Development
+2025-01-27 17:34:10.099 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-27 17:34:12.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-27 17:34:13.628 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1268.1097ms
+2025-01-27 17:34:13.712 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-27 17:34:13.717 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.6932ms
+2025-01-27 17:34:13.907 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-27 17:34:13.973 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.6844ms
+2025-01-27 17:34:14.022 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-27 17:34:14.273 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 250.7535ms
+2025-01-27 17:34:18.602 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - -
+2025-01-27 17:34:18.617 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-27 17:34:18.680 -05:00 [INF] Route matched with {action = "ObtenerUsuarioid", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerUsuarioid(Int64) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-01-27 17:34:21.153 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Usuarios.Modelo.UsuarioModelo'.
+2025-01-27 17:34:21.190 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI) in 2502.0054ms
+2025-01-27 17:34:21.199 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.ObtenerUsuarioid (AdaptadorAPI)'
+2025-01-27 17:34:21.214 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/ObtenerUsuarioid/1 - - - 200 - application/json;+charset=utf-8 2612.0201ms
