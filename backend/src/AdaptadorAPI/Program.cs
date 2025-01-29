@@ -38,8 +38,16 @@ builder.Services.AddSwaggerGen(c =>
     c.DescribeAllParametersInCamelCase();
     c.SupportNonNullableReferenceTypes();
 });
-builder.Services.AddCors();
 
+// Configuración de CORS
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowFrontend", policy => {
+        policy.WithOrigins("http://localhost:3000")  // Origen permitido
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();  // Si necesitas enviar credenciales (cookies, tokens)
+    });
+});
 // Configurar JWT
 builder.Services.AddAuthentication(options =>
 {
@@ -113,16 +121,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors(options =>
-{
-    //options.WithOrigins("http://192.168.1.8:3000");//PUERTO PRUEBAS EJECUCION
-    //options.WithOrigins("http://localhost:3000");//PUERTO PRUEBAS EJECUCION LOCALHOST
-    //options.WithOrigins("http://192.168.1.8:1212");//PUERTO API
-    //options.WithOrigins("http://localhost:1212");//PUERTO API LOCALHOST
-    //options.AllowAnyOrigin();
-    options.AllowAnyMethod();
-    options.AllowAnyHeader();
-    options.AllowAnyOrigin();
-});
+app.UseCors("AllowFrontend");
 
 app.Run();
