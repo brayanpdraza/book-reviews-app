@@ -4,6 +4,8 @@ import { setAccessToken } from '../methods/SetAccessToken.ts';
 import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import { fetchConfig } from '../methods/fetchConfig.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+import {getRefreshToken} from '../methods/getRefreshToken.ts';
+import {setRefreshToken} from '../methods/SetRefreshToken.ts';
 
 interface AutenticacionRes{
     credential:string;
@@ -25,9 +27,9 @@ export default function Login() {
 
    useEffect(() => {
       const token = GetAccessToken();
-    
-          if (token) {
-            console.log("Ya cuenta con una sesion inciada");
+      const refreshtoken = getRefreshToken();
+          if (token && refreshtoken) {
+            console.log("Ya cuenta con una sesion iniciada");
             navigate('/');
             return;
         }
@@ -45,7 +47,6 @@ export default function Login() {
     setLoading(true);
     setError("");
 
-    const newErrors = [];
 
     if (email.length < 8) {
         setError('Debe ingresar un correo electrónico válido');
@@ -66,7 +67,7 @@ export default function Login() {
 
 
     try {
-
+        //REFACTORIZAR
         let url = `${apiUrl}/${ControllerName}/AutenticacionUsuarioPorCorreoYPassword/${email}/${password}`;
 
         const response = await fetch(url);
@@ -81,6 +82,7 @@ export default function Login() {
 
           const data: AutenticacionRes = await response.json();
           setAccessToken(data.credential);
+          setRefreshToken(data.renewalCredential);
           navigate('/');
 
     } catch (error) {

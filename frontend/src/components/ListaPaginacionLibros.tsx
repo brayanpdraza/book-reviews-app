@@ -53,6 +53,7 @@ const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) =
   } catch (error) {
     setError(`Error 6436: ${error}`);
     console.error('Error fetching libros:', error);
+    return;
   }
 };
 

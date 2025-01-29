@@ -5,6 +5,8 @@ import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import { fetchConfig } from '../methods/fetchConfig.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
 import {Usuario} from '../Interfaces/Usuario.ts';
+import {getRefreshToken} from '../methods/getRefreshToken.ts';
+import {setRefreshToken} from '../methods/SetRefreshToken.ts';
 
 interface AutenticacionRes{
     credential:string;
@@ -25,17 +27,19 @@ export default function Register(){
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [apiUrl, setAPIUrl] = useState('');
+
+    
     const navigate = useNavigate();
     const location = useLocation();
     const ControllerName = "Usuario";
 
    useEffect(() => {
-      const token = GetAccessToken();
-    
-          if (token) {
-            console.log("Ya cuenta con una sesion inciada");
+        const token = GetAccessToken();
+        const refreshtoken = getRefreshToken();
+        if (token && refreshtoken) {
+            console.log("Ya cuenta con una sesion iniciada");
             navigate('/');
-            return;
+          return;
         }
 
         const loadConfig = async () => {
@@ -123,6 +127,7 @@ export default function Register(){
             
             const data: AutenticacionRes = await response.json();
             setAccessToken(data.credential);
+            setRefreshToken(data.renewalCredential);
             navigate('/');
 
         } catch (error) {

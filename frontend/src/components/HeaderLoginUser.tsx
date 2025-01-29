@@ -7,6 +7,9 @@ import { fetchConfig } from '../methods/fetchConfig.ts';
 import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import {SessionExpiredError} from '../methods/SessionExpiredError.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+import { setRefreshToken } from '../methods/SetRefreshToken.ts';
+import { getRefreshToken } from '../methods/getRefreshToken.ts';
+import { refreshAuthToken } from '../methods/fetchWithAuth.ts';
 
 interface MyJwtPayload extends JwtPayload {
   correo: string; // Agregar el campo "correo" que tienes en el JWT
@@ -34,18 +37,41 @@ const HeaderLoginUser = () => {
     }, [location.pathname]);
   
     useEffect(() => {
-
-      if (!token) {
-
+      const handleRequest = async () => {
+        const refreshToken = getRefreshToken();
+        if (!token) {
+          if(!refreshToken){
+            setEmail(null);
+            return;
+          }
+          // Intentar renovar el token
+          const newToken = await refreshAuthToken();
+          if (!newToken) {
+            setEmail(null);
+            throw new SessionExpiredError()// Si no se puede renovar, error
+          }; 
+          }
+          
+          try {
+            const decoded = jwtDecode<MyJwtPayload>(token); // Usa la interfaz personalizada aquí
+            setEmail(decoded.correo); // Asegúrate de que el campo se llama "correo" en el JWT
+          } catch (error) {
+            console.error('Error decoding JWT:', error);
+          }
+      };
+      
+      if(loadingConfig){
         return;
       }
-        try {
-          const decoded = jwtDecode<MyJwtPayload>(token); // Usa la interfaz personalizada aquí
-          setEmail(decoded.correo); // Asegúrate de que el campo se llama "correo" en el JWT
-        } catch (error) {
-          console.error('Error decoding JWT:', error);
-        }
-      
+      try{
+      handleRequest();
+      }catch(error){
+        if (error instanceof SessionExpiredError) {
+          console.error(error.message); // Mensaje: "Su sesión ha vencido. Debe loguearse de nuevo!"
+        } else {
+          console.error('Error 3463463 :', error);
+      }
+      }
     }, [token]);
   
     const handleLogout = async () => {
@@ -55,24 +81,27 @@ const HeaderLoginUser = () => {
       setToken(tokenget);
       if (!token) 
         {
+          setEmail(null)
+          setRefreshToken("");
+          navigate('/login'); // Redirigir al login
         return;
       }
         try {
-          console.log("hola");  
-          const response = await fetchWithAuth<void>(`${apiUrl}/${ControllerName}/logout`, token); //FALLO
-          console.log("adios"); 
+          const response = await fetchWithAuth<void>(`${apiUrl}/${ControllerName}/logout`, token); 
           if (!response.ok) { 
            const errorContent = await ResponseErrorGet(response);
           setError(errorContent);   
             return;
           }
           setAccessToken('');
-          setEmail(null);
+          setRefreshToken('');
           console.log('Logout successful');
-          window.location.href = '/Login'; 
+          navigate('/login'); // Redirigir al login
         } catch (error) {
           if (error instanceof SessionExpiredError) {
             console.error(error.message); // Mensaje: "Su sesión ha vencido. Debe loguearse de nuevo!"
+            setRefreshToken("");
+            setAccessToken("");
             navigate('/login'); // Redirigir al login
           } else {
             console.error('Error durante el logout:', error);

@@ -3,6 +3,7 @@ import {setAccessToken} from './SetAccessToken.ts';
 import {SessionExpiredError} from './SessionExpiredError.ts';
 import {RequestOptions} from '../Interfaces/RequestOptions.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+import {getRefreshToken} from '../methods/getRefreshToken.ts';
 
   interface RefreshTokenResponse {
         Credential:string;
@@ -14,7 +15,8 @@ import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
   export const fetchWithAuth = async <T>(
     url: string, 
     token: string, 
-    { method = 'POST', body = null }: RequestOptions = {}
+    { method = 'POST', body = null }: RequestOptions = {},
+    retryCount = 0 // Contador de reintentos
   ): Promise<Response> => {
     const headers: HeadersInit = {
       'Authorization': `Bearer ${token}`,
@@ -27,53 +29,59 @@ import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
       body: body ? JSON.stringify(body) : null, // Incluimos el cuerpo si existe
       //credentials: 'include' // Necesario para cookies HttpOnly
     };
-    let response;
-    let newToken
     try {
-      response = await fetch(url, options);
-    } catch (error) {
-      console.error('Request failed', error); //FALLO
-      throw error;
-    }
+      const response = await fetch(url, options);
+  
       if (response.status === 204) {
-        // Si la respuesta es 204 No Content, no hay cuerpo, pero se considera exitoso
-        return response; // Retornamos el response directamente
+        return response; // Respuesta exitosa sin contenido
       }
   
       if (!response.ok) {
-        // Si obtenemos un 401 Unauthorized, intentamos refrescar el token
-        if (response.status === 401) {
-          try{
-               const errorContent = await ResponseErrorGet(response);
-                    console.log(errorContent);  
-          newToken = await refreshAuthToken();
-          }catch(error){
-            throw new SessionExpiredError();
-          }
-          if (!newToken) {
-            throw new SessionExpiredError();
-            
-          }
-        } 
-        return fetchWithAuth<T>(url, newToken, { method, body });
+        if (response.status === 401 && retryCount < 1) {
+          // Intentar renovar el token si el intento es menor a 1
+          const newToken = await refreshAuthToken();
+          if (!newToken) throw new SessionExpiredError(); // Si no se puede renovar, error
+          return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1);
+        } else {
+          const errorContent = await ResponseErrorGet(response);
+          console.error('Error en la solicitud:', errorContent);
+          throw new Error(`Error ${response.status}: ${errorContent}`);
+        }
       }
   
-      return response; // Retornamos la respuesta completa (para manejarla más adelante)
+      return response; // Respuesta exitosa
+    } catch (error) {
+      // Manejo de errores por excepción directa (fetch falló antes de recibir respuesta)
+      if (retryCount < 1 && error ) {
+        console.warn('Error al hacer fetch, intentando renovar token:', error);
+  
+        // Intentar renovar el token
+        const newToken = await refreshAuthToken();
+        if (!newToken) throw new SessionExpiredError(); // Si no se puede renovar, error
+        return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1);
+      }
+  
+      // Si ya se intentó renovar o es otro error, lanzar el error original
+      console.error('Request failed:', error);
+      throw error;
+    }
     
   };
     
     // Función para refrescar el token
-    const refreshAuthToken = async (): Promise<string | null> => {
+    export const refreshAuthToken = async (): Promise<string | null> => {
 
-      const refreshToken = localStorage.getItem('refreshToken');
+      const refreshToken = getRefreshToken();
+      console.log(refreshToken);
+
       if (!refreshToken) {
         console.error('No refresh token available');
         return null;
       }
     
-      const urlrefreshtoken= "http://localhost:1212/usuario/update-refresh-token";
+      const urlrefreshtoken= "http://localhost:1212/Usuario/update-refresh-token";
 
-
+    
       try {
         const response = await fetch(urlrefreshtoken, {
           method: 'POST',
@@ -90,7 +98,7 @@ import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
         const data: RefreshTokenResponse = await response.json();
         const newToken = data.Credential;
     
-        // Guarda el nuevo token en localStorage o donde sea necesario
+        // Guarda el nuevo token 
         setAccessToken(newToken);
     
         return newToken;

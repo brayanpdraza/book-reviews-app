@@ -12,6 +12,7 @@ import { GetAccessToken } from '../methods/GetAccessToken.ts';
 import {SessionExpiredError} from '../methods/SessionExpiredError.ts';
 import {RequestOptions} from '../Interfaces/RequestOptions.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+import { setAccessToken } from '../methods/SetAccessToken.ts';
 
 interface JwtPayload {
     id : number;
@@ -112,12 +113,12 @@ useEffect(() => {
 
 useEffect(() => {
     const fetchInitialData = async () => {
-      try {
-        
-        // Obtener datos del libro
+  
+        // Si no ha cargado la api, no permito que avance
         if (!apiUrl) {
             return
         }
+        try {
         
         // Obtener email del usuario desde el token
         const token = GetAccessToken();
@@ -131,22 +132,24 @@ useEffect(() => {
 
         fetchLibroid(idlibro);         
         
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(error);
+      }
+      finally{
         setLoading(false);
       }
     };
 
     fetchInitialData();
-  }, [apiUrl,idlibro]);
+  }, [apiUrl,idlibrostr]);
 
    // Fetch reseñas independiente
    useEffect(() => {
  
     if (!loading && book) { // Solo ejecutar cuando el libro esté cargado
         fetchReviewslibro(book);
+        //console.log(book,idlibrostr,loading);
     }
   }, [idlibrostr, loading, book]);
 
@@ -179,31 +182,37 @@ useEffect(() => {
                 calificacion: newReviewdata.rating,
                 comentario: newReviewdata.comment,
                 createdAt: new Date(),
-                libro:book,
-                usuario: user
-
+                usuario: user,
+                libro:book            
             };
 
         try{
-            const requestOptions: RequestOptions = {
-                method: 'POST',
-                body: newReview };
-        response = await fetchWithAuth<void>(`${apiUrl}/${CtrlNameReview}/ConsultarReviewsPorLibro`, token,requestOptions);
+          const requestOptions: RequestOptions = {
+            method: 'POST',
+            body: newReview
+          };
+          response = await fetchWithAuth<void>(`${apiUrl}/${CtrlNameReview}/GuardarReview`, token, requestOptions);
         }catch (error) {
             if (error instanceof SessionExpiredError) {
                 console.error(error.message); // Mensaje: "Su sesión ha vencido. Debe loguearse de nuevo!"
+                setAccessToken("");
                 navigate('/login'); // Redirigir al login
               } else {
                 console.error('Error 62362 durante envío de reseña:', error);
             }
+            return;
         }
-
       if (response.ok) {
+        try{
         // Refrescar las reseñas después de enviar
         const updatedReviewsResponse = await  fetchReviewslibro(book);
+        }catch(error){
+          console.error('Error 2737848 durante envío de reseña. Al refrescar las reseñas del libro:', error);
+        }
        }
        else{
-        console.error('Error 823682 No se realizó el envío de la reseña:', response.text);
+        const errorContent = await ResponseErrorGet(response);
+          console.error('Error en la solicitud:', errorContent);
        }
     };
 
