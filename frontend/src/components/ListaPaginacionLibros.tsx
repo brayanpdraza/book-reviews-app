@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { fetchConfig } from '../methods/fetchConfig.ts';
+import {  useNavigate } from 'react-router-dom';
 import {Libro} from '../Interfaces/Libro.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
+import { useAppContext } from '../components/AppContext.tsx'; 
 
 interface ApiResponse<T> {
   items: T[];
@@ -17,24 +17,23 @@ interface PaginacionLibrosProps {
 }
 
 const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) => {
+  const context = useAppContext();
+
   const [libros, setLibros] = useState<Libro[]>([]);
   const [paginaActual, setPaginaActual] = useState(1);
-  const location = useLocation();
   const [tipoFiltroTemp, setTipoFiltroTemp] = useState<'categoria' | 'titulo' | 'autor'>('titulo'); // Tipo de filtro
   const [tipoFiltro, setTipoFiltro] = useState<'categoria' | 'titulo' | 'autor'>('titulo'); // Tipo de filtro
   const [inputValue, setInputValue] = useState(''); // Valor temporal del input
   const [valorFiltro, setValorFiltro] = useState(''); // Valor del filtro
   const [totalLibros, setTotalLibros] = useState(0);
   const [totalPaginas, setTotalPaginas] = useState(0);
-  const [apiUrl, setAPIUrl] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [loadingConfig, setLoadingConfig] = useState(true);
   const navigate = useNavigate();
   const ControllerName = 'Libro';
 
  const fetchLibros = async (pagina: number, filtro?: string) => {
   try {
-    let url = `${apiUrl}/${ControllerName}/ConsultarLibrosPaginadosFiltroOpcional/${pagina}/${itemsPorPagina}`;
+    let url = `${context.apiUrl}/${ControllerName}/ConsultarLibrosPaginadosFiltroOpcional/${pagina}/${itemsPorPagina}`;
     if (filtro!== undefined && filtro !== null && filtro !== "") {
       url += `?filtro=${filtro}`; // Agregar el filtro solo si existe
     }
@@ -57,21 +56,14 @@ const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) =
   }
 };
 
-useEffect(() => {
-  const loadConfig = async () => {
-  await fetchConfig(setAPIUrl, setError, setLoadingConfig);
-  };
-  loadConfig();
-}, [location.pathname]);
-
 // Cargar libros al cambiar de página o al aplicar un filtro
 useEffect(() => {
-  if (!apiUrl) {
+  if (!context.apiUrl) {
     return
   }
   const filtroCompleto = valorFiltro ? `${tipoFiltro}:${valorFiltro}` : "";
   fetchLibros(paginaActual, filtroCompleto);
-}, [apiUrl,paginaActual, valorFiltro,tipoFiltro]);
+}, [context.apiUrl,paginaActual, valorFiltro,tipoFiltro]);
 
 // Redirigir al detalle del libro
 const handleClickLibro = (id: number) => {
@@ -95,10 +87,6 @@ const aplicarFiltro = () => {
   setValorFiltro(inputValue);
   setTipoFiltro(tipoFiltroTemp);
 };
-
-if (loadingConfig) {
-  return <div>Cargando configuración...</div>;
-}
 
 if (error) {
   return <div>{error}</div>;

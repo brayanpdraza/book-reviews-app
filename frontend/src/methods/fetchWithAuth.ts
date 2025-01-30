@@ -1,120 +1,110 @@
 
-import {setAccessToken} from './SetAccessToken.ts';
 import {SessionExpiredError} from './SessionExpiredError.ts';
 import {RequestOptions} from '../Interfaces/RequestOptions.ts';
+import {AppContextType} from '../Interfaces/AppContextType.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
-import {getRefreshToken} from '../methods/getRefreshToken.ts';
+import { AutenticacionRes } from '../Interfaces/AuthenticationRes.ts';
+import { getRefreshToken } from './getRefreshToken.ts';
+import { setAccessToken } from './SetAccessToken.ts';
+import { setRefreshToken } from './SetRefreshToken.ts';
 
-  interface RefreshTokenResponse {
-        Credential:string;
-        RenewalCredential :string;
-        DateTime: string;
-  }
-
-
-  export const fetchWithAuth = async <T>(
-    url: string, 
-    token: string, 
-    { method = 'POST', body = null }: RequestOptions = {},
-    retryCount = 0 // Contador de reintentos
-  ): Promise<Response> => {
-    const headers: HeadersInit = {
+export const fetchWithAuth = async <T>(
+  url: string,
+  token: string | null,
+  { method = 'POST', body = null }: RequestOptions = {},
+  retryCount = 0,
+  context: AppContextType // <--- Aceptar el contexto
+): Promise<Response> => {
+  const headers: HeadersInit = {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
-    };
-  
-    const options: RequestInit = {
+  };
+
+  const options: RequestInit = {
       method,
       headers,
-      body: body ? JSON.stringify(body) : null, // Incluimos el cuerpo si existe
-      //credentials: 'include' // Necesario para cookies HttpOnly
-    };
-    try {
+      body: body ? JSON.stringify(body) : null,
+  };
+
+  try {
       const response = await fetch(url, options);
-  
-      if (response.status === 204) {
-        return response; // Respuesta exitosa sin contenido
-      }
-  
+
+      // Caso: Respuesta exitosa sin contenido
+      if (response.status === 204) return response;
+
+      // Manejo de errores HTTP
       if (!response.ok) {
-        if (response.status === 401 && retryCount < 1) {
-          // Intentar renovar el token si el intento es menor a 1
-          const newToken = await refreshAuthToken();
-          if (!newToken) throw new SessionExpiredError(); // Si no se puede renovar, error
-          return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1);
-        } else {
+          // Caso especial: Token expirado
+          if (response.status === 401 && retryCount < 1) {
+              const newToken = await refreshAuthToken(context); // <--- Pasar el contexto
+              if (!newToken) throw new SessionExpiredError();
+              return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1, context);
+          }
+
           const errorContent = await ResponseErrorGet(response);
-          console.error('Error en la solicitud:', errorContent);
-          throw new Error(`Error ${response.status}: ${errorContent}`);
-        }
+          throw new Error(`HTTP Error ${response.status}: ${errorContent}`);
       }
-  
-      return response; // Respuesta exitosa
-    } catch (error) {
-      // Manejo de errores por excepción directa (fetch falló antes de recibir respuesta)
-      if (retryCount < 1 && error ) {
-        console.warn('Error al hacer fetch, intentando renovar token:', error);
-  
-        // Intentar renovar el token
-        const newToken = await refreshAuthToken();
-        if (!newToken) throw new SessionExpiredError(); // Si no se puede renovar, error
-        return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1);
+
+      return response;
+
+  } catch (error) {
+      // Manejo de errores de red
+      if (error instanceof TypeError && retryCount < 1) {
+        console.warn('Network error detected, retrying...', retryCount+1); 
+        const newToken = await refreshAuthToken(context); // <--- Pasar el contexto
+        if (!newToken) throw new SessionExpiredError();
+        console.warn('retrying Succeful');
+        return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1, context);
       }
-  
-      // Si ya se intentó renovar o es otro error, lanzar el error original
-      console.error('Request failed:', error);
+
+      // Relanzar errores no manejados
+      if (error instanceof SessionExpiredError) {
+          context.handleError(error);
+      }
+
       throw error;
-    }
-    
-  };
-    
-    // Función para refrescar el token
-    export const refreshAuthToken = async (): Promise<string | null> => {
+  }
+};
 
+export const refreshAuthToken = async (context: AppContextType): Promise<string | null> => {
+  try {
+      // 1. Obtener refresh token del storage
       const refreshToken = getRefreshToken();
-      console.log(refreshToken);
+      if (!refreshToken) return null;
 
-      if (!refreshToken) {
-        console.error('No refresh token available');
-        return null;
-      }
-    
-      const urlrefreshtoken= "http://localhost:1212/Usuario/update-refresh-token";
-
-    
-      try {
-        const response = await fetch(urlrefreshtoken, {
+      // 2. Hacer la solicitud para renovar el token
+      const response = await fetch('http://localhost:1212/Usuario/update-refresh-token', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ refreshToken }),
-        });
-    
-        if (!response.ok) {
-          throw new Error('Failed to refresh token');
-        }
-    
-        const data: RefreshTokenResponse = await response.json();
-        const newToken = data.Credential;
-    
-        // Guarda el nuevo token 
-        setAccessToken(newToken);
-    
-        return newToken;
-      } catch (error) {
-        console.error('Token refresh failed', error);
-        redirectToLogin(); // Redirige al usuario al login si la renovación falla
-        return null;
-      }
-    };
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(refreshToken),
+      });
 
-    // Redirigir al login
-const redirectToLogin = () => {
-    // Limpiar cualquier dato relacionado con la sesión
-    setAccessToken("");
-    localStorage.removeItem('refreshToken');
-    
-    // Redirigir a la página de login
-    window.location.href = '/Login'; // Aquí puedes redirigir al login o la página que desees
-  };
+      // 3. Manejar errores de la respuesta
+      if (!response.ok) {
+          const errorContent = await ResponseErrorGet(response);
+          throw new Error(`Error al renovar el token: ${errorContent}`);
+      }
+
+      // 4. Extraer los nuevos tokens
+      const data: AutenticacionRes = await response.json();
+
+      // 5. Actualizar el storage
+      setAccessToken(data.credential);
+      setRefreshToken(data.renewalCredential);
+
+      // 6. Sincronizar con el contexto
+      context.setToken(data.credential);
+      context.setRefreshToken(data.renewalCredential);
+      console.log("credentials renewed")
+      // 7. Retornar el nuevo access token
+      return data.credential;
+
+  } catch (error) {
+      // 8. Manejo de errores
+      if (error instanceof SessionExpiredError) {
+        context.handleError(error);
+      }
+      console.error('Error refreshing token:', error);
+      return null;
+  }
+};

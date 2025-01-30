@@ -1,59 +1,33 @@
-import React, { useState,useEffect } from 'react';
-import { useNavigate,useLocation } from 'react-router-dom';
-import { setAccessToken } from '../methods/SetAccessToken.ts';
-import { GetAccessToken } from '../methods/GetAccessToken.ts';
-import { fetchConfig } from '../methods/fetchConfig.ts';
-import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
-import {getRefreshToken} from '../methods/getRefreshToken.ts';
-import {setRefreshToken} from '../methods/SetRefreshToken.ts';
-
-interface AutenticacionRes{
-    credential:string;
-    renewalCredential:string;
-    expiry:Date;
-}
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {LoginMethod} from "../methods/LoginMethod.ts";
+import { useAppContext} from '../components/AppContext.tsx';
+import { AppContextType} from '../Interfaces/AppContextType.ts';
 
 export default function Login() {
-    const [email, setEmail] = useState('');
+  const context: AppContextType = useAppContext();
+
+    const [emailForm, setEmailForm] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [loadingConfig, setLoadingConfig] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
-     const [apiUrl, setAPIUrl] = useState('');
     const navigate = useNavigate();
-    const location = useLocation();
     const ControllerName = "Usuario";
 
-   useEffect(() => {
-      const token = GetAccessToken();
-      const refreshtoken = getRefreshToken();
-          if (token && refreshtoken) {
-            console.log("Ya cuenta con una sesion iniciada");
-            navigate('/');
-            return;
-        }
 
-        const loadConfig = async () => {
-          await fetchConfig(setAPIUrl, setError, setLoadingConfig);
-        };
-        loadConfig();
-      
-      }, [location.pathname]);
     
-
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
-
-    if (email.length < 8) {
+    if (emailForm.length < 8) {
         setError('Debe ingresar un correo electrónico válido');
         setLoading(false);
         return;
       }
-      if (!email.includes('@')){
+      if (!emailForm.includes('@')){
         setError('Correo electrónico inválido');
         setLoading(false);
         return;
@@ -65,37 +39,20 @@ export default function Login() {
         return;
       }
 
-
     try {
-        //REFACTORIZAR
-        let url = `${apiUrl}/${ControllerName}/AutenticacionUsuarioPorCorreoYPassword/${email}/${password}`;
+      if (!context.apiUrl)
+        throw new Error("Error de configuración. Cargue la página de nuevo");
 
-        const response = await fetch(url);
-
-        if (!response.ok) { 
-            const errorContent = await ResponseErrorGet(response);
-            setError(errorContent);   
-            
-            return;
-          }
-          
-
-          const data: AutenticacionRes = await response.json();
-          setAccessToken(data.credential);
-          setRefreshToken(data.renewalCredential);
-          navigate('/');
+      await LoginMethod(context.apiUrl,ControllerName,emailForm,password,navigate,context.login);
 
     } catch (error) {
-        setError([error || "error Inicio Sesion"]);
+        setError(error || "error Inicio Sesion");
         console.error('Error 563873:', error);
     } finally {
       setLoading(false);
     }
+    window.alert("Ha iniciado Sesión");
   };
-
-  if (loadingConfig) {
-    return <div>Cargando configuración...</div>;
-  }
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
@@ -109,8 +66,8 @@ export default function Login() {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={emailForm}
+            onChange={(e) => setEmailForm(e.target.value)}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             disabled={loading}
           />
