@@ -2,19 +2,19 @@
     "routes": [
         {
             "src": "/Login",
-            "dest": "/frontend/build/index.html"
+            "dest": "build/index.html"
           },
           {
             "src": "/Register",
-            "dest": "/frontend/build/index.html"
+            "dest": "build/index.html"
           },
           {
             "src": "/DetalleLibro/(?<id>[^/]+)",  
-            "dest": "/frontend/build/index.html"
+            "dest": "build/index.html"
           },
           {
             "src": "/(.*)",
-            "dest": "/frontend/build/index.html"
+            "dest": "build/index.html"
           }
     ]
 }
