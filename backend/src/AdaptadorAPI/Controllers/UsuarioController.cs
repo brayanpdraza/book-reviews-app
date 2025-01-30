@@ -6,6 +6,7 @@ using Dominio.Entidades.Usuarios.Modelo;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Data;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -132,6 +133,11 @@ namespace AdaptadorAPI.Controllers
             try
             {
                 createdId = _useCaseUsuario.AddUsuario(usuario);
+            }
+            catch (DataException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
+                return Conflict(ex.Message);
             }
             catch (ArgumentException ex)  // Más apropiado para "no encontrado"
             {

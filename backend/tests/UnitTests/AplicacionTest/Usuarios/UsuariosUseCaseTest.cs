@@ -6,6 +6,8 @@ using Dominio.Servicios.ServicioEncripcion.Contratos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Moq;
+using System.Data;
+using System.Data.Common;
 
 namespace AplicacionTest.Usuarios
 {
@@ -49,7 +51,7 @@ namespace AplicacionTest.Usuarios
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(usuario.Correo)).Returns(usuarioRegistrado);
 
             // Act Assert
-            var exception = Assert.Throws<Exception>(() => _useCaseUsuario.AddUsuario(usuario));
+            var exception = Assert.Throws<DataException>(() => _useCaseUsuario.AddUsuario(usuario));
             Assert.Equal(ErrorMessage, exception.Message);
 
 

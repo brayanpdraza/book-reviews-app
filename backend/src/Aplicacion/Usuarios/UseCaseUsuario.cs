@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text;
@@ -34,9 +35,9 @@ namespace Aplicacion.Usuarios
             _userValidations.Validate(usuario);
 
             UsuarioExistente = _usuarioRepositorio.ListUsuarioPorCorreo(usuario.Correo);
-            if (UsuarioExistente != null)
+            if (UsuarioExistente.Id >0)
             {
-                throw new Exception("El correo ingresado ya se encuentra Registrado en el sistema.");
+                throw new DataException("El correo ingresado ya se encuentra Registrado en el sistema.");
             }
 
             usuario.Password = _encription.Encriptar(usuario.Password);
