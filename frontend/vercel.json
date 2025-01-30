@@ -2,19 +2,19 @@
     "routes": [
         {
             "src": "/Login",
-            "dest": "build/index.html"
+            "dest": "/"
           },
           {
             "src": "/Register",
-            "dest": "build/index.html"
+            "dest": "/"
           },
           {
             "src": "/DetalleLibro/(?<id>[^/]+)",  
-            "dest": "build/index.html"
+            "dest": "/"
           },
           {
             "src": "/(.*)",
-            "dest": "build/index.html"
+            "dest": "/"
           }
     ]
 }
