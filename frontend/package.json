@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://book-reviews-app-psi.vercel.app/",
   "dependencies": {
     "cra-template-typescript": "1.2.0",
     "frontend": "file:",
