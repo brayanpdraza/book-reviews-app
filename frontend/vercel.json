@@ -1,20 +1,20 @@
 {
-    "routes": [
-        {
-            "src": "/Login",
-            "dest": "/"
-          },
-          {
-            "src": "/Register",
-            "dest": "/"
-          },
-          {
-            "src": "/DetalleLibro/(?<id>[^/]+)",  
-            "dest": "/"
-          },
-          {
-            "src": "/(.*)",
-            "dest": "/"
-          }
+    "rewrites": [
+      {
+        "source": "/Login",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/Register",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/DetalleLibro/:id",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/index.html"
+      }
     ]
-}
+  }
