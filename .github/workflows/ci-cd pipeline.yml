@@ -1,0 +1,60 @@
+name: CI Básico React + .NET
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  DOTNET_VERSION: "6.0.x"
+  NODE_VERSION: "22.x"  # Necesario para construir React (CRA usa Node)
+
+
+jobs:
+  backend-tests:
+    name: "Pruebas Backend (.NET)"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Obtener código"
+        uses: actions/checkout@v4
+
+      - name: "Instalar .NET"
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: "Restaurar paquetes"
+        working-directory: ./backend  # Cambia a la carpeta del backend
+        run: dotnet restore
+
+      - name: "Compilar"
+        working-directory: ./backend
+        run: dotnet build --configuration Release --no-restore
+
+      - name: "Ejecutar pruebas"
+        working-directory: ./backend
+        run: dotnet test --configuration Release --no-build
+
+  frontend-build:
+    name: "Verificar Frontend (React)"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Obtener código"
+        uses: actions/checkout@v4
+
+      - name: "Instalar Node.js"
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: "Instalar dependencias"
+        working-directory: ./frontend  # Cambia a la carpeta del frontend
+        run: npm install
+
+      - name: "Construir proyecto"
+        working-directory: ./frontend
+        run: npm run build
