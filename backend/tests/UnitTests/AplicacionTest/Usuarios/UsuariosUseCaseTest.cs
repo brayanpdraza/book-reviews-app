@@ -65,12 +65,12 @@ namespace AplicacionTest.Usuarios
         public void AddUsuario_UsuarioNoCreado_LanzaExcepcion()
         {
             // Arrange
-            UsuarioModelo usuario = usuriosBuilderCaseTest.Build();
+            UsuarioModelo usuario = usuriosBuilderCaseTest.SetId(0).Build();
 
             string Password = usuario.Password;
 
             _mockUserValidations.Setup(u => u.Validate(usuario)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(usuario.Correo)).Returns((UsuarioModelo)null);
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(usuario.Correo)).Returns(usuario);
             _mockEncription.Setup(e => e.Encriptar(Password)).Returns("encryptedPassword");
             _mockUsuarioRepositorio.Setup(r => r.AddUsuario(usuario)).Returns(0);
 
@@ -90,13 +90,13 @@ namespace AplicacionTest.Usuarios
         public void AddUsuario_UsuarioValido_RetornaId()
         {
             // Arrange
-            UsuarioModelo usuario = usuriosBuilderCaseTest.Build();
+            UsuarioModelo usuario = usuriosBuilderCaseTest.SetId(0).Build();
             
             long idCreado;
             string Password = usuario.Password;
 
             _mockUserValidations.Setup(v => v.Validate(usuario)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(usuario.Correo)).Returns((UsuarioModelo)null);
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorCorreo(usuario.Correo)).Returns(usuario);
             _mockEncription.Setup(e => e.Encriptar(Password)).Returns("encryptedPassword");
             _mockUsuarioRepositorio.Setup(r => r.AddUsuario(usuario)).Returns(1);
 
