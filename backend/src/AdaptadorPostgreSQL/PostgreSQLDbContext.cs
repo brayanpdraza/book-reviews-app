@@ -8,19 +8,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace AdaptadorPostgreSQL
 {
     public class PostgreSQLDbContext : DbContext
     {
-        public PostgreSQLDbContext() { }
-        public PostgreSQLDbContext(DbContextOptions<PostgreSQLDbContext> options) : base(options) { }
-
+        public PostgreSQLDbContext() {}
+        public PostgreSQLDbContext(DbContextOptions<PostgreSQLDbContext> options) : base(options)
+        {
+        }
+        // Añade este método para configurar el proveedor
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(@"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true");
+                // Cadena de conexión de desarrollo (solo para migraciones)
+                optionsBuilder.UseNpgsql("@\"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true\"");
             }
         }
 
