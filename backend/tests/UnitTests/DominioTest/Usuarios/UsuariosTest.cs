@@ -25,7 +25,7 @@ namespace DominioTest.Usuarios
         {
             // Arrange
             UsuarioModelo Usuario = builderTest.SetPassword("bdfbeerberb").Build();
-            string MessageError = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.";
+            string MessageError = "La contraseÃ±a debe contener al menos una letra mayÃºscula, una minÃºscula, un nÃºmero y un carÃ¡cter especial.";
 
             // Act
             var exception = Assert.Throws<ArgumentException>(() => _userValidations.Validate(Usuario));
@@ -37,7 +37,7 @@ namespace DominioTest.Usuarios
         {
             // Arrange
             UsuarioModelo Usuario = builderTest.SetCorreo("Correomalo").Build();
-            string MessageError = "Debe ingresar un correo válido.";
+            string MessageError = "Debe ingresar un correo vÃ¡lido.";
 
             // Act
             var exception = Assert.Throws<ArgumentException>(() => _userValidations.Validate(Usuario));
