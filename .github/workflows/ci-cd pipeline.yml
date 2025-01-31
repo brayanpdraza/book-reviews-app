@@ -7,51 +7,51 @@ on:
     branches: [master]
 
 env:
-  DOTNET_VERSION: "6.0.x"
-  NODE_VERSION: "22.x"
+  DOTNET_VERSION: 6.0.x
+  NODE_VERSION: 22.x
 
 
 jobs:
   backend-tests:
-    name: "Pruebas Backend (.NET)"
+    name: Pruebas Backend (.NET)
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Obtener código"
+      - name: Obtener código
         uses: actions/checkout@v4
 
-      - name: "Instalar .NET"
+      - name: Instalar .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: "Restaurar paquetes"
+      - name: Restaurar paquetes
         run: dotnet restore
 
-      - name: "Compilar"
+      - name: Compilar
         run: dotnet build --configuration Release --no-restore
 
-      - name: "Ejecutar pruebas"
+      - name: Ejecutar pruebas
         run: dotnet test --configuration Release --no-build
 
   frontend-build:
-    name: "Verificar Frontend (React)"
+    name: Verificar Frontend (React)
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Obtener código"
+      - name: Obtener código
         uses: actions/checkout@v4
 
-      - name: "Instalar Node.js"
+      - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
+          cache: npm
 
-      - name: "Instalar dependencias"
+      - name: Instalar dependencias
         working-directory: ./frontend
         run: npm install
 
-      - name: "Construir proyecto"
+      - name: Construir proyecto
         working-directory: ./frontend
         run: npm run build
