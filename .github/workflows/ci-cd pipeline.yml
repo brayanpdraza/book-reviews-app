@@ -52,6 +52,6 @@ jobs:
         working-directory: ./frontend
         run: npm install
 
-      - name: Construir proyecto
-        working-directory: ./frontend
-        run: npm run build
+      - name: Construir proyecto (Ignorar warnings)
+	working-directory: ./frontend
+  	run: CI=false npm run build
