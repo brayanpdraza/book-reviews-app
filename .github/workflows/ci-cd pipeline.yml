@@ -26,15 +26,12 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: "Restaurar paquetes"
-        working-directory: ./backend  # Cambia a la carpeta del backend
         run: dotnet restore
 
       - name: "Compilar"
-        working-directory: ./backend
         run: dotnet build --configuration Release --no-restore
 
       - name: "Ejecutar pruebas"
-        working-directory: ./backend
         run: dotnet test --configuration Release --no-build
 
   frontend-build:
