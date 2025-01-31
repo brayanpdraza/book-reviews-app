@@ -11,13 +11,13 @@ namespace AdaptadorPostgreSQL.Libros.Entidades
     public class LibroEntity
     {
         public long Id { get; set; }
-        public string Titulo { get; set; }
-        public string Autor { get; set; }
-        public string Resumen { get; set; }
+        public string? Titulo { get; set; }
+        public string? Autor { get; set; }
+        public string? Resumen { get; set; }
         
         public long CategoriasLibroId { get; set; }
-        public CategoriasLibroEntity Categoria { get; set; }
+        public CategoriasLibroEntity Categoria { get; set; } = new CategoriasLibroEntity();
 
-        public ICollection<ReviewEntity> Reviews { get; set; }
+        public ICollection<ReviewEntity>? Reviews { get; set; }
     }
 }
