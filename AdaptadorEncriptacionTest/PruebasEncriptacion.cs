@@ -57,14 +57,14 @@ namespace AdaptadorEncriptacionTest
         }
         [Theory]
         [InlineData("Password123", true)]
-        [InlineData("ContraseñaSegura", true)]
-        public void VerificarClaveEncriptada_CorrectPassword_ReturnsTrue(string contraseñaOriginal, bool ExpectedValue)
+        [InlineData("ContraseÃ±aSegura", true)]
+        public void VerificarClaveEncriptada_CorrectPassword_ReturnsTrue(string contraseÃ±aOriginal, bool ExpectedValue)
         {
             // Arrange
-            string hash = _encription.Encriptar(contraseñaOriginal);
+            string hash = _encription.Encriptar(contraseÃ±aOriginal);
 
             // Act
-            bool resultado = _encription.VerificarClaveEncriptada(contraseñaOriginal, hash);
+            bool resultado = _encription.VerificarClaveEncriptada(contraseÃ±aOriginal, hash);
 
             // Assert
             Assert.Equal(resultado, ExpectedValue);

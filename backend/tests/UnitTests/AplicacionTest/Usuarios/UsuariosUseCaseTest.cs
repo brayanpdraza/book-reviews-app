@@ -132,7 +132,7 @@ namespace AplicacionTest.Usuarios
         }
 
         [Theory]
-        [InlineData("", "Debe ingresar una ContraseÒa.")]
+        [InlineData("", "Debe ingresar una Contrase√±a.")]
         public void AutenticacionByCredenciales_PasswordVacia_LanzaExcepcion(string invalidPassword, string MessageError)
         {
             // Arrange
@@ -177,7 +177,7 @@ namespace AplicacionTest.Usuarios
         }
 
         [Theory]
-        [InlineData("Wr0ngP@sS", "La contraseÒa proporcionada es Incorrecta.")]
+        [InlineData("Wr0ngP@sS", "La contrase√±a proporcionada es Incorrecta.")]
         public void AutenticacionByCredenciales_PassIncorrecta_LanzaExcepcion(string InvalidPass,string ErrorMessage)
         {
             // Arrange
@@ -212,7 +212,7 @@ namespace AplicacionTest.Usuarios
             string HashedPass = "HashedPass";
             string Pass = "P4ssG@0d";
             string Correo = "correo@prueba.com";
-            string ErrorMessage = "No se realizÛ la autenticacion.";
+            string ErrorMessage = "No se realiz√≥ la autenticacion.";
 
             UsuarioModelo usuarioConsultado = usuriosBuilderCaseTest.SetPassword(HashedPass).SetCorreo(Correo).Build();
             usuario = usuarioConsultado;
@@ -240,7 +240,7 @@ namespace AplicacionTest.Usuarios
             // Arrange}
             LogoutRequest Result = null;
             long id = 0;
-            string ErrorMessage = "El ID No es V·lido.";
+            string ErrorMessage = "El ID No es V√°lido.";
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutById(id));
 
@@ -252,7 +252,7 @@ namespace AplicacionTest.Usuarios
 
 
         [Theory]
-        [InlineData(0, "No se puede consultar el usuario porque el id no es v·lido.")]
+        [InlineData(0, "No se puede consultar el usuario porque el id no es v√°lido.")]
         public void ConsultarUsuarioPoriD_idErrores_LanzaExcepcion(long id, string ErrorMessage)
         {
             // Arrange
@@ -269,7 +269,7 @@ namespace AplicacionTest.Usuarios
 
 
         [Fact]
-        public void ConsultarUsuarioporiD_ReseÒasExistentes_ReturnsReview()
+        public void ConsultarUsuarioporiD_Rese√±asExistentes_ReturnsReview()
         {
             // Arrange
             UsuarioModelo Usuario = usuriosBuilderCaseTest.Build();
