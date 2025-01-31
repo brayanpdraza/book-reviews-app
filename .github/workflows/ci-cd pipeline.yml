@@ -54,4 +54,4 @@ jobs:
 
       - name: Construir proyecto
 	working-directory: ./frontend
-  	run: CI=false npm run build
+	run: CI=false npm run build
