@@ -40,6 +40,8 @@ if (string.IsNullOrEmpty(databaseUrl))
     throw new Exception("DATABASE_URL no está configurada.");
 }
 
+Console.WriteLine($"DATABASE_URL: {databaseUrl}");
+
 NpgsqlConnectionStringBuilder connectionBuilder;
 
 if (databaseUrl.StartsWith("postgresql://") || databaseUrl.StartsWith("postgres://"))
