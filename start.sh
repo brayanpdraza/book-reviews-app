@@ -17,8 +17,8 @@ ls -la
 
 echo "=== Aplicando migraciones ==="
 dotnet ef database update \
-  --project .adaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
-  --startup-project .AdaptadorAPI/AdaptadorAPI.csproj \
+  --project ./adaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
+  --startup-project ./AdaptadorAPI/AdaptadorAPI.csproj \
   --msbuildprojectextensionspath ./obj
 
 echo "=== Compilando API ==="
