@@ -25,4 +25,4 @@ dotnet ef database update \
   --msbuildprojectextensionspath ./obj
 
 echo "=== Iniciando API ==="
-dotnet ./api/bin/Release/net6.0/publish/API.dll
+dotnet ./AdaptadorAPI/bin/Release/net6.0/publish/API.dll
