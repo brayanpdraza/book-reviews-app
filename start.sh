@@ -1,13 +1,28 @@
-#!/bin/bash
+
 set -e
 
+
+cd backend/src
+
+
+export PATH="$PATH:$HOME/.dotnet/tools"
 dotnet tool install --global dotnet-ef --version 6.0.36 || true
-export PATH="$PATH:/root/.dotnet/tools"
 
-echo "Ejecutando migraciones de EF..."
+
+echo "=== Directorio actual ==="
+pwd
+
+echo "=== Contenido de backend/src ==="
+ls -la
+
+echo "=== Contenido de adaptadorpostgrsql ==="
+ls -la adaptadorpostgrsql
+
+echo "=== Aplicando migraciones ==="
 dotnet ef database update \
-  --project /app/AdaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
-  --startup-project /app/API/API.csproj
+  --project ./adaptadorpostgresql/AdaptadorPostgreSQL.csproj \
+  --startup-project .AdaptadorAPI/AdaptadorAPI.csproj \
+  --msbuildprojectextensionspath ./obj
 
-echo "Iniciando la API..."
-dotnet /app/out/API.dll
+echo "=== Iniciando API ==="
+dotnet ./api/bin/Release/net6.0/publish/API.dll
