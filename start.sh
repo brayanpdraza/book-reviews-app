@@ -21,6 +21,7 @@ dotnet ef database update \
   --project ./AdaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
   --startup-project ./AdaptadorAPI/AdaptadorAPI.csproj
 
+
 echo "=== Compilando API ==="
 dotnet publish -c Release -o ./publish AdaptadorAPI/AdaptadorAPI.csproj
 
