@@ -1,10 +1,7 @@
 #!/bin/bash
 set -e
 
-
-dotnet tool install --global dotnet-ef || true
-
-
+dotnet tool install --global dotnet-ef --version 6.0.36 || true
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 echo "Ejecutando migraciones de EF..."
