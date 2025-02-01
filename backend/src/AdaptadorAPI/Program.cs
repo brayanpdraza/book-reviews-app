@@ -23,15 +23,22 @@ using System.Text;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using System.Collections;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+if (builder.Environment.IsDevelopment())
+{
+    Env.Load();
+}
 
-//if (builder.Environment.IsDevelopment())
-//{
-    Env.Load(); // Carga el archivo .env
-//}
+Console.WriteLine("=== Variables de Entorno ===");
+foreach (DictionaryEntry env in Environment.GetEnvironmentVariables())
+{
+    Console.WriteLine($"{env.Key}: {env.Value}");
+}
+
 
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim(); // Elimina espacios o caracteres extras
 
