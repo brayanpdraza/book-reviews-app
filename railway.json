@@ -1,8 +1,5 @@
 {
-  "build": {
-    "command": "dotnet publish -c Release -o out"
-  },
   "deploy": {
-    "startCommand": "dotnet ef database update --project ./AdaptadorPostgreSQL/AdaptadorPostgreSQL.csproj --startup-project ./out/API.dll && dotnet ./out/API.dll"
+    "startCommand": "./start.sh"
   }
 }
