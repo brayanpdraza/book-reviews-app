@@ -27,13 +27,17 @@ using System.Collections;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-if (builder.Environment.IsDevelopment())
+{
+// Determinar el entorno de ejecución
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+
+// Cargar las variables desde el archivo .env solo en desarrollo
+if (environment == "Development")
 {
     Env.Load();
 }
 
-Console.WriteLine("=== Variables de Entorno ===");
+        Console.WriteLine("=== Variables de Entorno ===");
 foreach (DictionaryEntry env in Environment.GetEnvironmentVariables())
 {
     Console.WriteLine($"{env.Key}: {env.Value}");
