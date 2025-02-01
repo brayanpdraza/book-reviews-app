@@ -44,7 +44,7 @@ var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim(); //
 
 if (string.IsNullOrEmpty(databaseUrl))
 {
-    throw new Exception("DATABASE_URL no está configurada.");
+    throw new Exception("DATABASE_URL no estÃ¡ configurada.");
 }
 
 Console.WriteLine($"DATABASE_URL: {databaseUrl}");
@@ -70,12 +70,12 @@ if (databaseUrl.StartsWith("postgresql://") || databaseUrl.StartsWith("postgres:
     }
     catch (UriFormatException ex)
     {
-        throw new Exception($"Formato inválido de DATABASE_URL: {ex.Message}");
+        throw new Exception($"Formato invÃ¡lido de DATABASE_URL: {ex.Message}");
     }
 }
 else
 {
-    // Usar cadena de conexión tradicional
+    // Usar cadena de conexiÃ³n tradicional
     connectionBuilder = new NpgsqlConnectionStringBuilder(databaseUrl);
 }
 
@@ -90,12 +90,12 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tu API", Version = "v1" });
 
-    // Configuración para marcar parámetros opcionales correctamente
+    // ConfiguraciÃ³n para marcar parÃ¡metros opcionales correctamente
     c.DescribeAllParametersInCamelCase();
     c.SupportNonNullableReferenceTypes();
 });
 
-// Configuración de CORS
+// ConfiguraciÃ³n de CORS
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowFrontend", policy => {
         policy.WithOrigins("http://localhost:3000")  // Origen permitido
