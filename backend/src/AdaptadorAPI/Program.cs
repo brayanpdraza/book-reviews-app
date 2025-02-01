@@ -27,7 +27,7 @@ using System.Collections;
 
 var builder = WebApplication.CreateBuilder(args);
 
-{
+
 // Determinar el entorno de ejecución
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
