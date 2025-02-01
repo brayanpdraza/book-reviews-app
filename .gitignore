@@ -7,3 +7,4 @@ backend/**/obj/
 
 # Ignorar archivos de configuración local
 appsettings.Development.json
+.env

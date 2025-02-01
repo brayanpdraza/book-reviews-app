@@ -1,0 +1,48 @@
+2025-01-31 17:59:42.888 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-31 17:59:43.400 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-31 17:59:43.407 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-31 17:59:43.408 -05:00 [INF] Hosting environment: Development
+2025-01-31 17:59:43.409 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-31 17:59:46.127 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-01-31 17:59:47.621 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1499.4603ms
+2025-01-31 17:59:47.635 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-31 17:59:48.151 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-01-31 17:59:48.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-01-31 17:59:48.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-31 17:59:48.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-01-31 17:59:48.159 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 524.1433ms
+2025-01-31 17:59:48.170 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 17.7718ms
+2025-01-31 17:59:48.255 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-31 17:59:48.257 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 105.3160ms
+2025-01-31 17:59:48.262 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-01-31 17:59:48.272 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 120.2106ms
+2025-01-31 17:59:48.288 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-01-31 17:59:48.294 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 142.2548ms
+2025-01-31 17:59:48.461 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-31 17:59:48.645 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-01-31 17:59:48.648 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-31 17:59:48.665 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 19.8081ms
+2025-01-31 17:59:49.037 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 575.7570ms
+2025-01-31 17:59:49.290 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-31 17:59:49.462 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 171.3071ms
+2025-01-31 17:59:54.866 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-01-31 17:59:54.882 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-31 17:59:54.935 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-01-31 17:59:56.011 -05:00 [WRN] Value cannot be null. (Parameter 'connectionString')
+2025-01-31 17:59:56.018 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-01-31 17:59:56.025 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 1082.4642ms
+2025-01-31 17:59:56.034 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-01-31 17:59:56.038 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 400 - text/plain;+charset=utf-8 1172.1156ms
+2025-01-31 18:42:27.535 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-31 18:42:27.865 -05:00 [INF] Now listening on: http://localhost:5043
+2025-01-31 18:42:27.870 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-31 18:42:27.871 -05:00 [INF] Hosting environment: Development
+2025-01-31 18:42:27.872 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-01-31 18:42:29.718 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-01-31 18:42:31.317 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1603.7500ms
+2025-01-31 18:42:31.616 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-01-31 18:42:31.621 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-01-31 18:42:31.646 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 25.1319ms
+2025-01-31 18:42:31.703 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 86.6664ms
+2025-01-31 18:42:32.004 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-01-31 18:42:32.285 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 280.7976ms

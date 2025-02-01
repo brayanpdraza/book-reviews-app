@@ -3,10 +3,8 @@ using AdaptadorAPI.Implementaciones;
 using AdaptadorEncripter;
 using AdaptadorPostgreSQL;
 using AdaptadorPostgreSQL.Libros.Adaptadores;
-using AdaptadorPostgreSQL.Libros.Mappers;
 using AdaptadorPostgreSQL.Reviews.Adaptadores;
 using AdaptadorPostgreSQL.Usuarios.Adaptadores;
-using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Aplicacion.Libros;
 using Aplicacion.Reviews;
 using Aplicacion.Usuarios;
@@ -22,10 +20,59 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using DotNetEnv;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+if (builder.Environment.IsDevelopment())
+{
+    Env.Load(); // Carga el archivo .env
+}
+
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim(); // Elimina espacios o caracteres extras
+
+if (string.IsNullOrEmpty(databaseUrl))
+{
+    throw new Exception("DATABASE_URL no está configurada.");
+}
+
+NpgsqlConnectionStringBuilder connectionBuilder;
+
+if (databaseUrl.StartsWith("postgresql://") || databaseUrl.StartsWith("postgres://"))
+{
+    try
+    {
+        var uri = new Uri(databaseUrl);
+        var userInfo = uri.UserInfo.Split(':');
+        connectionBuilder = new NpgsqlConnectionStringBuilder
+        {
+            Host = uri.Host,
+            Port = uri.Port,
+            Database = uri.AbsolutePath.TrimStart('/'),
+            Username = userInfo[0],
+            Password = userInfo[1],
+            SslMode = SslMode.Require,
+            TrustServerCertificate = true
+        };
+    }
+    catch (UriFormatException ex)
+    {
+        throw new Exception($"Formato inválido de DATABASE_URL: {ex.Message}");
+    }
+}
+else
+{
+    // Usar cadena de conexión tradicional
+    connectionBuilder = new NpgsqlConnectionStringBuilder(databaseUrl);
+}
+
+var connectionString = connectionBuilder.ToString();
+builder.Services.AddDbContext<PostgreSQLDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

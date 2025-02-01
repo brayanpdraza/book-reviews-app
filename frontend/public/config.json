@@ -1,4 +1,4 @@
 {
     
-    "apiUrl":"http://localhost:1212"
+    "apiUrl":"https://book-reviews-app.railway.internal"
 }
