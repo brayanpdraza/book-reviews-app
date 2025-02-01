@@ -17,7 +17,7 @@ echo "=== Contenido de backend/src ==="
 ls -la
 
 echo "=== Aplicando migraciones ==="
-dotnet ef database update \
+dotnet ef migrations add InitialCreate \
   --project ./AdaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
   --startup-project ./AdaptadorAPI/AdaptadorAPI.csproj
 
