@@ -6,8 +6,6 @@ cd backend/src
 export PATH="$PATH:$HOME/.dotnet/tools"
 dotnet tool install --global dotnet-ef --version 6.0.36 || true
 
-# Railway ya inyecta DATABASE_URL, pero forzamos SSL
-export DATABASE_URL="$DATABASE_URL?sslmode=Require"
 
 echo "=== Restaurando dependencias ==="
 dotnet restore AdaptadorPostgreSQL/AdaptadorPostgreSQL.csproj

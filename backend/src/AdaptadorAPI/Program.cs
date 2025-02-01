@@ -27,6 +27,7 @@ using System.Collections;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
 
 // Determinar el entorno de ejecución
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
@@ -37,12 +38,6 @@ if (environment == "Development")
     Env.Load();
 }
 
-        Console.WriteLine("=== Variables de Entorno ===");
-foreach (DictionaryEntry env in Environment.GetEnvironmentVariables())
-{
-    Console.WriteLine($"{env.Key}: {env.Value}");
-}
-
 
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim(); // Elimina espacios o caracteres extras
 
@@ -51,7 +46,6 @@ if (string.IsNullOrEmpty(databaseUrl))
     throw new Exception("DATABASE_URL no está configurada.");
 }
 
-Console.WriteLine($"DATABASE_URL: {databaseUrl}");
 
 NpgsqlConnectionStringBuilder connectionBuilder;
 
