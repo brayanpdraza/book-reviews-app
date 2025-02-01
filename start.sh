@@ -20,9 +20,9 @@ ls -la adaptadorpostgrsql
 
 echo "=== Aplicando migraciones ==="
 dotnet ef database update \
-  --project ./adaptadorpostgresql/AdaptadorPostgreSQL.csproj \
+  --project .adaptadorpostgresql/AdaptadorPostgreSQL.csproj \
   --startup-project .AdaptadorAPI/AdaptadorAPI.csproj \
   --msbuildprojectextensionspath ./obj
 
 echo "=== Iniciando API ==="
-dotnet ./AdaptadorAPI/bin/Release/net6.0/publish/API.dll
+dotnet .AdaptadorAPI/bin/Release/net6.0/publish/API.dll
