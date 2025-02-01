@@ -1,6 +1,6 @@
 {
   "build": {
-    "buildCommand": "dotnet restore && dotnet publish -c Release -o out",
+    "buildCommand": "dotnet restore && dotnet publish -c Release -o out"
   },
   "deploy": {
     "startCommand": "chmod +x start.sh && ./start.sh"
