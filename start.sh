@@ -15,9 +15,6 @@ pwd
 echo "=== Contenido de backend/src ==="
 ls -la
 
-echo "=== Contenido de adaptadorpostgrsql ==="
-ls -la adaptadorpostgrsql
-
 echo "=== Aplicando migraciones ==="
 dotnet ef database update \
   --project .adaptadorPostgreSQL/AdaptadorPostgreSQL.csproj \
