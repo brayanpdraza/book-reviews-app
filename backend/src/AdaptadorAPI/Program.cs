@@ -28,10 +28,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-if (builder.Environment.IsDevelopment())
-{
+//if (builder.Environment.IsDevelopment())
+//{
     Env.Load(); // Carga el archivo .env
-}
+//}
 
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim(); // Elimina espacios o caracteres extras
 
