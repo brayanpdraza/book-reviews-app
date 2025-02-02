@@ -27,7 +27,6 @@ El backend está desplegado en **Railway**, mientras que el frontend está aloja
 ### 1️⃣ Clonar el repositorio
 ```sh
  git clone https://github.com/brayanpdraza/book-reviews-app.git
- cd {tu-repositorio}
 ```
 
 ### 2️⃣ Configurar el Backend (.NET Core)
@@ -52,12 +51,13 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
 | `DATABASE_URL`   | URL de conexión de la base de datos.          | 
 
 ###
+3. **Instalar** *Entity Fremework Core* (si no lo tienes): dotnet tool install --global dotnet-ef
 
-3. Ejecutar las migraciones para la base de datos:
+4. Ejecutar las migraciones para la base de datos:
    ```sh
    dotnet ef database update
    ```
-4. Compilar y ejecutar el backend:
+5. Compilar y ejecutar el backend:
    ```sh
    dotnet run
    ```
@@ -66,7 +66,7 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
 ### 3️⃣ Configurar el Frontend (React)
 1. Ir a la carpeta del frontend:
    ```sh
-   cd frontend
+  cd ../frontend
    ```
 2. Instalar las dependencias:
    ```sh
