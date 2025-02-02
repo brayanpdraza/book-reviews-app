@@ -72,7 +72,7 @@ namespace AdaptadorAPI.Implementaciones
             return principal;
 
         }
-        public string GetAccessSecretKey() => Environment.GetEnvironmentVariable("Jwt_SecretKey") || _configuration;
+        public string GetAccessSecretKey() => Environment.GetEnvironmentVariable("Jwt_SecretKey");
         public string GetAccessIssuer() => Environment.GetEnvironmentVariable("Jwt_Issuer");
         public string GetAccessAudience() => Environment.GetEnvironmentVariable("Jwt_Audience");
         public int GetAccessTokenExpiration() => Convert.ToInt32(Environment.GetEnvironmentVariable("Jwt_AccessTokenExpiration"));
