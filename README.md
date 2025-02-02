@@ -85,7 +85,7 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
 ## 🚀 Despliegue
 
 ### 🔹 Desplegar el Backend en Railway
-Se debe subir a un repositorio tanto el backend como el frontend. Tal como en el proyecto o en diferentes ramas, a preferencia del usuario.
+Se debe subir a un repositorio tanto el backend como el frontend. Como en este proyecto en una sola rama o en diferentes ramas, a preferencia del usuario.
 1. Accede a [Railway](https://railway.app/).
 2. Crea un nuevo proyecto y elige **Deploy from GitHub**.
 3. Configura las variables de entorno del .env en Railway:
