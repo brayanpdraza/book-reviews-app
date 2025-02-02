@@ -18,7 +18,6 @@ export const LoginMethod = async (
       const errorContent = await ResponseErrorGet(response);
       throw new Error(`Error ${response.status}: ${errorContent}`);
     }
-
     const data: AutenticacionRes = await response.json();
     
     await login(data.credential, data.renewalCredential, email);

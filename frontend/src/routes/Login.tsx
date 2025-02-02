@@ -44,14 +44,13 @@ export default function Login() {
         throw new Error("Error de configuración. Cargue la página de nuevo");
 
       await LoginMethod(context.apiUrl,ControllerName,emailForm,password,navigate,context.login);
-
+      console.log("Ha iniciado sesión");
     } catch (error) {
-        setError(error || "error Inicio Sesion");
+      setError((error && error.message) || "error Inicio Sesion");
         console.error('Error 563873:', error);
     } finally {
       setLoading(false);
     }
-    window.alert("Ha iniciado Sesión");
   };
 
   return (
