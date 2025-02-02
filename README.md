@@ -66,7 +66,7 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
 ### 3️⃣ Configurar el Frontend (React)
 1. Ir a la carpeta del frontend:
    ```sh
-  cd ../frontend
+   cd ../frontend
    ```
 2. Instalar las dependencias:
    ```sh
