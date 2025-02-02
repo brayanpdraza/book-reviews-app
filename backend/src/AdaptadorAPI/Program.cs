@@ -65,9 +65,7 @@ if (databaseUrl.StartsWith("postgres://") || databaseUrl.StartsWith("postgresql:
             Port = uri.Port,
             Database = uri.AbsolutePath.TrimStart('/'),
             Username = userInfo[0],
-            Password = userInfo[1].Replace("%40", "@"), // Desescapar '@'
-            SslMode = SslMode.Require,
-            TrustServerCertificate = true,
+            Password = userInfo[1], // Desescapar '@'
             CommandTimeout = 300,
         };
     }
