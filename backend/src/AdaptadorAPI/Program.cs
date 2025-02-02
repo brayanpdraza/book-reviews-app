@@ -74,8 +74,8 @@ try
     }
 
     // Establecer propiedades comunes
-    connectionBuilder.SslMode = SslMode.Require;
-    connectionBuilder.TrustServerCertificate = true;
+    //connectionBuilder.SslMode = SslMode.Require;
+    //connectionBuilder.TrustServerCertificate = true;
     connectionBuilder.CommandTimeout = 300;
 }
 catch (UriFormatException ex)
@@ -109,7 +109,21 @@ builder.Services.AddCors(options => {
                .AllowCredentials();  // Si necesitas enviar credenciales (cookies, tokens)
     });
 });
+
 // Configurar JWT
+var secretKey = Environment.GetEnvironmentVariable("Jwt_SecretKey");
+var issuer = Environment.GetEnvironmentVariable("Jwt_Issuer");
+var audience = Environment.GetEnvironmentVariable("Jwt_Audience");
+
+Console.WriteLine($"{secretKey}, {issuer}, {audience}");
+
+if (string.IsNullOrEmpty(secretKey))
+    throw new Exception("La clave secreta JWT no está configurada en las variables de entorno.");
+if (string.IsNullOrEmpty(issuer))
+    throw new Exception("El emisor JWT no está configurado en las variables de entorno.");
+if (string.IsNullOrEmpty(audience))
+    throw new Exception("La audiencia JWT no está configurada en las variables de entorno.");
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -123,12 +137,12 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
     };
-
 })
+
 .AddCookie(options =>
 {
     options.Cookie.SameSite = SameSiteMode.Strict; 
