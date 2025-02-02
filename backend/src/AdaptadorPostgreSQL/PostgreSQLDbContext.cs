@@ -26,6 +26,7 @@ namespace AdaptadorPostgreSQL
                 // Cadena de conexión de desarrollo (solo para migraciones)
                 optionsBuilder.UseNpgsql("@\"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true\"");
             }
+
         }
 
         public DbSet<ReviewEntity> Reviews { get; set; }
