@@ -68,7 +68,7 @@ if (databaseUrl.StartsWith("postgres://") || databaseUrl.StartsWith("postgresql:
             Password = userInfo[1].Replace("%40", "@"), // Desescapar '@'
             SslMode = SslMode.Require,
             TrustServerCertificate = true,
-            CommandTimeout=300
+            CommandTimeout = 300,
         };
     }
     catch (UriFormatException ex)
@@ -87,6 +87,7 @@ Console.WriteLine($"🔗 Conexión final: {connectionString}"); // Debug
 
 builder.Services.AddDbContext<PostgreSQLDbContext>(options =>
     options.UseNpgsql(connectionString));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
