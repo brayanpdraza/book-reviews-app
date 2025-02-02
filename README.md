@@ -61,7 +61,7 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
    ```sh
    dotnet run
    ```
-   El servidor se ejecutará en `http://localhost:5000` o `http://localhost:5001`.
+   El servidor se ejecutará en `http://localhost:5043`.
 
 ### 3️⃣ Configurar el Frontend (React)
 1. Ir a la carpeta del frontend:
