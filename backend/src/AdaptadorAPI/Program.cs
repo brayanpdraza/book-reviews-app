@@ -70,7 +70,6 @@ try
     }
     else
     {
-        // Si ya es una cadena de conexión estándar, úsala directamente
         connectionBuilder = new NpgsqlConnectionStringBuilder(databaseUrl);
     }
 
