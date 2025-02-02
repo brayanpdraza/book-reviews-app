@@ -114,8 +114,9 @@ builder.Services.AddCors(options => {
 var secretKey = Environment.GetEnvironmentVariable("Jwt_SecretKey");
 var issuer = Environment.GetEnvironmentVariable("Jwt_Issuer");
 var audience = Environment.GetEnvironmentVariable("Jwt_Audience");
+var AccessExpiry = Environment.GetEnvironmentVariable("Jwt_AccessTokenExpiration");
+var RefreshExpiry = Environment.GetEnvironmentVariable("Jwt_RefreshTokenExpiration");
 
-Console.WriteLine($"{secretKey}, {issuer}, {audience}");
 
 if (string.IsNullOrEmpty(secretKey))
     throw new Exception("La clave secreta JWT no está configurada en las variables de entorno.");
@@ -123,6 +124,10 @@ if (string.IsNullOrEmpty(issuer))
     throw new Exception("El emisor JWT no está configurado en las variables de entorno.");
 if (string.IsNullOrEmpty(audience))
     throw new Exception("La audiencia JWT no está configurada en las variables de entorno.");
+if (string.IsNullOrEmpty(AccessExpiry))
+    throw new Exception("El tiempo de Expiración del token no está configurado en las variables de entorno.");
+if (string.IsNullOrEmpty(RefreshExpiry))
+    throw new Exception("El tiempo de Expiración del token de refresco no está configurada en las variables de entorno.");
 
 builder.Services.AddAuthentication(options =>
 {

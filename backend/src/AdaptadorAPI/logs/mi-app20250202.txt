@@ -136,3 +136,96 @@ WHERE "Id" = @p2;
 2025-02-02 01:49:00.809 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 35643.5498ms
 2025-02-02 01:49:00.813 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
 2025-02-02 01:49:00.827 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 35741.3433ms
+2025-02-02 01:53:37.878 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-02 01:53:38.193 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-02 01:53:38.289 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 01:53:38.293 -05:00 [INF] Hosting environment: Development
+2025-02-02 01:53:38.295 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-02 01:53:38.667 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-02 01:53:39.478 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 819.7709ms
+2025-02-02 01:53:39.768 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-02 01:53:39.778 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-02 01:53:39.798 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 19.3975ms
+2025-02-02 01:53:39.844 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 75.4760ms
+2025-02-02 01:53:39.889 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-02 01:53:40.131 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 242.0553ms
+2025-02-02 01:53:53.188 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-02 01:53:53.198 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:53:53.244 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-02 01:53:58.486 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-02 01:53:59.587 -05:00 [INF] Executed DbCommand (106ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-02 01:54:00.949 -05:00 [WRN] String reference not set to an instance of a String. (Parameter 's')
+2025-02-02 01:54:00.960 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-02 01:54:00.967 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 7716.4279ms
+2025-02-02 01:54:00.969 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:54:00.982 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 400 - text/plain;+charset=utf-8 7793.7023ms
+2025-02-02 01:54:27.541 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-02 01:54:27.548 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:54:27.550 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-02 01:54:27.556 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-02 01:54:27.570 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-02 01:54:56.276 -05:00 [WRN] String reference not set to an instance of a String. (Parameter 's')
+2025-02-02 01:54:56.279 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-02 01:54:56.282 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 28727.9722ms
+2025-02-02 01:54:56.284 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:54:56.285 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 400 - text/plain;+charset=utf-8 28744.2794ms
+2025-02-02 01:54:58.345 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-02 01:54:58.348 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:54:58.349 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-02 01:54:58.410 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-02 01:54:58.417 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-02 01:55:08.232 -05:00 [WRN] String reference not set to an instance of a String. (Parameter 's')
+2025-02-02 01:55:08.826 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-02 01:55:08.828 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 10475.4252ms
+2025-02-02 01:55:08.829 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:55:08.830 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 400 - text/plain;+charset=utf-8 10488.7721ms
+2025-02-02 01:55:11.959 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-02 01:55:11.962 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 01:55:11.963 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-02 01:55:11.966 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-02 01:55:11.972 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-02 02:13:58.055 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-02 02:13:58.370 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-02 02:13:58.375 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 02:13:58.377 -05:00 [INF] Hosting environment: Development
+2025-02-02 02:13:58.378 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-02 02:13:59.275 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-02 02:14:00.101 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 829.8434ms
+2025-02-02 02:14:00.382 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-02 02:14:00.386 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-02 02:14:00.391 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.6780ms
+2025-02-02 02:14:00.444 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.5665ms
+2025-02-02 02:14:00.488 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-02 02:14:00.743 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 255.0145ms
+2025-02-02 02:16:56.362 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-02 02:16:56.387 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 02:16:56.459 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-02 02:16:58.267 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-02 02:16:59.386 -05:00 [INF] Executed DbCommand (110ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-02 02:17:07.786 -05:00 [INF] Executed DbCommand (31ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='300']
+UPDATE "Usuarios" SET "RefreshToken" = @p0, "RefreshTokenExpiry" = @p1
+WHERE "Id" = @p2;
+2025-02-02 02:17:07.823 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-02-02 02:17:07.886 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 11408.0241ms
+2025-02-02 02:17:07.894 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-02 02:17:07.914 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 11552.2432ms

@@ -72,12 +72,11 @@ namespace AdaptadorAPI.Implementaciones
             return principal;
 
         }
-        public string GetAccessSecretKey() => _configuration["Jwt_SecretKey"];
-        public string GetAccessIssuer() => _configuration["Jwt_Issuer"];
-        public string GetAccessAudience() => _configuration["Jwt_Audience"];
-        public int GetAccessTokenExpiration() => Convert.ToInt32(_configuration["Jwt_AccessTokenExpiration"]);
-
-        public int GetRefreshTokenExpiration() => Convert.ToInt32(_configuration["Jwt_RefreshTokenExpiration"]);
+        public string GetAccessSecretKey() => Environment.GetEnvironmentVariable("JWT_SECRETKEY");
+        public string GetAccessIssuer() => Environment.GetEnvironmentVariable("Jwt_Issuer");
+        public string GetAccessAudience() => Environment.GetEnvironmentVariable("Jwt_Audience");
+        public int GetAccessTokenExpiration() => Convert.ToInt32(Environment.GetEnvironmentVariable("Jwt_AccessTokenExpiration"));
+        public int GetRefreshTokenExpiration() => Convert.ToInt32(Environment.GetEnvironmentVariable("Jwt_RefreshTokenExpiration"));
         public string GetJtiFromToken(string token)
         {
             var handler = new JwtSecurityTokenHandler();
