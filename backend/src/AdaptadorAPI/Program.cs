@@ -74,6 +74,8 @@ try
     }
 
     // Establecer propiedades comunes
+    connectionBuilder.SslMode = SslMode.Require;
+    connectionBuilder.TrustServerCertificate = true;
     connectionBuilder.CommandTimeout = 300;
 }
 catch (UriFormatException ex)
