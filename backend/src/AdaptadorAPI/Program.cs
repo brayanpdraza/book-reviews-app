@@ -47,9 +47,9 @@ if (string.IsNullOrEmpty(databaseUrl))
 
 NpgsqlConnectionStringBuilder connectionBuilder;
 
-if (databaseUrl.StartsWith("postgres://") || databaseUrl.StartsWith("postgresql://"))
+try
 {
-    try
+    if (databaseUrl.StartsWith("postgres://") || databaseUrl.StartsWith("postgresql://"))
     {
         var uri = new Uri(databaseUrl);
         var userInfo = uri.UserInfo.Split(':');
@@ -65,21 +65,22 @@ if (databaseUrl.StartsWith("postgres://") || databaseUrl.StartsWith("postgresql:
             Port = uri.Port,
             Database = uri.AbsolutePath.TrimStart('/'),
             Username = userInfo[0],
-            Password = userInfo[1], // Desescapar '@'
-            CommandTimeout = 300,
+            Password = userInfo[1],
         };
     }
-    catch (UriFormatException ex)
+    else
     {
-        throw new Exception($"Formato inválido de DATABASE_URL: {ex.Message}");
+        // Si ya es una cadena de conexión estándar, úsala directamente
+        connectionBuilder = new NpgsqlConnectionStringBuilder(databaseUrl);
     }
-}
-else
-{
-    // Si ya es una cadena de conexión estándar, úsala directamente
-    connectionBuilder = new NpgsqlConnectionStringBuilder(databaseUrl);
-}
 
+    // Establecer propiedades comunes
+    connectionBuilder.CommandTimeout = 300;
+}
+catch (UriFormatException ex)
+{
+    throw new Exception($"Formato inválido de DATABASE_URL: {ex.Message}");
+}
 var connectionString = connectionBuilder.ToString();
 Console.WriteLine($"🔗 Conexión final: {connectionString}"); // Debug
 
