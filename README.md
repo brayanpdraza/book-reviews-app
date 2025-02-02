@@ -51,8 +51,10 @@ Antes de ejecutar la aplicación, asegúrate de configurar las siguientes variab
 | `DATABASE_URL`   | URL de conexión de la base de datos.          | 
 
 ###
-3. **Instalar** *Entity Fremework Core* (si no lo tienes): dotnet tool install --global dotnet-ef
-
+3. **Instalar** *Entity Fremework Core* (si no lo tienes):
+   ```sh
+   dotnet tool install --global dotnet-ef
+   ```
 4. Ejecutar las migraciones para la base de datos:
    ```sh
    dotnet ef database update
