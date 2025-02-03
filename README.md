@@ -109,6 +109,10 @@ DATABASE_URL : ${{ Postgres.DATABASE_URL }}.
 - El frontend en Vercel debe apuntar a la URL correcta del backend en Railway.
 - Las migraciones automáticas en Railway pueden fallar si hay conflictos de versión de PostgreSQL
 - El script start.sh necesita permisos de ejecución (chmod +x start.sh)
+- PostgreSQL es case-sensitive en comparaciones de texto, para evitar problemas con los filtros:
+ - Usa ILIKE en lugar de LIKE en consultas SQL.
+ - Aplica toLower(campo) = toLower(valor) o toUpper(campo) = toUpper(valor) en comparaciones si trabajas con Entity Framework o Prisma.
+ - Considera definir la columna con una collation case-insensitive si es viable
 
 Si encuentras algún error, revisa los logs de Railway y Vercel o abre un issue en GitHub.
 
