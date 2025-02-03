@@ -107,8 +107,18 @@ DATABASE_URL : ${{ Postgres.DATABASE_URL }}.
 ## 🚧 Problemas conocidos
 - La API en Railway podría requerir CORS configurado adecuadamente, y se debe tener cuidado con las mayúsculas y mínusculas en las variables de entorno, pues es case sensitive.
 - El frontend en Vercel debe apuntar a la URL correcta del backend en Railway.
+- Las migraciones automáticas en Railway pueden fallar si hay conflictos de versión de PostgreSQL
+- El script start.sh necesita permisos de ejecución (chmod +x start.sh)
 
 Si encuentras algún error, revisa los logs de Railway y Vercel o abre un issue en GitHub.
+
+---
+
+## 🔄 CI/CD con GitHub Actions
+
+[![CI Status](https://github.com/brayanpdraza/book-reviews-app/actions/workflows/main.yml/badge.svg)](https://github.com/brayanpdraza/book-reviews-app/actions)
+
+El proyecto utiliza **GitHub Actions** para garantizar calidad y despliegues consistentes
 
 ---
 
