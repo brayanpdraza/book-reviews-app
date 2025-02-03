@@ -1,0 +1,47 @@
+2025-02-03 08:33:54.394 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-03 08:33:54.906 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-03 08:33:54.911 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 08:33:54.912 -05:00 [INF] Hosting environment: Development
+2025-02-03 08:33:54.913 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-03 08:33:58.545 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-03 08:33:59.949 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1411.3306ms
+2025-02-03 08:33:59.962 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-03 08:34:00.689 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-03 08:34:00.703 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 740.4251ms
+2025-02-03 08:34:00.694 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-03 08:34:00.689 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-03 08:34:00.735 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-03 08:34:00.743 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 48.8502ms
+2025-02-03 08:34:00.797 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-03 08:34:00.797 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-03 08:34:00.816 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 81.2017ms
+2025-02-03 08:34:00.820 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 130.3596ms
+2025-02-03 08:34:00.865 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-03 08:34:00.932 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 242.4638ms
+2025-02-03 08:34:01.057 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-03 08:34:01.078 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-03 08:34:01.079 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-03 08:34:01.082 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 3.8607ms
+2025-02-03 08:34:01.165 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 108.1496ms
+2025-02-03 08:34:01.224 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-03 08:34:01.482 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 258.6629ms
+2025-02-03 08:34:20.839 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20?filtro=categoria%3AMisterio - -
+2025-02-03 08:34:20.849 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-03 08:34:20.936 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-03 08:34:23.523 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-03 08:34:24.724 -05:00 [INF] Executed DbCommand (101ms) [Parameters=[@__ToUpper_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM "Libros" AS l
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE (@__ToUpper_0 = '') OR (strpos(c."Nombre", @__ToUpper_0) > 0)
+2025-02-03 08:34:24.889 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__ToUpper_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Libros" AS l
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE (@__ToUpper_0 = '') OR (strpos(c."Nombre", @__ToUpper_0) > 0)
+ORDER BY l."Titulo"
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-03 08:34:25.005 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-03 08:34:25.039 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 4094.8516ms
+2025-02-03 08:34:25.042 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-03 08:34:25.054 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20?filtro=categoria%3AMisterio - - - 200 - application/json;+charset=utf-8 4215.1649ms

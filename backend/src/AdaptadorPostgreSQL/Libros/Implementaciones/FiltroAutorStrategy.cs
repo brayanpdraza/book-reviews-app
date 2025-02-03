@@ -12,7 +12,7 @@ namespace AdaptadorPostgreSQL.Libros.Implementaciones
     {
         public IQueryable<LibroEntity> AplicarFiltro(IQueryable<LibroEntity> query, string valor)
         {
-            return query.Where(l => l.Autor.Contains(valor.ToUpper()));
+            return query.Where(l => l.Autor.ToUpper().Contains(valor.ToUpper()));
         }
     }
 }

@@ -229,3 +229,30 @@ WHERE "Id" = @p2;
 2025-02-02 02:17:07.886 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 11408.0241ms
 2025-02-02 02:17:07.894 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
 2025-02-02 02:17:07.914 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 11552.2432ms
+2025-02-02 12:09:06.404 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-02 12:09:06.835 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-02 12:09:06.841 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-02 12:09:06.842 -05:00 [INF] Hosting environment: Development
+2025-02-02 12:09:06.843 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-02 12:09:07.986 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-02 12:09:09.328 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1351.0993ms
+2025-02-02 12:09:09.355 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-02 12:09:09.873 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-02 12:09:09.873 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-02 12:09:09.879 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-02 12:09:09.885 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 530.0365ms
+2025-02-02 12:09:09.966 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-02 12:09:09.976 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 103.6163ms
+2025-02-02 12:09:09.966 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-02 12:09:09.984 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 104.4584ms
+2025-02-02 12:09:09.983 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-02 12:09:09.987 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 114.5069ms
+2025-02-02 12:09:10.271 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-02 12:09:10.271 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-02 12:09:10.276 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.9423ms
+2025-02-02 12:09:10.283 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-02 12:09:10.284 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-02 12:09:10.285 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 4.2033ms
+2025-02-02 12:09:10.341 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.0542ms
+2025-02-02 12:09:10.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-02 12:09:10.662 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 252.0924ms
