@@ -65,6 +65,14 @@ useEffect(() => {
   fetchLibros(paginaActual, filtroCompleto);
 }, [context.apiUrl,paginaActual, valorFiltro,tipoFiltro]);
 
+// Efecto que se ejecuta cuando el estado de inputValue cambia
+useEffect(() => {
+  if (inputValue === "") {
+    setValorFiltro('');
+    setTipoFiltro('titulo');
+  }
+}, [inputValue]);
+
 // Redirigir al detalle del libro
 const handleClickLibro = (id: number) => {
   navigate(`/detallelibro/${id}`);
@@ -86,6 +94,7 @@ const aplicarFiltro = () => {
   setPaginaActual(1); // Reiniciar a la primera página al aplicar un filtro
   setValorFiltro(inputValue);
   setTipoFiltro(tipoFiltroTemp);
+console.log(inputValue);
 };
 
 if (error) {
@@ -123,35 +132,61 @@ return (
     </div>
 
     {/* Lista de libros */}
-    <ul className="space-y-4">
-      {libros.map((libro) => (
-        <li
-          key={libro.id}
-          onClick={() => handleClickLibro(libro.id)}
-          className="p-4 bg-white shadow-md rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
-        >
-          <h3 className="text-xl font-semibold text-gray-800">{libro.titulo}</h3>
-          <p className="text-gray-600">Autor: {libro.autor} | Categoria: {libro.categoria}</p> 
-        </li>
-      ))}
-    </ul>
+    
+    {libros.length > 0 ? (
+      <>
+        {/* Lista de libros */}
+        <ul className="space-y-4">
+          {libros.map((libro) => (
+            <li
+              key={libro.id}
+              onClick={() => handleClickLibro(libro.id)}
+              className="p-4 bg-white shadow-md rounded-lg cursor-pointer hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl font-semibold text-gray-800">{libro.titulo}</h3>
+              <p className="text-gray-600">Autor: {libro.autor} | Categoria: {libro.categoria}</p>
+            </li>
+          ))}
+        </ul>
 
-    {/* Paginación */}
-    <div className="flex justify-center gap-2 mt-8">
-      {Array.from({ length: totalPaginas }, (_, i) => (
-        <button
-          key={i + 1}
-          onClick={() => setPaginaActual(i + 1)}
-          className={`px-4 py-2 border rounded-md ${
-            paginaActual === i + 1
-              ? "bg-blue-500 text-white border-blue-500"
-              : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-          } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-        >
-          {i + 1}
-        </button>
-      ))}
-    </div>
+        {/* Paginación */}
+        <div className="flex justify-center gap-2 mt-8">
+          {Array.from({ length: totalPaginas }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => setPaginaActual(i + 1)}
+              className={`px-4 py-2 border rounded-md ${
+                paginaActual === i + 1
+                  ? "bg-blue-500 text-white border-blue-500"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+              } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </>
+    ) : (
+      // Mensaje cuando no hay resultados
+      <div className="text-center py-12">
+        <div className="text-gray-500 text-xl mb-4">📚</div>
+        <p className="text-gray-600 text-lg font-medium">
+          {inputValue ? 
+            "No se encontraron libros con esos criterios" : 
+            "No hay libros disponibles en este momento"}
+        </p>
+        {inputValue && (
+          <button
+            onClick={() => {
+              setInputValue("");
+            }}
+            className="mt-4 text-blue-500 hover:text-blue-600 font-medium"
+          >
+            Limpiar filtros
+          </button>
+        )}
+      </div>
+    )}
   </div>
 );
 };
