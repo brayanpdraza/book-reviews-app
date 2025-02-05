@@ -23,6 +23,7 @@ namespace AdaptadorPostgreSQL.Usuarios.Mappers
             {
                 Id = entity.Id,
                 Nombre = entity.Nombre,
+                FotoPerfil = entity.FotoPerfil,
                 Correo = entity.Correo,
                 Password = entity.Password,
             };

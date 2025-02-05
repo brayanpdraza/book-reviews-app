@@ -22,6 +22,7 @@ namespace AdaptadorPostgreSQL.Usuarios.Mappers
             {
                 Id = ModelDominio.Id,
                 Nombre = ModelDominio.Nombre,
+                FotoPerfil = ModelDominio.FotoPerfil,
                 Correo = ModelDominio.Correo,
                 Password = ModelDominio.Password,
                 Reviews = new List<ReviewEntity>()

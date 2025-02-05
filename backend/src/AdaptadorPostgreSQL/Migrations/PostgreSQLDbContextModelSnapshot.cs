@@ -115,6 +115,9 @@ namespace AdaptadorPostgreSQL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<byte[]>("FotoPerfil")
+                        .HasColumnType("bytea");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("text");

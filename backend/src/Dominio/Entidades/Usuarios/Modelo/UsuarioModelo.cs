@@ -11,6 +11,7 @@ namespace Dominio.Usuarios.Modelo
     {
         public long Id { get; set; }
         public string Nombre { get; set; }
+        public byte[]? FotoPerfil { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
     }

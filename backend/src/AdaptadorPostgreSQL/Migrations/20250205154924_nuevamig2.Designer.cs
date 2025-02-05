@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AdaptadorPostgreSQL.Migrations
 {
     [DbContext(typeof(PostgreSQLDbContext))]
-    [Migration("20250202055811_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250205154924_nuevamig2")]
+    partial class nuevamig2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,6 +116,9 @@ namespace AdaptadorPostgreSQL.Migrations
                     b.Property<string>("Correo")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<byte[]>("FotoPerfil")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
