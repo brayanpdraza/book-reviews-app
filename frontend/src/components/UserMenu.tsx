@@ -23,7 +23,7 @@ const UserMenu = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [handleClickOutside]);
 
-  // Generar URL de la imagen desde el string binario
+  // Generar URL de la imagen desde el string binario. REFACTORIZAR A UN MÉTODO UTILITARIO CON EL BASE64 DE LA IMAGEN Y EL URL DEFAULT
   const getProfileImage = () => {
     if (!context.user?.fotoPerfil) return urlDefault; // Imagen por defecto
     return `data:image/jpeg;base64,${context.user?.fotoPerfil}`; // Ajusta el tipo MIME si es necesario (ej: image/png)
@@ -38,7 +38,7 @@ const UserMenu = () => {
         <img
           src={getProfileImage()}
           alt="Foto de perfil"
-          className="w-10 h-10 rounded-full object-cover cursor-pointer border-2 border-gray-300"
+          className="w-20 h-20 rounded-full object-cover cursor-pointer border-2 border-gray-300"
           onError={(e) => {
             if (e.target.src !== urlDefault) {
                 e.target.src = urlDefault;
