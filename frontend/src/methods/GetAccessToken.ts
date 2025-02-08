@@ -4,6 +4,6 @@ export const GetAccessToken = () =>
     .split('; ')
     .find(row => row.startsWith('access_token=')); // Usa el mismo nombre que en setAccessToken
 
-  return cookie ? cookie.split('=')[1] : undefined;
+  return cookie ? cookie.split('=')[1] : null;
 };
     

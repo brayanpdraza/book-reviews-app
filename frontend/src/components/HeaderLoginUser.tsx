@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from './AppContext.tsx'
 import { AppContextType} from '../Interfaces/AppContextType.ts';
+import  UserMenu  from './UserMenu.tsx';
 
 const HeaderLoginUser = () => {
   const context:AppContextType = useAppContext();
@@ -22,18 +23,11 @@ const HeaderLoginUser = () => {
           <div className="flex gap-4">
             {context.user ? (
               <>
-                <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
-                  {context.user.correo}
-                </button>
-                <button
-                  onClick={context.handleLogout}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
-                >
-                  Cerrar sesión
-                </button>
+               <UserMenu />
               </>
             ) : (
               <>
+                <h1>{context.user}</h1>
                 <button
                   onClick={() => navigate('/Login')}
                   className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"

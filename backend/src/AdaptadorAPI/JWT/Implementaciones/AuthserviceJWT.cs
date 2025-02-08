@@ -36,7 +36,7 @@ namespace AdaptadorAPI.Implementaciones
 
         }
 
-        private AuthenticationResult GenerateTokens(UsuarioModelo usuario)
+        private AuthenticationResult GenerateTokens (UsuarioModelo usuario)
         {
             // Generar nuevos tokens
             string accessToken = _jtwService.GenerateAccessToken(usuario);

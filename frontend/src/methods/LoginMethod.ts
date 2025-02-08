@@ -8,7 +8,7 @@ export const LoginMethod = async (
   email: string,
   password: string,
   navigate: Function,
-  login: (token: string, refreshToken: string, email: string) => void // <- Función del contexto
+  login: (token: string, refreshToken: string) => void // <- Función del contexto
 ) => {
   try {
     const url = `${apiUrl}/${ControllerName}/AutenticacionUsuarioPorCorreoYPassword/${email}/${password}`;
@@ -20,7 +20,7 @@ export const LoginMethod = async (
     }
     const data: AutenticacionRes = await response.json();
     
-    await login(data.credential, data.renewalCredential, email);
+    await login(data.credential, data.renewalCredential);
     
     console.log("Ha iniciado sesión");
     navigate('/');

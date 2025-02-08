@@ -8,18 +8,19 @@ import { SessionExpiredError } from '../methods/SessionExpiredError.ts';
 import { ResponseErrorGet } from '../methods/ResponseErrorGet.ts';
 import { getRefreshToken } from '../methods/getRefreshToken.ts';
 import { refreshAuthToken } from '../methods/fetchWithAuth.ts';
-import { setUserEmail } from '../methods/SetUserDataMemory.ts';
+//import { setUserEmail } from '../methods/SetUserDataMemory.ts';
 import { AppContextType } from '../Interfaces/AppContextType.ts';
 import { setAccessToken } from '../methods/SetAccessToken.ts';
 import { setRefreshToken } from '../methods/SetRefreshToken.ts';
-import { RemoveUserEmail } from '../methods/RemoveDataUserMemory.ts';
+//import { RemoveUserEmail } from '../methods/RemoveDataUserMemory.ts';
 import { RemoveRefreshToken } from '../methods/RemoveRefreshToken.ts';
+import { clearUserData,getUserFotoPerfil,getUserName,setUserFotoPerfil,setUserName } from '../methods/StorageUserService.ts';
+import { obtenerUsuarioPorId } from '../methods/usuarioService.ts';
 import { Usuario } from '../Interfaces/Usuario.ts';
 
 interface MyJwtPayload extends JwtPayload {
   id : number;
   correo: string;
-  nombre: string;
 }
 
 interface AppProviderProps {
@@ -44,104 +45,166 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       await fetchConfig(setAPIUrl, setError, setLoadingConfig);
     };
     loadConfig();
-  }, [location.pathname]);
+  }, []);
   
   // Efecto para manejar redirecciones
   useEffect(() => {
+    // Si ya se está cargando la configuración, no hacemos nada.
     if (loadingConfig) return;
-    setLoadingConfig(true);
-    const tokenget = GetAccessToken();
-    setToken(tokenget);
-    const refreshTokenMem = getRefreshToken();
-    setRefreshTokenS(refreshTokenMem)
-
-    const isAuthPage = ['/Login', '/Register'].includes(location.pathname);
-    if(isAuthPage && token && refreshTokenS){
-      console.log("Ya se encuentra una sesion inciada");
-      navigate('/');
-    }
-
-  }, [loadingConfig, navigate, location.pathname]);
-
-  useEffect(() => {
-    const handleRequest = async () => {
-      const refreshTokenMem = getRefreshToken();
-      setRefreshTokenS(refreshTokenMem);
-      if (!token) {
-        if (!refreshTokenMem) {
-          RemoveUserEmail();
-          setUser(null);
+  
+    const initAuth = async () => {
+  
+      // Obtenemos los tokens de forma local
+      var accessToken = GetAccessToken();
+      const refreshTokenLocal = getRefreshToken();
+      var FotoPerfil = getUserFotoPerfil();
+      var NombrePerfil = getUserName();
+      // Si no se obtuvo un access token, intentamos renovarlo si existe el refresh token
+      if (!accessToken) {
+        if (!refreshTokenLocal) {
+          // Si no hay refresh token, se asume que la sesión expiró o nunca inició
+          removeSession();
           return;
         }
-        // Intentar renovar el token
-        const newToken = await refreshAuthToken(AppContext);
-        if (!newToken) {
-          throw new SessionExpiredError("") 
-        };
+  
+        // Intentamos renovar el token
+        try {
+          accessToken = await refreshAuthToken(AppContext);
+          if (!accessToken) {
+            throw new SessionExpiredError("");
+          }
+
+        } catch (error) {
+          if (error instanceof SessionExpiredError) {
+            handleError(error);
+          }
+          console.error('Error refreshing token:', error);
+          return;
+        }
+
+      }
+  
+      // Actualizamos los estados correspondientes
+      setToken(accessToken);
+      setRefreshTokenS(refreshTokenLocal);
+
+      if(!FotoPerfil){
+        FotoPerfil="";
+      }
+      if(!NombrePerfil){
+        NombrePerfil="";
       }
 
       try {
-        const decoded = jwtDecode<MyJwtPayload>(token);
-        setUserEmail(decoded.correo)
-        const user : Usuario = {
-          id:decoded.id,
-          nombre: decoded.nombre,
-          correo : decoded.correo,
-          password : "",             
-        }
-        setUser(user);
-        console.log(user);
+        LlenarDatosUser(accessToken,FotoPerfil,NombrePerfil);
       } catch (error) {
         console.error('Error decoding JWT:', error);
       }
-    };
-
-    if (loadingConfig) {
-      return;
-    }
-    try {
-      handleRequest();
-    } catch (error) {
-      if (error instanceof SessionExpiredError) {
-        handleError(error);
-      } else {
-        console.error('Error 3463463 :', error);
+  
+      // Verificamos si la ruta actual es de autenticación
+      const isAuthPage = ['/Login', '/Register'].includes(location.pathname);
+      // Si ya hay sesión iniciada y estamos en una página de auth, redirigimos al home
+      if (isAuthPage && accessToken && refreshTokenLocal) {
+        console.log("Ya se encuentra una sesión iniciada");
+        navigate('/');
+        return;
       }
-    }
-  }, [token]);
 
-  const login = async (token: string, refreshToken: string, email: string) => {
-    setAccessToken(token); 
-    setToken(token);
-    setRefreshToken(refreshToken);
-    setRefreshTokenS(refreshToken);
+    };
+  
+    initAuth();
+  }, [location.pathname, navigate, AppContext, loadingConfig]);
+
+
+  const LlenarDatosUser = (token: string, fotoPerfilData: string, nombrePerfilData: string) => {
+    if (!token) {
+      console.error("El token es inválido o está vacío.");
+      throw new Error("El token es inválido o está vacío.");   
+    }
+
     const decoded = jwtDecode<MyJwtPayload>(token);
-    setUserEmail(decoded.correo);
-    setUserEmail(decoded.correo)
+
+    if (!decoded.id || !decoded.correo) {
+      console.error("El token no contiene los datos esperados.");
+      throw new Error("El token no contiene los datos esperados.");   
+    }
+
     const user : Usuario = {
-      id:decoded.id,
-      nombre: decoded.nombre,
+      id:+decoded.id,
+      nombre: nombrePerfilData,
+      fotoPerfil: fotoPerfilData,
       correo : decoded.correo,
       password : "",             
     }
     setUser(user);
+    setUserFotoPerfil(fotoPerfilData);
+    setUserName(nombrePerfilData);
+  }
+
+
+  const login = async (token: string, refreshToken: string) => {
+    if (!token) {
+      console.error("El token es inválido o está vacío.");
+      throw new Error("El token es inválido o está vacío.");   
+    }
+
+    try{
+      await GuardarDatosUser(token);
+    }catch(error){
+      console.error("Error al guardar los datos del usuario:", error);
+      window.alert("Error al guardar los datos del usuario:"+error);
+    }
+    setAccessToken(token); 
+    setToken(token);
+    setRefreshToken(refreshToken);
+    setRefreshTokenS(refreshToken);
+
   };
+
+  const ObtenerDatosUser = async (token: string) => {
+    // Decodificar el token para obtener el ID del usuario
+    const decoded = jwtDecode<MyJwtPayload>(token);
+    const id = +decoded.id;
+
+    if (!id || id <= 0){ 
+      console.error("El token no contiene un ID válido.");
+      throw new Error("El ID del usuario no es válido");
+    }
+
+    return await obtenerUsuarioPorId(apiUrl,ControllerName,id);
+  }
+
+  const GuardarDatosUser = async (token: string) => {
+    let user: Usuario | null = null;
+
+    try{
+      user = await ObtenerDatosUser(token);
+
+    }catch(error){
+      throw new error("Error al obtener los datos del usuario:"+error);
+    }
+
+    if(!user){
+      throw new error("Error luego de consultar datos: El usuario es nulo");
+    }
+    LlenarDatosUser(token, user?.fotoPerfil ?? "", user?.nombre ?? "");
+  }
 
   const removeSession = () => {
     setAccessToken("");
     setToken("");
     RemoveRefreshToken();
     setRefreshTokenS(null);
-    RemoveUserEmail();
-    setUser(null)
+    clearUserData();
+    setUser(null);
   };
 
   // Dentro del provider:
   const handleError = (error: Error) => {
     if (error instanceof SessionExpiredError) {
-      setError("Sesion Expirada. Debe iniciar sesión de nuevo");
+      window.alert("Sesion Expirada. Debe iniciar sesión de nuevo.");
       removeSession(); // <- Usa la función de logout del contexto
-      navigate('/login'); // <- Navegación manejada por el 
+      navigate('/Login'); // <- Navegación manejada por el 
     }
   };
 
@@ -190,7 +253,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       login, 
       removeSession, 
       loadingConfig, 
-      handleError
+      handleError,
+      GuardarDatosUser,
     }}>
       {children}
     </AppContext.Provider>

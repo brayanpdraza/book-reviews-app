@@ -63,6 +63,11 @@ namespace AdaptadorPostgreSQL.Libros.Adaptadores
                 .Take(tamanoPagina)
                 .ToList();
 
+            if (librosEntities == null)
+            {
+                return new List<LibroModelo>();
+            }
+
             return _mapToLibroModelDominio.MapToLibroModeloList(librosEntities);
 
 

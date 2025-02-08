@@ -62,7 +62,7 @@ namespace Aplicacion.Usuarios
             Usuario = _usuarioRepositorio.ListUsuarioPorId(id);
             if (Usuario.Id <= 0)
             {
-                throw new KeyNotFoundException($"El id {id} mo se encuentra asociado a un usuario.");
+                throw new KeyNotFoundException($"El id {id} no se encuentra asociado a un usuario.");
             }
 
             return Usuario;

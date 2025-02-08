@@ -49,6 +49,10 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
         {
 
             UsuarioEntity usuarioEntity = _postgreSQLDbContext.Usuarios.Find(id);
+            if (usuarioEntity == null)
+            {
+                return new UsuarioModelo();
+            }
             UsuarioModelo usuario = _mapToUserModelDominio.MapToUserDomainModel(usuarioEntity);
 
             return usuario;

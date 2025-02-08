@@ -94,7 +94,7 @@ const aplicarFiltro = () => {
   setPaginaActual(1); // Reiniciar a la primera página al aplicar un filtro
   setValorFiltro(inputValue);
   setTipoFiltro(tipoFiltroTemp);
-console.log(inputValue);
+
 };
 
 if (error) {

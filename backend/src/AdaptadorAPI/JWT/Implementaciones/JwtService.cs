@@ -34,7 +34,6 @@ namespace AdaptadorAPI.Implementaciones
             {
             new Claim(JwtRegisteredClaimNames.Sub, usuario.Id.ToString()),
             new Claim("id", usuario.Id.ToString()),  
-            new Claim("nombre", usuario.Nombre),
             new Claim("correo", usuario.Correo),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };

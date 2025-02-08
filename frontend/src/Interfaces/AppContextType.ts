@@ -9,8 +9,9 @@ export interface AppContextType {
     setRefreshToken: (refreshToken: string | null) => void;
     apiUrl: string;
     handleLogout: () => Promise<void>;
-    login: (token: string, refreshToken: string, email: string) => void;
+    login: (token: string, refreshToken: string) => void;
     loadingConfig: boolean;
     handleError: (error: Error) => void;
+    GuardarDatosUser: (token: string) => void;
   }
   

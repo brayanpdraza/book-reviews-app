@@ -67,16 +67,14 @@ export const fetchWithAuth = async <T>(
 };
 
 export const refreshAuthToken = async (context: AppContextType): Promise<string | null> => {
-  try {
       // 1. Obtener refresh token del storage
-      const refreshToken = getRefreshToken();
-      if (!refreshToken) return null;
+      if (!context.refreshToken) return null;
 
       // 2. Hacer la solicitud para renovar el token
       const response = await fetch('http://localhost:1212/Usuario/update-refresh-token', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(refreshToken),
+          body: JSON.stringify(context.refreshToken),
       });
 
       // 3. Manejar errores de la respuesta
@@ -99,12 +97,4 @@ export const refreshAuthToken = async (context: AppContextType): Promise<string 
       // 7. Retornar el nuevo access token
       return data.credential;
 
-  } catch (error) {
-      // 8. Manejo de errores
-      if (error instanceof SessionExpiredError) {
-        context.handleError(error);
-      }
-      console.error('Error refreshing token:', error);
-      return null;
-  }
 };
