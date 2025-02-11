@@ -68,7 +68,7 @@ export default function Register(){
 
     //INICIO SESION
     try{          
-      await LoginMethod(context.apiUrl,ControllerName,email,password,navigate,context.login);
+      await LoginMethod(context.apiUrl,ControllerName,email,password,navigate,context);
     } catch (error) {
       setError(error instanceof Error ? error.message : "Error en inicio de sesión");
       console.error('Error 563873:', error);

@@ -1,5 +1,6 @@
 import { AutenticacionRes } from "../Interfaces/AuthenticationRes.ts";
 import { ResponseErrorGet } from './ResponseErrorGet.ts';
+import { AppContextType } from "../Interfaces/AppContextType"; 
 
 // Función modificada para recibir la función "login" del contexto
 export const LoginMethod = async (
@@ -8,7 +9,7 @@ export const LoginMethod = async (
   email: string,
   password: string,
   navigate: Function,
-  login: (token: string, refreshToken: string) => void // <- Función del contexto
+  context : AppContextType,
 ) => {
   try {
     const url = `${apiUrl}/${ControllerName}/AutenticacionUsuarioPorCorreoYPassword/${email}/${password}`;
@@ -20,7 +21,7 @@ export const LoginMethod = async (
     }
     const data: AutenticacionRes = await response.json();
     
-    await login(data.credential, data.renewalCredential);
+    await context.login(data.credential, data.renewalCredential);
     
     console.log("Ha iniciado sesión");
     navigate('/');

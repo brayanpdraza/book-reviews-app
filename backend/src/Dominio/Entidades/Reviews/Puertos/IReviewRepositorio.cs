@@ -14,6 +14,7 @@ namespace Dominio.Entidades.Reviews.Puertos
         List<ReviewModel> ListReviewPorLibro(LibroModelo Libro);
         //ReviewModel ListReviewLibroUsuario(LibroModelo Libro,UsuarioModelo Usuario);
         ReviewModel ListReviewPorId(long id);
+        List<ReviewModel> ListReviewPorUsuario(UsuarioModelo Usuario);
         long AddReview(ReviewModel Review);
         void SaveChanges();
     }

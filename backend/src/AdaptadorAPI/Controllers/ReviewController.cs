@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Reviews;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
+using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -86,10 +87,45 @@ namespace AdaptadorAPI.Controllers
             }
         }
 
+        [HttpPost("ConsultarReviewPorUsuario")]
+        public IActionResult ObtenerReviewPorId([FromBody] UsuarioModelo request)
+        {
+            List<ReviewModel> Reviews;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                Reviews = _useCaseReview.ConsultarReviewsPorUsuario(request);
+                return Ok(Reviews);
+
+            }
+            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con Usuario: {request}");
+                return BadRequest(ex.Message);
+            }
+            catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
+            {
+                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con libro: {request}");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al obtener Reseñas para el libro: {request}");
+                return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+        }
+
         [HttpPost("ConsultarReviewsPorLibro")]
         public IActionResult ConsultarReviewsPorLibro([FromBody] LibroModelo request)
         {
             List<ReviewModel> Reviews;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 Reviews = _useCaseReview.ConsultarReviewsPorLibro(request);

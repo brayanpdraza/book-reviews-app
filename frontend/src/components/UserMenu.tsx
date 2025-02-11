@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect,useCallback } from "react";
-import { useAppContext } from './AppContext.tsx'
-import { useNavigate } from "react-router-dom"; // Asegúrate de tener react-router-dom instalado
+import { useAppContext  } from './AppContext.tsx'
+import { useNavigate,useLocation } from "react-router-dom"; // Asegúrate de tener react-router-dom instalado
 import { AppContextType} from '../Interfaces/AppContextType.ts';
 
 const UserMenu = () => {
@@ -9,8 +9,9 @@ const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation(); // Obtiene la ruta actual
   const urlDefault = "https://www.gravatar.com/avatar/?d=mp";
-
+  
   // Cerrar menú al hacer clic fuera
   const handleClickOutside = useCallback((event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -29,6 +30,18 @@ const UserMenu = () => {
     return `data:image/jpeg;base64,${context.user?.fotoPerfil}`; // Ajusta el tipo MIME si es necesario (ej: image/png)
   };
 
+  const isActive = (path: string) => location.pathname === path;
+
+
+  // Refactor: Función que retorna las clases activas/inactivas
+  const getMenuItemClasses = (path: string) => ({
+    base: "block w-full px-4 py-2 text-sm text-left",
+    active:
+      isActive(path)
+        ? "text-blue-600 font-semibold border-l-4 border-blue-600 bg-gray-100"
+        : "text-gray-700 hover:bg-gray-100",
+  });
+
   return (
     <div className="relative" ref={menuRef}>
       <button
@@ -41,32 +54,30 @@ const UserMenu = () => {
           className="w-20 h-20 rounded-full object-cover cursor-pointer border-2 border-gray-300"
           onError={(e) => {
             if (e.target.src !== urlDefault) {
-                e.target.src = urlDefault;
-              }
+              e.target.src = urlDefault;
+            }
           }}
         />
       </button>
 
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-          <button
-            onClick={() => {
-                navigate(`/Usuario/${context.user?.id}/Perfil`);
+          {[
+            { path: `/Usuario/${context.user?.id}/Perfil`, label: "Ver Perfil" },
+            { path: `/Usuario/${context.user?.id}/Reviews`, label: "Mis Reseñas" },
+          ].map(({ path, label }) => (
+            <button
+              key={path}
+              onClick={() => {
+                navigate(path);
                 setIsOpen(false);
-            }}
-            className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
-          >
-            Ver Perfil
-          </button>
-          <button
-            onClick={() => {
-                navigate(`/Usuario/${context.user?.id}/Reviews`);
-              setIsOpen(false);
-            }}
-            className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
-          >
-            Mis Reseñas
-          </button>
+              }}
+              className={`${getMenuItemClasses(path).base} ${getMenuItemClasses(path).active}`}
+            >
+              {label}
+            </button>
+          ))}
+
           <button
             onClick={() => {
               context.handleLogout();

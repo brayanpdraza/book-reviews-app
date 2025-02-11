@@ -10,6 +10,11 @@ export default function ProfilePage() {
     const urlDefault = "https://www.gravatar.com/avatar/?d=mp";
     
     useEffect(() => {
+      if(!context.isAuthenticated){
+        console.log("No hay sesion iniciada");
+        navigate('/');
+        return;
+      }
         if(!context.token){
           console.log("No hay usuario logueado");
           navigate('/');

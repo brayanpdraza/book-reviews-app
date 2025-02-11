@@ -20,13 +20,22 @@ export const fetchWithAuth = async <T>(
       'Content-Type': 'application/json',
   };
 
-  const options: RequestInit = {
+    if(context.isLoggingOut){
+        throw new Error("El usuario se está deslogueando");
+    }
+
+    if(!context.isAuthenticated){
+        throw new Error("El usuario no está autenticado");
+    }  
+
+    const options: RequestInit = {
       method,
       headers,
       body: body ? JSON.stringify(body) : null,
-  };
+    };
 
-  try {
+    try {
+
       const response = await fetch(url, options);
 
       // Caso: Respuesta exitosa sin contenido
@@ -36,6 +45,7 @@ export const fetchWithAuth = async <T>(
       if (!response.ok) {
           // Caso especial: Token expirado
           if (response.status === 401 && retryCount < 1) {
+
               const newToken = await refreshAuthToken(context); // <--- Pasar el contexto
               if (!newToken) throw new SessionExpiredError();
               return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1, context);
@@ -47,20 +57,19 @@ export const fetchWithAuth = async <T>(
 
       return response;
 
-  } catch (error) {
+    } catch (error) {
       // Manejo de errores de red
-      if (error instanceof TypeError && retryCount < 1) {
-        console.warn('Network error detected, retrying...', retryCount+1); 
-        const newToken = await refreshAuthToken(context); // <--- Pasar el contexto
+        if (error instanceof TypeError && retryCount < 1) {
+            console.warn('Network error detected, retrying...', retryCount+1); 
+            const newToken = await refreshAuthToken(context); // <--- Pasar el contexto
         if (!newToken) throw new SessionExpiredError();
-        console.warn('retrying Succeful');
-        return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1, context);
-      }
-
-      // Relanzar errores no manejados
-      if (error instanceof SessionExpiredError) {
-          context.handleError(error);
-      }
+            console.warn('retrying Succeful');
+            return fetchWithAuth<T>(url, newToken, { method, body }, retryCount + 1, context);
+        }
+            // Relanzar errores no manejados
+            if (error instanceof SessionExpiredError) {
+            context.handleError(error);
+        }
 
       throw error;
   }

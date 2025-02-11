@@ -4,6 +4,11 @@ import { AppContextType } from "../Interfaces/AppContextType";
 
 export const validarUsuario = (idUsuario: string | undefined, context: AppContextType, navigate: NavigateFunction) => {
 
+    if(!context.isAuthenticated){
+        console.log("Sesion no iniciada");	
+        navigate('/');
+        return false;
+    }
     if (!context.token) {
         console.log("No hay usuario logueado");
         navigate("/");

@@ -1,0 +1,43 @@
+2025-02-10 12:27:11.327 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-10 12:27:12.131 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-10 12:27:12.137 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-10 12:27:12.138 -05:00 [INF] Hosting environment: Development
+2025-02-10 12:27:12.140 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-10 12:27:15.212 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-10 12:27:16.450 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1243.6001ms
+2025-02-10 12:27:16.463 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-10 12:27:16.941 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-10 12:27:16.960 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 497.2202ms
+2025-02-10 12:27:17.008 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-10 12:27:17.012 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 71.8025ms
+2025-02-10 12:27:17.206 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-10 12:27:17.208 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-10 12:27:17.208 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-10 12:27:17.208 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-10 12:27:17.213 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.9296ms
+2025-02-10 12:27:17.240 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-10 12:27:17.255 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 48.6207ms
+2025-02-10 12:27:17.264 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-10 12:27:17.275 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 67.7426ms
+2025-02-10 12:27:17.315 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 107.3692ms
+2025-02-10 12:27:17.414 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-10 12:27:17.417 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-10 12:27:17.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 3.4491ms
+2025-02-10 12:27:17.487 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-10 12:27:17.727 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 239.8082ms
+2025-02-10 13:13:34.771 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-02-10 13:13:34.787 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-10 13:13:34.842 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-10 13:13:36.846 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-10 13:13:37.893 -05:00 [INF] Executed DbCommand (92ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-10 13:13:38.069 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-10 13:13:38.120 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 3270.0917ms
+2025-02-10 13:13:38.123 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-10 13:13:38.137 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - - - 200 - application/json;+charset=utf-8 3368.5205ms

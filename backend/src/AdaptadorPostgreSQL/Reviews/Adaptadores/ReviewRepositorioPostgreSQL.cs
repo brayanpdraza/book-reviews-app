@@ -7,6 +7,7 @@ using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
+using Dominio.Usuarios.Modelo;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,20 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             return review;
         }
 
+        public List<ReviewModel> ListReviewPorUsuario(UsuarioModelo Usuario)
+        {
+            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro => libro.Categoria).Where(l => l.UsuarioId == Usuario.Id);
+
+            List<ReviewEntity> reviewEntityList = query.ToList();
+
+            if (reviewEntityList == null)
+            {
+                return new List<ReviewModel>();
+            }
+
+            return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
+        }
+
         public List<ReviewModel> ListReviewPorLibro(LibroModelo Libro)
         {
             IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro=>libro.Categoria).Where(r => r.Libro.Id == Libro.Id).OrderByDescending(r=>r.CreatedAt);
@@ -63,9 +78,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
                 return new List<ReviewModel>();
             }
 
-            List<ReviewModel> reviewList = _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
-
-            return reviewList;
+            return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
         }
 
         public void SaveChanges()

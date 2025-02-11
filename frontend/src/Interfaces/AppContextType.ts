@@ -13,5 +13,7 @@ export interface AppContextType {
     loadingConfig: boolean;
     handleError: (error: Error) => void;
     GuardarDatosUser: (token: string) => void;
+    isAuthenticated: boolean;
+    isLoggingOut: boolean;
   }
   

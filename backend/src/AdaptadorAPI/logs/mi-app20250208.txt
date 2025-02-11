@@ -1,0 +1,41 @@
+2025-02-08 17:37:07.694 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-08 17:37:08.852 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-08 17:37:08.861 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 17:37:08.863 -05:00 [INF] Hosting environment: Development
+2025-02-08 17:37:08.865 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-08 17:37:10.748 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-08 17:37:11.956 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1209.5098ms
+2025-02-08 17:37:11.982 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-08 17:37:12.469 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-08 17:37:12.478 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 495.3028ms
+2025-02-08 17:37:12.476 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-08 17:37:12.540 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-08 17:37:12.623 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-08 17:37:12.638 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 98.3472ms
+2025-02-08 17:37:12.624 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-08 17:37:12.644 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 174.8605ms
+2025-02-08 17:37:12.623 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-08 17:37:12.646 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 169.1707ms
+2025-02-08 17:37:12.868 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-08 17:37:12.868 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-08 17:37:12.873 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.9356ms
+2025-02-08 17:37:12.879 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-08 17:37:12.880 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-08 17:37:12.882 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 3.0148ms
+2025-02-08 17:37:12.965 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 97.1737ms
+2025-02-08 17:37:13.048 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-08 17:37:13.305 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 257.5175ms
+2025-02-08 17:37:18.186 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-02-08 17:37:18.206 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-08 17:37:18.271 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-08 17:37:21.169 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-08 17:37:22.390 -05:00 [INF] Executed DbCommand (145ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Libros" AS l
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE l."Id" = @__id_0
+LIMIT 1
+2025-02-08 17:37:22.610 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-02-08 17:37:22.641 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 4357.5776ms
+2025-02-08 17:37:22.653 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-08 17:37:22.683 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 200 - application/json;+charset=utf-8 4496.7470ms

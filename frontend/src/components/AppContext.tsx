@@ -36,6 +36,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [apiUrl, setAPIUrl] = useState('');
   const [error, setError] = useState(null);
   const [loadingConfig, setLoadingConfig] = useState(true);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isAuthenticated, setIsAuth] = useState(false);
   const ControllerName = "Usuario";
   const navigate = useNavigate(); // Usamos useNavigate para redirigir
   const location = useLocation();
@@ -49,71 +51,48 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   
   // Efecto para manejar redirecciones
   useEffect(() => {
-    // Si ya se está cargando la configuración, no hacemos nada.
-    if (loadingConfig) return;
-  
+    if (loadingConfig || !isAuthenticated || isLoggingOut) return; 
     const initAuth = async () => {
-  
-      // Obtenemos los tokens de forma local
-      var accessToken = GetAccessToken();
+      let accessToken = GetAccessToken();
       const refreshTokenLocal = getRefreshToken();
-      var FotoPerfil = getUserFotoPerfil();
-      var NombrePerfil = getUserName();
-      // Si no se obtuvo un access token, intentamos renovarlo si existe el refresh token
+
       if (!accessToken) {
         if (!refreshTokenLocal) {
-          // Si no hay refresh token, se asume que la sesión expiró o nunca inició
           removeSession();
           return;
         }
   
-        // Intentamos renovar el token
         try {
           accessToken = await refreshAuthToken(AppContext);
           if (!accessToken) {
             throw new SessionExpiredError("");
           }
-
         } catch (error) {
           if (error instanceof SessionExpiredError) {
             handleError(error);
           }
-          console.error('Error refreshing token:', error);
           return;
         }
-
       }
   
-      // Actualizamos los estados correspondientes
       setToken(accessToken);
       setRefreshTokenS(refreshTokenLocal);
-
-      if(!FotoPerfil){
-        FotoPerfil="";
-      }
-      if(!NombrePerfil){
-        NombrePerfil="";
-      }
-
+  
       try {
-        LlenarDatosUser(accessToken,FotoPerfil,NombrePerfil);
+        LlenarDatosUser(accessToken, getUserFotoPerfil() ?? "", getUserName() ?? "");
       } catch (error) {
         console.error('Error decoding JWT:', error);
       }
   
-      // Verificamos si la ruta actual es de autenticación
       const isAuthPage = ['/Login', '/Register'].includes(location.pathname);
-      // Si ya hay sesión iniciada y estamos en una página de auth, redirigimos al home
-      if (isAuthPage && accessToken && refreshTokenLocal) {
-        console.log("Ya se encuentra una sesión iniciada");
+      if (isAuthPage) {
+        console.log("Sesión ya iniciada, redirigiendo...");
         navigate('/');
-        return;
       }
-
     };
   
     initAuth();
-  }, [location.pathname, navigate, AppContext, loadingConfig]);
+  }, [location.pathname, navigate, AppContext, loadingConfig, isAuthenticated,isLoggingOut]);
 
 
   const LlenarDatosUser = (token: string, fotoPerfilData: string, nombrePerfilData: string) => {
@@ -154,6 +133,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       console.error("Error al guardar los datos del usuario:", error);
       window.alert("Error al guardar los datos del usuario:"+error);
     }
+    setIsAuth(true);
     setAccessToken(token); 
     setToken(token);
     setRefreshToken(refreshToken);
@@ -190,15 +170,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     LlenarDatosUser(token, user?.fotoPerfil ?? "", user?.nombre ?? "");
   }
 
-  const removeSession = () => {
-    setAccessToken("");
-    setToken("");
-    RemoveRefreshToken();
-    setRefreshTokenS(null);
-    clearUserData();
-    setUser(null);
-  };
-
   // Dentro del provider:
   const handleError = (error: Error) => {
     if (error instanceof SessionExpiredError) {
@@ -208,13 +179,15 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     }
   };
 
-
   const handleLogout = async () => {
+    setIsLoggingOut(true);
+
     const tokenget = GetAccessToken();
     setToken(tokenget);
 
     if (!token) {
       removeSession();
+      setIsLoggingOut(false);
       return;
     }
     try {
@@ -222,6 +195,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       if (!response.ok) {
         const errorContent = await ResponseErrorGet(response);
         setError(errorContent);
+        setIsLoggingOut(false);
         return;
       }
       console.log('Logout successful');
@@ -233,12 +207,22 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         console.error('Error durante el logout:', error);
         removeSession();
       }
+
     }
 
     window.alert("Ha cerrado la sesión");
-    
+    setIsLoggingOut(false);
   };
 
+  const removeSession = () => {
+    setIsAuth(false);
+    setAccessToken("");
+    setToken(null);
+    RemoveRefreshToken();
+    setRefreshTokenS(null);
+    clearUserData();
+    setUser(null);
+  };
 
   return (
     <AppContext.Provider value={{
@@ -255,6 +239,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       loadingConfig, 
       handleError,
       GuardarDatosUser,
+      isAuthenticated,
+      isLoggingOut,
     }}>
       {children}
     </AppContext.Provider>

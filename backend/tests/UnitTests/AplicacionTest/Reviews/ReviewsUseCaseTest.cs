@@ -134,6 +134,88 @@ namespace AplicacionTest.Reviews
         }
 
         [Fact]
+        public void ConsultarReviewsPorUsuario_UsuarioNull_LanzaExcepcion()
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = null;
+            string ErrorMessage = "No se pueden consultar reseñas porque el usuario proporcionado es nulo.";
+
+            // Act 
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+        }
+
+        [Fact]
+        public void ConsultarReviewsPorUsuario_UsuarioidNoValido_LanzaExcepcion()
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            long idNoValido = 0;
+            usuario.Id = idNoValido;
+            string ErrorMessage = "No se pueden consultar las reseñas porque el ID del usuario no es válido.";
+
+            // Act 
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+        }
+
+        [Fact]
+        public void ConsultarReviewsPorUsuario_UsuarioNoCreado_LanzaExcepcion()
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            long idNoCreado = 10;
+            usuario.Id = idNoCreado;
+            string ErrorMessage = "El usuario al que intenta consultar sus reviews, no se encuentra en el sistema.";
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(new UsuarioModelo());
+            // Act 
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
+
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+
+        }
+
+        [Fact]
+        public void ConsultarReviewsPorUsuario_ReseñasExistentes_ReturnsReview()
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            List<ReviewModel> LisReviewsConsultads = new List<ReviewModel> { review };
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(usuario.Id)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ListReviewPorUsuario(usuario)).Returns(LisReviewsConsultads);
+
+            // Act 
+            List<ReviewModel> listReviewResultado = _useCaseReview.ConsultarReviewsPorUsuario(usuario);
+
+            //Assert
+            Assert.Equal(LisReviewsConsultads, listReviewResultado);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Once);
+        }
+
+        [Fact]
         public void ConsultarReviewsPorLibro_LibroNull_LanzaExcepcion()
         {
             // Arrange
@@ -151,8 +233,8 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Verify(r => r.ListReviewPorLibro(libro), Times.Never);
         }
 
-
         [Fact]
+
         public void ConsultarReviewsPorLibro_LibroidNoValido_LanzaExcepcion()
         {
             // Arrange

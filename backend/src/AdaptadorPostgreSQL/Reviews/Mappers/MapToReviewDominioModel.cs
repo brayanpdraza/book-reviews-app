@@ -29,7 +29,8 @@ namespace AdaptadorPostgreSQL.Reviews.Mappers
                     Id = entity.Usuario.Id,
                     Nombre = entity.Usuario.Nombre,
                     Correo = entity.Usuario.Correo,
-                    Password = entity.Usuario.Password
+                    Password = entity.Usuario.Password,
+                    FotoPerfil = entity.Usuario.FotoPerfil,
                 },
                 Libro = new LibroModelo
                 {

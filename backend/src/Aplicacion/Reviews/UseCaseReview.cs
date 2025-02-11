@@ -72,6 +72,29 @@ namespace Aplicacion.Reviews
             return _reviewRepositorio.ListReviewPorId(id);
 
         }
+        //REALIZAR PRUEBAS UNITARIAS
+        public List<ReviewModel> ConsultarReviewsPorUsuario(UsuarioModelo Usuario)
+        {
+            UsuarioModelo usuarioConsultado;
+            if (Usuario == null)
+            {
+                throw new ArgumentException("No se pueden consultar reseñas porque el usuario proporcionado es nulo.");
+            }
+
+            if (Usuario.Id <= 0)
+            {
+                throw new ArgumentException("No se pueden consultar las reseñas porque el ID del usuario no es válido.");
+            }
+            usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(Usuario.Id);
+            if (usuarioConsultado.Id <= 0)
+            {
+                throw new KeyNotFoundException("El usuario al que intenta consultar sus reviews, no se encuentra en el sistema.");
+            }
+
+            return _reviewRepositorio.ListReviewPorUsuario(usuarioConsultado);
+
+        }
+
 
         public List<ReviewModel> ConsultarReviewsPorLibro(LibroModelo Libro)
         {

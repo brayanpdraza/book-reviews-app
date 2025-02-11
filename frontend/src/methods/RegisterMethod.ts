@@ -10,6 +10,7 @@ export const RegisterMethod = async (apiUrl:string, ControllerName: string, nomb
             nombre: nombre, 
             correo : email, 
             password: password,
+            fotoPerfil:"",
         };
 
         const response = await fetch(url, {

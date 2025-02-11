@@ -43,8 +43,8 @@ export default function Login() {
       if (!context.apiUrl)
         throw new Error("Error de configuración. Cargue la página de nuevo");
 
-      await LoginMethod(context.apiUrl,ControllerName,emailForm,password,navigate,context.login);
-      console.log("Ha iniciado sesión");
+      await LoginMethod(context.apiUrl,ControllerName,emailForm,password,navigate,context);
+
     } catch (error) {
       setError((error && error.message) || "error Inicio Sesion");
         console.error('Error 563873:', error);
