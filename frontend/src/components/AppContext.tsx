@@ -51,11 +51,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   
   // Efecto para manejar redirecciones
   useEffect(() => {
-    if (loadingConfig || !isAuthenticated || isLoggingOut) return; 
+    if (loadingConfig || isLoggingOut) return; 
     const initAuth = async () => {
       let accessToken = GetAccessToken();
       const refreshTokenLocal = getRefreshToken();
-
       if (!accessToken) {
         if (!refreshTokenLocal) {
           removeSession();
@@ -77,11 +76,14 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   
       setToken(accessToken);
       setRefreshTokenS(refreshTokenLocal);
-  
+      
       try {
         LlenarDatosUser(accessToken, getUserFotoPerfil() ?? "", getUserName() ?? "");
+        setIsAuth(true);
       } catch (error) {
         console.error('Error decoding JWT:', error);
+        removeSession(); // Elimina la sesión si no se puede decodificar el token
+        return;
       }
   
       const isAuthPage = ['/Login', '/Register'].includes(location.pathname);

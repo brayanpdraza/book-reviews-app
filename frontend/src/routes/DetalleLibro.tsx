@@ -1,3 +1,4 @@
+// DetalleLibro.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReviewList from '../components/ReviewList.tsx';
@@ -9,10 +10,11 @@ import { SessionExpiredError } from '../methods/SessionExpiredError.ts';
 import { RequestOptions } from '../Interfaces/RequestOptions.ts';
 import { AppContextType } from '../Interfaces/AppContextType.ts';
 import { ResponseErrorGet } from '../methods/ResponseErrorGet.ts';
-import { useAppContext} from '../components/AppContext.tsx';
+import { useAppContext } from '../components/AppContext.tsx';
+import { PaginacionResponse } from '../Interfaces/PaginacionResponse.ts';
 
 export default function DetalleLibro() {
-  const context:AppContextType = useAppContext(); // Extraer valores del contexto
+  const context: AppContextType = useAppContext();
   const params = useParams();
   const idlibrostr = encodeURIComponent(`${params.idlibro}`);
   const idlibro = Number(idlibrostr);
@@ -20,9 +22,13 @@ export default function DetalleLibro() {
 
   const [book, setBook] = useState<Libro | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  // Estado para la respuesta paginada
+  const [paginatedReviews, setPaginatedReviews] = useState<PaginacionResponse<Review> | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 5; // Ajusta la cantidad de reseñas por página
+
   const CtrlNameLibro = 'Libro';
   const CtrlNameReview = 'Review';
 
@@ -51,7 +57,7 @@ export default function DetalleLibro() {
       setBook(data);
     } catch (error) {
       setError(`Error 6436: ${error}`);
-      console.error('Error fetching libros:', error);
+      console.error('Error fetching libro:', error);
     }
   };
 
@@ -88,8 +94,6 @@ export default function DetalleLibro() {
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(`Error: ${error}`);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -97,10 +101,11 @@ export default function DetalleLibro() {
   }, [context.apiUrl, idlibro]);
 
   useEffect(() => {
-    if (!loading && book) {
+    if (book) {
+      setReviewsLoading(true);
       fetchReviewslibro(book);
     }
-  }, [loading, book]);
+  }, [book, currentPage]);
 
   const handleReviewSubmit = async (newReviewdata: { rating: number; comment: string }) => {
     if (!context.token || !context.user) {
@@ -147,9 +152,14 @@ export default function DetalleLibro() {
     }
   };
 
-  if (loading && !book) return <div>Cargando libro...</div>;
-  if (!loading && !book) return <div>Libro no encontrado</div>;
+  const handlePageChange = (newPage: number) => {
+    if (paginatedReviews && newPage > 0 && newPage <= paginatedReviews.totalPaginas) {
+      setCurrentPage(newPage);
+    }
+  };
+
   if (error) return <div>{error}</div>;
+  if (!book) return <div>Cargando libro...</div>;
 
   return (
     <div className="max-w-4xl mx-auto p-4">
@@ -181,7 +191,26 @@ export default function DetalleLibro() {
       {reviewsLoading ? (
         <div>Cargando reseñas...</div>
       ) : (
-        <ReviewList reviews={reviews} />
+        <>
+          <ReviewList reviews={reviews} />
+          {paginatedReviews && paginatedReviews.totalPaginas > 1 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: paginatedReviews.totalPaginas }, (_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => handlePageChange(i + 1)}
+                  className={`px-4 py-2 border rounded-md ${
+                    currentPage === i + 1
+                      ? "bg-blue-500 text-white border-blue-500"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                  } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

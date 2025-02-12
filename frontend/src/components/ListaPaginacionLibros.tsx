@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {  useNavigate } from 'react-router-dom';
 import {Libro} from '../Interfaces/Libro.ts';
+import { PaginacionResponse } from '../Interfaces/PaginacionResponse.ts';
 import {ResponseErrorGet} from '../methods/ResponseErrorGet.ts';
 import { useAppContext } from '../components/AppContext.tsx'; 
 
-interface ApiResponse<T> {
-  items: T[];
-  totalRegistros: number;
-  paginaActual: number;
-  tamanoPagina: number;
-  totalPaginas: number;s
-}
 
 interface PaginacionLibrosProps {
   itemsPorPagina: number;
@@ -31,6 +25,8 @@ const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) =
   const navigate = useNavigate();
   const ControllerName = 'Libro';
 
+  
+
  const fetchLibros = async (pagina: number, filtro?: string) => {
   try {
     let url = `${context.apiUrl}/${ControllerName}/ConsultarLibrosPaginadosFiltroOpcional/${pagina}/${itemsPorPagina}`;
@@ -45,7 +41,7 @@ const PaginacionLibros: React.FC<PaginacionLibrosProps> = ({ itemsPorPagina }) =
       return;
     }
 
-    const data: ApiResponse<Libro> = await response.json();
+    const data: PaginacionResponse<Libro> = await response.json();
     setLibros(data.items);
     setTotalPaginas(data.totalPaginas);
     setTotalLibros(data.totalRegistros);
@@ -102,7 +98,7 @@ if (error) {
 }
 return (
   <div className="p-6 bg-gray-50 min-h-screen">
-    {/* Filtro dinámico */}
+
     <div className="flex items-center gap-4 mb-8">
       <select
         value={tipoFiltroTemp}
@@ -131,11 +127,10 @@ return (
       </button>
     </div>
 
-    {/* Lista de libros */}
     
     {libros.length > 0 ? (
       <>
-        {/* Lista de libros */}
+
         <ul className="space-y-4">
           {libros.map((libro) => (
             <li
@@ -149,7 +144,6 @@ return (
           ))}
         </ul>
 
-        {/* Paginación */}
         <div className="flex justify-center gap-2 mt-8">
           {Array.from({ length: totalPaginas }, (_, i) => (
             <button
@@ -167,7 +161,7 @@ return (
         </div>
       </>
     ) : (
-      // Mensaje cuando no hay resultados
+
       <div className="text-center py-12">
         <div className="text-gray-500 text-xl mb-4">📚</div>
         <p className="text-gray-600 text-lg font-medium">

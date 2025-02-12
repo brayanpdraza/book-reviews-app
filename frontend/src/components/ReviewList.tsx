@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Review } from '../Interfaces/Review.ts';
 import StarRating from './StarRating.tsx';
 import { useAppContext } from '../components/AppContext.tsx';
@@ -10,21 +10,45 @@ interface ReviewListProps {
   reviews: Review[];
   showActions?: boolean;
   groupedByBook?: boolean;
+  reviewsPerPage?: number;
 }
 
-const ReviewList = ({ reviews, showActions = false, groupedByBook = false }: ReviewListProps) => {
+const ReviewList = ({ reviews, showActions = false, groupedByBook = false, reviewsPerPage = 10 }: ReviewListProps) => {
   const context = useAppContext() as AppContextType;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+  let startIndex = (currentPage - 1) * reviewsPerPage;
+  let selectedReviews = reviews.slice(startIndex, startIndex + reviewsPerPage);
+
+  // Cargar libros al cambiar de página
+  useEffect(() => {
+    if (!context.apiUrl) {
+      return
+    }
+    manageReviews();
+  }, [context.apiUrl,currentPage]);
+
+  const manageReviews = () => {
+    startIndex = (currentPage - 1) * reviewsPerPage;
+    selectedReviews = reviews.slice(startIndex, startIndex + reviewsPerPage);
+  }
 
   const handleAction = (e: React.MouseEvent, callback: Function, id: number) => {
     e.stopPropagation();
     callback(id);
   };
 
+  const handlePageChange = (newPage: number) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
+
   return (
     <div className="space-y-4">
-      {reviews.map((review) => (
+      {selectedReviews.map((review) => (
         <div key={review.id} className="p-4 bg-white rounded-lg shadow-md relative">
-          {/* Encabezado de la reseña */}
           <div className="flex justify-between items-center mb-2">
             <div>
               <h4 className="font-semibold">
@@ -39,10 +63,8 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false }: Rev
             <StarRating rating={review.calificacion} />
           </div>
 
-          {/* Contenido */}
           <p className="text-gray-700">{review.comentario}</p>
 
-          {/* Acciones */}
           {showActions && context.user?.id === review.usuario.id && (
             <div className="absolute top-2 right-2 flex gap-2">
               <button
@@ -61,6 +83,27 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false }: Rev
           )}
         </div>
       ))}
+
+      {/* Paginación */}
+      {totalPages > 1 && (
+        <div className="flex justify-center space-x-2 mt-4">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+          >
+            Anterior
+          </button>
+          <span className="px-3 py-1">{currentPage} / {totalPages}</span>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
     </div>
   );
 };
