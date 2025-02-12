@@ -53,11 +53,18 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             return review;
         }
 
-        public List<ReviewModel> ListReviewPorUsuario(UsuarioModelo Usuario)
+        public List<ReviewModel> ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, int skip, int tamanoPagina)
         {
             IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro => libro.Categoria).Where(l => l.UsuarioId == Usuario.Id);
 
             List<ReviewEntity> reviewEntityList = query.ToList();
+
+            // Paginación
+            List<ReviewEntity> reviewsEntities = query
+                .OrderByDescending(r => r.CreatedAt)
+                .Skip(skip)
+                .Take(tamanoPagina)
+                .ToList();
 
             if (reviewEntityList == null)
             {
@@ -66,6 +73,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
             return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
         }
+
 
         public List<ReviewModel> ListReviewPorLibro(LibroModelo Libro)
         {
@@ -80,6 +88,14 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
             return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
         }
+
+        public int ConteoReviews(UsuarioModelo Usuario)
+        {
+            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Where(r=>r.UsuarioId == Usuario.Id);
+
+            return query.Count();
+        }
+
 
         public void SaveChanges()
         {

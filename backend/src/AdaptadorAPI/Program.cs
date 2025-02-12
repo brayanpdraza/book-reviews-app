@@ -8,6 +8,7 @@ using AdaptadorPostgreSQL.Usuarios.Adaptadores;
 using Aplicacion.Libros;
 using Aplicacion.Reviews;
 using Aplicacion.Usuarios;
+using Aplicacion.Methods;
 using Dominio.Entidades.Libros.Puertos;
 using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Entidades.Usuarios.Puertos;
@@ -164,7 +165,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-
+builder.Services.AddScoped<MetodosAuxiliares>();
 builder.Services.AddScoped<UseCaseUsuario>();
 builder.Services.AddScoped<UseCaseLibro>();
 builder.Services.AddScoped<UseCaseReview>();

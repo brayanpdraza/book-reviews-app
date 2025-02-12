@@ -1,21 +1,19 @@
 ﻿using Dominio.Entidades.Libros.Puertos;
 using Dominio.Libros.Modelo;
 using Dominio.Servicios.ServicioPaginacion.Modelos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Aplicacion.Methods;
+
 
 namespace Aplicacion.Libros
 {   
     public class UseCaseLibro
     {
         private readonly ILibroRepositorio _libroRepositorio;
-
-        public UseCaseLibro(ILibroRepositorio libroRepositorio)
+        private readonly MetodosAuxiliares _metodosAuxiliares = new MetodosAuxiliares();
+        public UseCaseLibro(ILibroRepositorio libroRepositorio, MetodosAuxiliares metodosAuxiliares)
         {
             _libroRepositorio = libroRepositorio;
+            _metodosAuxiliares = metodosAuxiliares;
         }
 
         public PaginacionResultadoModelo<LibroModelo> ConsultarLibrosPaginados(int pagina, int tamanoPagina, string filtro = null)
@@ -46,7 +44,7 @@ namespace Aplicacion.Libros
                 };
             }
 
-            totalPaginas = TotalPaginas(totalRegistros,tamanoPagina);
+            totalPaginas = _metodosAuxiliares.TotalPaginas(totalRegistros,tamanoPagina);
 
             if (pagina > totalPaginas)
             {
@@ -85,14 +83,6 @@ namespace Aplicacion.Libros
 
         }
 
-        public int TotalPaginas(int totalRegistros, int tamanoPagina)
-        {
-            if(tamanoPagina == 0)
-            {
-                throw new DivideByZeroException("El tamano de Pagina no peude ser 0");
-            }
 
-            return (int)Math.Ceiling((double)totalRegistros / tamanoPagina);
-        }
     }
 }

@@ -1,18 +1,11 @@
-﻿using Dominio.Entidades.Libros.Puertos;
+﻿using Aplicacion.Methods;
+using Dominio.Entidades.Libros.Puertos;
 using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
-using Dominio.Reviews.Servicios;
-using Dominio.Servicios.ServicioEncripcion.Contratos;
+using Dominio.Servicios.ServicioPaginacion.Modelos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
-using Dominio.Usuarios.Servicios;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aplicacion.Reviews
 {
@@ -22,13 +15,15 @@ namespace Aplicacion.Reviews
         private readonly ILibroRepositorio _libroRepositorio;
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IReviewValidations _reviewValidations;
+        private readonly MetodosAuxiliares _metodosAuxiliares;
 
-        public UseCaseReview(IReviewRepositorio reviewRepositorio,ILibroRepositorio libroRepositorio, IUsuarioRepositorio usuarioRepositorio, IReviewValidations reviewValidations)
+        public UseCaseReview(IReviewRepositorio reviewRepositorio,ILibroRepositorio libroRepositorio, IUsuarioRepositorio usuarioRepositorio, IReviewValidations reviewValidations, MetodosAuxiliares metodosAuxiliares)
         {
             _reviewRepositorio = reviewRepositorio;
             _libroRepositorio = libroRepositorio;
             _usuarioRepositorio = usuarioRepositorio;
             _reviewValidations = reviewValidations;
+            _metodosAuxiliares = metodosAuxiliares;
         }
 
         public long AddReview(ReviewModel review)
@@ -73,9 +68,12 @@ namespace Aplicacion.Reviews
 
         }
         //REALIZAR PRUEBAS UNITARIAS
-        public List<ReviewModel> ConsultarReviewsPorUsuario(UsuarioModelo Usuario)
+        public PaginacionResultadoModelo<ReviewModel> ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, int pagina, int tamanoPagina)
         {
             UsuarioModelo usuarioConsultado;
+            List<ReviewModel> Reviews;
+            int totalRegistros, skip, totalPaginas;
+
             if (Usuario == null)
             {
                 throw new ArgumentException("No se pueden consultar reseñas porque el usuario proporcionado es nulo.");
@@ -85,13 +83,54 @@ namespace Aplicacion.Reviews
             {
                 throw new ArgumentException("No se pueden consultar las reseñas porque el ID del usuario no es válido.");
             }
+            if (pagina <= 0)
+            {
+                throw new ArgumentException("La página debe ser mayor a cero.");
+            }
+
+            if (tamanoPagina <= 0)
+            {
+                throw new ArgumentException("El tamaño de página debe ser mayor a cero.");
+            }
+
             usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(Usuario.Id);
             if (usuarioConsultado.Id <= 0)
             {
                 throw new KeyNotFoundException("El usuario al que intenta consultar sus reviews, no se encuentra en el sistema.");
             }
 
-            return _reviewRepositorio.ListReviewPorUsuario(usuarioConsultado);
+            totalRegistros = _reviewRepositorio.ConteoReviews(usuarioConsultado);
+
+            if (totalRegistros <= 0)
+            {
+                return new PaginacionResultadoModelo<ReviewModel>
+                {
+                    Items = new List<ReviewModel>(), // Lista vacía
+                    TotalRegistros = 0,
+                    PaginaActual = 1,
+                    TamanoPagina = tamanoPagina
+                };
+            }
+
+            totalPaginas = _metodosAuxiliares.TotalPaginas(totalRegistros, tamanoPagina);
+
+            if (pagina > totalPaginas)
+            {
+                throw new ArgumentException($"La página solicitada ({pagina}) excede el total de páginas disponibles.");
+            }
+
+            skip = (pagina - 1) * tamanoPagina;
+
+            Reviews = _reviewRepositorio.ListReviewPorUsuarioPaginado(usuarioConsultado,skip,tamanoPagina);
+
+
+            return new PaginacionResultadoModelo<ReviewModel>
+            {
+                Items = Reviews,
+                TotalRegistros = totalRegistros,
+                PaginaActual = pagina,
+                TamanoPagina = tamanoPagina
+            };
 
         }
 

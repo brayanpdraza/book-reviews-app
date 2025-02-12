@@ -1,9 +1,11 @@
-﻿using Aplicacion.Reviews;
+﻿using Aplicacion.Methods;
+using Aplicacion.Reviews;
 using Dominio.Entidades.Libros.Puertos;
 using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
+using Dominio.Servicios.ServicioPaginacion.Modelos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 using Moq;
@@ -17,6 +19,7 @@ namespace AplicacionTest.Reviews
         private readonly Mock<IUsuarioRepositorio> _mockUsuarioRepositorio;
         private readonly Mock<IReviewValidations> _mockReviewValidations;
 
+        private readonly MetodosAuxiliares _metodosAuxiliares;
         private readonly UseCaseReview _useCaseReview;
         private readonly ReviewsBuilderCaseTest _reviewBuilderCaseTest;
 
@@ -26,11 +29,13 @@ namespace AplicacionTest.Reviews
             _mockLibroRepositorio = new Mock<ILibroRepositorio>();
             _mockUsuarioRepositorio = new Mock<IUsuarioRepositorio>();
             _mockReviewValidations = new Mock<IReviewValidations>();
+            _metodosAuxiliares = new MetodosAuxiliares();
             _useCaseReview = new UseCaseReview(
                 _mockReviewRepositorio.Object,
                 _mockLibroRepositorio.Object,
                 _mockUsuarioRepositorio.Object,
-                _mockReviewValidations.Object
+                _mockReviewValidations.Object,
+                _metodosAuxiliares
             );
             _reviewBuilderCaseTest = new ReviewsBuilderCaseTest(_mockReviewValidations.Object);
         }
@@ -122,7 +127,7 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Setup(r => r.AddReview(review)).Returns(idCreado);
 
             // Act 
-            long idResultado =  _useCaseReview.AddReview(review);
+            long idResultado = _useCaseReview.AddReview(review);
 
             //Assert
             Assert.Equal(idCreado, idResultado);
@@ -133,8 +138,9 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Once);
         }
 
-        [Fact]
-        public void ConsultarReviewsPorUsuario_UsuarioNull_LanzaExcepcion()
+        [Theory]
+        [InlineData(2, 1)]
+        public void ConsultarReviewsPorUsuarioPaginados_UsuarioNull_LanzaExcepcion(int Pagina, int tamanoPagina)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
@@ -142,17 +148,19 @@ namespace AplicacionTest.Reviews
             string ErrorMessage = "No se pueden consultar reseñas porque el usuario proporcionado es nulo.";
 
             // Act 
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina,tamanoPagina));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario,Pagina,tamanoPagina), Times.Never);
         }
 
-        [Fact]
-        public void ConsultarReviewsPorUsuario_UsuarioidNoValido_LanzaExcepcion()
+        [Theory]
+        [InlineData(2, 1)]
+        public void ConsultarReviewsPorUsuarioPaginados_UsuarioidNoValido_LanzaExcepcion(int Pagina, int tamanoPagina)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
@@ -162,17 +170,41 @@ namespace AplicacionTest.Reviews
             string ErrorMessage = "No se pueden consultar las reseñas porque el ID del usuario no es válido.";
 
             // Act 
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario, Pagina, tamanoPagina));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
         }
 
-        [Fact]
-        public void ConsultarReviewsPorUsuario_UsuarioNoCreado_LanzaExcepcion()
+
+        [Theory]
+        [InlineData(0, 1, "La página debe ser mayor a cero.")]
+        [InlineData(1, 0, "El tamaño de página debe ser mayor a cero.")]
+        public void ConsultarReviewsPorUsuarioPaginados_Validacionpaginas_LanzaExcepcion(int Pagina, int tamanoPagina, string MessageError)
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+
+            //Act
+
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario, Pagina, tamanoPagina));
+
+            // Assert
+            Assert.Equal(MessageError, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
+        }
+
+        [Theory]
+        [InlineData(2, 1)]
+        public void ConsultarReviewsPorUsuarioPaginados_UsuarioNoCreado_LanzaExcepcion(int Pagina, int tamanoPagina)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
@@ -183,36 +215,93 @@ namespace AplicacionTest.Reviews
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(new UsuarioModelo());
             // Act 
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ConsultarReviewsPorUsuario(usuario));
-
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario, Pagina, tamanoPagina));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
 
         }
 
-        [Fact]
-        public void ConsultarReviewsPorUsuario_ReseñasExistentes_ReturnsReview()
+        [Theory]
+        [InlineData(2, 1, 0)]
+        public void ConsultarReviewsPorUsuarioPaginados_ReturnsEmptyLibros(int Pagina, int tamanoPagina, int TotalReviews)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
             UsuarioModelo usuario = review.Usuario;
-            List<ReviewModel> LisReviewsConsultads = new List<ReviewModel> { review };
+            List<ReviewModel> ReviewVacio = new List<ReviewModel>();
+            int PaginaResult = 1;
 
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(usuario.Id)).Returns(usuario);
-            _mockReviewRepositorio.Setup(r => r.ListReviewPorUsuario(usuario)).Returns(LisReviewsConsultads);
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
 
-            // Act 
-            List<ReviewModel> listReviewResultado = _useCaseReview.ConsultarReviewsPorUsuario(usuario);
+            //Act
+            PaginacionResultadoModelo<ReviewModel> Resultado = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina, tamanoPagina);
 
-            //Assert
-            Assert.Equal(LisReviewsConsultads, listReviewResultado);
+            // Assert
+            Assert.Equal(ReviewVacio, Resultado.Items);
+            Assert.Equal(PaginaResult, Resultado.PaginaActual);
+            Assert.Equal(tamanoPagina, Resultado.TamanoPagina);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuario(usuario), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Never);
+        }
+
+
+        [Theory]
+        [InlineData(4, 10, 29)]
+        public void ConsultarReviewsPorUsuarioPaginados_PaginaExcedeTotalPaginas_LanzaExcepcion(int Pagina, int tamanoPagina, int TotalReviews)
+        {  
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+
+            string MessageError = $"La página solicitada ({Pagina}) excede el total de páginas disponibles.";
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
+
+            //Act
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina, tamanoPagina));
+
+            // Assert
+            Assert.Equal(MessageError, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Never);
+        }
+
+
+        [Theory]
+        [InlineData(3, 10, 50, "")]
+        public void ConsultarReviewsPorUsuarioPaginados_ValidData_ReturnsReviewPaginados(int Pagina, int tamanoPagina, int TotalReviews, string Filtro)
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            List<ReviewModel> Reviews = new List<ReviewModel> { _reviewBuilderCaseTest.Build() };
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
+            _mockReviewRepositorio.Setup(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>())).Returns(Reviews);
+
+            //Act
+            PaginacionResultadoModelo<ReviewModel> Resultado = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina, tamanoPagina);
+
+            // Assert
+            Assert.Equal(Reviews, Resultado.Items);
+            Assert.Equal(Pagina, Resultado.PaginaActual);
+            Assert.Equal(tamanoPagina, Resultado.TamanoPagina);
+
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Once);
         }
 
         [Fact]

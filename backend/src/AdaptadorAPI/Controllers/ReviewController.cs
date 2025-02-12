@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Reviews;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
+using Dominio.Servicios.ServicioPaginacion.Modelos;
 using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -87,17 +88,17 @@ namespace AdaptadorAPI.Controllers
             }
         }
 
-        [HttpPost("ConsultarReviewPorUsuario")]
-        public IActionResult ObtenerReviewPorId([FromBody] UsuarioModelo request)
+        [HttpPost("ConsultarReviewPorUsuarioPaginado/{pagina}/{tamanoPagina}")]
+        public IActionResult ConsultarReviewPorUsuarioPaginado([FromBody] UsuarioModelo request, int pagina, int tamanoPagina)
         {
-            List<ReviewModel> Reviews;
+            PaginacionResultadoModelo<ReviewModel> Reviews;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                Reviews = _useCaseReview.ConsultarReviewsPorUsuario(request);
+                Reviews = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(request,pagina, tamanoPagina);
                 return Ok(Reviews);
 
             }

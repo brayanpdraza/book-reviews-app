@@ -1,4 +1,5 @@
 ﻿using Aplicacion.Libros;
+using Aplicacion.Methods;
 using Aplicacion.Usuarios;
 using AplicacionTest.Usuarios;
 using Dominio.Entidades.Libros.Puertos;
@@ -21,43 +22,21 @@ namespace AplicacionTest.Libros
         private readonly Mock<ILibroRepositorio> _mockLibroRepositorio;
 
         private readonly UseCaseLibro _useLibro;
+        private readonly MetodosAuxiliares _metodosAuxiliares;
         private readonly LibrosBuilderUseCaseTest _librosBuilderCaseTest;
 
         public LibrosUseCaseTest()
         {
             _mockLibroRepositorio = new Mock<ILibroRepositorio>();
+            _metodosAuxiliares = new MetodosAuxiliares();
 
             _useLibro = new UseCaseLibro(
-                _mockLibroRepositorio.Object
+                _mockLibroRepositorio.Object,
+                _metodosAuxiliares
             );
             _librosBuilderCaseTest = new LibrosBuilderUseCaseTest();
         }
 
-        [Theory]
-        [InlineData(0, 10, 0)]    // No hay registros
-        [InlineData(10, 10, 1)]   // Exactamente una página
-        [InlineData(15, 10, 2)]   // Página extra por registros no exactos
-        [InlineData(1, 10, 1)]    // Un solo registro
-        [InlineData(1000, 100, 10)] // Muchas páginas
-        public void TotalPaginas_CalculaCorrectamente(int totalRegistros, int tamanoPagina, int esperado)
-        {
-            // Act
-            var resultado = _useLibro.TotalPaginas(totalRegistros, tamanoPagina);
-
-            // Assert
-            Assert.Equal(esperado, resultado);
-        }
-
-        [Fact]
-        public void TotalPaginas_TamanoPaginaCero_LanzaExcepcion()
-        {
-            // Arrange
-            int totalRegistros = 10;
-            int tamanoPagina = 0;
-
-            // Act & Assert
-            Assert.Throws<DivideByZeroException>(() => _useLibro.TotalPaginas(totalRegistros, tamanoPagina));
-        }
 
         [Theory]
         [InlineData(0,1, "La página debe ser mayor a cero.")]
@@ -80,7 +59,7 @@ namespace AplicacionTest.Libros
 
         [Theory]
         [InlineData(2, 1,0,"")]
-        public void ConsultarLibrosPaginados_ConteoLibros0_ReturnsEmptyLibros(int Pagina, int tamanoPagina, int TotalLibros,string Filtro)
+        public void ConsultarLibrosPaginados_ConteoLibros_ReturnsEmptyLibros(int Pagina, int tamanoPagina, int TotalLibros,string Filtro)
         {
             // Arrange
             List<LibroModelo> libroVacio = new List<LibroModelo>();
@@ -104,7 +83,7 @@ namespace AplicacionTest.Libros
         [InlineData(4, 10, 29,"")]
         public void ConsultarLibrosPaginados_PaginaExcedeTotalPaginas_LanzaExcepcion(int Pagina, int tamanoPagina, int TotalLibros, string Filtro)
         {
-            List<LibroModelo> libroVacio = new List<LibroModelo>();
+
             string MessageError = $"La página solicitada ({Pagina}) excede el total de páginas disponibles.";
 
             _mockLibroRepositorio.Setup(r => r.ConteoLibros(Filtro)).Returns(TotalLibros);

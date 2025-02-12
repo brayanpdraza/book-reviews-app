@@ -1,0 +1,120 @@
+2025-02-12 12:06:59.062 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-12 12:07:01.038 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-12 12:07:01.202 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-12 12:07:01.208 -05:00 [INF] Hosting environment: Development
+2025-02-12 12:07:01.218 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-12 12:07:04.961 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-12 12:07:06.467 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1510.2071ms
+2025-02-12 12:07:06.484 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-12 12:07:07.160 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 676.2545ms
+2025-02-12 12:07:07.747 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-12 12:07:07.747 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-12 12:07:07.754 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-12 12:07:07.754 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-12 12:07:07.755 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-12 12:07:07.761 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 14.5555ms
+2025-02-12 12:07:07.985 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-12 12:07:07.985 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-12 12:07:07.998 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 243.4932ms
+2025-02-12 12:07:07.999 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 244.4056ms
+2025-02-12 12:07:08.000 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 252.8915ms
+2025-02-12 12:07:08.009 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-12 12:07:08.010 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 256.0532ms
+2025-02-12 12:07:08.138 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-12 12:07:08.141 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-12 12:07:08.356 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 217.5608ms
+2025-02-12 12:07:08.344 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 12:07:08.348 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 12:07:08.337 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 12:07:08.361 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 12:07:08.370 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:07:08.368 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:07:08.372 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:07:08.366 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:07:08.375 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:07:08.369 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:07:08.384 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:07:08.402 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 64.5519ms
+2025-02-12 12:07:08.377 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 32.8431ms
+2025-02-12 12:07:08.371 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:07:08.850 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 489.3442ms
+2025-02-12 12:07:08.553 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-12 12:07:08.377 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 28.4552ms
+2025-02-12 12:07:09.219 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 666.1275ms
+2025-02-12 12:08:33.222 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-12 12:08:33.479 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-12 12:08:33.486 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-12 12:08:33.487 -05:00 [INF] Hosting environment: Development
+2025-02-12 12:08:33.488 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-12 12:08:34.789 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-12 12:08:35.556 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 771.8136ms
+2025-02-12 12:08:35.886 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-12 12:08:35.925 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-12 12:08:35.938 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 51.1659ms
+2025-02-12 12:08:36.030 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 105.0822ms
+2025-02-12 12:08:36.064 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 12:08:36.064 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 12:08:36.064 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 12:08:36.064 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 12:08:36.073 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:08:36.073 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:08:36.073 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:08:36.076 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:08:36.087 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:08:36.080 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:08:36.090 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 26.3616ms
+2025-02-12 12:08:36.078 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:08:36.091 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 27.7903ms
+2025-02-12 12:08:36.090 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 26.5625ms
+2025-02-12 12:08:36.081 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:08:36.099 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-12 12:08:36.100 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 36.3740ms
+2025-02-12 12:08:36.558 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 459.1393ms
+2025-02-12 12:16:32.285 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/20 application/json 107
+2025-02-12 12:16:32.294 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:16:32.295 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:16:32.301 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 12:16:32.359 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 12:16:34.264 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-12 12:16:34.295 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 1928.5676ms
+2025-02-12 12:16:34.303 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 12:16:34.309 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/20 application/json 107 - 400 - application/problem+json;+charset=utf-8 2024.0533ms
+2025-02-12 12:16:43.590 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/20 application/json 101
+2025-02-12 12:16:43.595 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:16:43.596 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:16:43.597 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 12:16:43.599 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 12:16:45.127 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 12:16:46.445 -05:00 [INF] Executed DbCommand (135ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 12:16:46.657 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM "Reviews" AS r
+WHERE r."UsuarioId" = @__Usuario_Id_0
+2025-02-12 12:16:46.753 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."UsuarioId" = @__Usuario_Id_0
+2025-02-12 12:16:46.893 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Calificacion", t."Comentario", t."CreatedAt", t."LibroId", t."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM (
+    SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+    ORDER BY r."CreatedAt" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS t
+INNER JOIN "Usuarios" AS u ON t."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON t."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+ORDER BY t."CreatedAt" DESC
+2025-02-12 12:16:46.899 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Reviews.Modelo.ReviewModel, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-12 12:16:46.916 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 3314.0959ms
+2025-02-12 12:16:46.918 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 12:16:46.927 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/20 application/json 101 - 200 - application/json;+charset=utf-8 3336.6572ms

@@ -2,7 +2,6 @@ import React, { useEffect }  from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContextType } from '../Interfaces/AppContextType.ts';
 import { useAppContext} from '../components/AppContext.tsx';
-import { couldStartTrivia } from 'typescript';
 
 export default function ProfilePage() {
     const navigate = useNavigate(); // Hook para navegar entre rutas
@@ -20,7 +19,6 @@ export default function ProfilePage() {
           navigate('/');
           return;
         }
-        context.GuardarDatosUser(context.token);
     }, []); 
 
     const getProfileImage = () => {
