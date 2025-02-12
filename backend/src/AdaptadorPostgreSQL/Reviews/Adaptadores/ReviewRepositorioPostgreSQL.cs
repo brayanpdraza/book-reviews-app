@@ -55,23 +55,28 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
         public List<ReviewModel> ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, int skip, int tamanoPagina)
         {
-            IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro => libro.Categoria).Where(l => l.UsuarioId == Usuario.Id);
-
-            List<ReviewEntity> reviewEntityList = query.ToList();
-
-            // Paginación
-            List<ReviewEntity> reviewsEntities = query
-                .OrderByDescending(r => r.CreatedAt)
+            // Obtener los libros que tienen reseñas del usuario, paginando por libros
+            var librosPaginados = _postgreSQLDbContext.Reviews
+                .Where(r => r.UsuarioId == Usuario.Id)
+                .Select(r => r.Libro) // Seleccionamos los libros asociados
+                .Distinct() // Evitamos libros duplicados
+                .OrderByDescending(libro => libro.Titulo) // Puedes cambiar el criterio de orden si lo necesitas
                 .Skip(skip)
                 .Take(tamanoPagina)
                 .ToList();
 
-            if (reviewEntityList == null)
+            if (!librosPaginados.Any())
             {
                 return new List<ReviewModel>();
             }
 
-            return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
+            // Obtener todas las reviews asociadas a los libros seleccionados
+            List<ReviewEntity> reviews = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro => libro.Categoria)
+                .Where(r => librosPaginados.Select(l => l.Id).Contains(r.LibroId))
+                .ToList();
+
+
+            return _mapToReviewDominioModel.MapToReviewModeloList(reviews);
         }
 
 
@@ -89,13 +94,23 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             return _mapToReviewDominioModel.MapToReviewModeloList(reviewEntityList);
         }
 
-        public int ConteoReviews(UsuarioModelo Usuario)
+        public int ConteoReviewsPorUsuario(UsuarioModelo Usuario)
         {
             IQueryable<ReviewEntity> query = _postgreSQLDbContext.Reviews.Where(r=>r.UsuarioId == Usuario.Id);
 
             return query.Count();
         }
 
+        public int ConteoDistinctLibrosReviewsPorUsuario(UsuarioModelo Usuario)
+        {
+            int conteo = _postgreSQLDbContext.Reviews
+             .Where(r => r.UsuarioId == Usuario.Id)
+             .Select(r => r.LibroId)
+             .Distinct()            
+             .Count();
+
+            return conteo;
+        }
 
         public void SaveChanges()
         {

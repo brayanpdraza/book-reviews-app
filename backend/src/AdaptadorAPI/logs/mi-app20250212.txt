@@ -118,3 +118,392 @@ ORDER BY t."CreatedAt" DESC
 2025-02-12 12:16:46.916 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 3314.0959ms
 2025-02-12 12:16:46.918 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
 2025-02-12 12:16:46.927 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/20 application/json 101 - 200 - application/json;+charset=utf-8 3336.6572ms
+2025-02-12 12:47:12.966 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-12 12:47:16.300 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-12 12:47:16.494 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-12 12:47:16.497 -05:00 [INF] Hosting environment: Development
+2025-02-12 12:47:16.501 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-12 12:47:17.275 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-12 12:47:18.393 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1125.4644ms
+2025-02-12 12:47:18.593 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-12 12:47:18.598 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.1595ms
+2025-02-12 12:47:18.706 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-12 12:47:18.766 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.3392ms
+2025-02-12 12:47:18.806 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 12:47:18.807 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 12:47:18.807 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 12:47:18.807 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 12:47:18.815 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:47:18.816 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:47:18.815 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:47:18.815 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:47:18.821 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:47:18.822 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 14.5589ms
+2025-02-12 12:47:18.815 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:47:18.822 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 14.5938ms
+2025-02-12 12:47:18.821 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:47:18.824 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:47:18.825 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-12 12:47:18.826 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 20.7877ms
+2025-02-12 12:47:18.828 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 20.8632ms
+2025-02-12 12:47:19.093 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 268.2630ms
+2025-02-12 12:47:30.058 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - -
+2025-02-12 12:47:30.072 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 12:47:30.120 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-12 12:47:31.988 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 12:47:33.152 -05:00 [INF] Executed DbCommand (125ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM "Libros" AS l
+2025-02-12 12:47:37.859 -05:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM (
+    SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Libros" AS l
+    ORDER BY l."Titulo"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+INNER JOIN "CategoriasLibro" AS c ON t."CategoriasLibroId" = c.id
+ORDER BY t."Titulo"
+2025-02-12 12:47:37.970 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-12 12:47:38.007 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 7879.2576ms
+2025-02-12 12:47:38.012 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 12:47:38.032 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - - - 200 - application/json;+charset=utf-8 7973.6189ms
+2025-02-12 12:48:38.831 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - -
+2025-02-12 12:48:38.839 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 12:48:38.841 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-12 12:48:38.852 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 12:48:38.861 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM "Libros" AS l
+2025-02-12 12:48:38.866 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM (
+    SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Libros" AS l
+    ORDER BY l."Titulo"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+INNER JOIN "CategoriasLibro" AS c ON t."CategoriasLibroId" = c.id
+ORDER BY t."Titulo"
+2025-02-12 12:48:38.870 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-12 12:48:38.872 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 29.2556ms
+2025-02-12 12:48:38.873 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 12:48:38.875 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - - - 200 - application/json;+charset=utf-8 44.0012ms
+2025-02-12 12:48:39.249 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 12:48:39.254 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 12:48:39.254 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 12:48:39.254 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 12:48:39.260 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:48:39.260 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/favicon.ico - -
+2025-02-12 12:48:39.261 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:48:39.262 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:48:39.262 -05:00 [INF] CORS policy execution failed.
+2025-02-12 12:48:39.263 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:48:39.267 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 18.8356ms
+2025-02-12 12:48:39.264 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:48:39.265 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:48:39.314 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 59.9560ms
+2025-02-12 12:48:39.264 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/favicon.ico - - - 404 0 - 3.5675ms
+2025-02-12 12:48:39.293 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 39.4657ms
+2025-02-12 12:48:39.266 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 12:48:39.330 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 75.9783ms
+2025-02-12 13:08:09.426 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - -
+2025-02-12 13:08:09.440 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 13:08:09.463 -05:00 [INF] Route matched with {action = "ConsultarLibrosPaginadosFiltroOpcional", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarLibrosPaginadosFiltroOpcional(Int32, Int32, System.String) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-12 13:08:09.612 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 13:08:09.680 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM "Libros" AS l
+2025-02-12 13:08:09.689 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM (
+    SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Libros" AS l
+    ORDER BY l."Titulo"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+INNER JOIN "CategoriasLibro" AS c ON t."CategoriasLibroId" = c.id
+ORDER BY t."Titulo"
+2025-02-12 13:08:09.694 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Libros.Modelo.LibroModelo, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-12 13:08:09.697 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI) in 230.7165ms
+2025-02-12 13:08:09.698 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ConsultarLibrosPaginadosFiltroOpcional (AdaptadorAPI)'
+2025-02-12 13:08:09.700 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ConsultarLibrosPaginadosFiltroOpcional/1/20 - - - 200 - application/json;+charset=utf-8 277.3411ms
+2025-02-12 13:08:10.136 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 13:08:10.136 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 13:08:10.136 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/favicon.ico - -
+2025-02-12 13:08:10.136 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 13:08:10.140 -05:00 [INF] CORS policy execution failed.
+2025-02-12 13:08:10.140 -05:00 [INF] CORS policy execution failed.
+2025-02-12 13:08:10.142 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/favicon.ico - - - 404 0 - 5.0954ms
+2025-02-12 13:08:10.142 -05:00 [INF] CORS policy execution failed.
+2025-02-12 13:08:10.143 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 13:08:10.143 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 13:08:10.145 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 13:08:10.145 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 13:08:10.146 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 10.1333ms
+2025-02-12 13:08:10.147 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 11.0945ms
+2025-02-12 13:08:10.149 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 12.4569ms
+2025-02-12 13:08:10.148 -05:00 [INF] CORS policy execution failed.
+2025-02-12 13:08:10.153 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 13:08:10.154 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 9.8586ms
+2025-02-12 17:33:10.083 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-12 17:33:11.519 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-12 17:33:11.591 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-12 17:33:11.619 -05:00 [INF] Hosting environment: Development
+2025-02-12 17:33:11.629 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-12 17:33:14.811 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-12 17:33:16.788 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1986.9721ms
+2025-02-12 17:33:16.883 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-12 17:33:16.887 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.6117ms
+2025-02-12 17:33:17.102 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-12 17:33:17.299 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 197.2365ms
+2025-02-12 17:33:17.325 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-12 17:33:17.325 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-12 17:33:17.325 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-12 17:33:17.345 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:33:17.358 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:33:17.360 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:33:17.333 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-12 17:33:17.352 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-12 17:33:17.360 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:33:17.362 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:33:17.363 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 38.0603ms
+2025-02-12 17:33:17.362 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 37.0940ms
+2025-02-12 17:33:17.360 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:33:17.390 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 64.5559ms
+2025-02-12 17:33:17.361 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:33:17.391 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:33:17.392 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 59.2398ms
+2025-02-12 17:33:17.596 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 243.8115ms
+2025-02-12 17:34:25.684 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 107
+2025-02-12 17:34:25.691 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:34:25.692 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:34:25.698 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:34:25.750 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:34:26.241 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-12 17:34:26.294 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 534.8957ms
+2025-02-12 17:34:26.311 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:34:26.319 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 107 - 400 - application/problem+json;+charset=utf-8 662.0032ms
+2025-02-12 17:34:42.349 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101
+2025-02-12 17:34:42.353 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:34:42.373 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:34:42.375 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:34:42.376 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:34:43.623 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 17:34:44.751 -05:00 [INF] Executed DbCommand (94ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 17:34:44.939 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM (
+    SELECT DISTINCT r."LibroId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+2025-02-12 17:34:45.003 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo"
+FROM (
+    SELECT DISTINCT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Reviews" AS r
+    INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+ORDER BY t."Titulo" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-12 17:34:45.135 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId"
+FROM "Reviews" AS r
+WHERE r."LibroId" = 1
+2025-02-12 17:35:23.810 -05:00 [ERR] Error interno al obtener Reseñas para el libro: Dominio.Usuarios.Modelo.UsuarioModelo
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewdomainmodel(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 21
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.<MapToReviewModeloList>b__1_0(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at System.Linq.Enumerable.SelectListIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewModeloList(List`1 entities) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at AdaptadorPostgreSQL.Reviews.Adaptadores.ReviewRepositorioPostgreSQL.ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, Int32 skip, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Adaptadores\ReviewRepositorioPostgreSQL.cs:line 79
+   at Aplicacion.Reviews.UseCaseReview.ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 124
+   at AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado(UsuarioModelo request, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 101
+2025-02-12 17:35:24.034 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-12 17:35:24.035 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 41657.2634ms
+2025-02-12 17:35:24.037 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:35:24.064 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101 - 500 - text/plain;+charset=utf-8 41715.0181ms
+2025-02-12 17:35:28.274 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101
+2025-02-12 17:35:28.278 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:35:28.279 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:35:28.280 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:35:28.282 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:35:28.335 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 17:35:28.342 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 17:35:28.346 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM (
+    SELECT DISTINCT r."LibroId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+2025-02-12 17:35:28.353 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo"
+FROM (
+    SELECT DISTINCT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Reviews" AS r
+    INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+ORDER BY t."Titulo" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-12 17:35:28.356 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId"
+FROM "Reviews" AS r
+WHERE r."LibroId" = 1
+2025-02-12 17:37:35.207 -05:00 [ERR] Error interno al obtener Reseñas para el libro: Dominio.Usuarios.Modelo.UsuarioModelo
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewdomainmodel(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 21
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.<MapToReviewModeloList>b__1_0(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at System.Linq.Enumerable.SelectListIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewModeloList(List`1 entities) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at AdaptadorPostgreSQL.Reviews.Adaptadores.ReviewRepositorioPostgreSQL.ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, Int32 skip, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Adaptadores\ReviewRepositorioPostgreSQL.cs:line 79
+   at Aplicacion.Reviews.UseCaseReview.ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 124
+   at AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado(UsuarioModelo request, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 101
+2025-02-12 17:37:35.254 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-12 17:37:35.255 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 126970.8343ms
+2025-02-12 17:37:35.257 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:37:35.258 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101 - 500 - text/plain;+charset=utf-8 126988.9662ms
+2025-02-12 17:37:37.106 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101
+2025-02-12 17:37:37.113 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:37:37.114 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:37:37.115 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:37:37.117 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:37:37.130 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 17:37:37.133 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 17:37:37.136 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM (
+    SELECT DISTINCT r."LibroId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+2025-02-12 17:37:37.140 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo"
+FROM (
+    SELECT DISTINCT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Reviews" AS r
+    INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+ORDER BY t."Titulo" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-12 17:37:37.143 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId"
+FROM "Reviews" AS r
+WHERE r."LibroId" = 1
+2025-02-12 17:45:09.565 -05:00 [ERR] Error interno al obtener Reseñas para el libro: Dominio.Usuarios.Modelo.UsuarioModelo
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewdomainmodel(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 21
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.<MapToReviewModeloList>b__1_0(ReviewEntity entity) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at System.Linq.Enumerable.SelectListIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewModeloList(List`1 entities) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Mappers\MapToReviewDominioModel.cs:line 53
+   at AdaptadorPostgreSQL.Reviews.Adaptadores.ReviewRepositorioPostgreSQL.ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, Int32 skip, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorPostgreSQL\Reviews\Adaptadores\ReviewRepositorioPostgreSQL.cs:line 79
+   at Aplicacion.Reviews.UseCaseReview.ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 124
+   at AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado(UsuarioModelo request, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 101
+2025-02-12 17:45:09.575 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-12 17:45:09.576 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 452456.5657ms
+2025-02-12 17:45:09.577 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:45:09.578 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101 - 500 - text/plain;+charset=utf-8 452472.2254ms
+2025-02-12 17:45:11.154 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101
+2025-02-12 17:45:11.159 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:45:11.160 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:45:11.161 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:45:11.162 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:45:11.165 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 17:45:11.167 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 17:45:11.171 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM (
+    SELECT DISTINCT r."LibroId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+2025-02-12 17:45:11.175 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo"
+FROM (
+    SELECT DISTINCT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Reviews" AS r
+    INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+ORDER BY t."Titulo" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-12 17:45:11.178 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId"
+FROM "Reviews" AS r
+WHERE r."LibroId" = 1
+2025-02-12 17:52:46.704 -05:00 [ERR] Error interno al obtener Reseñas para el libro: Dominio.Usuarios.Modelo.UsuarioModelo
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewdomainmodel(ReviewEntity entity)
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.<MapToReviewModeloList>b__1_0(ReviewEntity entity)
+   at System.Linq.Enumerable.SelectListIterator`2.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at AdaptadorPostgreSQL.Reviews.Mappers.MapToReviewDominioModel.MapToReviewModeloList(List`1 entities)
+   at AdaptadorPostgreSQL.Reviews.Adaptadores.ReviewRepositorioPostgreSQL.ListReviewPorUsuarioPaginado(UsuarioModelo Usuario, Int32 skip, Int32 tamanoPagina)
+   at Aplicacion.Reviews.UseCaseReview.ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 124
+   at AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado(UsuarioModelo request, Int32 pagina, Int32 tamanoPagina) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 101
+2025-02-12 17:52:46.720 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-12 17:52:46.722 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 455557.9395ms
+2025-02-12 17:52:46.723 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:52:46.724 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101 - 500 - text/plain;+charset=utf-8 455570.3432ms
+2025-02-12 17:53:13.328 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101
+2025-02-12 17:53:13.333 -05:00 [INF] CORS policy execution failed.
+2025-02-12 17:53:13.333 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-12 17:53:13.335 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:53:13.338 -05:00 [INF] Route matched with {action = "ConsultarReviewPorUsuarioPaginado", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConsultarReviewPorUsuarioPaginado(Dominio.Usuarios.Modelo.UsuarioModelo, Int32, Int32) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-12 17:53:13.342 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-12 17:53:13.346 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-12 17:53:13.351 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT COUNT(*)::INT
+FROM (
+    SELECT DISTINCT r."LibroId"
+    FROM "Reviews" AS r
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+2025-02-12 17:53:13.361 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Usuario_Id_0='?' (DbType = Int64), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT t."Id", t."Autor", t."CategoriasLibroId", t."Resumen", t."Titulo"
+FROM (
+    SELECT DISTINCT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+    FROM "Reviews" AS r
+    INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+    WHERE r."UsuarioId" = @__Usuario_Id_0
+) AS t
+ORDER BY t."Titulo" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2025-02-12 17:53:17.373 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."LibroId" = 1
+2025-02-12 17:53:28.094 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Servicios.ServicioPaginacion.Modelos.PaginacionResultadoModelo`1[[Dominio.Reviews.Modelo.ReviewModel, Dominio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-12 17:53:28.134 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI) in 14793.6733ms
+2025-02-12 17:53:28.137 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ConsultarReviewPorUsuarioPaginado (AdaptadorAPI)'
+2025-02-12 17:53:28.139 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5043/Review/ConsultarReviewPorUsuarioPaginado/1/5 application/json 101 - 200 - application/json;+charset=utf-8 14813.8485ms

@@ -154,7 +154,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario,Pagina,tamanoPagina), Times.Never);
         }
 
@@ -176,7 +176,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
         }
 
@@ -198,7 +198,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(MessageError, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
         }
 
@@ -221,7 +221,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(usuario, Pagina, tamanoPagina), Times.Never);
 
         }
@@ -237,7 +237,7 @@ namespace AplicacionTest.Reviews
             int PaginaResult = 1;
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
-            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
+            _mockReviewRepositorio.Setup(r => r.ConteoDistinctLibrosReviewsPorUsuario(usuario)).Returns(TotalReviews);
 
             //Act
             PaginacionResultadoModelo<ReviewModel> Resultado = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina, tamanoPagina);
@@ -248,7 +248,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(tamanoPagina, Resultado.TamanoPagina);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Never);
         }
 
@@ -264,7 +264,7 @@ namespace AplicacionTest.Reviews
             string MessageError = $"La página solicitada ({Pagina}) excede el total de páginas disponibles.";
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
-            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
+            _mockReviewRepositorio.Setup(r => r.ConteoDistinctLibrosReviewsPorUsuario(usuario)).Returns(TotalReviews);
 
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ConsultarReviewsPorUsuarioPaginados(usuario,Pagina, tamanoPagina));
@@ -273,7 +273,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(MessageError, exception.Message);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Never);
         }
 
@@ -288,7 +288,7 @@ namespace AplicacionTest.Reviews
             List<ReviewModel> Reviews = new List<ReviewModel> { _reviewBuilderCaseTest.Build() };
 
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(usuario);
-            _mockReviewRepositorio.Setup(r => r.ConteoReviews(usuario)).Returns(TotalReviews);
+            _mockReviewRepositorio.Setup(r => r.ConteoDistinctLibrosReviewsPorUsuario(usuario)).Returns(TotalReviews);
             _mockReviewRepositorio.Setup(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>())).Returns(Reviews);
 
             //Act
@@ -300,7 +300,7 @@ namespace AplicacionTest.Reviews
             Assert.Equal(tamanoPagina, Resultado.TamanoPagina);
 
             _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockReviewRepositorio.Verify(r => r.ConteoReviews(It.IsAny<UsuarioModelo>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ConteoDistinctLibrosReviewsPorUsuario(It.IsAny<UsuarioModelo>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorUsuarioPaginado(It.IsAny<UsuarioModelo>(), It.IsAny<int>(), It.IsAny<int>()), Times.Once);
         }
 

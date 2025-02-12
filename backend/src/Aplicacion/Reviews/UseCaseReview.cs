@@ -99,7 +99,7 @@ namespace Aplicacion.Reviews
                 throw new KeyNotFoundException("El usuario al que intenta consultar sus reviews, no se encuentra en el sistema.");
             }
 
-            totalRegistros = _reviewRepositorio.ConteoReviews(usuarioConsultado);
+            totalRegistros = _reviewRepositorio.ConteoDistinctLibrosReviewsPorUsuario(usuarioConsultado);
 
             if (totalRegistros <= 0)
             {
