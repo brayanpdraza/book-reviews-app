@@ -24,14 +24,12 @@ namespace Dominio.Servicios.ServicioValidaciones.Implementaciones
             {
                 throw new Exception($"Error de validación: El valor no puede ser nulo");
             }
-            if (value is T tValue)
-            {
-                return _innerValidator.Validate(tValue);
-            }
-            else
+            if (!(value is T tValue))
             {
                 throw new Exception($"Error de validación: Se esperaba un valor de tipo '{typeof(T).Name}', pero se recibió '{value.GetType().Name}'.");
             }
+            return _innerValidator.Validate(tValue);
+
         }
     }
 }
