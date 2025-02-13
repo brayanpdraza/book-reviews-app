@@ -89,32 +89,29 @@ namespace AdaptadorAPI.Controllers
         }
 
         [HttpPost("ConsultarReviewPorUsuarioPaginado/{pagina}/{tamanoPagina}")]
-        public IActionResult ConsultarReviewPorUsuarioPaginado([FromBody] UsuarioModelo request, int pagina, int tamanoPagina)
+        public IActionResult ConsultarReviewPorUsuarioPaginado([FromQuery] long idUsuario, int pagina, int tamanoPagina)
         {
             PaginacionResultadoModelo<ReviewModel> Reviews;
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+
             try
             {
-                Reviews = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(request,pagina, tamanoPagina);
+                Reviews = _useCaseReview.ConsultarReviewsPorUsuarioPaginados(idUsuario, pagina, tamanoPagina);
                 return Ok(Reviews);
 
             }
             catch (ArgumentException ex)  // Más apropiado para "no encontrado"
             {
-                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con Usuario: {request}");
+                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con Usuario: {idUsuario}");
                 return BadRequest(ex.Message);
             }
             catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
             {
-                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con libro: {request}");
+                _logger.LogWarning(ex.Message, $"Al obtener Reseñas con libro: {idUsuario}");
                 return NotFound(ex.Message);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error interno al obtener Reseñas para el libro: {request}");
+                _logger.LogError(ex, $"Error interno al obtener Reseñas para el libro: {idUsuario}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
         }
@@ -147,6 +144,36 @@ namespace AdaptadorAPI.Controllers
             {
                 _logger.LogError(ex, $"Error interno al obtener Reseñas para el libro: {request}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
+            }
+        }
+
+        [HttpPatch("ModificarReviewParcial/{id}")]
+        public IActionResult ModificarReviewParcial(long id, [FromBody] Dictionary<string, object> cambios)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                bool resultado = _useCaseReview.ModificarReviewPorId(id, cambios);
+                return Ok(new { mensaje = "Review modificada correctamente." });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, $"Error al modificar la reseña con ID: {id}");
+                return BadRequest(ex.Message);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                _logger.LogWarning(ex, $"Reseña no encontrada con ID: {id}");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al modificar la reseña con ID: {id}");
+                return StatusCode(500, $"Ocurrió un error interno. {ex.Message}");
             }
         }
     }

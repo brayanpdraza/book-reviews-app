@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -112,9 +113,27 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             return conteo;
         }
 
+        public bool UpdateReviewParcial(ReviewModel review, Dictionary<string, object> cambios)
+        {
+
+            foreach (var cambio in cambios)
+            {
+                var propiedad = review.GetType().GetProperty(cambio.Key, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+                propiedad.SetValue(review, Convert.ChangeType(cambio.Value, propiedad.PropertyType));
+            }
+            
+            _postgreSQLDbContext.SaveChanges();
+            return true;
+        }
+        public void DeleteReview(ReviewModel Review)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveChanges()
         {
             _postgreSQLDbContext.SaveChanges();
         }
+
     }
 }

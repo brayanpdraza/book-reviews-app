@@ -25,6 +25,9 @@ using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Collections;
+using Dominio.Entidades.Reviews.Servicios;
+using Dominio.Servicios.ServicioValidaciones.Contratos;
+using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -183,6 +186,8 @@ builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenPostgreSQL>();
 builder.Services.AddScoped<IEncription, PBKDF2Encription>();
 builder.Services.AddScoped<IUserValidations, UserValidations>();
 builder.Services.AddScoped<IReviewValidations, ReviewValidations>();
+builder.Services.AddScoped<IReviewPartialUpdateValidations, ReviewPartialUpdateValidations>();
+builder.Services.AddScoped<IpropertyModelValidate, PropertyValidator>();
 
 builder.Services.AddControllers();
 

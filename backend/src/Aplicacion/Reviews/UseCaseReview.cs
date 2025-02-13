@@ -4,6 +4,7 @@ using Dominio.Entidades.Reviews.Puertos;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Servicios.ServicioPaginacion.Modelos;
+using Dominio.Servicios.ServicioValidaciones.Contratos;
 using Dominio.Usuarios.Modelo;
 using Dominio.Usuarios.Puertos;
 
@@ -15,15 +16,21 @@ namespace Aplicacion.Reviews
         private readonly ILibroRepositorio _libroRepositorio;
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IReviewValidations _reviewValidations;
+        private readonly IReviewPartialUpdateValidations _reviewPartialUpdateValidations;
+        private readonly IpropertyModelValidate _propertyModelValidate;
         private readonly MetodosAuxiliares _metodosAuxiliares;
 
-        public UseCaseReview(IReviewRepositorio reviewRepositorio,ILibroRepositorio libroRepositorio, IUsuarioRepositorio usuarioRepositorio, IReviewValidations reviewValidations, MetodosAuxiliares metodosAuxiliares)
+        public UseCaseReview(IReviewRepositorio reviewRepositorio,ILibroRepositorio libroRepositorio, IUsuarioRepositorio usuarioRepositorio, IReviewValidations reviewValidations,IReviewPartialUpdateValidations reviewPartialUpdateValidations,
+            IpropertyModelValidate propertyModelValidate,MetodosAuxiliares metodosAuxiliares)
         {
             _reviewRepositorio = reviewRepositorio;
             _libroRepositorio = libroRepositorio;
             _usuarioRepositorio = usuarioRepositorio;
             _reviewValidations = reviewValidations;
+            _reviewPartialUpdateValidations = reviewPartialUpdateValidations;
+            _propertyModelValidate = propertyModelValidate;
             _metodosAuxiliares = metodosAuxiliares;
+            
         }
 
         public long AddReview(ReviewModel review)
@@ -67,19 +74,14 @@ namespace Aplicacion.Reviews
             return _reviewRepositorio.ListReviewPorId(id);
 
         }
-        //REALIZAR PRUEBAS UNITARIAS
-        public PaginacionResultadoModelo<ReviewModel> ConsultarReviewsPorUsuarioPaginados(UsuarioModelo Usuario, int pagina, int tamanoPagina)
+
+        public PaginacionResultadoModelo<ReviewModel> ConsultarReviewsPorUsuarioPaginados(long usuarioid, int pagina, int tamanoPagina)
         {
             UsuarioModelo usuarioConsultado;
             List<ReviewModel> Reviews;
             int totalRegistros, skip, totalPaginas;
 
-            if (Usuario == null)
-            {
-                throw new ArgumentException("No se pueden consultar reseñas porque el usuario proporcionado es nulo.");
-            }
-
-            if (Usuario.Id <= 0)
+            if (usuarioid <= 0)
             {
                 throw new ArgumentException("No se pueden consultar las reseñas porque el ID del usuario no es válido.");
             }
@@ -93,7 +95,7 @@ namespace Aplicacion.Reviews
                 throw new ArgumentException("El tamaño de página debe ser mayor a cero.");
             }
 
-            usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(Usuario.Id);
+            usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(usuarioid);
             if (usuarioConsultado.Id <= 0)
             {
                 throw new KeyNotFoundException("El usuario al que intenta consultar sus reviews, no se encuentra en el sistema.");
@@ -134,7 +136,6 @@ namespace Aplicacion.Reviews
 
         }
 
-
         public List<ReviewModel> ConsultarReviewsPorLibro(LibroModelo Libro)
         {
             LibroModelo libroConsultado;
@@ -157,6 +158,42 @@ namespace Aplicacion.Reviews
 
             return _reviewRepositorio.ListReviewPorLibro(Libro);
 
+        }
+
+        public bool ModificarReviewPorId(long id, Dictionary<string, object> cambios)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("No se puede modificar la reseña porque el ID no es válido.");
+            }
+
+            ReviewModel review = _reviewRepositorio.ListReviewPorId(id);
+            if (review.Id <= 0)
+            {
+                throw new KeyNotFoundException("Review no encontrada.");
+            }
+
+            foreach (var cambio in cambios)
+            {
+                if (!_propertyModelValidate.ValidarPropiedad<ReviewModel>(cambio.Key))
+                {
+                    throw new ArgumentException($"El campo {cambio.Key} no existe en la entidad de Reviews.");
+                }
+
+                if (!_reviewPartialUpdateValidations.Validate(cambio.Key, cambio.Value))
+                {
+                    throw new ArgumentException($"El campo {cambio.Key} no es válido.");
+                }
+            
+            }
+
+            bool cambiosAplicados = _reviewRepositorio.UpdateReviewParcial(review, cambios);
+            if (!cambiosAplicados)
+            {
+                throw new Exception("No se aplicaron cambios a la review.");
+            }
+
+            return true;
         }
 
     }

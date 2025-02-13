@@ -1,20 +1,28 @@
 ﻿using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Reviews.Servicios;
+using Dominio.Servicios.Contratos;
 using Dominio.Servicios.Implementaciones;
+using Dominio.Servicios.ServicioValidaciones.Contratos;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using Dominio.Usuarios.Modelo;
 using DominioTest.Reviews;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DominioTest
 {
+
+
     public class ServicioValidacionesTest
     {
+        private readonly IpropertyModelValidate _propertyvalidator = new PropertyValidator();
+
         [Theory]
         [InlineData("", "Debe ingresar una contraseña!")]
         [InlineData("123aS@", "La contraseña debe tener al menos 8 caracteres.")]
@@ -187,6 +195,109 @@ namespace DominioTest
             bool EsValido = Validacion.Validate(Usuario);
             // Assert
             Assert.Equal(EsValido, EsValido);
+        }
+        [Theory]
+        [InlineData(null)]
+        public void ObjectValidatorAdapter_NullType_ThrowsException(object Value)
+        {
+            // Arrange
+            IValidate<string> comentarioValidator = new ComentarioValidator();
+            var adapter = new ObjectValidatorAdapter<string>(comentarioValidator);
+
+            string expectedType = typeof(string).Name;
+            string receivedType = Value?.GetType()?.Name ?? "null";
+            string expectedError = "Error de validación: El valor no puede ser nulo";
+
+            // Act
+            var Exception = Assert.Throws<Exception>(() => adapter.Validate(Value));
+
+            //Assert
+            Assert.Contains(expectedError, Exception.Message);
+        }
+
+        [Theory]
+        [InlineData(123)]
+        [InlineData(123.63)]
+        [InlineData(true)]
+        public void ObjectValidatorAdapter_InvalidType_ThrowsException(object Value)
+        {
+            // Arrange
+            IValidate<string> comentarioValidator = new ComentarioValidator();
+            var adapter = new ObjectValidatorAdapter<string>(comentarioValidator);
+
+            string expectedType = typeof(string).Name;
+            string receivedType = Value.GetType().Name;
+            string expectedError = $"Error de validación: Se esperaba un valor de tipo '{expectedType}', pero se recibió '{receivedType}'.";
+
+            // Act
+            var Exception = Assert.Throws<Exception>(() => adapter.Validate(Value));
+
+            //Assert
+            Assert.Contains(expectedError, Exception.Message);
+        }
+
+        [Theory]
+        [InlineData("hola soy un comentario", true)]
+
+        public void ObjectValidatorAdapter_Comentario_ReturnsExpected(object comentario, bool expected)
+        {
+            // Arrange
+            IValidate<string> comentarioValidator = new ComentarioValidator();
+            var adapter = new ObjectValidatorAdapter<string>(comentarioValidator);
+
+            // Act
+            bool result = adapter.Validate(comentario);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void propertymodelvalidatons_nombrePropiedadNullorempty_ReturnsFalse(string nombrePropiedad)
+        {
+            // Arrange
+            string expectedType = typeof(ReviewModel).Name;
+            string expectedError = $"La propiedad no puede ser nula o vacía.";
+
+            // Act
+            var Exception = Assert.Throws<ArgumentException>(() => _propertyvalidator.ValidarPropiedad<ReviewModel>(nombrePropiedad));
+
+            //Assert
+            Assert.Contains(expectedError, Exception.Message);
+
+        }
+
+        [Theory]
+        [InlineData("NOEXISTO")]
+        [InlineData("HOLA")]
+        public void propertymodelvalidatons_nombrePropiedadNoExiste_ReturnsFalse(string nombrePropiedad)
+        {
+            // Arrange
+            string expectedType = typeof(ReviewModel).Name;
+            string expectedError = $"La propiedad '{nombrePropiedad}' no existe en la entidad {expectedType}.";
+
+            // Act
+            var Exception = Assert.Throws<ArgumentException>(() => _propertyvalidator.ValidarPropiedad<ReviewModel>(nombrePropiedad));
+
+            //Assert
+            Assert.Contains(expectedError, Exception.Message);
+
+        }
+
+        [Theory]
+        [InlineData("COMENTARIO")]
+        [InlineData("CALIFICACION")]
+        public void propertymodelvalidatons_nombrePropiedadNoExiste_ReturnsTrue(string nombrePropiedad)
+        {
+            //Arrange 
+
+            //Act
+            bool result = _propertyvalidator.ValidarPropiedad<ReviewModel>(nombrePropiedad);
+
+            //Assert
+            Assert.True(result);
         }
     }
 }

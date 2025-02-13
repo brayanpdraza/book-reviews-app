@@ -10,4 +10,5 @@ namespace Dominio.Servicios.Contratos
     {
         bool Validate(T entity);
     }
+
 }
