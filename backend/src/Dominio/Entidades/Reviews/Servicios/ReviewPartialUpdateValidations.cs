@@ -30,6 +30,14 @@ namespace Dominio.Entidades.Reviews.Servicios
         }
         public bool Validate(string Key, object Value)
         {
+            if (string.IsNullOrEmpty(Key))
+            {
+                throw new Exception($"El campo '{Key}' no puede estar vacío o nulo.");
+            }
+            if (Value==null)
+            {
+                throw new Exception($"El campo '{Key}' no puede tener su valor vacío.");
+            }
             if (!_validators.ContainsKey(Key))
             {
                 throw new Exception($"El campo '{Key}' no está permitido para modificación.");

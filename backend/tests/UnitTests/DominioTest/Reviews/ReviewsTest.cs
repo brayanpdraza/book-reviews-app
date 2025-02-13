@@ -29,6 +29,7 @@ namespace DominioTest.Reviews
             _reviewBuilderTest = new ReviewBuilderTest(_reviewValidations);
         }
 
+
         [Theory]
         [InlineData(0, "La calificación debe estar entre 1 y 5.")]
         [InlineData(6, "La calificación debe estar entre 1 y 5.")]
@@ -97,6 +98,40 @@ namespace DominioTest.Reviews
             bool EsValido = _reviewValidations.Validate(Review);
             // Assert
             Assert.Equal(EsValido, Valido);
+        }
+
+
+        [Theory]
+        [InlineData("", "fsdf")]
+        [InlineData(null, 352)]
+        public void reviewValidationsUpdate_ReseñaconCampoNull_ReturnsError(string key, object value)
+        {
+            // Arrange
+            string expectedType = typeof(ReviewModel).Name;
+            string expectedError = $"El campo '{key}' no puede estar vacío o nulo.";
+
+            // Act
+            var exception = Assert.Throws<Exception>(() => _reviewUpdateValidations.Validate(key, value));
+
+            //Assert
+            Assert.Contains(expectedError, exception.Message);
+
+        }
+
+        [Theory]
+        [InlineData("CALIFICACION", null)]
+        public void reviewValidationsUpdate_ReseñaconValorNull_ReturnsError(string key, object value)
+        {
+            // Arrange
+            string expectedType = typeof(ReviewModel).Name;
+            string expectedError = $"El campo '{key}' no puede tener su valor vacío.";
+
+            // Act
+            var exception = Assert.Throws<Exception>(() => _reviewUpdateValidations.Validate(key, value));
+
+            //Assert
+            Assert.Contains(expectedError, exception.Message);
+
         }
 
         [Theory]
