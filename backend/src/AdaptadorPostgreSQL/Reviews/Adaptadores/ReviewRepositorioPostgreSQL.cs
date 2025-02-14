@@ -125,9 +125,14 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
             _postgreSQLDbContext.SaveChanges();
             return true;
         }
-        public void DeleteReview(ReviewModel Review)
+        public bool DeleteReview(ReviewModel Review)
         {
-            throw new NotImplementedException();
+
+            ReviewEntity reviewEntity = _mapToReviewEntity.MapToReviewEntidad(Review);
+            _postgreSQLDbContext.Reviews.Remove(reviewEntity);
+
+            SaveChanges();
+            return true;
         }
 
         public void SaveChanges()

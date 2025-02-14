@@ -1,5 +1,7 @@
-﻿using AdaptadorAPI.Servicios.Contratos;
+﻿using AdaptadorAPI.Servicios;
+using AdaptadorAPI.Servicios.Contratos;
 using Aplicacion.Reviews;
+using Aplicacion.Usuarios;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Servicios.ServicioPaginacion.Modelos;
@@ -18,12 +20,14 @@ namespace AdaptadorAPI.Controllers
         private readonly UseCaseReview _useCaseReview;
         private readonly ILogger<LibroController> _logger;
         private readonly IconverterJsonElementToDictionary _converteJsonElementToDictionary;
+        private readonly ObtenerDatosUsuarioToken _obteneDatosUsuarioToken;
 
-        public ReviewController(UseCaseReview useCaseReview, ILogger<LibroController> logger,IconverterJsonElementToDictionary iconverterJsonElementToDictionary)
+        public ReviewController(UseCaseReview useCaseReview, ILogger<LibroController> logger,IconverterJsonElementToDictionary iconverterJsonElementToDictionary, ObtenerDatosUsuarioToken obtenerDatosUsuarioToken)
         {
             _useCaseReview = useCaseReview;
             _logger = logger;
             _converteJsonElementToDictionary = iconverterJsonElementToDictionary;
+            _obteneDatosUsuarioToken = obtenerDatosUsuarioToken;
         }
 
         [Authorize]
@@ -166,6 +170,47 @@ namespace AdaptadorAPI.Controllers
                 Dictionary<string,object> cambios = _converteJsonElementToDictionary.ConvertirJsonElementADiccionarioTipado<ReviewModel>(cambiosJson);
 
                 bool resultado = _useCaseReview.ModificarReviewPorId(id, cambios);
+                if (!resultado)
+                {
+                    return UnprocessableEntity(new { mensaje = "No se pudo modificar la reseña." });
+                }
+                return Ok(new { mensaje = "Review modificada correctamente." });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, $"Error al modificar la reseña con ID: {id}");
+                return BadRequest(ex.Message);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                _logger.LogWarning(ex, $"Reseña no encontrada con ID: {id}");
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error interno al modificar la reseña con ID: {id}");
+                return StatusCode(500, $"Ocurrió un error interno. {ex.Message}");
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("EliminarReviewPorId/{id}")]
+        public IActionResult EliminarReviewPorId(long id)
+        {
+            long idUsuario;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                idUsuario = _obteneDatosUsuarioToken.ObtenerIdUsuario(HttpContext);
+                bool resultado = _useCaseReview.EliminarReviewPorId(id,idUsuario);
+                if (!resultado)
+                {
+                    return UnprocessableEntity(new { mensaje = "No se pudo eliminar la reseña." });
+                }
                 return Ok(new { mensaje = "Review modificada correctamente." });
             }
             catch (ArgumentException ex)

@@ -950,3 +950,75 @@ System.ArgumentException: La propiedad 'idUsuario' no existe en la entidad Revie
 2025-02-14 11:42:19.551 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 2847.842ms
 2025-02-14 11:42:19.553 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
 2025-02-14 11:42:19.554 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22 - 400 - text/plain;+charset=utf-8 2887.5440ms
+2025-02-14 13:18:50.701 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 13:18:51.296 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 13:18:51.370 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 13:18:51.378 -05:00 [INF] Hosting environment: Development
+2025-02-14 13:18:51.379 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 13:18:52.808 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-14 13:18:54.114 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1309.1464ms
+2025-02-14 13:18:54.128 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 13:18:54.809 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 681.1997ms
+2025-02-14 13:18:54.914 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 13:18:54.914 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-14 13:18:54.914 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-14 13:18:54.914 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-14 13:18:54.928 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 14.3761ms
+2025-02-14 13:18:55.002 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-14 13:18:55.009 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 94.6819ms
+2025-02-14 13:18:55.014 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-14 13:18:55.026 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 111.8511ms
+2025-02-14 13:18:55.029 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-14 13:18:55.031 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 116.5988ms
+2025-02-14 13:18:55.235 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 13:18:55.400 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-14 13:18:55.412 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-14 13:18:55.445 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 209.8158ms
+2025-02-14 13:18:55.448 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 48.1357ms
+2025-02-14 13:18:55.473 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 13:18:55.473 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 13:18:55.473 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 13:18:55.473 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 13:18:55.480 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:18:55.480 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:18:55.482 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:18:55.480 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:18:55.485 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:18:55.480 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:18:55.482 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:18:55.487 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 14.1399ms
+2025-02-14 13:18:55.487 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 14.0553ms
+2025-02-14 13:18:55.487 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:18:55.492 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 19.4360ms
+2025-02-14 13:18:55.488 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 15.2847ms
+2025-02-14 13:18:55.512 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 13:18:55.795 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 283.4875ms
+2025-02-14 13:19:25.681 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 13:19:26.003 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 13:19:26.014 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 13:19:26.017 -05:00 [INF] Hosting environment: Development
+2025-02-14 13:19:26.018 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 13:19:28.425 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 13:19:29.345 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 926.1968ms
+2025-02-14 13:19:29.679 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 13:19:29.706 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 13:19:29.747 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 41.3048ms
+2025-02-14 13:19:29.819 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 139.8660ms
+2025-02-14 13:19:30.083 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 13:19:30.096 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 13:19:30.093 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 13:19:30.096 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 13:19:30.096 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 13:19:30.109 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:19:30.109 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:19:30.109 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:19:30.109 -05:00 [INF] CORS policy execution failed.
+2025-02-14 13:19:30.111 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:19:30.110 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:19:30.113 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 17.7090ms
+2025-02-14 13:19:30.110 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:19:30.115 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 31.9371ms
+2025-02-14 13:19:30.113 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 17.5199ms
+2025-02-14 13:19:30.111 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 13:19:30.124 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 27.5637ms
+2025-02-14 13:19:30.328 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 235.2818ms

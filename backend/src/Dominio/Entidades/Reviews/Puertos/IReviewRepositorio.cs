@@ -19,7 +19,7 @@ namespace Dominio.Entidades.Reviews.Puertos
         int ConteoDistinctLibrosReviewsPorUsuario(UsuarioModelo Usuario);
         long AddReview(ReviewModel Review);
         bool UpdateReviewParcial(ReviewModel review, Dictionary<string, object> cambios);
-        void DeleteReview(ReviewModel Review);
+        bool DeleteReview(ReviewModel Review);
         void SaveChanges();
     }
 }

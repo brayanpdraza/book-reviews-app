@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Data;
+using AdaptadorAPI.Servicios;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -17,12 +18,14 @@ namespace AdaptadorAPI.Controllers
         private readonly UseCaseUsuario _useCaseUsuario;
         private readonly IAuthService _authServie;
         private readonly ILogger<UsuarioController> _logger;
+        private readonly ObtenerDatosUsuarioToken _obteneDatosUsuarioToken;
 
-        public UsuarioController(UseCaseUsuario usuarioCaseUsuario, IAuthService authServie, ILogger<UsuarioController> logger)
+        public UsuarioController(UseCaseUsuario usuarioCaseUsuario, IAuthService authServie, ILogger<UsuarioController> logger,ObtenerDatosUsuarioToken obtenerDatosUsuarioToken)
         {
             _useCaseUsuario = usuarioCaseUsuario;
             _authServie = authServie;
             _logger = logger;
+            _obteneDatosUsuarioToken = obtenerDatosUsuarioToken;
         }
 
         [HttpGet("ObtenerUsuarioid/{id}", Name = "ObtenerUsuarioid")]
@@ -169,33 +172,15 @@ namespace AdaptadorAPI.Controllers
         [HttpPost("logout")]
         public IActionResult Logout()
         {
-            int idUsuario;
+            long idUsuario;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                // Obtener el usuario actual (ClaimsPrincipal)
-                var usuario = HttpContext.User;
-
-                // Extraer el claim "id" (usuarioId)
-                var usuarioId = usuario.FindFirst("id")?.Value;
-
-                if (string.IsNullOrEmpty(usuarioId))
-                {
-                    return Unauthorized("Claim 'id' no encontrado en el token.");
-                }
-
-
-                if (!long.TryParse(usuarioId, out long userId))
-                {
-                    // Usa el ID convertido (userId)
-                    return BadRequest("No se pudo obtener un ID válido del token.");
-                }
-
-
-                _useCaseUsuario.LogOutById(userId); //Access Token
+                idUsuario = _obteneDatosUsuarioToken.ObtenerIdUsuario(HttpContext);
+                _useCaseUsuario.LogOutById(idUsuario); //Access Token
                 return NoContent();
 
             }

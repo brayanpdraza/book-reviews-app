@@ -196,5 +196,39 @@ namespace Aplicacion.Reviews
             return true;
         }
 
+        public bool EliminarReviewPorId(long id,long idUsuario)
+        {
+            if (idUsuario <= 0)
+            {
+                throw new ArgumentException("No se puede eliminar la reseña porque el ID del Usuario no es válido.");
+            }
+
+            if (id <= 0)
+            {
+                throw new ArgumentException("No se puede eliminar la reseña porque el ID no es válido.");
+            }
+
+            UsuarioModelo usuario = _usuarioRepositorio.ListUsuarioPorId(idUsuario);
+
+            if (usuario.Id <= 0)
+            {
+                throw new UnauthorizedAccessException("Usuario no encontrado.");
+            }
+
+            ReviewModel review = _reviewRepositorio.ListReviewPorId(id);
+            if (review.Id <= 0)
+            {
+                throw new KeyNotFoundException("Reseña no encontrada.");
+            }
+
+            bool ReviewEliminada = _reviewRepositorio.DeleteReview(review);
+            if (!ReviewEliminada)
+            {
+                throw new Exception("No se eliminó la reseña.");
+            }
+
+            return true;
+        }
+
     }
 }
