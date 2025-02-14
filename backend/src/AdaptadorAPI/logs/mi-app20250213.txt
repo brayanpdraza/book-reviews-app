@@ -1,0 +1,52 @@
+2025-02-13 15:47:37.216 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-13 15:47:37.962 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-13 15:47:37.967 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-13 15:47:37.968 -05:00 [INF] Hosting environment: Development
+2025-02-13 15:47:37.969 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-13 15:47:43.698 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-13 15:47:45.981 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 2290.9848ms
+2025-02-13 15:47:46.394 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-13 15:47:46.396 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-13 15:47:46.402 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.6952ms
+2025-02-13 15:47:47.062 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-13 15:47:47.069 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-13 15:47:47.062 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-13 15:47:47.068 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-13 15:47:47.103 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 709.1018ms
+2025-02-13 15:47:47.123 -05:00 [INF] CORS policy execution failed.
+2025-02-13 15:47:47.123 -05:00 [INF] CORS policy execution failed.
+2025-02-13 15:47:47.123 -05:00 [INF] CORS policy execution failed.
+2025-02-13 15:47:47.124 -05:00 [INF] CORS policy execution failed.
+2025-02-13 15:47:47.135 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-13 15:47:47.137 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-13 15:47:47.138 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-13 15:47:47.139 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-13 15:47:47.143 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 74.2056ms
+2025-02-13 15:47:47.147 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 85.0518ms
+2025-02-13 15:47:47.176 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 107.3121ms
+2025-02-13 15:47:47.175 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 112.4368ms
+2025-02-13 15:47:47.190 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-13 15:47:47.510 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 319.7327ms
+2025-02-13 15:48:06.123 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33
+2025-02-13 15:48:06.144 -05:00 [INF] CORS policy execution failed.
+2025-02-13 15:48:06.146 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-13 15:48:06.156 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-13 15:48:06.223 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-13 15:48:08.887 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-13 15:48:10.528 -05:00 [INF] Executed DbCommand (239ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-13 15:48:10.973 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad 'additionalProp1' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 178
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-13 15:48:11.124 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-13 15:48:11.134 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 4898.907ms
+2025-02-13 15:48:11.137 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-13 15:48:11.155 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33 - 400 - text/plain;+charset=utf-8 5032.8411ms

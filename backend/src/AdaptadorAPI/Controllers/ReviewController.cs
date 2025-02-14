@@ -1,10 +1,13 @@
-﻿using Aplicacion.Reviews;
+﻿using AdaptadorAPI.Servicios.Contratos;
+using Aplicacion.Reviews;
 using Dominio.Libros.Modelo;
 using Dominio.Reviews.Modelo;
 using Dominio.Servicios.ServicioPaginacion.Modelos;
 using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace AdaptadorAPI.Controllers
 {
@@ -14,11 +17,13 @@ namespace AdaptadorAPI.Controllers
     {
         private readonly UseCaseReview _useCaseReview;
         private readonly ILogger<LibroController> _logger;
+        private readonly IconverterJsonElementToDictionary _converteJsonElementToDictionary;
 
-        public ReviewController(UseCaseReview useCaseReview, ILogger<LibroController> logger)
+        public ReviewController(UseCaseReview useCaseReview, ILogger<LibroController> logger,IconverterJsonElementToDictionary iconverterJsonElementToDictionary)
         {
             _useCaseReview = useCaseReview;
             _logger = logger;
+            _converteJsonElementToDictionary = iconverterJsonElementToDictionary;
         }
 
         [Authorize]
@@ -148,7 +153,7 @@ namespace AdaptadorAPI.Controllers
         }
 
         [HttpPatch("ModificarReviewParcial/{id}")]
-        public IActionResult ModificarReviewParcial(long id, [FromBody] Dictionary<string, object> cambios)
+        public IActionResult ModificarReviewParcial(long id, [FromBody] Dictionary<string, JsonElement> cambiosJson)
         {
             if (!ModelState.IsValid)
             {
@@ -157,6 +162,9 @@ namespace AdaptadorAPI.Controllers
 
             try
             {
+
+                Dictionary<string,object> cambios = _converteJsonElementToDictionary.ConvertirJsonElementADiccionarioTipado<ReviewModel>(cambiosJson);
+
                 bool resultado = _useCaseReview.ModificarReviewPorId(id, cambios);
                 return Ok(new { mensaje = "Review modificada correctamente." });
             }

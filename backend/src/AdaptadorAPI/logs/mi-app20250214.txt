@@ -1,0 +1,952 @@
+2025-02-14 05:32:35.775 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 05:32:36.756 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 05:32:36.764 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 05:32:36.765 -05:00 [INF] Hosting environment: Development
+2025-02-14 05:32:36.765 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 05:32:38.481 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-14 05:32:39.785 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1310.2690ms
+2025-02-14 05:32:39.825 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 05:32:41.433 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-14 05:32:41.441 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1615.1762ms
+2025-02-14 05:32:41.465 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-14 05:32:41.467 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 33.4868ms
+2025-02-14 05:32:42.098 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-14 05:32:42.098 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-14 05:32:42.098 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 05:32:42.165 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-14 05:32:42.177 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-14 05:32:42.192 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 94.0257ms
+2025-02-14 05:32:42.193 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 94.7538ms
+2025-02-14 05:32:42.208 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 110.0134ms
+2025-02-14 05:32:42.365 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 05:32:42.370 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.1318ms
+2025-02-14 05:32:42.634 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-14 05:32:42.635 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-14 05:32:42.639 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 5.1515ms
+2025-02-14 05:32:42.649 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 05:32:42.649 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 05:32:42.660 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 05:32:42.661 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:32:42.664 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:32:42.661 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:32:42.665 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:32:42.672 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:32:42.673 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:32:42.673 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 24.8479ms
+2025-02-14 05:32:42.674 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 24.5348ms
+2025-02-14 05:32:42.675 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 14.8829ms
+2025-02-14 05:32:42.826 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 05:32:43.023 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 197.4334ms
+2025-02-14 05:32:43.039 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 05:32:43.041 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:32:43.041 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:32:43.043 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 3.1356ms
+2025-02-14 05:53:16.633 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1000 application/json 95
+2025-02-14 05:53:16.645 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:53:16.647 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:53:16.653 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:16.718 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:53:19.005 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:53:20.097 -05:00 [INF] Executed DbCommand (93ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:53:20.239 -05:00 [WRN] Reseña no encontrada con ID: 1000
+System.Collections.Generic.KeyNotFoundException: Review no encontrada.
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 173
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:53:20.352 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-02-14 05:53:20.361 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 3635.49ms
+2025-02-14 05:53:20.364 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:20.381 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1000 application/json 95 - 404 - text/plain;+charset=utf-8 3747.5308ms
+2025-02-14 05:53:29.813 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/0 application/json 95
+2025-02-14 05:53:29.820 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:53:29.821 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:53:29.824 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:29.826 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:53:29.865 -05:00 [WRN] Error al modificar la reseña con ID: 0
+System.ArgumentException: No se puede modificar la reseña porque el ID no es válido.
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 167
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:53:29.869 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 05:53:29.871 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 42.9417ms
+2025-02-14 05:53:29.872 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:29.873 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/0 application/json 95 - 400 - text/plain;+charset=utf-8 60.9016ms
+2025-02-14 05:53:53.733 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 25
+2025-02-14 05:53:53.736 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:53:53.737 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:53:53.738 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:53.740 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:53:53.779 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-14 05:53:53.814 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 71.6864ms
+2025-02-14 05:53:53.817 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:53:53.818 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 25 - 400 - application/problem+json;+charset=utf-8 91.3047ms
+2025-02-14 05:54:02.093 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 05:54:02.123 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:54:02.127 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:54:02.128 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:02.129 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:54:02.134 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:54:02.146 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:54:02.343 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad 'ggggg' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 178
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:54:02.372 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 05:54:02.374 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 241.4933ms
+2025-02-14 05:54:02.375 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:02.376 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 400 - text/plain;+charset=utf-8 283.3846ms
+2025-02-14 05:54:07.885 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 18
+2025-02-14 05:54:07.887 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:54:07.888 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:54:07.889 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:07.890 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:54:07.947 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:54:07.952 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:54:07.984 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad no puede ser nula o vacía.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 17
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 178
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:54:07.991 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 05:54:07.992 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 99.8544ms
+2025-02-14 05:54:07.994 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:07.995 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 18 - 400 - text/plain;+charset=utf-8 110.3655ms
+2025-02-14 05:54:18.548 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22
+2025-02-14 05:54:18.571 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:54:18.572 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:54:18.573 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:18.576 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:54:18.580 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:54:18.585 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:54:18.619 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:54:18.623 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 05:54:18.625 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 46.2975ms
+2025-02-14 05:54:18.626 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:54:18.627 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22 - 500 - text/plain;+charset=utf-8 79.5659ms
+2025-02-14 05:56:20.236 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22
+2025-02-14 05:56:20.244 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:56:20.245 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:56:20.246 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:56:20.249 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:56:20.256 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:56:20.262 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:56:20.301 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:56:20.305 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 05:56:20.306 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 54.8056ms
+2025-02-14 05:56:20.307 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:56:20.308 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22 - 500 - text/plain;+charset=utf-8 73.1219ms
+2025-02-14 05:56:29.166 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 26
+2025-02-14 05:56:29.170 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:56:29.171 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:56:29.172 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:56:29.173 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:56:29.176 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:56:29.181 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:56:29.215 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:56:29.219 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 05:56:29.220 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 44.9147ms
+2025-02-14 05:56:29.222 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:56:29.223 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 26 - 500 - text/plain;+charset=utf-8 57.3256ms
+2025-02-14 05:57:13.740 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 05:57:13.991 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 05:57:13.996 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 05:57:13.998 -05:00 [INF] Hosting environment: Development
+2025-02-14 05:57:13.998 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 05:57:14.657 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 05:57:15.371 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 721.3383ms
+2025-02-14 05:57:15.689 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 05:57:15.690 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 05:57:15.698 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 7.5115ms
+2025-02-14 05:57:15.733 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.9699ms
+2025-02-14 05:57:15.837 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 05:57:15.837 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 05:57:15.837 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 05:57:15.837 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 05:57:15.844 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:15.844 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:15.844 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:15.844 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:15.844 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:15.845 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:15.845 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:15.848 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 11.6146ms
+2025-02-14 05:57:15.846 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:15.848 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 11.6138ms
+2025-02-14 05:57:15.848 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 11.5544ms
+2025-02-14 05:57:15.850 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 13.6120ms
+2025-02-14 05:57:15.862 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 05:57:16.076 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 214.1794ms
+2025-02-14 05:57:33.416 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 24
+2025-02-14 05:57:33.420 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:33.422 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:33.427 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:57:33.471 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:57:33.771 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-14 05:57:33.803 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 324.1802ms
+2025-02-14 05:57:33.811 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:57:33.815 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 24 - 400 - application/problem+json;+charset=utf-8 398.6195ms
+2025-02-14 05:57:44.485 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 05:57:44.489 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:57:44.491 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:57:44.493 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:57:44.494 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:57:58.753 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:57:59.778 -05:00 [INF] Executed DbCommand (135ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:58:29.125 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:58:29.167 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 05:58:29.168 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 44671.754ms
+2025-02-14 05:58:29.169 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:58:29.178 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 500 - text/plain;+charset=utf-8 44693.0916ms
+2025-02-14 05:58:31.188 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 05:58:31.193 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:58:31.194 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:58:31.195 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:58:31.196 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:58:36.210 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:58:36.220 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 05:59:00.017 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 05:59:01.305 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 05:59:01.307 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 30108.3905ms
+2025-02-14 05:59:01.309 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:59:01.310 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 500 - text/plain;+charset=utf-8 30122.0822ms
+2025-02-14 05:59:04.709 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 05:59:04.710 -05:00 [INF] CORS policy execution failed.
+2025-02-14 05:59:04.711 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 05:59:04.712 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 05:59:04.714 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 05:59:04.777 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 05:59:04.781 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 07:03:00.301 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 07:03:00.315 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 07:03:00.316 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 3835599.6067ms
+2025-02-14 07:03:00.319 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:03:00.321 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 500 - text/plain;+charset=utf-8 3835611.6901ms
+2025-02-14 07:03:02.653 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 07:03:02.655 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:03:02.657 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:03:02.659 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:03:02.660 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 07:03:02.664 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 07:03:02.676 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 07:05:55.618 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 07:05:55.626 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 07:05:55.627 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 172964.0522ms
+2025-02-14 07:05:55.628 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:05:55.629 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 500 - text/plain;+charset=utf-8 172976.4739ms
+2025-02-14 07:22:38.940 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21
+2025-02-14 07:22:38.943 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:22:38.943 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:22:38.945 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:22:38.946 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 07:22:38.952 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 07:22:39.017 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 07:22:39.054 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 160
+2025-02-14 07:22:39.057 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 07:22:39.058 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 111.1521ms
+2025-02-14 07:22:39.060 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:22:39.061 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21 - 500 - text/plain;+charset=utf-8 123.0532ms
+2025-02-14 07:32:02.048 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 07:32:02.284 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 07:32:02.290 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 07:32:02.291 -05:00 [INF] Hosting environment: Development
+2025-02-14 07:32:02.292 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 07:32:03.476 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 07:32:04.100 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 631.8884ms
+2025-02-14 07:32:04.427 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 07:32:04.433 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 07:32:04.437 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 10.0063ms
+2025-02-14 07:32:04.498 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.9248ms
+2025-02-14 07:32:04.522 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 07:32:04.522 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 07:32:04.522 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 07:32:04.522 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 07:32:04.532 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:32:04.595 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 07:32:04.597 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:32:04.599 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:32:04.600 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:32:04.599 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:32:04.599 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:32:04.600 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 78.0225ms
+2025-02-14 07:32:04.601 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 78.6140ms
+2025-02-14 07:32:04.601 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:32:04.627 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 104.2209ms
+2025-02-14 07:32:04.602 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:32:04.633 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 110.9220ms
+2025-02-14 07:32:04.807 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 211.3186ms
+2025-02-14 07:41:05.054 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 15
+2025-02-14 07:41:05.091 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:41:05.093 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:41:05.097 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:41:05.143 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Object) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 07:52:10.127 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 07:52:10.503 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 07:52:10.508 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 07:52:10.509 -05:00 [INF] Hosting environment: Development
+2025-02-14 07:52:10.510 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 07:52:11.501 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 07:52:12.239 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 744.6946ms
+2025-02-14 07:52:12.549 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 07:52:12.555 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 07:52:12.569 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 14.1921ms
+2025-02-14 07:52:12.618 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.5413ms
+2025-02-14 07:52:12.644 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 07:52:12.644 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 07:52:12.647 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 07:52:12.647 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 07:52:12.721 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:52:12.721 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:52:12.721 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:52:12.758 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 07:52:12.759 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:52:12.760 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:52:12.760 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:52:12.763 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:52:12.772 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 127.9387ms
+2025-02-14 07:52:12.772 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 125.6467ms
+2025-02-14 07:52:12.773 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 128.9371ms
+2025-02-14 07:52:12.773 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:52:12.779 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 132.1718ms
+2025-02-14 07:52:12.976 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 218.2639ms
+2025-02-14 07:52:27.664 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 18
+2025-02-14 07:52:27.667 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:52:27.668 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:52:27.675 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:52:27.722 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.String) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 07:53:33.372 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 07:53:33.806 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 07:53:33.830 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 07:53:33.831 -05:00 [INF] Hosting environment: Development
+2025-02-14 07:53:33.832 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 07:53:34.402 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 07:53:35.459 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1062.5653ms
+2025-02-14 07:53:35.817 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 07:53:35.843 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 07:53:35.847 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 30.5798ms
+2025-02-14 07:53:35.897 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.4704ms
+2025-02-14 07:53:35.945 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 07:53:35.946 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 07:53:35.946 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 07:53:35.946 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 07:53:35.953 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:53:35.953 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:53:35.955 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:53:35.953 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:53:35.961 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:53:35.953 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:53:35.954 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:53:35.960 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 14.5186ms
+2025-02-14 07:53:35.962 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 18.3788ms
+2025-02-14 07:53:35.963 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:53:35.966 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 19.8281ms
+2025-02-14 07:53:35.963 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 17.3995ms
+2025-02-14 07:53:35.966 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 07:53:36.428 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 462.0453ms
+2025-02-14 07:55:55.860 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 26
+2025-02-14 07:55:55.895 -05:00 [INF] CORS policy execution failed.
+2025-02-14 07:55:55.896 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 07:55:55.901 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 07:55:55.943 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 08:10:42.023 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 08:10:42.247 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 08:10:42.252 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 08:10:42.253 -05:00 [INF] Hosting environment: Development
+2025-02-14 08:10:42.254 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 08:10:43.031 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 08:10:43.882 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 08:10:43.893 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 865.6784ms
+2025-02-14 08:10:43.950 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 67.5919ms
+2025-02-14 08:10:44.214 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 08:10:44.275 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.1050ms
+2025-02-14 08:10:44.309 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 08:10:44.311 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 08:10:44.311 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 08:10:44.312 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 08:10:44.320 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:10:44.320 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:10:44.321 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:10:44.322 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:10:44.322 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:10:44.323 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:10:44.324 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:10:44.324 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:10:44.329 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 17.8191ms
+2025-02-14 08:10:44.330 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 21.1781ms
+2025-02-14 08:10:44.331 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 19.5563ms
+2025-02-14 08:10:44.332 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 20.9273ms
+2025-02-14 08:10:44.330 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 08:10:44.715 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 384.7083ms
+2025-02-14 08:11:10.914 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 28
+2025-02-14 08:11:10.924 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:11:10.925 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:11:10.929 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 08:11:10.982 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 08:12:08.788 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: S. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 161
+2025-02-14 08:12:08.880 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 08:12:08.901 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 57903.9949ms
+2025-02-14 08:12:08.910 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 08:12:08.914 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 28 - 500 - text/plain;+charset=utf-8 57999.9799ms
+2025-02-14 08:12:25.046 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22
+2025-02-14 08:12:25.053 -05:00 [INF] CORS policy execution failed.
+2025-02-14 08:12:25.054 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 08:12:25.055 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 08:12:25.058 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Object]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 10:12:41.137 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 10:12:41.585 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 10:12:41.590 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 10:12:41.596 -05:00 [INF] Hosting environment: Development
+2025-02-14 10:12:41.598 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 10:12:42.786 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 10:12:43.921 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1139.1996ms
+2025-02-14 10:12:44.258 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 10:12:44.258 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 10:12:44.294 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 36.5235ms
+2025-02-14 10:12:44.371 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 112.0928ms
+2025-02-14 10:12:44.406 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 10:12:44.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 10:12:44.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 10:12:44.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 10:12:44.420 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:12:44.420 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:12:44.420 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:12:44.420 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:12:44.421 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:12:44.421 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:12:44.422 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:12:44.422 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:12:44.426 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 16.4004ms
+2025-02-14 10:12:44.427 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 20.4809ms
+2025-02-14 10:12:44.429 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 10:12:44.426 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 16.4660ms
+2025-02-14 10:12:44.426 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 19.8682ms
+2025-02-14 10:12:44.774 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 345.0416ms
+2025-02-14 10:13:06.114 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21
+2025-02-14 10:13:06.117 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:13:06.118 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:13:06.124 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:13:06.175 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 10:14:04.919 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 10:14:05.327 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 10:14:05.337 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 10:14:05.338 -05:00 [INF] Hosting environment: Development
+2025-02-14 10:14:05.339 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 10:14:05.862 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 10:14:06.706 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 849.4303ms
+2025-02-14 10:14:07.009 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 10:14:07.010 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 10:14:07.018 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 8.5301ms
+2025-02-14 10:14:07.124 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 114.8608ms
+2025-02-14 10:14:07.151 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 10:14:07.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 10:14:07.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 10:14:07.152 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 10:14:07.164 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:14:07.169 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:14:07.169 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:14:07.172 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:14:07.175 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 22.8327ms
+2025-02-14 10:14:07.169 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:14:07.169 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:14:07.175 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 10:14:07.173 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 21.8285ms
+2025-02-14 10:14:07.177 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:14:07.180 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 27.1378ms
+2025-02-14 10:14:07.178 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:14:07.183 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 30.9268ms
+2025-02-14 10:14:07.453 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 278.2524ms
+2025-02-14 10:35:44.987 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 10:35:45.491 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 10:35:45.506 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 10:35:45.507 -05:00 [INF] Hosting environment: Development
+2025-02-14 10:35:45.513 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 10:35:46.369 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 10:35:47.366 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1003.5034ms
+2025-02-14 10:35:47.720 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 10:35:47.720 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 10:35:47.725 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.9191ms
+2025-02-14 10:35:47.818 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 97.7984ms
+2025-02-14 10:35:47.859 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 10:35:47.860 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 10:35:47.860 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 10:35:47.860 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 10:35:47.867 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:35:47.867 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:35:47.867 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:35:47.867 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:35:47.871 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:35:47.872 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 10:35:47.872 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:35:47.872 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:35:47.873 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:35:47.875 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 15.1531ms
+2025-02-14 10:35:47.875 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 16.6207ms
+2025-02-14 10:35:47.876 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 15.4656ms
+2025-02-14 10:35:47.876 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 16.1405ms
+2025-02-14 10:35:48.177 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 305.3069ms
+2025-02-14 10:46:26.353 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33
+2025-02-14 10:46:26.362 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:46:26.362 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:46:26.367 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:46:26.419 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 10:46:27.006 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad 'additionalProp1' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 24
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 10:46:27.087 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 10:46:27.095 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 662.8083ms
+2025-02-14 10:46:27.103 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:46:27.108 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33 - 400 - text/plain;+charset=utf-8 755.1638ms
+2025-02-14 10:46:43.823 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33
+2025-02-14 10:46:43.827 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:46:43.828 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:46:43.830 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:46:43.832 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 10:47:34.194 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad 'additionalProp1' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 24
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 10:47:34.198 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 10:47:34.203 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 50368.8447ms
+2025-02-14 10:47:34.216 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:47:34.217 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 33 - 400 - text/plain;+charset=utf-8 50393.6574ms
+2025-02-14 10:49:05.390 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21
+2025-02-14 10:49:05.397 -05:00 [INF] CORS policy execution failed.
+2025-02-14 10:49:05.398 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 10:49:05.398 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:49:05.399 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 10:49:12.759 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: Error al convertir valor: The JSON value could not be converted to System.String. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElement(Type tipoDestino, JsonElement elemento) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 54
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 31
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 10:49:12.765 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 10:49:12.767 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 7365.3686ms
+2025-02-14 10:49:12.769 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 10:49:12.770 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21 - 400 - text/plain;+charset=utf-8 7379.7679ms
+2025-02-14 11:00:33.765 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 11:00:34.207 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 11:00:34.219 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 11:00:34.221 -05:00 [INF] Hosting environment: Development
+2025-02-14 11:00:34.228 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 11:00:35.069 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 11:00:35.885 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 824.6393ms
+2025-02-14 11:00:36.199 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 11:00:36.200 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 11:00:36.235 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 36.1797ms
+2025-02-14 11:00:36.300 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 99.6431ms
+2025-02-14 11:00:36.328 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 11:00:36.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 11:00:36.332 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 11:00:36.332 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 11:00:36.342 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:00:36.342 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:00:36.343 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:00:36.344 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:00:36.345 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:00:36.346 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:00:36.347 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:00:36.347 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:00:36.351 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 22.4961ms
+2025-02-14 11:00:36.351 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 22.6270ms
+2025-02-14 11:00:36.351 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 11:00:36.352 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 19.4674ms
+2025-02-14 11:00:36.353 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 20.5497ms
+2025-02-14 11:00:36.668 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 317.0937ms
+2025-02-14 11:00:52.123 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22
+2025-02-14 11:00:52.126 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:00:52.128 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:00:52.135 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:00:52.186 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:01:18.115 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'JsonElement'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 33
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 11:01:18.187 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 11:01:18.203 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 26002.0441ms
+2025-02-14 11:01:18.210 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:01:18.216 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22 - 500 - text/plain;+charset=utf-8 26092.8000ms
+2025-02-14 11:01:28.937 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 32
+2025-02-14 11:01:28.943 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:01:28.945 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:01:28.946 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:01:28.947 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:08:14.003 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 11:08:14.315 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 11:08:14.322 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 11:08:14.324 -05:00 [INF] Hosting environment: Development
+2025-02-14 11:08:14.325 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 11:08:14.840 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 11:08:15.592 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 758.5653ms
+2025-02-14 11:08:15.907 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 11:08:15.925 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 11:08:15.929 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.7142ms
+2025-02-14 11:08:15.997 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 90.1135ms
+2025-02-14 11:08:16.024 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 11:08:16.024 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 11:08:16.024 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 11:08:16.024 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 11:08:16.031 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:16.031 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:16.031 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:16.031 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:16.032 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:16.032 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:16.032 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:16.035 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 11.0923ms
+2025-02-14 11:08:16.035 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 11.0668ms
+2025-02-14 11:08:16.033 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:16.035 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 11.4151ms
+2025-02-14 11:08:16.041 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 11:08:16.041 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 16.5092ms
+2025-02-14 11:08:16.351 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 309.9610ms
+2025-02-14 11:08:33.907 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 27
+2025-02-14 11:08:33.911 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:33.913 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:33.918 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:08:33.964 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:08:34.383 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'RuntimePropertyInfo'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 38
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 11:08:34.468 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 11:08:34.476 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 503.9956ms
+2025-02-14 11:08:34.483 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:08:34.489 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 27 - 500 - text/plain;+charset=utf-8 582.4231ms
+2025-02-14 11:08:41.032 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 27
+2025-02-14 11:08:41.036 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:08:41.039 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:08:41.041 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:08:41.042 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:08:41.092 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: Error de validación: Se esperaba un valor de tipo 'String', pero se recibió 'RuntimePropertyInfo'.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.ObjectValidatorAdapter`1.Validate(Object value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\ObjectValidatorAdapter.cs:line 29
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 46
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 38
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 11:08:41.096 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 11:08:41.097 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 50.738ms
+2025-02-14 11:08:41.098 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:08:41.099 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 27 - 500 - text/plain;+charset=utf-8 67.2308ms
+2025-02-14 11:09:02.894 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 11:09:03.239 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 11:09:03.247 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 11:09:03.248 -05:00 [INF] Hosting environment: Development
+2025-02-14 11:09:03.249 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 11:09:04.142 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 11:09:05.004 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 869.5959ms
+2025-02-14 11:09:05.321 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 11:09:05.324 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 11:09:05.327 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.8254ms
+2025-02-14 11:09:05.365 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.8347ms
+2025-02-14 11:09:05.401 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 11:09:05.409 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 11:09:05.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 11:09:05.419 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:09:05.419 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:09:05.410 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 11:09:05.419 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:09:05.421 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:09:05.421 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:09:05.422 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:09:05.424 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:09:05.425 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 23.9207ms
+2025-02-14 11:09:05.422 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:09:05.428 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 18.5093ms
+2025-02-14 11:09:05.426 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 15.6528ms
+2025-02-14 11:09:05.425 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 14.8436ms
+2025-02-14 11:09:05.438 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 11:09:05.764 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 326.1384ms
+2025-02-14 11:09:19.142 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 26
+2025-02-14 11:09:19.148 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:09:19.149 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:09:19.154 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:09:19.222 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:12:34.165 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 11:12:34.492 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 11:12:34.501 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 11:12:34.503 -05:00 [INF] Hosting environment: Development
+2025-02-14 11:12:34.505 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 11:12:35.186 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 11:12:36.089 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 11:12:36.094 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 912.9835ms
+2025-02-14 11:12:36.135 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 45.1821ms
+2025-02-14 11:12:36.497 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 11:12:36.597 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.3892ms
+2025-02-14 11:12:36.659 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 11:12:36.659 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 11:12:36.659 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 11:12:36.659 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 11:12:36.663 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 11:12:36.672 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:12:36.672 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:12:36.674 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:12:36.673 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:12:36.674 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:12:36.672 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:12:36.676 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:12:36.681 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 21.4788ms
+2025-02-14 11:12:36.677 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 17.2577ms
+2025-02-14 11:12:36.677 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:12:36.677 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 17.3270ms
+2025-02-14 11:12:36.704 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 44.2293ms
+2025-02-14 11:12:37.114 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 450.8866ms
+2025-02-14 11:14:35.188 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 27
+2025-02-14 11:14:35.194 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:14:35.195 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:14:35.200 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:14:35.242 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:14:46.740 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 11:14:47.911 -05:00 [INF] Executed DbCommand (108ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 11:32:10.193 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 11:32:10.489 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 11:32:10.494 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 11:32:10.495 -05:00 [INF] Hosting environment: Development
+2025-02-14 11:32:10.496 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 11:32:11.551 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 11:32:12.358 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 813.5242ms
+2025-02-14 11:32:12.702 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 11:32:12.702 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 11:32:12.724 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 22.0144ms
+2025-02-14 11:32:12.786 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.9926ms
+2025-02-14 11:32:12.818 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 11:32:12.818 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 11:32:12.820 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 11:32:12.820 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 11:32:12.840 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:32:12.847 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:32:12.849 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:32:12.850 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:32:12.866 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:32:12.851 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:32:12.851 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 11:32:12.851 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:32:12.875 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 55.3189ms
+2025-02-14 11:32:12.873 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 54.8985ms
+2025-02-14 11:32:12.873 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 53.3946ms
+2025-02-14 11:32:12.851 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:32:12.883 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 65.4635ms
+2025-02-14 11:32:13.111 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 259.6578ms
+2025-02-14 11:33:15.745 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21
+2025-02-14 11:33:15.748 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:33:15.749 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:33:15.753 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:33:15.795 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:33:34.285 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: Error al convertir valor: The JSON value could not be converted to System.String. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElement(Type tipoDestino, JsonElement elemento) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 57
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 33
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 11:33:34.361 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 11:33:34.369 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 18565.9757ms
+2025-02-14 11:33:34.376 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:33:34.381 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 21 - 400 - text/plain;+charset=utf-8 18635.8543ms
+2025-02-14 11:34:04.401 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23
+2025-02-14 11:34:04.405 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:34:04.408 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:34:04.409 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:34:04.410 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:34:20.279 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 11:34:21.467 -05:00 [INF] Executed DbCommand (114ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 11:35:50.848 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-14 11:35:50.872 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 106460.1999ms
+2025-02-14 11:35:50.875 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:35:50.902 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 23 - 200 - application/json;+charset=utf-8 106505.2997ms
+2025-02-14 11:36:00.038 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 25
+2025-02-14 11:36:00.041 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:36:00.042 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:36:00.044 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:36:00.045 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:36:19.411 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 11:36:19.422 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 11:36:39.164 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-14 11:36:39.168 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 39119.3969ms
+2025-02-14 11:36:39.170 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:36:39.171 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 25 - 200 - application/json;+charset=utf-8 39132.6654ms
+2025-02-14 11:41:14.309 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 15
+2025-02-14 11:41:14.312 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:41:14.314 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:41:14.316 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:41:14.318 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:41:18.426 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 11:41:18.490 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 11:41:18.526 -05:00 [ERR] Error interno al modificar la reseña con ID: 1
+System.Exception: El campo 'id' no está permitido para modificación.
+   at Dominio.Entidades.Reviews.Servicios.ReviewPartialUpdateValidations.Validate(String Key, Object Value) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Entidades\Reviews\Servicios\ReviewPartialUpdateValidations.cs:line 43
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 183
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 168
+2025-02-14 11:41:18.552 -05:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-02-14 11:41:18.554 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 4233.3477ms
+2025-02-14 11:41:18.556 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:41:18.557 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 15 - 500 - text/plain;+charset=utf-8 4248.2507ms
+2025-02-14 11:42:16.666 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22
+2025-02-14 11:42:16.694 -05:00 [INF] CORS policy execution failed.
+2025-02-14 11:42:16.699 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 11:42:16.700 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:42:16.701 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 11:42:19.544 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.ArgumentException: La propiedad 'idUsuario' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 27
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 166
+2025-02-14 11:42:19.548 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-14 11:42:19.551 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 2847.842ms
+2025-02-14 11:42:19.553 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-14 11:42:19.554 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 22 - 400 - text/plain;+charset=utf-8 2887.5440ms

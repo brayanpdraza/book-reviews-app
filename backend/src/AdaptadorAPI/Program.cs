@@ -28,6 +28,8 @@ using System.Collections;
 using Dominio.Entidades.Reviews.Servicios;
 using Dominio.Servicios.ServicioValidaciones.Contratos;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
+using AdaptadorAPI.Servicios.Contratos;
+using AdaptadorAPI.Servicios.Implementaciones;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -188,6 +190,8 @@ builder.Services.AddScoped<IUserValidations, UserValidations>();
 builder.Services.AddScoped<IReviewValidations, ReviewValidations>();
 builder.Services.AddScoped<IReviewPartialUpdateValidations, ReviewPartialUpdateValidations>();
 builder.Services.AddScoped<IpropertyModelValidate, PropertyValidator>();
+
+builder.Services.AddScoped<IconverterJsonElementToDictionary, ConvertirJsonElementToDiccionarioTextJson>();
 
 builder.Services.AddControllers();
 

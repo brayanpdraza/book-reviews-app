@@ -23,7 +23,7 @@ namespace AplicacionTest.Reviews
         private readonly Mock<IUsuarioRepositorio> _mockUsuarioRepositorio;
         private readonly Mock<IReviewValidations> _mockReviewValidations;
         private readonly Mock<IReviewPartialUpdateValidations> _mockReviewPartialUpdateValidations;
-        private readonly Mock<IpropertyModelValidate> _mockPropertyModelValidate;
+        //private readonly Mock<IpropertyModelValidate> _mockPropertyModelValidate;
 
         private readonly MetodosAuxiliares _metodosAuxiliares;
         private readonly UseCaseReview _useCaseReview;
@@ -36,7 +36,7 @@ namespace AplicacionTest.Reviews
             _mockUsuarioRepositorio = new Mock<IUsuarioRepositorio>();
             _mockReviewValidations = new Mock<IReviewValidations>();
             _mockReviewPartialUpdateValidations = new Mock<IReviewPartialUpdateValidations>();
-            _mockPropertyModelValidate = new Mock<IpropertyModelValidate>();
+            //_mockPropertyModelValidate = new Mock<IpropertyModelValidate>();
             _metodosAuxiliares = new MetodosAuxiliares();
             _useCaseReview = new UseCaseReview(
                 _mockReviewRepositorio.Object,
@@ -44,7 +44,7 @@ namespace AplicacionTest.Reviews
                 _mockUsuarioRepositorio.Object,
                 _mockReviewValidations.Object,
                 _mockReviewPartialUpdateValidations.Object,
-                _mockPropertyModelValidate.Object,
+                //_mockPropertyModelValidate.Object,
                 _metodosAuxiliares
             );
             _reviewBuilderCaseTest = new ReviewsBuilderCaseTest(_mockReviewValidations.Object);
@@ -446,7 +446,7 @@ namespace AplicacionTest.Reviews
 
             Assert.Equal(ErrorMessage, exception.Message);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Never);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
 
@@ -467,41 +467,41 @@ namespace AplicacionTest.Reviews
 
             Assert.Equal(ErrorMessage, exception.Message);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
 
         }
 
 
-        [Theory]
-        [InlineData("HOLA", "fsdf")]
-        [InlineData("NOEXISTO", 352)]
-        public void ModificarReviewsPorId_ReseñaconCampoNoExistente_ReturnsError(string key, object value)
-        {
-            //Arrange
-            ReviewModel review = _reviewBuilderCaseTest.Build();
-            long idExistente = review.Id;
-            Dictionary<string, object> cambios = new Dictionary<string, object>()
-            {
-                { key, value }
-            };
-            string ErrorMessage = $"El campo {key} no existe en la entidad de Reviews.";
+        //[Theory]
+        //[InlineData("HOLA", "fsdf")]
+        //[InlineData("NOEXISTO", 352)]
+        //public void ModificarReviewsPorId_ReseñaconCampoNoExistente_ReturnsError(string key, object value)
+        //{
+        //    //Arrange
+        //    ReviewModel review = _reviewBuilderCaseTest.Build();
+        //    long idExistente = review.Id;
+        //    Dictionary<string, object> cambios = new Dictionary<string, object>()
+        //    {
+        //        { key, value }
+        //    };
+        //    string ErrorMessage = $"El campo {key} no existe en la entidad de Reviews.";
 
-            _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
-            _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(false);
+        //    _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
+        //    _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(false);
 
-            //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idExistente, cambios));
+        //    //Act
+        //    var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idExistente, cambios));
 
-            //Assert
-            Assert.Equal(ErrorMessage, exception.Message);
-            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
-            _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
-            _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
+        //    //Assert
+        //    Assert.Equal(ErrorMessage, exception.Message);
+        //    _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
+        //    _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
+        //    _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
+        //    _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
 
-        }
+        //}
 
         [Theory]
         [InlineData("CALIFICACION", "fsdf")]
@@ -518,7 +518,7 @@ namespace AplicacionTest.Reviews
             string ErrorMessage = $"El campo {key} no es válido.";
 
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
-            _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
+            //_mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(false);
 
             //Act
@@ -527,7 +527,7 @@ namespace AplicacionTest.Reviews
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
+           // _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
         }
@@ -547,7 +547,7 @@ namespace AplicacionTest.Reviews
             string ErrorMessage = "No se aplicaron cambios a la review.";
 
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
-            _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
+           // _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(true);
             _mockReviewRepositorio.Setup(r => r.UpdateReviewParcial(review,cambios)).Returns(false);
 
@@ -557,7 +557,7 @@ namespace AplicacionTest.Reviews
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Once);
         }
@@ -577,7 +577,7 @@ namespace AplicacionTest.Reviews
             };
 
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
-            _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
+            //_mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(true);
             _mockReviewRepositorio.Setup(r => r.UpdateReviewParcial(review, cambios)).Returns(true);
 
@@ -587,7 +587,7 @@ namespace AplicacionTest.Reviews
             //Assert
             Assert.True(Resultado);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
-            _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
+           // _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Once);
         }

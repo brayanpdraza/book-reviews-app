@@ -17,18 +17,18 @@ namespace Aplicacion.Reviews
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IReviewValidations _reviewValidations;
         private readonly IReviewPartialUpdateValidations _reviewPartialUpdateValidations;
-        private readonly IpropertyModelValidate _propertyModelValidate;
+        //private readonly IpropertyModelValidate _propertyModelValidate;
         private readonly MetodosAuxiliares _metodosAuxiliares;
 
         public UseCaseReview(IReviewRepositorio reviewRepositorio,ILibroRepositorio libroRepositorio, IUsuarioRepositorio usuarioRepositorio, IReviewValidations reviewValidations,IReviewPartialUpdateValidations reviewPartialUpdateValidations,
-            IpropertyModelValidate propertyModelValidate,MetodosAuxiliares metodosAuxiliares)
+            /*IpropertyModelValidate propertyModelValidate,*/MetodosAuxiliares metodosAuxiliares)
         {
             _reviewRepositorio = reviewRepositorio;
             _libroRepositorio = libroRepositorio;
             _usuarioRepositorio = usuarioRepositorio;
             _reviewValidations = reviewValidations;
             _reviewPartialUpdateValidations = reviewPartialUpdateValidations;
-            _propertyModelValidate = propertyModelValidate;
+          //  _propertyModelValidate = propertyModelValidate;
             _metodosAuxiliares = metodosAuxiliares;
             
         }
@@ -175,10 +175,10 @@ namespace Aplicacion.Reviews
 
             foreach (var cambio in cambios)
             {
-                if (!_propertyModelValidate.ValidarPropiedad<ReviewModel>(cambio.Key))
-                {
-                    throw new ArgumentException($"El campo {cambio.Key} no existe en la entidad de Reviews.");
-                }
+                //if (!_propertyModelValidate.ValidarPropiedad<ReviewModel>(cambio.Key))
+                //{
+                //    throw new ArgumentException($"El campo {cambio.Key} no existe en la entidad de Reviews.");
+                //}
 
                 if (!_reviewPartialUpdateValidations.Validate(cambio.Key, cambio.Value))
                 {
@@ -190,7 +190,7 @@ namespace Aplicacion.Reviews
             bool cambiosAplicados = _reviewRepositorio.UpdateReviewParcial(review, cambios);
             if (!cambiosAplicados)
             {
-                throw new Exception("No se aplicaron cambios a la review.");
+                throw new Exception("No se aplicaron cambios a la reseña.");
             }
 
             return true;
