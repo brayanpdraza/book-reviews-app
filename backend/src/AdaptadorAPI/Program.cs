@@ -30,6 +30,7 @@ using Dominio.Servicios.ServicioValidaciones.Contratos;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using AdaptadorAPI.Servicios.Contratos;
 using AdaptadorAPI.Servicios.Implementaciones;
+using AdaptadorAPI.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -176,6 +177,7 @@ builder.Services.AddScoped<UseCaseLibro>();
 builder.Services.AddScoped<UseCaseReview>();
 builder.Services.AddScoped<PostgreSQLDbContext>();
 builder.Services.AddScoped<TokenValidationParameters>();
+builder.Services.AddScoped<ObtenerDatosUsuarioToken>();
 
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthserviceJWT>();

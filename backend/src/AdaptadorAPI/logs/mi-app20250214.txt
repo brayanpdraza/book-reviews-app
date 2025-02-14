@@ -1022,3 +1022,187 @@ System.ArgumentException: La propiedad 'idUsuario' no existe en la entidad Revie
 2025-02-14 13:19:30.111 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
 2025-02-14 13:19:30.124 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 27.5637ms
 2025-02-14 13:19:30.328 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 235.2818ms
+2025-02-14 14:02:19.318 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 14:02:19.772 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 14:02:19.785 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 14:02:19.786 -05:00 [INF] Hosting environment: Development
+2025-02-14 14:02:19.786 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 14:02:20.601 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 14:02:21.529 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 934.3032ms
+2025-02-14 14:02:21.615 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 14:02:21.620 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.2311ms
+2025-02-14 14:02:21.881 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 14:02:21.942 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.2390ms
+2025-02-14 14:02:21.964 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 14:02:21.965 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 14:02:21.965 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 14:02:21.965 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 14:02:21.976 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:02:21.976 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:02:21.976 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:02:21.976 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:02:21.979 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:02:21.979 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:02:21.984 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 19.1574ms
+2025-02-14 14:02:21.981 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:02:21.984 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 19.1574ms
+2025-02-14 14:02:21.980 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:02:21.988 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 22.9363ms
+2025-02-14 14:02:21.986 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 22.4619ms
+2025-02-14 14:02:22.132 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 14:02:22.474 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 342.7006ms
+2025-02-14 14:03:17.593 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - -
+2025-02-14 14:03:17.611 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:03:17.661 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 14:03:18.581 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 908.2554ms
+2025-02-14 14:03:18.615 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:03:18.618 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'AdaptadorAPI.Servicios.ObtenerDatosUsuarioToken' while attempting to activate 'AdaptadorAPI.Controllers.ReviewController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method4(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-02-14 14:03:18.700 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - - - 500 - text/plain;+charset=utf-8 1108.3132ms
+2025-02-14 14:04:15.899 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - -
+2025-02-14 14:04:15.907 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:04:15.908 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 14:04:15.920 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 9.8694ms
+2025-02-14 14:04:15.921 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:04:15.923 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'AdaptadorAPI.Servicios.ObtenerDatosUsuarioToken' while attempting to activate 'AdaptadorAPI.Controllers.ReviewController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method4(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-02-14 14:04:15.933 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - - - 500 - text/plain;+charset=utf-8 34.2395ms
+2025-02-14 14:04:38.677 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - -
+2025-02-14 14:04:38.679 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:04:38.684 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 14:04:38.699 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 11.5269ms
+2025-02-14 14:04:38.701 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:04:38.704 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'AdaptadorAPI.Servicios.ObtenerDatosUsuarioToken' while attempting to activate 'AdaptadorAPI.Controllers.ReviewController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method4(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2025-02-14 14:04:38.735 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - - - 500 - text/plain;+charset=utf-8 58.3820ms
+2025-02-14 14:04:47.628 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-02-14 14:04:47.630 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-14 14:04:47.640 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-14 14:04:48.952 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 14:04:50.525 -05:00 [INF] Executed DbCommand (105ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Libros" AS l
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE l."Id" = @__id_0
+LIMIT 1
+2025-02-14 14:04:50.669 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-02-14 14:04:50.695 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 3052.5394ms
+2025-02-14 14:04:50.701 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-14 14:04:50.719 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 200 - application/json;+charset=utf-8 3090.5079ms
+2025-02-14 14:05:37.656 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-14 14:05:38.059 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-14 14:05:38.067 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-14 14:05:38.070 -05:00 [INF] Hosting environment: Development
+2025-02-14 14:05:38.071 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-14 14:05:38.771 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-14 14:05:39.770 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1004.2241ms
+2025-02-14 14:05:39.789 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-14 14:05:39.793 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 4.4414ms
+2025-02-14 14:05:40.025 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-14 14:05:40.092 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.5791ms
+2025-02-14 14:05:40.246 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-14 14:05:40.251 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-14 14:05:40.252 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-14 14:05:40.252 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-14 14:05:40.252 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-14 14:05:40.272 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:05:40.272 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:05:40.272 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:05:40.275 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:05:40.274 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:05:40.274 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:05:40.273 -05:00 [INF] CORS policy execution failed.
+2025-02-14 14:05:40.296 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-14 14:05:40.295 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 48.7752ms
+2025-02-14 14:05:40.295 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 48.2274ms
+2025-02-14 14:05:40.292 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 40.5008ms
+2025-02-14 14:05:40.298 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 46.1836ms
+2025-02-14 14:05:40.563 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 311.1531ms
+2025-02-14 14:05:47.243 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-02-14 14:05:47.291 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:05:47.343 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 14:05:53.494 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 14:05:54.633 -05:00 [INF] Executed DbCommand (97ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 14:05:54.848 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-14 14:05:54.904 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 7554.2129ms
+2025-02-14 14:05:54.908 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:05:54.933 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - - - 200 - application/json;+charset=utf-8 7689.6018ms
+2025-02-14 14:06:05.056 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - -
+2025-02-14 14:06:05.070 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:06:05.071 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-14 14:06:05.079 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-14 14:06:05.096 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-14 14:06:05.103 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-14 14:06:05.104 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 26.7664ms
+2025-02-14 14:06:05.106 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-14 14:06:05.107 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - - - 200 - application/json;+charset=utf-8 51.0241ms
+2025-02-14 14:06:07.034 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/2 - -
+2025-02-14 14:06:07.044 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-14 14:06:07.055 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-14 14:06:07.057 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/2 - - - 401 0 - 23.0533ms
