@@ -128,10 +128,16 @@ namespace Aplicacion.Usuarios
 
         public void LogOutById(long id)
         {
-
-            if (id<=0)
+            UsuarioModelo Usuario;
+            if (id <= 0)
             {
-                throw new ArgumentException("El ID No es Válido.");
+                throw new ArgumentException("No se puede consultar el usuario porque el id no es válido.");
+            }
+
+            Usuario = _usuarioRepositorio.ListUsuarioPorId(id);
+            if (Usuario.Id <= 0)
+            {
+                throw new UnauthorizedAccessException($"El id {id} no se encuentra asociado a un usuario.");
             }
 
             _authService.Logout(id);

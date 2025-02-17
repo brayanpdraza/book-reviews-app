@@ -1,0 +1,384 @@
+2025-02-17 07:32:16.961 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-17 07:32:17.436 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-17 07:32:17.440 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-17 07:32:17.442 -05:00 [INF] Hosting environment: Development
+2025-02-17 07:32:17.443 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-17 07:32:21.455 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-17 07:32:23.099 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1647.6548ms
+2025-02-17 07:32:23.572 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-17 07:32:23.572 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-17 07:32:23.620 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 47.6525ms
+2025-02-17 07:32:23.777 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 204.4324ms
+2025-02-17 07:32:23.815 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-17 07:32:23.815 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-17 07:32:23.817 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-17 07:32:23.817 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-17 07:32:23.827 -05:00 [INF] CORS policy execution failed.
+2025-02-17 07:32:23.827 -05:00 [INF] CORS policy execution failed.
+2025-02-17 07:32:23.827 -05:00 [INF] CORS policy execution failed.
+2025-02-17 07:32:23.828 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 07:32:23.828 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 07:32:23.828 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 07:32:23.827 -05:00 [INF] CORS policy execution failed.
+2025-02-17 07:32:23.834 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 07:32:23.833 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 18.1646ms
+2025-02-17 07:32:23.833 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 15.6137ms
+2025-02-17 07:32:23.835 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 20.1356ms
+2025-02-17 07:32:23.840 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 20.5463ms
+2025-02-17 07:32:23.847 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-17 07:32:24.066 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 219.3025ms
+2025-02-17 11:41:50.385 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-17 11:41:50.435 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-17 11:41:50.549 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-17 11:41:52.844 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:41:54.125 -05:00 [INF] Executed DbCommand (109ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-17 11:41:54.662 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='300']
+UPDATE "Usuarios" SET "RefreshToken" = @p0, "RefreshTokenExpiry" = @p1
+WHERE "Id" = @p2;
+2025-02-17 11:41:54.699 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-02-17 11:41:54.745 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 4186.9204ms
+2025-02-17 11:41:54.748 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-17 11:41:54.762 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 4381.2272ms
+2025-02-17 11:44:28.166 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 81
+2025-02-17 11:44:28.325 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:44:28.329 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:44:28.574 -05:00 [WRN] Error al modificar la reseña con ID: 2
+System.ArgumentException: La propiedad 'HOLAS' no existe en la entidad ReviewModel.
+   at Dominio.Servicios.ServicioValidaciones.Implementaciones.PropertyValidator.ValidarPropiedad[T](String nombrePropiedad) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Dominio\Servicios\ServicioValidaciones\Implementaciones\PropertyValidator.cs:line 23
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 27
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 184
+2025-02-17 11:44:28.698 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-17 11:44:28.699 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 366.712ms
+2025-02-17 11:44:28.700 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:44:28.702 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 81 - 400 - text/plain;+charset=utf-8 535.8798ms
+2025-02-17 11:44:57.191 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - -
+2025-02-17 11:44:57.201 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 11:44:57.205 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:44:57.219 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:44:57.374 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 11:44:57.378 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-17 11:44:57.387 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 178.975ms
+2025-02-17 11:44:57.390 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 11:44:57.392 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/2 - - - 200 - application/json;+charset=utf-8 200.7828ms
+2025-02-17 11:45:48.068 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-17 11:45:48.653 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-17 11:45:48.658 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-17 11:45:48.659 -05:00 [INF] Hosting environment: Development
+2025-02-17 11:45:48.660 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-17 11:45:49.408 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-17 11:45:50.161 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 765.1348ms
+2025-02-17 11:45:50.490 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-17 11:45:50.525 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-17 11:45:50.538 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 47.6023ms
+2025-02-17 11:45:50.600 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 74.8796ms
+2025-02-17 11:45:50.632 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-17 11:45:50.632 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-17 11:45:50.632 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-17 11:45:50.633 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-17 11:45:50.639 -05:00 [INF] CORS policy execution failed.
+2025-02-17 11:45:50.639 -05:00 [INF] CORS policy execution failed.
+2025-02-17 11:45:50.639 -05:00 [INF] CORS policy execution failed.
+2025-02-17 11:45:50.640 -05:00 [INF] CORS policy execution failed.
+2025-02-17 11:45:50.641 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 11:45:50.646 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 11:45:50.646 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 11:45:50.647 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 11:45:50.651 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 18.5611ms
+2025-02-17 11:45:50.651 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 18.6661ms
+2025-02-17 11:45:50.652 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 19.0394ms
+2025-02-17 11:45:50.651 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 18.7551ms
+2025-02-17 11:45:50.664 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-17 11:45:50.996 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 331.7128ms
+2025-02-17 11:46:42.349 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 64
+2025-02-17 11:46:42.697 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:46:42.745 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:46:43.314 -05:00 [WRN] Error al modificar la reseña con ID: 2
+System.ArgumentException: Error al convertir valor: The JSON value could not be converted to System.Int32. Path: $ | LineNumber: 0 | BytePositionInLine: 7.
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElement(Type tipoDestino, JsonElement elemento) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 57
+   at AdaptadorAPI.Servicios.Implementaciones.ConvertirJsonElementToDiccionarioTextJson.ConvertirJsonElementADiccionarioTipado[T](Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Servicios\Implementaciones\ConvertirJsonElementToDiccionarioTextJson.cs:line 33
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 184
+2025-02-17 11:46:43.384 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-17 11:46:43.391 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 638.0905ms
+2025-02-17 11:46:43.400 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:46:43.405 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 64 - 400 - text/plain;+charset=utf-8 1056.3628ms
+2025-02-17 11:47:03.094 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 58
+2025-02-17 11:47:03.102 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:47:03.104 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:47:04.396 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:47:05.430 -05:00 [INF] Executed DbCommand (108ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 11:47:15.548 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 11:47:21.249 -05:00 [WRN] Reseña no encontrada con ID: 2
+System.Collections.Generic.KeyNotFoundException: Review no encontrada.
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 idUsuario, Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 201
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 186
+2025-02-17 11:47:21.267 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-02-17 11:47:21.268 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 18162.1745ms
+2025-02-17 11:47:21.270 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:47:21.289 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/2 application/json 58 - 404 - text/plain;+charset=utf-8 18194.5502ms
+2025-02-17 11:49:23.850 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 58
+2025-02-17 11:49:23.851 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:49:23.853 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:49:23.907 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:49:23.912 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 11:49:28.889 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 11:49:28.987 -05:00 [WRN] Error al modificar la reseña con ID: 1
+System.UnauthorizedAccessException: No puede modificar la reseña de otro usuario.
+   at Aplicacion.Reviews.UseCaseReview.ModificarReviewPorId(Int64 idUsuario, Int64 id, Dictionary`2 cambios) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 206
+   at AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial(Int64 id, Dictionary`2 cambiosJson) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 186
+2025-02-17 11:49:28.989 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-02-17 11:49:28.991 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 5136.3485ms
+2025-02-17 11:49:28.992 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:49:28.993 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/1 application/json 58 - 401 - text/plain;+charset=utf-8 5143.3103ms
+2025-02-17 11:49:33.883 -05:00 [INF] Request starting HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/3 application/json 58
+2025-02-17 11:49:33.885 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:49:33.887 -05:00 [INF] Route matched with {action = "ModificarReviewParcial", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ModificarReviewParcial(Int64, System.Collections.Generic.Dictionary`2[System.String,System.Text.Json.JsonElement]) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:49:33.899 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:49:33.903 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 11:49:36.485 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 11:49:40.234 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__modelDominio_Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__modelDominio_Usuario_Id_0
+LIMIT 1
+2025-02-17 11:49:40.241 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__modelDominio_Libro_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+FROM "Libros" AS l
+WHERE l."Id" = @__modelDominio_Libro_Id_0
+LIMIT 1
+2025-02-17 11:49:40.451 -05:00 [INF] Executed DbCommand (19ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+UPDATE "Reviews" SET "Calificacion" = @p0, "Comentario" = @p1, "UsuarioId" = @p2
+WHERE "Id" = @p3;
+2025-02-17 11:49:40.474 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-17 11:49:40.495 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI) in 6606.7104ms
+2025-02-17 11:49:40.497 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ModificarReviewParcial (AdaptadorAPI)'
+2025-02-17 11:49:40.498 -05:00 [INF] Request finished HTTP/1.1 PATCH http://localhost:5043/Review/ModificarReviewParcial/3 application/json 58 - 200 - application/json;+charset=utf-8 6614.8303ms
+2025-02-17 11:49:44.143 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/3 - -
+2025-02-17 11:49:44.146 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 11:49:44.150 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 11:49:44.155 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 11:49:44.159 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 11:49:44.162 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-17 11:49:44.181 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 27.4597ms
+2025-02-17 11:49:44.183 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 11:49:44.185 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/3 - - - 200 - application/json;+charset=utf-8 41.7588ms
+2025-02-17 12:13:50.686 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - -
+2025-02-17 12:13:50.690 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-17 12:13:50.698 -05:00 [INF] Route matched with {action = "AutenticacionUsuarioPorCorreoYPassword", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AutenticacionUsuarioPorCorreoYPassword(System.String, System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-17 12:13:50.705 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:13:50.809 -05:00 [INF] Executed DbCommand (37ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-17 12:13:50.897 -05:00 [INF] Executed DbCommand (13ms) [Parameters=[@p2='?' (DbType = Int64), @p0='?', @p1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='300']
+UPDATE "Usuarios" SET "RefreshToken" = @p0, "RefreshTokenExpiry" = @p1
+WHERE "Id" = @p2;
+2025-02-17 12:13:50.902 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Entidades.Usuarios.Modelo.AuthenticationResult'.
+2025-02-17 12:13:50.904 -05:00 [INF] Executed action AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI) in 202.0229ms
+2025-02-17 12:13:50.905 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.UsuarioController.AutenticacionUsuarioPorCorreoYPassword (AdaptadorAPI)'
+2025-02-17 12:13:50.906 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Usuario/AutenticacionUsuarioPorCorreoYPassword/vanessita@bonita.com/P4ss123@ - - - 200 - application/json;+charset=utf-8 220.1405ms
+2025-02-17 12:14:23.428 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/1 - -
+2025-02-17 12:14:23.438 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:14:23.440 -05:00 [INF] Route matched with {action = "EliminarReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EliminarReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:14:23.444 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:14:23.446 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 12:14:23.456 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 12:14:23.501 -05:00 [WRN] Reseña no encontrada con ID: 1
+System.Collections.Generic.KeyNotFoundException: Reseña no encontrada.
+   at Aplicacion.Reviews.UseCaseReview.EliminarReviewPorId(Int64 idUsuario, Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 256
+   at AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 233
+2025-02-17 12:14:23.504 -05:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-02-17 12:14:23.505 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI) in 62.5192ms
+2025-02-17 12:14:23.506 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:14:23.508 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/1 - - - 404 - text/plain;+charset=utf-8 80.5982ms
+2025-02-17 12:14:33.946 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - -
+2025-02-17 12:14:33.948 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 12:14:33.950 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:14:33.953 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:14:33.959 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 12:14:33.963 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-17 12:14:33.965 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 12.2306ms
+2025-02-17 12:14:33.967 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 12:14:33.968 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/1 - - - 200 - application/json;+charset=utf-8 22.0327ms
+2025-02-17 12:14:50.105 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/1 - -
+2025-02-17 12:14:50.106 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:14:50.108 -05:00 [INF] Route matched with {action = "EliminarReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EliminarReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:14:50.111 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:14:50.114 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 12:15:31.734 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-17 12:15:32.425 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-17 12:15:32.432 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-17 12:15:32.433 -05:00 [INF] Hosting environment: Development
+2025-02-17 12:15:32.435 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-17 12:15:33.217 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-17 12:15:34.211 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-17 12:15:34.225 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1018.3657ms
+2025-02-17 12:15:34.225 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 12.5866ms
+2025-02-17 12:15:34.537 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-17 12:15:34.626 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.8111ms
+2025-02-17 12:15:34.650 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-17 12:15:34.650 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-17 12:15:34.650 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-17 12:15:34.650 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-17 12:15:34.657 -05:00 [INF] CORS policy execution failed.
+2025-02-17 12:15:34.657 -05:00 [INF] CORS policy execution failed.
+2025-02-17 12:15:34.657 -05:00 [INF] CORS policy execution failed.
+2025-02-17 12:15:34.660 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 12:15:34.658 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 12:15:34.659 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 12:15:34.663 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 12.8780ms
+2025-02-17 12:15:34.663 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 12.8691ms
+2025-02-17 12:15:34.657 -05:00 [INF] CORS policy execution failed.
+2025-02-17 12:15:34.663 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 12.9020ms
+2025-02-17 12:15:34.666 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-17 12:15:34.668 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 17.3811ms
+2025-02-17 12:15:34.690 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-17 12:15:35.296 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 605.9872ms
+2025-02-17 12:18:56.043 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/1 - -
+2025-02-17 12:18:56.312 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:18:56.385 -05:00 [INF] Route matched with {action = "EliminarReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EliminarReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:18:59.403 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:19:00.610 -05:00 [INF] Executed DbCommand (108ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 12:19:18.595 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 12:19:21.196 -05:00 [WRN] Error al eliminar la reseña con ID: 1
+System.UnauthorizedAccessException: No puede eliminar la reseña de otro usuario.
+   at Aplicacion.Reviews.UseCaseReview.EliminarReviewPorId(Int64 idUsuario, Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\Aplicacion\Reviews\UseCaseReview.cs:line 261
+   at AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId(Int64 id) in E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\Controllers\ReviewController.cs:line 233
+2025-02-17 12:19:21.251 -05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-02-17 12:19:21.261 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI) in 24866.9854ms
+2025-02-17 12:19:21.265 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:19:21.280 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/1 - - - 401 - text/plain;+charset=utf-8 25236.9691ms
+2025-02-17 12:19:41.295 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/3 - -
+2025-02-17 12:19:41.310 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:19:41.311 -05:00 [INF] Route matched with {action = "EliminarReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EliminarReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:19:41.361 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:19:41.368 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__p_0
+LIMIT 1
+2025-02-17 12:19:42.209 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 12:19:45.723 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__modelDominio_Usuario_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Id" = @__modelDominio_Usuario_Id_0
+LIMIT 1
+2025-02-17 12:19:45.729 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__modelDominio_Libro_Id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo"
+FROM "Libros" AS l
+WHERE l."Id" = @__modelDominio_Libro_Id_0
+LIMIT 1
+2025-02-17 12:19:49.667 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+DELETE FROM "Reviews"
+WHERE "Id" = @p0;
+2025-02-17 12:19:49.696 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-17 12:19:49.721 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI) in 8408.3603ms
+2025-02-17 12:19:49.725 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.EliminarReviewPorId (AdaptadorAPI)'
+2025-02-17 12:19:49.726 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5043/Review/EliminarReviewPorId/3 - - - 200 - application/json;+charset=utf-8 8430.7902ms
+2025-02-17 12:19:59.317 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/3 - -
+2025-02-17 12:19:59.319 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 12:19:59.323 -05:00 [INF] Route matched with {action = "ObtenerReviewPorId", controller = "Review"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerReviewPorId(Int64) on controller AdaptadorAPI.Controllers.ReviewController (AdaptadorAPI).
+2025-02-17 12:19:59.347 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-17 12:19:59.352 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT r."Id", r."Calificacion", r."Comentario", r."CreatedAt", r."LibroId", r."UsuarioId", u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry", l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Reviews" AS r
+INNER JOIN "Usuarios" AS u ON r."UsuarioId" = u."Id"
+INNER JOIN "Libros" AS l ON r."LibroId" = l."Id"
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE r."Id" = @__id_0
+LIMIT 1
+2025-02-17 12:19:59.355 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Reviews.Modelo.ReviewModel'.
+2025-02-17 12:19:59.382 -05:00 [INF] Executed action AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI) in 55.7646ms
+2025-02-17 12:19:59.384 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.ReviewController.ObtenerReviewPorId (AdaptadorAPI)'
+2025-02-17 12:19:59.385 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Review/ObtenerReviewPorId/3 - - - 200 - application/json;+charset=utf-8 67.8005ms

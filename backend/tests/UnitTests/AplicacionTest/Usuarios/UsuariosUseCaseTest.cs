@@ -234,22 +234,60 @@ namespace AplicacionTest.Usuarios
         }
 
 
-        [Fact]
-        public void LogoutByCredenciales_AutenticacionIncorrecta_LanzaExcepcion()
+        [Theory]
+        [InlineData(0, "No se puede consultar el usuario porque el id no es válido.")]
+        [InlineData(null, "No se puede consultar el usuario porque el id no es válido.")]
+        public void LogoutByCredenciales_IdInvalido_LanzaExcepcion(long id, string ErrorMessage)
         {
             // Arrange}
             LogoutRequest Result = null;
-            long id = 0;
-            string ErrorMessage = "El ID No es Válido.";
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutById(id));
 
             // Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
-            _mockAuthService.Verify(a => a.Logout(id), Times.Never);
+            _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Never);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Never);
+     
         }
 
+        [Fact]
+        public void LogoutByCredenciales_UsuarioNoExiste_LanzaExcepcion()
+        {
+            // Arrange}
+            LogoutRequest Result = null;
+            long idNoExistente = 10;
+            string ErrorMessage = $"El id {idNoExistente} no se encuentra asociado a un usuario.";
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idNoExistente)).Returns(new UsuarioModelo());
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseUsuario.LogOutById(idNoExistente));
+
+            // Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Never);
+        }
+
+        [Fact]
+        public void LogoutByCredenciales_RealizaLogout_NoRetornaNada()
+        {
+            // Arrange}
+            long idExistente = 1;
+            UsuarioModelo usuario = new UsuarioModelo { Id = idExistente };
+            LogoutRequest Result = null;
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idExistente)).Returns(usuario);
+            //Act
+            _useCaseUsuario.LogOutById(idExistente);
+
+            // Assert
+
+            _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Once);
+        }
 
         [Theory]
         [InlineData(0, "No se puede consultar el usuario porque el id no es válido.")]

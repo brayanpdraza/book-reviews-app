@@ -8,6 +8,7 @@ using Dominio.Servicios.ServicioPaginacion.Modelos;
 using Dominio.Usuarios.Modelo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Text.Json;
 
@@ -35,14 +36,26 @@ namespace AdaptadorAPI.Controllers
         public IActionResult GuardarReview([FromBody] ReviewModel review)
         {
             string uri;
-            long createdId ;
+            long idUsuario;
+            long createdId;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                createdId = _useCaseReview.AddReview(review);
+                idUsuario = _obteneDatosUsuarioToken.ObtenerIdUsuario(HttpContext);
+                createdId = _useCaseReview.AddReview(idUsuario,review);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, $"Error al Guardar la reseña: {review}");
+                return Unauthorized(ex.Message);
+            }
+            catch (SecurityTokenExpiredException ex)
+            {
+                _logger.LogWarning(ex, "El token ha expirado.");
+                return Unauthorized(ex.Message);
             }
             catch (ArgumentException ex)
             {
@@ -156,9 +169,11 @@ namespace AdaptadorAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpPatch("ModificarReviewParcial/{id}")]
         public IActionResult ModificarReviewParcial(long id, [FromBody] Dictionary<string, JsonElement> cambiosJson)
         {
+            long idUsuario;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -166,15 +181,24 @@ namespace AdaptadorAPI.Controllers
 
             try
             {
-
                 Dictionary<string,object> cambios = _converteJsonElementToDictionary.ConvertirJsonElementADiccionarioTipado<ReviewModel>(cambiosJson);
-
-                bool resultado = _useCaseReview.ModificarReviewPorId(id, cambios);
+                idUsuario = _obteneDatosUsuarioToken.ObtenerIdUsuario(HttpContext);
+                bool resultado = _useCaseReview.ModificarReviewPorId(idUsuario, id, cambios);
                 if (!resultado)
                 {
                     return UnprocessableEntity(new { mensaje = "No se pudo modificar la reseña." });
                 }
                 return Ok(new { mensaje = "Review modificada correctamente." });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, $"Error al modificar la reseña con ID: {id}");
+                return Unauthorized(ex.Message);
+            }
+            catch (SecurityTokenExpiredException ex)
+            {
+                _logger.LogWarning(ex, "El token ha expirado.");
+                return Unauthorized(ex.Message);
             }
             catch (ArgumentException ex)
             {
@@ -206,16 +230,26 @@ namespace AdaptadorAPI.Controllers
             try
             {
                 idUsuario = _obteneDatosUsuarioToken.ObtenerIdUsuario(HttpContext);
-                bool resultado = _useCaseReview.EliminarReviewPorId(id,idUsuario);
+                bool resultado = _useCaseReview.EliminarReviewPorId(idUsuario,id);
                 if (!resultado)
                 {
                     return UnprocessableEntity(new { mensaje = "No se pudo eliminar la reseña." });
                 }
-                return Ok(new { mensaje = "Review modificada correctamente." });
+                return Ok(new { mensaje = "Review eliminada correctamente." });
+            }
+            catch (SecurityTokenExpiredException ex)
+            {
+                _logger.LogWarning(ex, "El token ha expirado.");
+                return Unauthorized(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, $"Error al eliminar la reseña con ID: {id}");
+                return Unauthorized(ex.Message);
             }
             catch (ArgumentException ex)
             {
-                _logger.LogWarning(ex, $"Error al modificar la reseña con ID: {id}");
+                _logger.LogWarning(ex, $"Error al eliminar la reseña con ID: {id}");
                 return BadRequest(ex.Message);
             }
             catch (KeyNotFoundException ex)
@@ -225,7 +259,7 @@ namespace AdaptadorAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error interno al modificar la reseña con ID: {id}");
+                _logger.LogError(ex, $"Error interno al eliminar la reseña con ID: {id}");
                 return StatusCode(500, $"Ocurrió un error interno. {ex.Message}");
             }
         }

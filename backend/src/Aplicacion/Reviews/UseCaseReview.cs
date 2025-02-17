@@ -33,25 +33,39 @@ namespace Aplicacion.Reviews
             
         }
 
-        public long AddReview(ReviewModel review)
+        public long AddReview(long idUsuario, ReviewModel review)
         {
             long idCreado;
-            UsuarioModelo usuarioConsultado;
+            UsuarioModelo usuarioToken;
             LibroModelo libroConsultado;
 
-            _reviewValidations.Validate(review);
-
-            usuarioConsultado = _usuarioRepositorio.ListUsuarioPorId(review.Usuario.Id);
-            if (usuarioConsultado.Id <= 0)
+            if (idUsuario <= 0)
             {
-                throw new KeyNotFoundException("El Usuario que intenta realizar la reseña no se encuentra registrado en el sistema.");
+                throw new UnauthorizedAccessException("El ID del Usuario relacionado al token no es válido.");
             }
+
+            usuarioToken = _usuarioRepositorio.ListUsuarioPorId(idUsuario);
+            if (usuarioToken.Id <= 0)
+            {
+                throw new UnauthorizedAccessException("Usuario token no encontrado.");
+            }
+
+            if (usuarioToken.Id != review.Usuario.Id)
+            {
+                throw new UnauthorizedAccessException("No puede añadir una reseña a otro usuario.");
+            }
+
+            review.Usuario = usuarioToken;
+
+            _reviewValidations.Validate(review);
 
             libroConsultado = _libroRepositorio.ListLibroPorId(review.Libro.Id);
             if (libroConsultado.Id <= 0)
             {
                 throw new KeyNotFoundException("El libro al que intenta realizar la reseña no se encuentra registrado en el sistema.");
             }
+
+            review.Libro = libroConsultado;
 
             idCreado = _reviewRepositorio.AddReview(review);
 
@@ -160,17 +174,36 @@ namespace Aplicacion.Reviews
 
         }
 
-        public bool ModificarReviewPorId(long id, Dictionary<string, object> cambios)
+        public bool ModificarReviewPorId(long idUsuario,long id, Dictionary<string, object> cambios)
         {
+            UsuarioModelo usuario;
+            ReviewModel review;
+            bool cambiosAplicados;
+            if (idUsuario <= 0)
+            {
+                throw new UnauthorizedAccessException("No se puede modificar la reseña porque el ID del Usuario no es válido.");
+            }
+
             if (id <= 0)
             {
                 throw new ArgumentException("No se puede modificar la reseña porque el ID no es válido.");
             }
 
-            ReviewModel review = _reviewRepositorio.ListReviewPorId(id);
+            usuario = _usuarioRepositorio.ListUsuarioPorId(idUsuario);
+            if (usuario.Id <= 0)
+            {
+                throw new UnauthorizedAccessException("Usuario no encontrado.");
+            }
+
+            review = _reviewRepositorio.ListReviewPorId(id);
             if (review.Id <= 0)
             {
                 throw new KeyNotFoundException("Review no encontrada.");
+            }
+
+            if (review.Usuario.Id != idUsuario)
+            {
+                throw new UnauthorizedAccessException("No puede modificar la reseña de otro usuario.");
             }
 
             foreach (var cambio in cambios)
@@ -187,7 +220,7 @@ namespace Aplicacion.Reviews
             
             }
 
-            bool cambiosAplicados = _reviewRepositorio.UpdateReviewParcial(review, cambios);
+            cambiosAplicados = _reviewRepositorio.UpdateReviewParcial(review, cambios);
             if (!cambiosAplicados)
             {
                 throw new Exception("No se aplicaron cambios a la reseña.");
@@ -196,11 +229,14 @@ namespace Aplicacion.Reviews
             return true;
         }
 
-        public bool EliminarReviewPorId(long id,long idUsuario)
+        public bool EliminarReviewPorId(long idUsuario, long id)
         {
+            UsuarioModelo usuario;
+            ReviewModel review;
+            bool ReviewEliminada;
             if (idUsuario <= 0)
             {
-                throw new ArgumentException("No se puede eliminar la reseña porque el ID del Usuario no es válido.");
+                throw new UnauthorizedAccessException("No se puede eliminar la reseña porque el ID del Usuario no es válido.");
             }
 
             if (id <= 0)
@@ -208,20 +244,24 @@ namespace Aplicacion.Reviews
                 throw new ArgumentException("No se puede eliminar la reseña porque el ID no es válido.");
             }
 
-            UsuarioModelo usuario = _usuarioRepositorio.ListUsuarioPorId(idUsuario);
-
+            usuario = _usuarioRepositorio.ListUsuarioPorId(idUsuario);
             if (usuario.Id <= 0)
             {
                 throw new UnauthorizedAccessException("Usuario no encontrado.");
             }
 
-            ReviewModel review = _reviewRepositorio.ListReviewPorId(id);
+            review = _reviewRepositorio.ListReviewPorId(id);
             if (review.Id <= 0)
             {
                 throw new KeyNotFoundException("Reseña no encontrada.");
             }
 
-            bool ReviewEliminada = _reviewRepositorio.DeleteReview(review);
+            if(review.Usuario.Id != idUsuario)
+            {
+                throw new UnauthorizedAccessException("No puede eliminar la reseña de otro usuario.");
+            }
+
+            ReviewEliminada = _reviewRepositorio.DeleteReview(review);
             if (!ReviewEliminada)
             {
                 throw new Exception("No se eliminó la reseña.");

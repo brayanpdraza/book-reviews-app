@@ -184,6 +184,11 @@ namespace AdaptadorAPI.Controllers
                 return NoContent();
 
             }
+            catch (UnauthorizedAccessException ex)
+            {
+                _logger.LogWarning(ex, $"Error al cerrar la sesión");
+                return Unauthorized(ex.Message);
+            }
             catch (ArgumentException ex)  // Más apropiado para "no encontrado"
             {
                 _logger.LogWarning(ex.Message, $"Token Incorrecto");
@@ -192,12 +197,12 @@ namespace AdaptadorAPI.Controllers
             catch (SecurityTokenExpiredException ex)
             {
                 _logger.LogWarning(ex, "El token ha expirado.");
-                return Unauthorized("El token ha expirado.");
+                return Unauthorized(ex.Message);
             }
             catch (SecurityTokenException ex)
             {
                 _logger.LogWarning(ex, "Token inválido.");
-                return Unauthorized("Token inválido.");
+                return Unauthorized(ex.Message);
             }
             catch (Exception ex)
             {

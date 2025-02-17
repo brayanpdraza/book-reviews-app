@@ -50,101 +50,142 @@ namespace AplicacionTest.Reviews
             _reviewBuilderCaseTest = new ReviewsBuilderCaseTest(_mockReviewValidations.Object);
         }
 
-        [Fact]
-        public void AddReview_UsuarioNoRegistrado_LanzaExcepcion()
+        [Theory]
+        [InlineData(null, "El ID del Usuario relacionado al token no es válido.")]
+        [InlineData(0, "El ID del Usuario relacionado al token no es válido.")]
+        public void AddReview_UsuarioTokenInvalido_LanzaExcepcion(long idUsuarioInvalido, string ErrorMessage)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
-            long idNoRegistrado = 10;
-            review.Usuario.Id = idNoRegistrado;
-            string ErrorMessage = "El Usuario que intenta realizar la reseña no se encuentra registrado en el sistema.";
-
-            _mockReviewValidations.Setup(u => u.Validate(review)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(new UsuarioModelo());
 
             // Act
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.AddReview(review));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.AddReview(idUsuarioInvalido, review));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
-            _mockReviewValidations.Verify(r => r.Validate(review), Times.Once);
-            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(review.Libro.Id), Times.Never);
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Never);
+            _mockReviewValidations.Verify(r => r.Validate(review), Times.Never);
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Never);
         }
 
-        [Fact]
-        public void AddReview_LibroNoRegistrado_LanzaExcepcion()
+        [Theory]
+        [InlineData(10, "Usuario token no encontrado.")]
+        public void AddReview_UsuarioTokenNoExiste_LanzaExcepcion(long idUsuarioNoExiste, string ErrorMessage)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
-            long idNoRegistrado = 10;
-            review.Libro.Id = idNoRegistrado;
-            string ErrorMessage = "El libro al que intenta realizar la reseña no se encuentra registrado en el sistema.";
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioNoExiste)).Returns(new UsuarioModelo());
+            // Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.AddReview(idUsuarioNoExiste, review));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewValidations.Verify(r => r.Validate(review), Times.Never);
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Never);
+        }
+
+        [Theory]
+        [InlineData(2, "No puede añadir una reseña a otro usuario.")]
+        public void AddReview_UsuarioTokenDiferenteUsuarioReview_LanzaExcepcion(long idUsuarioDiferente, string ErrorMessage)
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = new UsuarioModelo { Id= idUsuarioDiferente };
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioDiferente)).Returns(usuario);
+            // Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.AddReview(idUsuarioDiferente, review));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewValidations.Verify(r => r.Validate(review), Times.Never);
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Never);
+        }
+
+
+        [Theory]
+        [InlineData(2, "El libro al que intenta realizar la reseña no se encuentra registrado en el sistema.")]
+        public void AddReview_LibroNoRegistrado_LanzaExcepcion(long idLibroNoRegistrado, string ErrorMessage)
+        {
+            // Arrange
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            review.Libro.Id = idLibroNoRegistrado;
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(usuario.Id)).Returns(usuario);
             _mockReviewValidations.Setup(u => u.Validate(review)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(review.Usuario);
-            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(review.Libro.Id)).Returns(new LibroModelo());
+            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(idLibroNoRegistrado)).Returns(new LibroModelo());
 
             // Act 
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.AddReview(review));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.AddReview(usuario.Id,review));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
-            _mockReviewValidations.Verify(r => r.Validate(review), Times.Once);
-            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(review.Libro.Id), Times.Once);
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewValidations.Verify(r => r.Validate(review), Times.Once);      
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Never);
         }
 
-        [Fact]
-        public void AddReview_ReviewNoAñadida_LanzaExcepcion()
+        [Theory]
+        [InlineData(0, "La reseña no ha sido creada.")]
+        public void AddReview_ReviewNoAñadida_LanzaExcepcion(long idNoCreado, string ErrorMessage)
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
-            long idNoCreado = 0;
-            string ErrorMessage = "La reseña no ha sido creada.";
+            UsuarioModelo usuario = review.Usuario;
+            LibroModelo libro = review.Libro;
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(usuario.Id)).Returns(usuario);
             _mockReviewValidations.Setup(u => u.Validate(review)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(review.Usuario);
-            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(review.Libro.Id)).Returns(review.Libro);
+            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(libro.Id)).Returns(libro);
             _mockReviewRepositorio.Setup(r => r.AddReview(review)).Returns(idNoCreado);
 
             // Act 
-            var exception = Assert.Throws<Exception>(() => _useCaseReview.AddReview(review));
+            var exception = Assert.Throws<Exception>(() => _useCaseReview.AddReview(usuario.Id,review));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
 
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewValidations.Verify(r => r.Validate(review), Times.Once);
-            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(review.Libro.Id), Times.Once);
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Once);
         }
 
         [Fact]
-        public void AddReview_ReviewAñadida_LanzaExcepcion()
+        public void AddReview_ReviewAñadida_RetornaIdCreado()
         {
             // Arrange
             ReviewModel review = _reviewBuilderCaseTest.Build();
+            UsuarioModelo usuario = review.Usuario;
+            LibroModelo libro = review.Libro;
             long idCreado = 1;
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(usuario.Id)).Returns(usuario);
             _mockReviewValidations.Setup(u => u.Validate(review)).Verifiable();
-            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(review.Usuario.Id)).Returns(review.Usuario);
-            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(review.Libro.Id)).Returns(review.Libro);
+            _mockLibroRepositorio.Setup(r => r.ListLibroPorId(libro.Id)).Returns(libro);
             _mockReviewRepositorio.Setup(r => r.AddReview(review)).Returns(idCreado);
 
             // Act 
-            long idResultado = _useCaseReview.AddReview(review);
+            long idResultado = _useCaseReview.AddReview(usuario.Id,review);
 
             //Assert
             Assert.Equal(idCreado, idResultado);
 
+            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewValidations.Verify(r => r.Validate(review), Times.Once);
-            _mockUsuarioRepositorio.Verify(e => e.ListUsuarioPorId(review.Usuario.Id), Times.Once);
-            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(review.Libro.Id), Times.Once);
+            _mockLibroRepositorio.Verify(r => r.ListLibroPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.AddReview(review), Times.Once);
         }
 
@@ -434,17 +475,63 @@ namespace AplicacionTest.Reviews
         }
 
         [Fact]
+        public void ModificarReviewsPorId_ReseñaconIdUsuarioIncorrecto_ReturnsError()
+        {
+            //Arrange
+            long idInvalido = 0;
+            long idUsuario = 0;
+            Dictionary<string, object> cambios = new Dictionary<string, object>();
+            string ErrorMessage = "No se puede modificar la reseña porque el ID del Usuario no es válido.";
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.ModificarReviewPorId(idUsuario,idInvalido, cambios));
+            //Assert
+
+            Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Never);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
+            _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
+
+        }
+
+        [Fact]
         public void ModificarReviewsPorId_ReseñaconIdIncorrecto_ReturnsError()
         {
             //Arrange
             long idInvalido = 0;
+            long idUsuario = 1;
             Dictionary<string,object> cambios = new Dictionary<string, object>();
             string ErrorMessage = "No se puede modificar la reseña porque el ID no es válido.";
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idInvalido,cambios));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idUsuario,idInvalido, cambios));
             //Assert
 
             Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Never);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
+            _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
+
+        }
+
+        [Fact]
+        public void ModificarReviewsPorId_ReseñaconIdUsuarioNoexistente_ReturnsError()
+        {
+            //Arrange
+            long idUsuarioNoExistente = 10;
+            long idNoExistente = 10;
+            Dictionary<string, object> cambios = new Dictionary<string, object>();
+            string ErrorMessage = "Usuario no encontrado.";
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioNoExistente)).Returns(new UsuarioModelo());
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.ModificarReviewPorId(idUsuarioNoExistente,idNoExistente, cambios));
+            //Assert
+
+            Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Never);
             //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
@@ -456,21 +543,49 @@ namespace AplicacionTest.Reviews
         public void ModificarReviewsPorId_ReseñaconIdNoexistente_ReturnsError()
         {
             //Arrange
+            UsuarioModelo usuario = _reviewBuilderCaseTest.Build().Usuario;
+            long idUsuario = usuario.Id;
             long idNoExistente = 10;
             Dictionary<string, object> cambios = new Dictionary<string, object>();
             string ErrorMessage = "Review no encontrada.";
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuario)).Returns(usuario);
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idNoExistente)).Returns(new ReviewModel());
             //Act
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ModificarReviewPorId(idNoExistente, cambios));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.ModificarReviewPorId(idUsuario, idNoExistente, cambios));
             //Assert
 
             Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
             //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
             _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
 
+        }
+
+        [Theory]
+        [InlineData(2, 1, "No puede modificar la reseña de otro usuario.")]
+        public void ModificarReviewPorId_IdUsuarioNoCoincideConUsuarioReseña_ReturnsError(long idUsuarioDiferente, long idExistente, string ErrorMessage)
+        {
+            //Arrange
+            UsuarioModelo usuario = new UsuarioModelo { Id = idExistente };
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            review.Id = idExistente;
+            Dictionary<string, object> cambios = new Dictionary<string, object>();
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioDiferente)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.ModificarReviewPorId(idUsuarioDiferente, idExistente,cambios));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
+            //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Never);
+            _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Never);
+            _mockReviewRepositorio.Verify(r => r.UpdateReviewParcial(It.IsAny<ReviewModel>(), It.IsAny<Dictionary<string, object>>()), Times.Never);
         }
 
 
@@ -509,6 +624,8 @@ namespace AplicacionTest.Reviews
         public void ModificarReviewsPorId_ReseñaconCampoInvalido_ReturnsError(string key, object value)
         {
             //Arrange
+            UsuarioModelo usuario = _reviewBuilderCaseTest.Build().Usuario;
+            long idUsuario = usuario.Id;
             ReviewModel review = _reviewBuilderCaseTest.Build();
             long idExistente = review.Id;
             Dictionary<string, object> cambios = new Dictionary<string, object>()
@@ -517,15 +634,17 @@ namespace AplicacionTest.Reviews
             };
             string ErrorMessage = $"El campo {key} no es válido.";
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuario)).Returns(usuario);
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
             //_mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(false);
 
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idExistente, cambios));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.ModificarReviewPorId(idUsuario,idExistente, cambios));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
            // _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
@@ -538,6 +657,8 @@ namespace AplicacionTest.Reviews
         public void ModificarReviewsPorId_NoActualizaReview_ReturnsError(string key, object value)
         {
             //Arrange
+            UsuarioModelo usuario = _reviewBuilderCaseTest.Build().Usuario;
+            long idUsuario = usuario.Id;
             ReviewModel review = _reviewBuilderCaseTest.Build();
             long idExistente = review.Id;
             Dictionary<string, object> cambios = new Dictionary<string, object>()
@@ -546,16 +667,18 @@ namespace AplicacionTest.Reviews
             };
             string ErrorMessage = "No se aplicaron cambios a la reseña.";
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuario)).Returns(usuario);
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
            // _mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(true);
             _mockReviewRepositorio.Setup(r => r.UpdateReviewParcial(review,cambios)).Returns(false);
 
             //Act
-            var exception = Assert.Throws<Exception>(() => _useCaseReview.ModificarReviewPorId(idExistente, cambios));
+            var exception = Assert.Throws<Exception>(() => _useCaseReview.ModificarReviewPorId(idUsuario,idExistente, cambios));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
             //_mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
@@ -569,6 +692,8 @@ namespace AplicacionTest.Reviews
         public void ModificarReviewsPorId_ActualizaReview_ReturnsTrue(string key, object value)
         {
             //Arrange
+            UsuarioModelo usuario = _reviewBuilderCaseTest.Build().Usuario;
+            long idUsuario = usuario.Id;
             ReviewModel review = _reviewBuilderCaseTest.Build();
             long idExistente = review.Id;
             Dictionary<string, object> cambios = new Dictionary<string, object>()
@@ -576,16 +701,18 @@ namespace AplicacionTest.Reviews
                 { key, value }
             };
 
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuario)).Returns(usuario);
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
             //_mockPropertyModelValidate.Setup(r => r.ValidarPropiedad<ReviewModel>(key)).Returns(true);
             _mockReviewPartialUpdateValidations.Setup(r => r.Validate(key, value)).Returns(true);
             _mockReviewRepositorio.Setup(r => r.UpdateReviewParcial(review, cambios)).Returns(true);
 
             //Act
-            bool Resultado = _useCaseReview.ModificarReviewPorId(idExistente, cambios);
+            bool Resultado = _useCaseReview.ModificarReviewPorId(idUsuario,idExistente, cambios);
 
             //Assert
             Assert.True(Resultado);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
             _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
            // _mockPropertyModelValidate.Verify(r => r.ValidarPropiedad<ReviewModel>(It.IsAny<string>()), Times.Once);
             _mockReviewPartialUpdateValidations.Verify(r => r.Validate(It.IsAny<string>(), It.IsAny<object>()), Times.Once);
@@ -602,7 +729,7 @@ namespace AplicacionTest.Reviews
 
 
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.EliminarReviewPorId(id, idUsuarioInvalido));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.EliminarReviewPorId(idUsuarioInvalido,id));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -620,7 +747,7 @@ namespace AplicacionTest.Reviews
 
 
             //Act
-            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.EliminarReviewPorId(idInValido, idUsuario));
+            var exception = Assert.Throws<ArgumentException>(() => _useCaseReview.EliminarReviewPorId(idUsuario,idInValido));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -638,7 +765,7 @@ namespace AplicacionTest.Reviews
             _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioNoExistente)).Returns(new UsuarioModelo());
 
             //Act
-            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.EliminarReviewPorId(id,idUsuarioNoExistente));
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.EliminarReviewPorId(idUsuarioNoExistente, id));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -659,7 +786,29 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idNoExistente)).Returns(new ReviewModel());
 
             //Act
-            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.EliminarReviewPorId(idNoExistente,idUsuarioExistente));
+            var exception = Assert.Throws<KeyNotFoundException>(() => _useCaseReview.EliminarReviewPorId(idUsuarioExistente,idNoExistente));
+
+            //Assert
+            Assert.Equal(ErrorMessage, exception.Message);
+            _mockUsuarioRepositorio.Verify(r => r.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.ListReviewPorId(It.IsAny<long>()), Times.Once);
+            _mockReviewRepositorio.Verify(r => r.DeleteReview(It.IsAny<ReviewModel>()), Times.Never);
+        }
+
+
+        [Theory]
+        [InlineData(2, 1, "No puede eliminar la reseña de otro usuario.")]
+        public void EliminarReviewPorId_IdUsuarioNoCoincideConUsuarioReseña_ReturnsError(long idUsuarioDiferente, long idExistente, string ErrorMessage)
+        {
+            //Arrange
+            UsuarioModelo usuario = new UsuarioModelo { Id = idExistente};
+            ReviewModel review = _reviewBuilderCaseTest.Build();
+            review.Id = idExistente;
+
+            _mockUsuarioRepositorio.Setup(r => r.ListUsuarioPorId(idUsuarioDiferente)).Returns(usuario);
+            _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
+            //Act
+            var exception = Assert.Throws<UnauthorizedAccessException>(() => _useCaseReview.EliminarReviewPorId(idUsuarioDiferente,idExistente));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -683,7 +832,7 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Setup(r => r.ListReviewPorId(idExistente)).Returns(review);
             _mockReviewRepositorio.Setup(r => r.DeleteReview(review)).Returns(false);
             //Act
-            var exception = Assert.Throws<Exception>(() => _useCaseReview.EliminarReviewPorId(idExistente,idUsuarioExistente));
+            var exception = Assert.Throws<Exception>(() => _useCaseReview.EliminarReviewPorId(idUsuarioExistente,idExistente));
 
             //Assert
             Assert.Equal(ErrorMessage, exception.Message);
@@ -708,7 +857,7 @@ namespace AplicacionTest.Reviews
             _mockReviewRepositorio.Setup(r => r.DeleteReview(review)).Returns(true);
 
             //Act
-            bool Resultado = _useCaseReview.EliminarReviewPorId(idExistente, idUsuarioExistente);
+            bool Resultado = _useCaseReview.EliminarReviewPorId(idUsuarioExistente,idExistente);
 
             //Assert
             Assert.True(Resultado);

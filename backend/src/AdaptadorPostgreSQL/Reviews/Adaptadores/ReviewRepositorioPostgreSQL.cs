@@ -115,13 +115,28 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
         public bool UpdateReviewParcial(ReviewModel review, Dictionary<string, object> cambios)
         {
+            ReviewEntity reviewEntity = _mapToReviewEntity.MapToReviewEntidad(review);
+
+            // Verificar si ya existe una instancia rastreada con el mismo Id
+            var existingEntity = _postgreSQLDbContext.Reviews
+                .Local
+                .FirstOrDefault(r => r.Id == reviewEntity.Id);
+
+            if (existingEntity != null)
+            {
+                // Desconectar la instancia existente
+                _postgreSQLDbContext.Entry(existingEntity).State = EntityState.Detached;
+            }
 
             foreach (var cambio in cambios)
             {
-                var propiedad = review.GetType().GetProperty(cambio.Key, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-                propiedad.SetValue(review, Convert.ChangeType(cambio.Value, propiedad.PropertyType));
+                var propiedad = reviewEntity.GetType().GetProperty(cambio.Key, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+                propiedad.SetValue(reviewEntity, Convert.ChangeType(cambio.Value, propiedad.PropertyType));
+                _postgreSQLDbContext.Entry(reviewEntity).Property(propiedad.Name).IsModified = true;
             }
-            
+
+            //_postgreSQLDbContext.Update(reviewEntity);
+
             _postgreSQLDbContext.SaveChanges();
             return true;
         }
@@ -129,6 +144,18 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
         {
 
             ReviewEntity reviewEntity = _mapToReviewEntity.MapToReviewEntidad(Review);
+            // Verificar si ya existe una instancia rastreada con el mismo Id
+            var existingEntity = _postgreSQLDbContext.Reviews
+                .Local
+                .FirstOrDefault(r => r.Id == reviewEntity.Id);
+
+            if (existingEntity != null)
+            {
+                // Desconectar la instancia existente
+                _postgreSQLDbContext.Entry(existingEntity).State = EntityState.Detached;
+            }
+
+
             _postgreSQLDbContext.Reviews.Remove(reviewEntity);
 
             SaveChanges();
