@@ -41,15 +41,13 @@ export default function ReviewsPage() {
       if (!context.apiUrl) throw new Error("Error de configuración");
       
       // Llamada al endpoint paginado
-      const url = `${context.apiUrl}/${ControllerName}/ConsultarReviewPorUsuarioPaginado/${currentPage}/${itemsPerPage}`;
+      const url = `${context.apiUrl}/${ControllerName}/ConsultarReviewPorUsuarioPaginado/${currentPage}/${itemsPerPage} ?idUsuario=${context.user?.id}`;
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${context.token}`
         },
-        // Enviamos el usuario logueado
-        body: JSON.stringify(context.user)
       });
       
       if (!response.ok) throw new Error('Error al obtener reseñas');
@@ -58,7 +56,6 @@ export default function ReviewsPage() {
       const data: PaginacionResponse<Review> = await response.json();
       setTotalPages(data.totalPaginas);
       groupReviews(data.items);
-      console.log(data.totalRegistros)
     } catch (error) {
       console.error("Error:", error);
       setGroupedReviews(new Map());

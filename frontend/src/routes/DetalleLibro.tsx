@@ -27,7 +27,9 @@ export default function DetalleLibro() {
   // Estado para la respuesta paginada
   const [paginatedReviews, setPaginatedReviews] = useState<PaginacionResponse<Review> | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 5; // Ajusta la cantidad de reseñas por página
+  const itemsPerPage = 5;
+  const groupedByBook = false;
+  const showActions = true;
 
   const CtrlNameLibro = 'Libro';
   const CtrlNameReview = 'Review';
@@ -192,7 +194,10 @@ export default function DetalleLibro() {
         <div>Cargando reseñas...</div>
       ) : (
         <>
-          <ReviewList reviews={reviews} />
+          <ReviewList reviews={reviews} 
+          showActions = {showActions}
+          groupedByBook = {groupedByBook}
+          reviewsPerPage={itemsPerPage}  />
           {paginatedReviews && paginatedReviews.totalPaginas > 1 && (
             <div className="flex justify-center gap-2 mt-8">
               {Array.from({ length: paginatedReviews.totalPaginas }, (_, i) => (

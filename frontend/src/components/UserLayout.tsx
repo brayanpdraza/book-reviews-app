@@ -10,8 +10,12 @@ const UserLayout = () => {
   const context:AppContextType = useAppContext();
 
   useEffect(() => {
+    if (!context.apiUrl) {
+      return;
+    }
+    console.log(context.user);
     validarUsuario(idUsuario, context, navigate);
-  }, [idUsuario, navigate,context.user]);
+  }, [idUsuario, navigate,context.user, context.apiUrl]);
 
   return (
     <div className="min-h-screen bg-gray-100">

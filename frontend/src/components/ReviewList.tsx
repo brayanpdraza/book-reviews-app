@@ -3,8 +3,10 @@ import { Review } from '../Interfaces/Review.ts';
 import StarRating from './StarRating.tsx';
 import { useAppContext } from '../components/AppContext.tsx';
 import { AppContextType } from '../Interfaces/AppContextType.ts';
+import { ReviewModifiers } from '../Interfaces/ReviewModifiers.ts';
 import { EditReview } from '../methods/EditReview.ts';
 import { DeleteReview } from '../methods/DeleteReview.ts';
+import EditReviewForm from './EditReviewForm.tsx';
 
 interface ReviewListProps {
   reviews: Review[];
@@ -16,6 +18,7 @@ interface ReviewListProps {
 const ReviewList = ({ reviews, showActions = false, groupedByBook = false, reviewsPerPage = 10 }: ReviewListProps) => {
   const context = useAppContext() as AppContextType;
   const [currentPage, setCurrentPage] = useState(1);
+  const [editingReviewId, setEditingReviewId] = useState<number | null>(null);
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
   let startIndex = (currentPage - 1) * reviewsPerPage;
   let selectedReviews = reviews.slice(startIndex, startIndex + reviewsPerPage);
@@ -33,9 +36,30 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
     selectedReviews = reviews.slice(startIndex, startIndex + reviewsPerPage);
   }
 
-  const handleAction = (e: React.MouseEvent, callback: Function, id: number) => {
+  const handleDeleteClick = (e: React.MouseEvent, callback: Function, id: number) => {
     e.stopPropagation();
+
+    if (editingReviewId === id) {
+      setEditingReviewId(null);
+    }
+  
     callback(id);
+  };
+
+  const handleEditClick = (e: React.MouseEvent, reviewId: number) => {
+    e.stopPropagation();
+  
+    if (editingReviewId !== null && editingReviewId !== reviewId) {
+      const confirmChange = window.confirm(
+        'Tienes cambios sin guardar en otra reseña. ¿Estás seguro de que quieres descartarlos?'
+      );
+  
+      if (!confirmChange) {
+        return; // No hacer nada si el usuario cancela
+      }
+    }
+  
+    setEditingReviewId(reviewId); // Activar la edición de la nueva reseña
   };
 
   const handlePageChange = (newPage: number) => {
@@ -49,6 +73,8 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
     <div className="space-y-4">
       {selectedReviews.map((review) => (
         <div key={review.id} className="p-4 bg-white rounded-lg shadow-md relative">
+        {/* Contenedor principal con padding derecho para los botones */}
+        <div className="pr-8"> 
           <div className="flex justify-between items-center mb-2">
             <div>
               <h4 className="font-semibold">
@@ -60,30 +86,53 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
                 </p>
               )}
             </div>
-            <StarRating rating={review.calificacion} />
-          </div>
-
-          <p className="text-gray-700">{review.comentario}</p>
-
-          {showActions && context.user?.id === review.usuario.id && (
-            <div className="absolute top-2 right-2 flex gap-2">
-              <button
-                onClick={(e) => handleAction(e, EditReview, review.id)}
-                className="text-blue-600 hover:text-blue-800"
-              >
-                ✏️
-              </button>
-              <button
-                onClick={(e) => handleAction(e, DeleteReview, review.id)}
-                className="text-red-600 hover:text-red-800"
-              >
-                🗑️
-              </button>
+            
+            {/* Contenedor de estrellas con ancho mínimo */}
+            <div className="min-w-[100px]">
+              <StarRating rating={review.calificacion} />
             </div>
-          )}
+          </div>
+      
+          <p className="text-gray-700">{review.comentario}</p>
         </div>
-      ))}
+      
+        {showActions && context.user?.id === review.usuario.id && (
+          <div className="absolute top-4 right-4 flex flex-col gap-2">
+            <button
+               onClick={(e) => handleEditClick(e, review.id)}
+              className={`text-blue-600 hover:text-blue-800 ${
+                editingReviewId !== null && editingReviewId !== review.id ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={editingReviewId !== null && editingReviewId !== review.id}
+            >
+              ✏️
+            </button>
+            <button
+              onClick={(e) => handleDeleteClick(e, DeleteReview, review.id)}
+              
+              className="text-red-600 hover:text-red-800"
+            >
+              🗑️
+            </button>
+          </div>
+        )}
 
+          {/* Formulario de edición */}
+          {editingReviewId === review.id && (
+            <EditReviewForm
+            initialRating={review.calificacion}
+            initialComment={review.comentario}
+            onSubmit={async (data: ReviewModifiers) => {
+              await EditReview(review.id, data); // Pasar los parámetros correctamente
+              setEditingReviewId(null); // Salir del modo edición
+            }}
+            onCancel={() => setEditingReviewId(null)}
+          />
+          )}
+
+      </div>        
+      ))}
+  
       {/* Paginación */}
       {totalPages > 1 && (
         <div className="flex justify-center space-x-2 mt-4">

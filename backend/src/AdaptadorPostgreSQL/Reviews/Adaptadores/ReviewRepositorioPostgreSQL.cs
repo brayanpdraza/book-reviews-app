@@ -73,7 +73,7 @@ namespace AdaptadorPostgreSQL.Reviews.Adaptadores
 
             // Obtener todas las reviews asociadas a los libros seleccionados
             List<ReviewEntity> reviews = _postgreSQLDbContext.Reviews.Include(r => r.Usuario).Include(r => r.Libro).ThenInclude(libro => libro.Categoria)
-                .Where(r => librosPaginados.Select(l => l.Id).Contains(r.LibroId))
+                .Where(r => librosPaginados.Select(l => l.Id).Contains(r.LibroId) & r.UsuarioId == Usuario.Id)
                 .ToList();
 
 
