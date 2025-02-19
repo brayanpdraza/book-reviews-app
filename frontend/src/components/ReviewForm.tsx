@@ -1,5 +1,6 @@
 import React, {useState } from 'react';
 import StarRating from './StarRating.tsx';
+import { useNavigationGuard } from '../methods/useNavigationGuard.ts';
 
 interface ReviewFormProps {
   onSubmit: (review: { rating: number; comment: string }) => void;
@@ -7,8 +8,15 @@ interface ReviewFormProps {
 }
 
 const ReviewForm = ({ onSubmit, userEmail }: ReviewFormProps) => {
-  const [rating, setRating] = useState(5);
-  const [comment, setComment] = useState('');
+  const initialRating = 5;
+  const initialComment = "";
+  const [rating, setRating] = useState(initialRating);
+  const [comment, setComment] = useState(initialComment);
+  const hasUnsavedChanges = comment !== initialComment || rating !== initialRating;
+
+  const { confirmExit } = useNavigationGuard(hasUnsavedChanges);
+
+  useNavigationGuard(hasUnsavedChanges);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

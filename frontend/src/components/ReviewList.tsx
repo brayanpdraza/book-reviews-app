@@ -4,6 +4,7 @@ import StarRating from './StarRating.tsx';
 import { useAppContext } from '../components/AppContext.tsx';
 import { AppContextType } from '../Interfaces/AppContextType.ts';
 import { ReviewModifiers } from '../Interfaces/ReviewModifiers.ts';
+import { SessionExpiredError } from '../methods/SessionExpiredError.ts';
 import { EditReview } from '../methods/EditReview.ts';
 import { DeleteReview } from '../methods/DeleteReview.ts';
 import EditReviewForm from './EditReviewForm.tsx';
@@ -13,9 +14,11 @@ interface ReviewListProps {
   showActions?: boolean;
   groupedByBook?: boolean;
   reviewsPerPage?: number;
+  onReviewUpdated?: () => void;
+  onReviewDeleted?: (id: number) => void;
 }
 
-const ReviewList = ({ reviews, showActions = false, groupedByBook = false, reviewsPerPage = 10 }: ReviewListProps) => {
+const ReviewList = ({ reviews, showActions = false, groupedByBook = false, reviewsPerPage = 10, onReviewUpdated, onReviewDeleted }: ReviewListProps) => {
   const context = useAppContext() as AppContextType;
   const [currentPage, setCurrentPage] = useState(1);
   const [editingReviewId, setEditingReviewId] = useState<number | null>(null);
@@ -36,14 +39,36 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
     selectedReviews = reviews.slice(startIndex, startIndex + reviewsPerPage);
   }
 
-  const handleDeleteClick = (e: React.MouseEvent, callback: Function, id: number) => {
+  const handleDeleteClick = async (e: React.MouseEvent, callback: Function, id: number) => {
     e.stopPropagation();
+
+    const confirmDelete = window.confirm(
+      editingReviewId === id
+        ? '¿Estás seguro de que quieres eliminar esta reseña? Perderás los cambios no guardados.'
+        : '¿Estás seguro de que quieres eliminar esta reseña?'
+    );
+  
+    if (!confirmDelete) {
+      return; // No hacer nada si el usuario cancela
+    }  
+    try {
+      await DeleteReview(id, context);
+      onReviewDeleted?.(id); // ✅ Notificar que una reseña fue eliminada
+    } 
+    catch (error) 
+    {
+      if (error instanceof SessionExpiredError) {
+        context.handleError(error);
+      } else {
+        console.error('Error 87678 durante Eliminación de reseña:', error);
+      }
+      return
+    }
 
     if (editingReviewId === id) {
       setEditingReviewId(null);
     }
-  
-    callback(id);
+      
   };
 
   const handleEditClick = (e: React.MouseEvent, reviewId: number) => {
@@ -57,10 +82,30 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
       if (!confirmChange) {
         return; // No hacer nada si el usuario cancela
       }
+
     }
-  
     setEditingReviewId(reviewId); // Activar la edición de la nueva reseña
   };
+
+  const EditarReseña = async (id: number, data: ReviewModifiers) => 
+  {
+    try 
+    {
+      await EditReview(id, data,context); 
+      onReviewUpdated?.(); // Notificar que se editó una reseña
+    } 
+    catch (error) 
+    {
+      if (error instanceof SessionExpiredError) {
+        context.handleError(error);
+      } else {
+        console.error('Error 78972 durante Edición de reseña:', error);
+      }
+      return;
+    }
+    setEditingReviewId(null); // Salir del modo edición
+
+  }
 
   const handlePageChange = (newPage: number) => {
     if (newPage > 0 && newPage <= totalPages) {
@@ -123,8 +168,7 @@ const ReviewList = ({ reviews, showActions = false, groupedByBook = false, revie
             initialRating={review.calificacion}
             initialComment={review.comentario}
             onSubmit={async (data: ReviewModifiers) => {
-              await EditReview(review.id, data); // Pasar los parámetros correctamente
-              setEditingReviewId(null); // Salir del modo edición
+              await EditarReseña(review.id, data);
             }}
             onCancel={() => setEditingReviewId(null)}
           />

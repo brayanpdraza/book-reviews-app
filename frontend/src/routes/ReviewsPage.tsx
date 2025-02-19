@@ -59,8 +59,9 @@ export default function ReviewsPage() {
     } catch (error) {
       console.error("Error:", error);
       setGroupedReviews(new Map());
+      return;
     }
-
+    console.log('Reseñas obtenidas');
   };
 
   // Función que agrupa las reseñas por libro
@@ -88,6 +89,20 @@ export default function ReviewsPage() {
     }
   };
 
+  const handleReviewUpdated = () => {
+    fetchReviews();
+  };
+
+  const handleReviewDeleted = (id: number) => {
+    setGroupedReviews(prev => {
+      const newGroupedReviews = new Map<number,GroupedReview>(prev);
+      newGroupedReviews.forEach(group => {
+        group.reviews = group.reviews.filter(review => review.id !== id);
+      });
+      return newGroupedReviews;
+    });
+  };
+
   return (
     <div className="mainContainer p-4">
       <h1 className="text-2xl font-bold mb-6">Mis Reseñas</h1>
@@ -104,6 +119,8 @@ export default function ReviewsPage() {
               showActions={showActions} 
               groupedByBook={groupedByBook}
               reviewsPerPage={reviewsPerPage}
+              onReviewUpdated={handleReviewUpdated}
+              onReviewDeleted={handleReviewDeleted} 
             />
           </section>
         ))

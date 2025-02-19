@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StarRating from './StarRating.tsx';
 import { ReviewModifiers } from '../Interfaces/ReviewModifiers.ts';
+import { useNavigationGuard } from '../methods/useNavigationGuard.ts';
 
 interface EditReviewFormProps {
   initialRating: number;
@@ -18,6 +19,10 @@ const EditReviewForm = ({
   const [rating, setRating] = useState(initialRating);
   const [comment, setComment] = useState(initialComment);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const hasUnsavedChanges = comment !== initialComment || rating !== initialRating;
+  const { confirmExit } = useNavigationGuard(hasUnsavedChanges);
+
+  useNavigationGuard(hasUnsavedChanges);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +36,13 @@ const EditReviewForm = ({
         await onSubmit( data );
         setIsSubmitting(false); 
     };
+
+  const handleCancel = () => {
+      if (!confirmExit()) return; // Si el usuario cancela, no hace nada
+      setRating(initialRating);
+      setComment(initialComment);
+      onCancel();
+  }
 
   return (
     <div className="p-4 bg-white rounded-lg shadow-md mt-2">
@@ -50,7 +62,7 @@ const EditReviewForm = ({
         <div className="flex justify-end gap-2">
           <button
             type="button"
-            onClick={onCancel}
+            onClick={handleCancel}
             className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
           >
             Cancelar
