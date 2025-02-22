@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorEncripter", "backe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorEncriptacionTest", "backend\tests\UnitTests\AdaptadorEncriptacionTest\AdaptadorEncriptacionTest.csproj", "{83243ABE-53F7-45B9-B3C2-529FC903EAA3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorApiTest", "backend\tests\IntegrationTests\AdaptadorApiTest\AdaptadorApiTest.csproj", "{1D2974C1-E345-4168-B64F-DB4108B76B19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorAPITest", "backend\tests\IntegrationTests\AdaptadorApiTest\AdaptadorAPITest.csproj", "{1D2974C1-E345-4168-B64F-DB4108B76B19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
