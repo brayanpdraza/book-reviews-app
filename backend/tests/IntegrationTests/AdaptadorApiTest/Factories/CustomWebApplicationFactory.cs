@@ -24,17 +24,20 @@ namespace AdaptadorAPITest.Factories
             // 🔹 Buscar la carpeta raíz del proyecto subiendo varias carpetas
             var baseDir = AppContext.BaseDirectory;
             var projectRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", ".."));
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
             // 🟢 Cargar el .env ANTES de que la aplicación inicie
-            var envPath = Path.Combine(projectRoot, ".env");
-            if (!File.Exists(envPath))
+            if (environment == "Development")
             {
-                throw new Exception($"No se encontró el archivo de variables de entorno: {envPath}.");
+                var envPath = Path.Combine(projectRoot, ".env");
+                if (!File.Exists(envPath))
+                {
+                    throw new Exception($"No se encontró el archivo de variables de entorno: {envPath}.");
+                }
+                Env.Load(envPath);
             }
-            Env.Load(envPath);
-
             // 🟢 Obtener DATABASE_URL una sola vez
-            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim();
+            var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URLTEST")?.Trim();
             if (string.IsNullOrEmpty(databaseUrl))
             {
                 throw new Exception("DATABASE_URL no está configurada en las pruebas.");
