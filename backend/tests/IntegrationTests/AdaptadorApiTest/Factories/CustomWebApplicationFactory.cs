@@ -24,10 +24,10 @@ namespace AdaptadorAPITest.Factories
             // 🔹 Buscar la carpeta raíz del proyecto subiendo varias carpetas
             var baseDir = AppContext.BaseDirectory;
             var projectRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", ".."));
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Test";
 
             // 🟢 Cargar el .env ANTES de que la aplicación inicie
-            if (environment == "Development")
+            if (environment == "Test")
             {
                 var envPath = Path.Combine(projectRoot, ".env");
                 if (!File.Exists(envPath))

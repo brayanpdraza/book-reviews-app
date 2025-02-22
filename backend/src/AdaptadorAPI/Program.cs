@@ -31,6 +31,7 @@ using AdaptadorAPI.Servicios.Contratos;
 using AdaptadorAPI.Servicios.Implementaciones;
 using AdaptadorAPI.Servicios;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 [assembly: InternalsVisibleTo("AdaptadorAPITest")]
 
@@ -39,15 +40,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
 
 // Determinar el entorno de ejecución
-var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
 
-// Cargar las variables desde el archivo .env solo en desarrollo
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+
+// Cargar las variables desde el archivo .env solo en desarrollo y test
+
 if (environment == "Development")
 {
     Env.Load();
 }
 
-var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim();
+var databaseUrl = "";
+
+if (environment == "Test")
+{
+    databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URLTEST")?.Trim();
+}
+else
+{
+    databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL")?.Trim();
+}
+
 
 if (string.IsNullOrEmpty(databaseUrl))
 {
