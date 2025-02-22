@@ -36,12 +36,12 @@ namespace AdaptadorAPI.Controllers
             {
                 usuario = _useCaseUsuario.ConsultarUsuarioPorId(id);
             }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex.Message, $"Al obtener Usuario con id: {id}");
                 return BadRequest(ex.Message);
             }
-            catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
+            catch (KeyNotFoundException ex) 
             {
                 _logger.LogWarning(ex.Message,$"Al obtener usuario con id: {id}");
                 return NotFound(ex.Message);

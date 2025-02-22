@@ -24,13 +24,15 @@ using System.Text;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using System.Collections;
 using Dominio.Entidades.Reviews.Servicios;
 using Dominio.Servicios.ServicioValidaciones.Contratos;
 using Dominio.Servicios.ServicioValidaciones.Implementaciones;
 using AdaptadorAPI.Servicios.Contratos;
 using AdaptadorAPI.Servicios.Implementaciones;
 using AdaptadorAPI.Servicios;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("AdaptadorAPITest")]
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -197,6 +199,10 @@ builder.Services.AddScoped<IconverterJsonElementToDictionary, ConvertirJsonEleme
 
 builder.Services.AddControllers();
 
+//PARA INTEGRATION TESTS
+
+
+
 var app = builder.Build();
 
 app.UseAuthentication(); 
@@ -216,3 +222,4 @@ app.MapControllers();
 app.UseCors("AllowFrontend");
 
 app.Run();
+

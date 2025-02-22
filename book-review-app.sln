@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplicacion", "backend\src\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "backend\src\Dominio\Dominio.csproj", "{D086431B-AF43-4D44-A7ED-39AFB9CDB95C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorApiTest", "backend\tests\IntegrationTests\AdaptadorApiTest\AdaptadorApiTest.csproj", "{6094732C-C860-4DEE-B6B6-00088BBEB086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorAPITest", "backend\tests\IntegrationTests\AdaptadorApiTest\AdaptadorAPITest.csproj", "{6094732C-C860-4DEE-B6B6-00088BBEB086}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DominioTest", "backend\tests\UnitTests\DominioTest\DominioTest.csproj", "{2D307657-0A76-4AFA-8DDB-22BD40CF695E}"
 EndProject
