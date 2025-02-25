@@ -10,6 +10,6 @@ namespace Dominio.Entidades.Usuarios.Modelo
     {
         public string Credential { get; set; }
         public string RenewalCredential { get; set; } 
-        public DateTime Expiry { get; set; }
+        public DateTime? Expiry { get; set; }
     }
 }

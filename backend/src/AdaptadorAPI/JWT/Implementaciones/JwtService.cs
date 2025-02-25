@@ -33,10 +33,10 @@ namespace AdaptadorAPI.Implementaciones
             var claims = new[]
             {
             new Claim(JwtRegisteredClaimNames.Sub, usuario.Id.ToString()),
-            new Claim("id", usuario.Id.ToString()),  
+            new Claim("id", usuario.Id.ToString()),
             new Claim("correo", usuario.Correo),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+            };
 
             var token = new JwtSecurityToken(
             issuer: GetAccessIssuer(),
@@ -44,7 +44,7 @@ namespace AdaptadorAPI.Implementaciones
             claims: claims,
             expires: DateTime.UtcNow.AddMinutes(GetAccessTokenExpiration()),
             signingCredentials: credentials
-        );
+            );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorEncripter", "backe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorEncriptacionTest", "backend\tests\UnitTests\AdaptadorEncriptacionTest\AdaptadorEncriptacionTest.csproj", "{83243ABE-53F7-45B9-B3C2-529FC903EAA3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdaptadorApiTest", "backend\tests\IntegrationTests\AdaptadorApiTest\AdaptadorApiTest.csproj", "{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{83243ABE-53F7-45B9-B3C2-529FC903EAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83243ABE-53F7-45B9-B3C2-529FC903EAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83243ABE-53F7-45B9-B3C2-529FC903EAA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{2897E09D-97FC-4311-8728-29CE9248A5A7} = {EBD47C58-914C-4E0A-8974-6A48A586B357}
 		{9530D305-01FB-4BD0-896C-DC732E563220} = {2BAFC082-1420-4A3F-9D07-09623FD8E52C}
 		{83243ABE-53F7-45B9-B3C2-529FC903EAA3} = {EBD47C58-914C-4E0A-8974-6A48A586B357}
+		{5D93CECF-08CF-4579-BCB3-BDA4119BDE9E} = {B310531F-2321-4871-8898-3B86170BBBEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8778F941-ECB7-4163-BAC7-C148DED00443}

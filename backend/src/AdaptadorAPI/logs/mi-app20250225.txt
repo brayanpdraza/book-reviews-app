@@ -1,0 +1,137 @@
+2025-02-25 11:30:07.299 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-25 11:30:08.948 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-25 11:30:08.954 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 11:30:08.957 -05:00 [INF] Hosting environment: Development
+2025-02-25 11:30:08.965 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-25 11:30:13.165 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger - -
+2025-02-25 11:30:14.623 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger - - - 301 0 - 1465.0652ms
+2025-02-25 11:30:14.643 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-25 11:30:15.384 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-25 11:30:15.386 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - -
+2025-02-25 11:30:15.384 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - -
+2025-02-25 11:30:15.391 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - -
+2025-02-25 11:30:15.394 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 751.5522ms
+2025-02-25 11:30:15.398 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 13.5951ms
+2025-02-25 11:30:15.473 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-25 11:30:15.473 -05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-25 11:30:15.491 -05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-25 11:30:15.498 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui.css - - - 200 144929 text/css 107.4519ms
+2025-02-25 11:30:15.499 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-standalone-preset.js - - - 200 312163 application/javascript 114.1706ms
+2025-02-25 11:30:15.499 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/swagger-ui-bundle.js - - - 200 1061536 application/javascript 113.4336ms
+2025-02-25 11:30:15.694 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-25 11:30:15.820 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - -
+2025-02-25 11:30:15.825 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 131.3469ms
+2025-02-25 11:30:15.835 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-25 11:30:15.840 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/favicon-32x32.png - - - 200 628 image/png 20.0357ms
+2025-02-25 11:30:15.861 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-25 11:30:15.861 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-25 11:30:15.871 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-25 11:30:15.871 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-25 11:30:15.883 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:30:15.883 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:30:15.883 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:30:15.883 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:30:15.884 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:30:15.885 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:30:15.885 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:30:15.886 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:30:15.889 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 18.3470ms
+2025-02-25 11:30:15.889 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 28.0763ms
+2025-02-25 11:30:15.889 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 28.4492ms
+2025-02-25 11:30:15.890 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 19.1390ms
+2025-02-25 11:30:15.905 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-25 11:30:16.088 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 183.1054ms
+2025-02-25 11:30:27.445 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/update-refresh-token application/json 6
+2025-02-25 11:30:27.454 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:30:27.456 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:30:27.466 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.UpdateRefreshTokenBySelf (AdaptadorAPI)'
+2025-02-25 11:30:27.522 -05:00 [INF] Route matched with {action = "UpdateRefreshTokenBySelf", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateRefreshTokenBySelf(System.String) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-25 11:30:33.091 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-25 11:30:34.516 -05:00 [INF] Executed DbCommand (105ms) [Parameters=[@__refreshToken_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."RefreshToken" = @__refreshToken_0
+LIMIT 1
+2025-02-25 11:33:55.047 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-25 11:33:55.485 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-25 11:33:55.493 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 11:33:55.495 -05:00 [INF] Hosting environment: Development
+2025-02-25 11:33:55.496 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-25 11:33:57.326 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-25 11:33:59.201 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-25 11:33:59.247 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 1924.6955ms
+2025-02-25 11:33:59.248 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-25 11:33:59.260 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 58.7026ms
+2025-02-25 11:33:59.750 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-25 11:33:59.750 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-25 11:33:59.755 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-25 11:33:59.755 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-25 11:33:59.755 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 506.6910ms
+2025-02-25 11:33:59.768 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:33:59.768 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:33:59.771 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:33:59.771 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:33:59.772 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:33:59.780 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:33:59.780 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:33:59.781 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:33:59.785 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 35.2794ms
+2025-02-25 11:33:59.786 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 35.7675ms
+2025-02-25 11:33:59.794 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 39.0235ms
+2025-02-25 11:33:59.791 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 36.1894ms
+2025-02-25 11:33:59.812 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-25 11:34:00.083 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 271.1705ms
+2025-02-25 11:34:40.376 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5043/Usuario/GuardarUsuario application/json 117
+2025-02-25 11:34:40.378 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:34:40.379 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:34:40.383 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.UsuarioController.GuardarUsuario (AdaptadorAPI)'
+2025-02-25 11:34:40.428 -05:00 [INF] Route matched with {action = "GuardarUsuario", controller = "Usuario"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GuardarUsuario(Dominio.Usuarios.Modelo.UsuarioModelo) on controller AdaptadorAPI.Controllers.UsuarioController (AdaptadorAPI).
+2025-02-25 11:34:55.100 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-25 11:34:56.047 -05:00 [INF] Executed DbCommand (107ms) [Parameters=[@__Correo_0='?'], CommandType='"Text"', CommandTimeout='300']
+SELECT u."Id", u."Correo", u."FotoPerfil", u."Nombre", u."Password", u."RefreshToken", u."RefreshTokenExpiry"
+FROM "Usuarios" AS u
+WHERE u."Correo" = @__Correo_0
+LIMIT 1
+2025-02-25 11:58:09.025 -05:00 [INF] User profile is available. Using 'C:\Users\Brayan Pedraza\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-25 11:58:09.287 -05:00 [INF] Now listening on: http://localhost:5043
+2025-02-25 11:58:09.293 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 11:58:09.295 -05:00 [INF] Hosting environment: Development
+2025-02-25 11:58:09.297 -05:00 [INF] Content root path: E:\proyectos\Proyecto Controlbox\book-review-app\backend\src\AdaptadorAPI\
+2025-02-25 11:58:10.027 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/index.html - -
+2025-02-25 11:58:10.972 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/index.html - - - 200 - text/html;charset=utf-8 951.9852ms
+2025-02-25 11:58:11.293 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_vs/browserLink - -
+2025-02-25 11:58:11.294 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - -
+2025-02-25 11:58:11.300 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_framework/aspnetcore-browser-refresh.js - - - 200 12356 application/javascript;+charset=utf-8 5.4277ms
+2025-02-25 11:58:11.346 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.8906ms
+2025-02-25 11:58:11.373 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - -
+2025-02-25 11:58:11.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - -
+2025-02-25 11:58:11.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - -
+2025-02-25 11:58:11.374 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - -
+2025-02-25 11:58:11.382 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:58:11.382 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:58:11.382 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:58:11.383 -05:00 [INF] CORS policy execution failed.
+2025-02-25 11:58:11.384 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:58:11.385 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:58:11.385 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:58:11.386 -05:00 [INF] Request origin http://localhost:5043 does not have permission to access the resource.
+2025-02-25 11:58:11.388 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.CucWK6IV.js - - - 404 0 - 15.0527ms
+2025-02-25 11:58:11.388 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/asyncToGenerator.O4pnRyQq.js - - - 404 0 - 13.6953ms
+2025-02-25 11:58:11.391 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/Wallet.mlGYZajl.js - - - 404 0 - 16.2816ms
+2025-02-25 11:58:11.392 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/assets/js/index.umd.BXzp7Rme.js - - - 404 0 - 17.3919ms
+2025-02-25 11:58:11.397 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - -
+2025-02-25 11:58:11.646 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 249.7299ms
+2025-02-25 11:58:16.340 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - -
+2025-02-25 11:58:16.349 -05:00 [INF] Executing endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-25 11:58:16.392 -05:00 [INF] Route matched with {action = "ObtenerLibroPorid", controller = "Libro"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ObtenerLibroPorid(Int64) on controller AdaptadorAPI.Controllers.LibroController (AdaptadorAPI).
+2025-02-25 11:58:17.961 -05:00 [INF] Entity Framework Core 6.0.29 initialized 'PostgreSQLDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.29+1cc46a0695f052ba0f1ade7046d577882d351f39' with options: None
+2025-02-25 11:58:19.054 -05:00 [INF] Executed DbCommand (104ms) [Parameters=[@__id_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='300']
+SELECT l."Id", l."Autor", l."CategoriasLibroId", l."Resumen", l."Titulo", c.id, c."Descripcion", c."Nombre"
+FROM "Libros" AS l
+INNER JOIN "CategoriasLibro" AS c ON l."CategoriasLibroId" = c.id
+WHERE l."Id" = @__id_0
+LIMIT 1
+2025-02-25 11:58:19.197 -05:00 [INF] Executing OkObjectResult, writing value of type 'Dominio.Libros.Modelo.LibroModelo'.
+2025-02-25 11:58:19.227 -05:00 [INF] Executed action AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI) in 2826.3664ms
+2025-02-25 11:58:19.230 -05:00 [INF] Executed endpoint 'AdaptadorAPI.Controllers.LibroController.ObtenerLibroPorid (AdaptadorAPI)'
+2025-02-25 11:58:19.265 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5043/Libro/ObtenerLibroPorid/1 - - - 200 - application/json;+charset=utf-8 2924.3501ms

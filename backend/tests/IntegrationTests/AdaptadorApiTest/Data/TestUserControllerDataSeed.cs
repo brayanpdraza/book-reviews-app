@@ -22,8 +22,6 @@ namespace AdaptadorAPITest.Data
             string passEncript = _encription.Encriptar(pass);
             context.Usuarios.Add(new UsuarioEntity
             {
-                Id = 1,
-                FotoPerfil = null,
                 Nombre = "Usuario Pruebas Locales",
                 Correo = "test@example.com",
                 Password = passEncript,

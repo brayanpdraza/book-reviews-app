@@ -104,11 +104,7 @@ namespace AdaptadorAPI.Controllers
                 return Ok(responseLogin);
 
             }
-            catch (KeyNotFoundException ex)
-            {
-                _logger.LogWarning(ex.Message, $"Al Actualizar token de refresco: {refreshToken}");
-                return NotFound(ex.Message);
-            }
+
             catch (UnauthorizedAccessException ex)
             {
                 _logger.LogWarning(ex.Message, $"Al Actualizar token de refresco: {refreshToken}");
@@ -120,9 +116,7 @@ namespace AdaptadorAPI.Controllers
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
             }
 
-
         }
-
 
         [HttpPost("GuardarUsuario")]
         public IActionResult GuardarUsuario([FromBody] UsuarioModelo usuario)
@@ -137,12 +131,12 @@ namespace AdaptadorAPI.Controllers
             {
                 createdId = _useCaseUsuario.AddUsuario(usuario);
             }
-            catch (DataException ex)  // Más apropiado para "no encontrado"
+            catch (DataException ex) 
             {
                 _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
                 return Conflict(ex.Message);
             }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex.Message, $"Al Guardar usuario: {usuario.Correo}");
                 return BadRequest(ex.Message);
@@ -151,11 +145,6 @@ namespace AdaptadorAPI.Controllers
             {
                 _logger.LogError(ex, $"Error interno al guardar usuario: {usuario.Correo}");
                 return StatusCode(500, $"Ocurrió un error interno. Por favor, contacta al soporte. {ex.Message}");
-            }
-
-            if (createdId == 0)
-            {
-                return BadRequest("No se creó el usuario. Por favor valide");
             }
 
             uri = Url.Link("ObtenerUsuarioId", new { id = createdId });
@@ -209,7 +198,6 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogError(ex, "Error al cerrar sesión.");
                 return StatusCode(500, "Error interno.");
             }
-
 
         }
 

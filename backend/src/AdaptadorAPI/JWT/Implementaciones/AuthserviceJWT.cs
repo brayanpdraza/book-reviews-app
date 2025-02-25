@@ -27,46 +27,42 @@ namespace AdaptadorAPI.Implementaciones
         }
         public AuthenticationResult RefreshToken(string refreshToken)
         {
-            // Buscar usuario por refresh token
+            (UsuarioModelo usuario, AuthenticationResult authResult) = _refreshTokenRepo.ListUsuarioByRefreshToken(refreshToken);
 
-            var usuario = _refreshTokenRepo.ListUsuarioByRefreshToken(refreshToken);
+            if (usuario.Id <= 0)
+            {
+                throw new UnauthorizedAccessException("El Refresh Token No se encuentra asociado a ningún usuario.");
+            }
 
-            // Generar nuevos tokens
+            if (authResult.Expiry < DateTime.UtcNow)
+            {
+                throw new UnauthorizedAccessException("El Refresh Token se ha vencido. Debe realizar un nuevo inicio de sesión.");
+            }
+
             return GenerateTokens(usuario);
 
         }
 
-        private AuthenticationResult GenerateTokens (UsuarioModelo usuario)
+        private AuthenticationResult GenerateTokens(UsuarioModelo usuario)
         {
             // Generar nuevos tokens
             string accessToken = _jtwService.GenerateAccessToken(usuario);
             string refreshToken = _jtwService.GenerateRefreshToken();
-            DateTime expiry = DateTime.UtcNow.AddMinutes(_jtwService.GetRefreshTokenExpiration());
-
-            // Actualizar el refresh token en la base de datos
-
-            if (usuario.Id <= 0)
-            {
-                throw new ArgumentException("El ID del usuario no es válido.");
-            }
+            DateTime ExpirySystemTime = DateTime.UtcNow.AddMinutes(_jtwService.GetRefreshTokenExpiration());
 
             if (string.IsNullOrEmpty(refreshToken))
             {
-                throw new ArgumentException("El nuevo Refresh Token del usuario no es válido.");
+                throw new UnauthorizedAccessException("El nuevo Refresh Token del usuario no es válido.");
             }
 
-            if (expiry < DateTime.UtcNow)
-            {
-                throw new ArgumentException("La nueva fehca de expiración del Refresh Token debe ser válida.");
-            }
-
-            _refreshTokenRepo.UpdateRefreshToken(usuario.Id, refreshToken, expiry);
+            // Actualizar el refresh token en la base de datos
+            _refreshTokenRepo.UpdateRefreshToken(usuario.Id, refreshToken, ExpirySystemTime);
 
             return new AuthenticationResult
             {
                 Credential = accessToken,
                 RenewalCredential = refreshToken,
-                Expiry = expiry
+                Expiry = ExpirySystemTime
             };
         }
 

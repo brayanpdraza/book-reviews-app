@@ -68,7 +68,6 @@ namespace Aplicacion.Usuarios
             return Usuario;
         }
 
-
         public AuthenticationResult AutenticacionByCredenciales(string Correo, string Password)
         {
             UsuarioModelo usuario;

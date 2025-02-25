@@ -19,15 +19,15 @@ namespace AdaptadorPostgreSQL
         {
         }
         // Añade este método para configurar el proveedor
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                // Cadena de conexión de desarrollo (solo para migraciones)
-                optionsBuilder.UseNpgsql("@\"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true\"");
-            }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        // Cadena de conexión de desarrollo (solo para migraciones)
+        //        optionsBuilder.UseNpgsql("@\"Host=localhost;Port=5432;Database=bookReviewApp;Username=brayan;Password=12345678;Pooling=true\"");
+        //    }
 
-        }
+        //}
 
         public DbSet<ReviewEntity> Reviews { get; set; }
         public DbSet<UsuarioEntity> Usuarios { get; set; }

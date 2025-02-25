@@ -1,4 +1,5 @@
-﻿using Dominio.Usuarios.Modelo;
+﻿using Dominio.Entidades.Usuarios.Modelo;
+using Dominio.Usuarios.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Dominio.Entidades.Usuarios.Puertos
 {
     public interface IRefreshTokenRepository
     {
-        UsuarioModelo ListUsuarioByRefreshToken(string refreshToken);
+        (UsuarioModelo, AuthenticationResult) ListUsuarioByRefreshToken(string refreshToken);
         void UpdateRefreshToken(long usuarioId, string refreshToken, DateTime expiry);
         void SaveChanges();
     }

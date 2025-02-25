@@ -1,5 +1,6 @@
 ﻿using AdaptadorPostgreSQL.Usuarios.Entidades;
 using AdaptadorPostgreSQL.Usuarios.Mappers;
+using Dominio.Entidades.Usuarios.Modelo;
 using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Usuarios.Modelo;
 using System;
@@ -20,18 +21,25 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
             _postgreSQLDbContext= postgreSQLDbContext;
             _mapToUserModelDominio = new MapToUserModelDominio();
         }
-        public UsuarioModelo ListUsuarioByRefreshToken(string refreshToken)
+        public (UsuarioModelo, AuthenticationResult) ListUsuarioByRefreshToken(string refreshToken)
         {
+            UsuarioModelo usuario;
             UsuarioEntity usuarioEntity = _postgreSQLDbContext.Usuarios.FirstOrDefault(u => u.RefreshToken == refreshToken);
-
             if (usuarioEntity == null)
-                throw new KeyNotFoundException("Refresh token no asociado a un usuario.");
-            if (usuarioEntity.RefreshTokenExpiry < DateTime.UtcNow)
-                throw new UnauthorizedAccessException("Refresh token Expirado");
+            {
+                return(new UsuarioModelo(), new AuthenticationResult());
+            }
 
-            UsuarioModelo usuario = _mapToUserModelDominio.MapToUserDomainModel(usuarioEntity);
+            usuario = _mapToUserModelDominio.MapToUserDomainModel(usuarioEntity);
 
-            return usuario;
+            AuthenticationResult authResult = new AuthenticationResult
+            {
+                Credential = "JWT_GENERADO_AQUÍ",
+                RenewalCredential = usuarioEntity.RefreshToken,
+                Expiry = usuarioEntity.RefreshTokenExpiry 
+            };
+
+            return (usuario,authResult);
         }
 
         public void UpdateRefreshToken(long usuarioId, string refreshToken, DateTime expiry)
