@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AdaptadorAPITest.Data;
 using DotNetEnv;
 using Npgsql;
+using AdaptadorApiTest.Data;
 
 namespace AdaptadorAPITest.Factories
 {
@@ -102,15 +103,18 @@ namespace AdaptadorAPITest.Factories
                 services.AddDbContext<PostgreSQLDbContext>(options =>
                     options.UseNpgsql(connectionBuilder.ToString()));
 
-                // ✅ Agregar `TestUserControllerDataSeed`
+                // ✅ Agregar los servicios que añadirán la data de prueba
                 services.AddScoped<TestUserControllerDataSeed>();
-
+                services.AddScoped<TestLibroControllerDataSeed>();
                 // 🟢 Ejecutar migraciones y sembrar datos en la BD de pruebas
                 var sp = services.BuildServiceProvider();
                 using (var scope = sp.CreateScope())
                 {
                     var db = scope.ServiceProvider.GetRequiredService<PostgreSQLDbContext>();
-                    var dataSeed = scope.ServiceProvider.GetRequiredService<TestUserControllerDataSeed>();
+
+                    //Generar datos necesarios para las pruebas
+                    var dataSeedUsuarios = scope.ServiceProvider.GetRequiredService<TestUserControllerDataSeed>();
+                    var dataSeedLibros = scope.ServiceProvider.GetRequiredService<TestLibroControllerDataSeed>();
 
                     // 🛑 Asegurar que la BD anterior no existe
                     db.Database.EnsureDeleted();
@@ -118,8 +122,10 @@ namespace AdaptadorAPITest.Factories
                     // 🔄 Aplicar TODAS las migraciones pendientes
                     db.Database.EnsureCreated();  // <-- Verifica que las migraciones existen y están aplicadas correctamente
 
-                    // 🔹 Sembrar datos iniciales (usuarios de prueba, etc.)
-                    dataSeed.Seed(db);
+                    // 🔹 Sembrar datos iniciales
+                    dataSeedUsuarios.Seed(db);
+                    dataSeedLibros.SeedCategoriasLibro(db);
+                    dataSeedLibros.SeedLibros(db);
                 }
             });
         }

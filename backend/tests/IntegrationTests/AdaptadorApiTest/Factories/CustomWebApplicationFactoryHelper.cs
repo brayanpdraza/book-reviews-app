@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdaptadorAPITest.Contollers.UserController
+namespace AdaptadorApiTest.Factories
 {
     public class CustomWebApplicationFactoryHelper
     {

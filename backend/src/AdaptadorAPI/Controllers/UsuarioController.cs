@@ -178,15 +178,10 @@ namespace AdaptadorAPI.Controllers
                 _logger.LogWarning(ex, $"Error al cerrar la sesión");
                 return Unauthorized(ex.Message);
             }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex.Message, $"Token Incorrecto");
                 return BadRequest(ex.Message);
-            }
-            catch (SecurityTokenExpiredException ex)
-            {
-                _logger.LogWarning(ex, "El token ha expirado.");
-                return Unauthorized(ex.Message);
             }
             catch (SecurityTokenException ex)
             {

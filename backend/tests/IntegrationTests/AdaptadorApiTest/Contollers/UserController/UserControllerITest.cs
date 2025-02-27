@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using AdaptadorAPITest.Factories;
-using AdaptadorAPITest.Contollers.UserController;
 using System.Net;
 using Dominio.Entidades.Usuarios.Modelo;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 using Dominio.Usuarios.Modelo;
+using System.Text.Json;
+using AdaptadorApiTest.Factories;
 
 namespace AdaptadorAPITest.UserController
 {
@@ -70,6 +71,7 @@ namespace AdaptadorAPITest.UserController
             response.EnsureSuccessStatusCode();
         }
 
+        //************************************************************************
 
         [Theory(Skip ="Al ser enviados en la URL los parámetros, retorna 'NOTFOUND', por lo cual no es posible que los parámetros sean vacíos o nulos")]
         [InlineData(null, "")]
@@ -146,6 +148,9 @@ namespace AdaptadorAPITest.UserController
         }
 
         [Theory]
+        [InlineData("test@example.com", "P4ss123@")]
+        [InlineData("test@example.com", "P4ss123@")]
+        [InlineData("test@example.com", "P4ss123@")]
         [InlineData("test@example.com", "P4ss123@")]
         public async Task AutenticacionUsuarioPorCorreoYPassword_DatosCorrectos_Retorna200(string Correo, string Pass)
         {
@@ -402,6 +407,66 @@ namespace AdaptadorAPITest.UserController
 
             var responseContent = await response.Content.ReadAsStringAsync();
             Assert.False(string.IsNullOrEmpty(responseContent));
+        }
+
+        //*************************************************************************************************
+        [Theory]
+        [InlineData(null, HttpStatusCode.Unauthorized)]  // No enviar header
+        [InlineData("Bearer invalid_token", HttpStatusCode.Unauthorized)]  // Token inválido
+        public async Task Logout_InvalidToken_Retorna401(string token, HttpStatusCode expectedStatusCode)
+        {
+            // Arrange
+            var request = new HttpRequestMessage(HttpMethod.Post, $"/{ControllerName}/logout");
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.Replace("Bearer ", ""));
+            }
+
+            // Act
+            var response = await _client.SendAsync(request);
+
+            // Assert
+            Assert.Equal(expectedStatusCode, response.StatusCode);
+        }
+
+        [Fact(Skip = "No es viable ni necesario validar, puesto que son relacionados al token, y el sistema está hecho para que el token tenga los campos correctos")]
+        public async Task Logout_ArgumentExcepction_Retorna400()
+        { }
+
+        [Fact(Skip = "No es viable ni necesario validar, puesto que son relacionados al token, y el sistema está hecho para que el token tenga los campos correctos")]
+        public async Task Logout_SecurityTokenException_Retorna401()
+        { }
+        [Fact(Skip = "No es viable ni necesario validar. Solo sucede si el usuario no está registrado. Es un caso aislado donde se elimina el usuario mientras hay una sesión activa (lapso de 15 minutos), se puede realizar haciendo un inicio de sesion luego se elimina el usuario y luego se hace el logout. No hay método de delete de usuarios implementado")]
+        public async Task Logout_UnauthorizedAccessException_Retorna401()
+        { }
+        [Fact(Skip = "No se requiere validar las excepciones 500")]
+        public async Task Logout_OtherExceptions_Retorna500()
+        { }
+
+        [Theory]
+        [InlineData("test@example.com", "P4ss123@", HttpStatusCode.NoContent)] 
+        public async Task Logout_TokenValido_Retorna200(string Correo, string Pass, HttpStatusCode expectedStatusCode)
+        {
+            // Arrange
+
+            var loginResponse = await _client.GetAsync($"/{ControllerName}/AutenticacionUsuarioPorCorreoYPassword/{Correo}/{Pass}");
+
+            Assert.Equal(HttpStatusCode.OK, loginResponse.StatusCode); // Verificamos que el login fue exitoso
+
+            var loginContent = await loginResponse.Content.ReadAsStringAsync();
+            var jsonResponse = JsonDocument.Parse(loginContent);
+            var token = jsonResponse.RootElement.GetProperty("credential").GetString(); // Extraemos el token
+
+            Assert.False(string.IsNullOrEmpty(token), "El token no debe ser nulo o vacío.");
+
+            var request = new HttpRequestMessage(HttpMethod.Post, $"/{ControllerName}/logout");
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            // Act
+            var response = await _client.SendAsync(request);
+
+            // Assert
+            Assert.Equal(expectedStatusCode, response.StatusCode);
         }
     }
 }

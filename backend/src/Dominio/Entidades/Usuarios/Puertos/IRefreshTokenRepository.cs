@@ -11,7 +11,7 @@ namespace Dominio.Entidades.Usuarios.Puertos
     public interface IRefreshTokenRepository
     {
         (UsuarioModelo, AuthenticationResult) ListUsuarioByRefreshToken(string refreshToken);
-        void UpdateRefreshToken(long usuarioId, string refreshToken, DateTime expiry);
+        void UpdateRefreshToken(UsuarioModelo usuario, string refreshToken, DateTime expiry);
         void SaveChanges();
     }
 }

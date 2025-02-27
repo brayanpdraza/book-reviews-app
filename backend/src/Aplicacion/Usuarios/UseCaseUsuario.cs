@@ -139,7 +139,7 @@ namespace Aplicacion.Usuarios
                 throw new UnauthorizedAccessException($"El id {id} no se encuentra asociado a un usuario.");
             }
 
-            _authService.Logout(id);
+            _authService.Logout(Usuario);
         }
 
         //public void ActualizarUsuario(long id,UsuarioModelo UsuarioActualizar)

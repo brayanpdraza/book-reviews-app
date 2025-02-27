@@ -240,6 +240,7 @@ namespace AplicacionTest.Usuarios
         public void LogoutByCredenciales_IdInvalido_LanzaExcepcion(long id, string ErrorMessage)
         {
             // Arrange}
+
             LogoutRequest Result = null;
             //Act
             var exception = Assert.Throws<ArgumentException>(() => _useCaseUsuario.LogOutById(id));
@@ -248,7 +249,7 @@ namespace AplicacionTest.Usuarios
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Never);
-            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Never);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<UsuarioModelo>()), Times.Never);
      
         }
 
@@ -268,7 +269,7 @@ namespace AplicacionTest.Usuarios
             Assert.Equal(ErrorMessage, exception.Message);
 
             _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
-            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Never);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<UsuarioModelo>()), Times.Never);
         }
 
         [Fact]
@@ -286,7 +287,7 @@ namespace AplicacionTest.Usuarios
             // Assert
 
             _mockUsuarioRepositorio.Verify(u => u.ListUsuarioPorId(It.IsAny<long>()), Times.Once);
-            _mockAuthService.Verify(a => a.Logout(It.IsAny<long>()), Times.Once);
+            _mockAuthService.Verify(a => a.Logout(It.IsAny<UsuarioModelo>()), Times.Once);
         }
 
         [Theory]

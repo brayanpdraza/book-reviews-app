@@ -1,8 +1,10 @@
-﻿using AdaptadorPostgreSQL.Usuarios.Entidades;
+﻿using AdaptadorPostgreSQL.Reviews.Entidades;
+using AdaptadorPostgreSQL.Usuarios.Entidades;
 using AdaptadorPostgreSQL.Usuarios.Mappers;
 using Dominio.Entidades.Usuarios.Modelo;
 using Dominio.Entidades.Usuarios.Puertos;
 using Dominio.Usuarios.Modelo;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,13 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
     {
         private readonly PostgreSQLDbContext _postgreSQLDbContext;
         private readonly MapToUserModelDominio _mapToUserModelDominio;
+        private readonly MapToUsuarioEntity _mapToUserEntity;
 
         public RefreshTokenPostgreSQL(PostgreSQLDbContext postgreSQLDbContext)
         {
             _postgreSQLDbContext= postgreSQLDbContext;
             _mapToUserModelDominio = new MapToUserModelDominio();
+            _mapToUserEntity = new MapToUsuarioEntity();
         }
         public (UsuarioModelo, AuthenticationResult) ListUsuarioByRefreshToken(string refreshToken)
         {
@@ -42,18 +46,25 @@ namespace AdaptadorPostgreSQL.Usuarios.Adaptadores
             return (usuario,authResult);
         }
 
-        public void UpdateRefreshToken(long usuarioId, string refreshToken, DateTime expiry)
+        public void UpdateRefreshToken(UsuarioModelo usuario, string refreshToken, DateTime expiry)
         {
+            UsuarioEntity usuarioEntity = _mapToUserEntity.MapToUsusarioEntidad(usuario);
 
-            UsuarioEntity usuario = _postgreSQLDbContext.Usuarios.Find(usuarioId);
-            if (usuario == null)
+            usuarioEntity.RefreshToken = refreshToken;
+            usuarioEntity.RefreshTokenExpiry = expiry;
+
+            // Verificar si ya existe una instancia rastreada con el mismo Id
+            var existingEntity = _postgreSQLDbContext.Usuarios
+                .Local
+                .FirstOrDefault(r => r.Id == usuarioEntity.Id);
+
+            if (existingEntity != null)
             {
-                throw new KeyNotFoundException("Usuario No registrado. No puede Autenticarse.");
-
+                // Desconectar la instancia existente
+                _postgreSQLDbContext.Entry(existingEntity).State = EntityState.Detached;
             }
 
-            usuario.RefreshToken = refreshToken;
-            usuario.RefreshTokenExpiry = expiry;
+            _postgreSQLDbContext.Usuarios.Update(usuarioEntity);
             SaveChanges();
         }
 

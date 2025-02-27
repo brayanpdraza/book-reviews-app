@@ -15,7 +15,7 @@ namespace AdaptadorAPI.Servicios
 
             if (string.IsNullOrEmpty(usuarioId))
             {
-                throw new SecurityTokenExpiredException("Claim 'id' no encontrado en el token.");
+                throw new SecurityTokenException("Claim 'id' no encontrado en el token.");
             }
 
 

@@ -55,15 +55,10 @@ namespace AdaptadorAPI.Controllers
             {
                 libros = _useCaseLibro.ConsultarLibrosPaginados(pagina, tamanoPagina, filtro);
             }
-            catch (ArgumentException ex)  // Más apropiado para "no encontrado"
+            catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex.Message, $"Al obtener libro paginado. Filtro: {filtro}");
                 return BadRequest(ex.Message);
-            }
-            catch (KeyNotFoundException ex)  // Más apropiado para "no encontrado"
-            {
-                _logger.LogWarning(ex.Message, $"Al obtener Libro con filtro: {filtro}");
-                return NotFound(ex.Message);
             }
             catch (Exception ex)
             {

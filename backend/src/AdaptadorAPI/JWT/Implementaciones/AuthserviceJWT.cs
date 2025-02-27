@@ -56,7 +56,7 @@ namespace AdaptadorAPI.Implementaciones
             }
 
             // Actualizar el refresh token en la base de datos
-            _refreshTokenRepo.UpdateRefreshToken(usuario.Id, refreshToken, ExpirySystemTime);
+            _refreshTokenRepo.UpdateRefreshToken(usuario, refreshToken, ExpirySystemTime);
 
             return new AuthenticationResult
             {
@@ -66,9 +66,9 @@ namespace AdaptadorAPI.Implementaciones
             };
         }
 
-        public void Logout(long id)
+        public void Logout(UsuarioModelo Usuario)
         {
-            _refreshTokenRepo.UpdateRefreshToken(id, "", DateTime.MinValue);
+            _refreshTokenRepo.UpdateRefreshToken(Usuario, "", DateTime.MinValue);
 
         }
     }
